@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>Tampermonkey - VaMin23博客网</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/VaMin.ico" type="image/x-icon" />
+    <meta name="description" content="今天给大家介绍我们所说的计算机浏览器有关的东西啦！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tampermonkey">
+<meta property="og:url" content="https://github.com/lonely0323/lonely0323.github.io/2021/01/13/front-matter2/index.html">
+<meta property="og:site_name" content="VaMin23博客网">
+<meta property="og:description" content="今天给大家介绍我们所说的计算机浏览器有关的东西啦！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.80note.com/image/2019/05/chrome%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F_mark.png-sl">
+<meta property="og:image" content="https://cdn.80note.com/image/2019/05/%E9%80%89%E6%8B%A9%E6%B2%B9%E7%8C%B4%E6%96%87%E4%BB%B6%E5%A4%B9_mark.png-sl">
+<meta property="og:image" content="https://i.loli.net/2021/08/01/gYQwUFnzxc6mNAH.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/01/Gu8APwHtMiBLvzl.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/01/Bdz23bKmehOg4GA.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/01/wEeNXGogxZpPIt6.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/01/iQ71Dfqclu5Kb6z.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/01/iGvQCedRfclTEAu.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/01/YsKkZiCwgj1GSdH.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/01/c1CvE6Xzhk7umsd.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/01/XO5KdharfRjlJFm.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/01/73JWgRwv2NfqPB5.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/01/GMlgsjXFuY2UQ58.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/01/HXeRBlsTIq8wDCu.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/01/7dA2k5TxufBSMpi.png">
+<meta property="article:published_time" content="2021-01-13T11:23:00.000Z">
+<meta property="article:modified_time" content="2021-10-20T13:38:55.644Z">
+<meta property="article:author" content="Veam">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="浏览器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.80note.com/image/2019/05/chrome%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F_mark.png-sl">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <link rel="stylesheet" href="/css/style.css?v=1635311064995">
+     
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1635311064995">
+    
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Veam" class="mdui-btn mdui-btn-icon"><img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Veam">
+            <img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam" alt="Veam">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>2</div>
+        <div><span>标签</span>3</div>
+        <div><span>分类</span>2</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form">
+                <label><input class="st-default-search-input" id="search_value" name="q" type="search" placeholder="搜索" style="
+                    font-size: 15px !important;
+                    height: 56px !important;
+                    background-image: none;
+                "></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=MvqLiTM1" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="/veam23@foxmail.com" target="_blank" mdui-tooltip="{content: '邮箱地址'}" style="color: rgb(0,255,255);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-QQyouxiang1"></i>
+        </a><a class="mdui-ripple" href="https://github.com/lonely0323" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://weibo.com/u/6323576495/home?wvr=5" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(220,20,60);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-weibo1"></i>
+        </a><a class="mdui-ripple" href="https://music.163.com/#/user/home?id=302060596" target="_blank" mdui-tooltip="{content: '网易云音乐'}" style="color: rgb(220,20,60);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-wangyiyunyinle"></i>
+        </a><a class="mdui-ripple" href="https://y.qq.com/n/ryqq/profile/like/song" target="_blank" mdui-tooltip="{content: 'QQ音乐'}" style="color: rgb(0,255,0);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-qqyinle"></i>
+        </a><a class="mdui-ripple" href="https://s.team/p/fvbb-wqnb/WPNPNWTQ" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(0,0,255);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/插件/">插件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2021 Veam
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/lonely0323/Veam23" target="_blank">Nexmoe</a>
+        
+    </div>
+    <div style="font-size: 12px;text-align: center;color: #9d00ff">
+        <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+        本站访客数<a id="busuanzi_value_site_uv"></a>人次
+    </div>
+
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
+              <img data-src="https://www.tampermonkey.net/images/images.png" data-sizes="auto" alt="Tampermonkey" class="lazyload">
+              <h1>Tampermonkey</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年01月13日</a>
+    <a><i class="nexmoefont icon-areachart"></i>719 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+</div>
+
+      
+
+      <p>今天给大家介绍我们所说的计算机浏览器有关的东西啦！</p>
+<span id="more"></span>
+
+    <div id="aplayer-MsRZgLAb" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="5415926126" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+<h3 id="说到油猴-Tampermonkey-到底是干嘛的这个问题评论区见！"><a href="#说到油猴-Tampermonkey-到底是干嘛的这个问题评论区见！" class="headerlink" title="说到油猴(Tampermonkey)到底是干嘛的这个问题评论区见！"></a>说到油猴(Tampermonkey)到底是干嘛的这个问题评论区见！</h3><h2 id="首先我想告诉大家这个油猴-Tampermonkey-插件是干嘛的"><a href="#首先我想告诉大家这个油猴-Tampermonkey-插件是干嘛的" class="headerlink" title="首先我想告诉大家这个油猴(Tampermonkey)插件是干嘛的"></a>首先我想告诉大家这个油猴(Tampermonkey)插件是干嘛的</h2><h3 id="油猴脚本（Tampermonkey）是一个非常流行的浏览器扩展，它可以运行由广大社区编写的扩展脚本，来实现各式各样的功能，常见的去广告、修改样式文件、甚至是下载视频。今天我们就来看看如何编写自己的油猴脚本。当然为了运行油猴脚本，你应该在浏览器中安装油猴插件。"><a href="#油猴脚本（Tampermonkey）是一个非常流行的浏览器扩展，它可以运行由广大社区编写的扩展脚本，来实现各式各样的功能，常见的去广告、修改样式文件、甚至是下载视频。今天我们就来看看如何编写自己的油猴脚本。当然为了运行油猴脚本，你应该在浏览器中安装油猴插件。" class="headerlink" title="油猴脚本（Tampermonkey）是一个非常流行的浏览器扩展，它可以运行由广大社区编写的扩展脚本，来实现各式各样的功能，常见的去广告、修改样式文件、甚至是下载视频。今天我们就来看看如何编写自己的油猴脚本。当然为了运行油猴脚本，你应该在浏览器中安装油猴插件。"></a>油猴脚本（Tampermonkey）是一个非常流行的浏览器扩展，它可以运行由广大社区编写的扩展脚本，来实现各式各样的功能，常见的去广告、修改样式文件、甚至是下载视频。今天我们就来看看如何编写自己的油猴脚本。当然为了运行油猴脚本，你应该在浏览器中安装油猴插件。</h3><h3 id="话不多说-上教程！（先说明要是谷歌请看下面的）"><a href="#话不多说-上教程！（先说明要是谷歌请看下面的）" class="headerlink" title="话不多说 上教程！（先说明要是谷歌请看下面的）"></a>话不多说 上教程！（先说明要是谷歌请看下面的）</h3><h3 id="方法一：Google官方商店安装（推荐）此方法需KX上网，不懂不会KX上网的别纠结，直接跳过这里去看安装方法二"><a href="#方法一：Google官方商店安装（推荐）此方法需KX上网，不懂不会KX上网的别纠结，直接跳过这里去看安装方法二" class="headerlink" title="方法一：Google官方商店安装（推荐）此方法需KX上网，不懂不会KX上网的别纠结，直接跳过这里去看安装方法二"></a>方法一：Google官方商店安装（推荐）此方法需KX上网，不懂不会KX上网的别纠结，直接跳过这里去看安装方法二</h3><h3 id="Google商店安装地址：https-chrome-google-com-webstore-detail-tampermonkey-dhdgffkkebhmkfjojejmpbldmpobfkfo-hl-zh-CN"><a href="#Google商店安装地址：https-chrome-google-com-webstore-detail-tampermonkey-dhdgffkkebhmkfjojejmpbldmpobfkfo-hl-zh-CN" class="headerlink" title="Google商店安装地址：https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=zh-CN"></a>Google商店安装地址：<a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=zh-CN">https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=zh-CN</a></h3><h3 id="安装方法：用Chrome-浏览器打开-安装地址，在页面中点击「添加至Chrome」即可。"><a href="#安装方法：用Chrome-浏览器打开-安装地址，在页面中点击「添加至Chrome」即可。" class="headerlink" title="安装方法：用Chrome 浏览器打开 安装地址，在页面中点击「添加至Chrome」即可。"></a>安装方法：用Chrome 浏览器打开 安装地址，在页面中点击「添加至Chrome」即可。</h3><h3 id="方法二：本地安装（无需KX上网）"><a href="#方法二：本地安装（无需KX上网）" class="headerlink" title="方法二：本地安装（无需KX上网）"></a>方法二：本地安装（无需KX上网）</h3><h3 id="新版的-Google-Chrome-浏览器无法使用拖放安装，所以需要使用开发者模式安装-Tampermonkey。"><a href="#新版的-Google-Chrome-浏览器无法使用拖放安装，所以需要使用开发者模式安装-Tampermonkey。" class="headerlink" title="新版的 Google Chrome 浏览器无法使用拖放安装，所以需要使用开发者模式安装 Tampermonkey。"></a>新版的 Google Chrome 浏览器无法使用拖放安装，所以需要使用开发者模式安装 Tampermonkey。</h3><h3 id="1-下载-Tampermonkey-压缩包："><a href="#1-下载-Tampermonkey-压缩包：" class="headerlink" title="1.下载 Tampermonkey 压缩包："></a>1.下载 Tampermonkey 压缩包：</h3><h3 id="微云：https-share-weiyun-com-5RRE6iu"><a href="#微云：https-share-weiyun-com-5RRE6iu" class="headerlink" title="微云：https://share.weiyun.com/5RRE6iu"></a>微云：<a target="_blank" rel="noopener" href="https://share.weiyun.com/5RRE6iu">https://share.weiyun.com/5RRE6iu</a></h3><h3 id="蓝奏云：https-www-lanzous-com-i5c14ob"><a href="#蓝奏云：https-www-lanzous-com-i5c14ob" class="headerlink" title="蓝奏云：https://www.lanzous.com/i5c14ob"></a>蓝奏云：<a target="_blank" rel="noopener" href="https://www.lanzous.com/i5c14ob">https://www.lanzous.com/i5c14ob</a></h3><h3 id="2-解压缩-该文件得到-文件夹-Tampermonkey-4-8-0-0-，将该文件夹放在安全不容易误删除的地方。"><a href="#2-解压缩-该文件得到-文件夹-Tampermonkey-4-8-0-0-，将该文件夹放在安全不容易误删除的地方。" class="headerlink" title="2.解压缩 该文件得到 文件夹 Tampermonkey_4_8_0_0 ，将该文件夹放在安全不容易误删除的地方。"></a>2.解压缩 该文件得到 文件夹 Tampermonkey_4_8_0_0 ，将该文件夹放在安全不容易误删除的地方。</h3><h3 id="3-打开-Google-Chrome-浏览器，在地址栏输入地址：chrome-extensions-进入插件管理界面，"><a href="#3-打开-Google-Chrome-浏览器，在地址栏输入地址：chrome-extensions-进入插件管理界面，" class="headerlink" title="3.打开 Google Chrome 浏览器，在地址栏输入地址：chrome://extensions 进入插件管理界面，"></a>3.打开 Google Chrome 浏览器，在地址栏输入地址：chrome://extensions 进入插件管理界面，</h3><p><img src="https://cdn.80note.com/image/2019/05/chrome%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F_mark.png-sl"></p>
+<h3 id="4-点击右上角的-开发者模式-加载已解压的扩展程序-，"><a href="#4-点击右上角的-开发者模式-加载已解压的扩展程序-，" class="headerlink" title="4.点击右上角的 开发者模式 - 加载已解压的扩展程序 ，"></a>4.点击右上角的 开发者模式 - 加载已解压的扩展程序 ，</h3><h3 id="5-选择刚才解压的-Tampermonkey-4-8-0-0-文件夹，注意是-文件夹！不要再加载压缩包或者crx文件了！"><a href="#5-选择刚才解压的-Tampermonkey-4-8-0-0-文件夹，注意是-文件夹！不要再加载压缩包或者crx文件了！" class="headerlink" title="5.选择刚才解压的 Tampermonkey_4_8_0_0 文件夹，注意是 文件夹！不要再加载压缩包或者crx文件了！"></a>5.选择刚才解压的 Tampermonkey_4_8_0_0 文件夹，注意是 文件夹！不要再加载压缩包或者crx文件了！</h3><p><img src="https://cdn.80note.com/image/2019/05/%E9%80%89%E6%8B%A9%E6%B2%B9%E7%8C%B4%E6%96%87%E4%BB%B6%E5%A4%B9_mark.png-sl"></p>
+<h3 id="6-点击-选择文件夹-即安装成功。"><a href="#6-点击-选择文件夹-即安装成功。" class="headerlink" title="6.点击 选择文件夹 即安装成功。"></a>6.点击 选择文件夹 即安装成功。</h3><h3 id="通过开发者模式安装都会提示这个错误，属于正常情况，不影像正常使用。"><a href="#通过开发者模式安装都会提示这个错误，属于正常情况，不影像正常使用。" class="headerlink" title="通过开发者模式安装都会提示这个错误，属于正常情况，不影像正常使用。"></a>通过开发者模式安装都会提示这个错误，属于正常情况，不影像正常使用。</h3><h3 id="而edge玩家就通过以下操作"><a href="#而edge玩家就通过以下操作" class="headerlink" title="而edge玩家就通过以下操作"></a>而edge玩家就通过以下操作</h3><h3 id="第一步是安装这个油猴插件，在我们的浏览器当中找到开发人员工具这一项-并打开"><a href="#第一步是安装这个油猴插件，在我们的浏览器当中找到开发人员工具这一项-并打开" class="headerlink" title="第一步是安装这个油猴插件，在我们的浏览器当中找到开发人员工具这一项 并打开"></a>第一步是安装这个油猴插件，在我们的浏览器当中找到开发人员工具这一项 并打开</h3><p><img src="https://i.loli.net/2021/08/01/gYQwUFnzxc6mNAH.png"></p>
+<h3 id="第二步就是找到扩展，无论你是谷歌，还是ie，还是火狐，还是360等等这些浏览器都会有一个叫做扩展的东西"><a href="#第二步就是找到扩展，无论你是谷歌，还是ie，还是火狐，还是360等等这些浏览器都会有一个叫做扩展的东西" class="headerlink" title="第二步就是找到扩展，无论你是谷歌，还是ie，还是火狐，还是360等等这些浏览器都会有一个叫做扩展的东西"></a>第二步就是找到扩展，无论你是谷歌，还是ie，还是火狐，还是360等等这些浏览器都会有一个叫做扩展的东西</h3><p><img src="https://i.loli.net/2021/08/01/Gu8APwHtMiBLvzl.png"></p>
+<h3 id="第三步进入扩展找到一个查找新扩展"><a href="#第三步进入扩展找到一个查找新扩展" class="headerlink" title="第三步进入扩展找到一个查找新扩展"></a>第三步进入扩展找到一个查找新扩展</h3><p><img src="https://i.loli.net/2021/08/01/Bdz23bKmehOg4GA.png"></p>
+<h3 id="第四步我们就进入了这样一个页面，然后我们就搜索tampermonkey，然后就是安装这个插件"><a href="#第四步我们就进入了这样一个页面，然后我们就搜索tampermonkey，然后就是安装这个插件" class="headerlink" title="第四步我们就进入了这样一个页面，然后我们就搜索tampermonkey，然后就是安装这个插件"></a>第四步我们就进入了这样一个页面，然后我们就搜索tampermonkey，然后就是安装这个插件</h3><p><img src="https://i.loli.net/2021/08/01/wEeNXGogxZpPIt6.png"><br><img src="https://i.loli.net/2021/08/01/iQ71Dfqclu5Kb6z.png"></p>
+<h3 id="安装好了后，我们的任务栏上就会有个这样的标志，然后就是点开它，获取新脚本，就会得到一个这样的页面"><a href="#安装好了后，我们的任务栏上就会有个这样的标志，然后就是点开它，获取新脚本，就会得到一个这样的页面" class="headerlink" title="安装好了后，我们的任务栏上就会有个这样的标志，然后就是点开它，获取新脚本，就会得到一个这样的页面"></a>安装好了后，我们的任务栏上就会有个这样的标志，然后就是点开它，获取新脚本，就会得到一个这样的页面</h3><p><img src="https://i.loli.net/2021/08/01/iGvQCedRfclTEAu.png"><br><img src="https://i.loli.net/2021/08/01/YsKkZiCwgj1GSdH.png"></p>
+<h3 id="最后一步就是我的一些常用的，当然你不喜欢你也可以去找别的，所以这一期我就推荐这点，希望你喜欢！！！"><a href="#最后一步就是我的一些常用的，当然你不喜欢你也可以去找别的，所以这一期我就推荐这点，希望你喜欢！！！" class="headerlink" title="最后一步就是我的一些常用的，当然你不喜欢你也可以去找别的，所以这一期我就推荐这点，希望你喜欢！！！"></a>最后一步就是我的一些常用的，当然你不喜欢你也可以去找别的，所以这一期我就推荐这点，希望你喜欢！！！</h3><p><img src="https://i.loli.net/2021/08/01/c1CvE6Xzhk7umsd.png"><br><img src="https://i.loli.net/2021/08/01/XO5KdharfRjlJFm.png"><br><img src="https://i.loli.net/2021/08/01/73JWgRwv2NfqPB5.png"><br><img src="https://i.loli.net/2021/08/01/GMlgsjXFuY2UQ58.png"><br><img src="https://i.loli.net/2021/08/01/HXeRBlsTIq8wDCu.png"><br><img src="https://i.loli.net/2021/08/01/7dA2k5TxufBSMpi.png"></p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Veam<br>
+        <strong>本文链接：</strong><a href="https://github.com/lonely0323/lonely0323.github.io/2021/01/13/front-matter2/" title="https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2021&#x2F;01&#x2F;13&#x2F;front-matter2&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2021&#x2F;01&#x2F;13&#x2F;front-matter2&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E6%8F%92%E4%BB%B6/">插件</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'https://github.com/lonely0323/gitment',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E5%88%B0%E6%B2%B9%E7%8C%B4-Tampermonkey-%E5%88%B0%E5%BA%95%E6%98%AF%E5%B9%B2%E5%98%9B%E7%9A%84%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%E8%AF%84%E8%AE%BA%E5%8C%BA%E8%A7%81%EF%BC%81"><span class="toc-number">1.</span> <span class="toc-text">说到油猴(Tampermonkey)到底是干嘛的这个问题评论区见！</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A6%96%E5%85%88%E6%88%91%E6%83%B3%E5%91%8A%E8%AF%89%E5%A4%A7%E5%AE%B6%E8%BF%99%E4%B8%AA%E6%B2%B9%E7%8C%B4-Tampermonkey-%E6%8F%92%E4%BB%B6%E6%98%AF%E5%B9%B2%E5%98%9B%E7%9A%84"><span class="toc-number"></span> <span class="toc-text">首先我想告诉大家这个油猴(Tampermonkey)插件是干嘛的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC%EF%BC%88Tampermonkey%EF%BC%89%E6%98%AF%E4%B8%80%E4%B8%AA%E9%9D%9E%E5%B8%B8%E6%B5%81%E8%A1%8C%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95%EF%BC%8C%E5%AE%83%E5%8F%AF%E4%BB%A5%E8%BF%90%E8%A1%8C%E7%94%B1%E5%B9%BF%E5%A4%A7%E7%A4%BE%E5%8C%BA%E7%BC%96%E5%86%99%E7%9A%84%E6%89%A9%E5%B1%95%E8%84%9A%E6%9C%AC%EF%BC%8C%E6%9D%A5%E5%AE%9E%E7%8E%B0%E5%90%84%E5%BC%8F%E5%90%84%E6%A0%B7%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%8C%E5%B8%B8%E8%A7%81%E7%9A%84%E5%8E%BB%E5%B9%BF%E5%91%8A%E3%80%81%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6%E3%80%81%E7%94%9A%E8%87%B3%E6%98%AF%E4%B8%8B%E8%BD%BD%E8%A7%86%E9%A2%91%E3%80%82%E4%BB%8A%E5%A4%A9%E6%88%91%E4%BB%AC%E5%B0%B1%E6%9D%A5%E7%9C%8B%E7%9C%8B%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC%E3%80%82%E5%BD%93%E7%84%B6%E4%B8%BA%E4%BA%86%E8%BF%90%E8%A1%8C%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC%EF%BC%8C%E4%BD%A0%E5%BA%94%E8%AF%A5%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E5%AE%89%E8%A3%85%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%E3%80%82"><span class="toc-number">1.</span> <span class="toc-text">油猴脚本（Tampermonkey）是一个非常流行的浏览器扩展，它可以运行由广大社区编写的扩展脚本，来实现各式各样的功能，常见的去广告、修改样式文件、甚至是下载视频。今天我们就来看看如何编写自己的油猴脚本。当然为了运行油猴脚本，你应该在浏览器中安装油猴插件。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%9D%E4%B8%8D%E5%A4%9A%E8%AF%B4-%E4%B8%8A%E6%95%99%E7%A8%8B%EF%BC%81%EF%BC%88%E5%85%88%E8%AF%B4%E6%98%8E%E8%A6%81%E6%98%AF%E8%B0%B7%E6%AD%8C%E8%AF%B7%E7%9C%8B%E4%B8%8B%E9%9D%A2%E7%9A%84%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">话不多说 上教程！（先说明要是谷歌请看下面的）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9AGoogle%E5%AE%98%E6%96%B9%E5%95%86%E5%BA%97%E5%AE%89%E8%A3%85%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89%E6%AD%A4%E6%96%B9%E6%B3%95%E9%9C%80KX%E4%B8%8A%E7%BD%91%EF%BC%8C%E4%B8%8D%E6%87%82%E4%B8%8D%E4%BC%9AKX%E4%B8%8A%E7%BD%91%E7%9A%84%E5%88%AB%E7%BA%A0%E7%BB%93%EF%BC%8C%E7%9B%B4%E6%8E%A5%E8%B7%B3%E8%BF%87%E8%BF%99%E9%87%8C%E5%8E%BB%E7%9C%8B%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="toc-number">3.</span> <span class="toc-text">方法一：Google官方商店安装（推荐）此方法需KX上网，不懂不会KX上网的别纠结，直接跳过这里去看安装方法二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Google%E5%95%86%E5%BA%97%E5%AE%89%E8%A3%85%E5%9C%B0%E5%9D%80%EF%BC%9Ahttps-chrome-google-com-webstore-detail-tampermonkey-dhdgffkkebhmkfjojejmpbldmpobfkfo-hl-zh-CN"><span class="toc-number">4.</span> <span class="toc-text">Google商店安装地址：https:&#x2F;&#x2F;chrome.google.com&#x2F;webstore&#x2F;detail&#x2F;tampermonkey&#x2F;dhdgffkkebhmkfjojejmpbldmpobfkfo?hl&#x3D;zh-CN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95%EF%BC%9A%E7%94%A8Chrome-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%BC%80-%E5%AE%89%E8%A3%85%E5%9C%B0%E5%9D%80%EF%BC%8C%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%AD%E7%82%B9%E5%87%BB%E3%80%8C%E6%B7%BB%E5%8A%A0%E8%87%B3Chrome%E3%80%8D%E5%8D%B3%E5%8F%AF%E3%80%82"><span class="toc-number">5.</span> <span class="toc-text">安装方法：用Chrome 浏览器打开 安装地址，在页面中点击「添加至Chrome」即可。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%EF%BC%88%E6%97%A0%E9%9C%80KX%E4%B8%8A%E7%BD%91%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">方法二：本地安装（无需KX上网）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E7%89%88%E7%9A%84-Google-Chrome-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%E6%8B%96%E6%94%BE%E5%AE%89%E8%A3%85%EF%BC%8C%E6%89%80%E4%BB%A5%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E5%AE%89%E8%A3%85-Tampermonkey%E3%80%82"><span class="toc-number">7.</span> <span class="toc-text">新版的 Google Chrome 浏览器无法使用拖放安装，所以需要使用开发者模式安装 Tampermonkey。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD-Tampermonkey-%E5%8E%8B%E7%BC%A9%E5%8C%85%EF%BC%9A"><span class="toc-number">8.</span> <span class="toc-text">1.下载 Tampermonkey 压缩包：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E4%BA%91%EF%BC%9Ahttps-share-weiyun-com-5RRE6iu"><span class="toc-number">9.</span> <span class="toc-text">微云：https:&#x2F;&#x2F;share.weiyun.com&#x2F;5RRE6iu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%93%9D%E5%A5%8F%E4%BA%91%EF%BC%9Ahttps-www-lanzous-com-i5c14ob"><span class="toc-number">10.</span> <span class="toc-text">蓝奏云：https:&#x2F;&#x2F;www.lanzous.com&#x2F;i5c14ob</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%A7%A3%E5%8E%8B%E7%BC%A9-%E8%AF%A5%E6%96%87%E4%BB%B6%E5%BE%97%E5%88%B0-%E6%96%87%E4%BB%B6%E5%A4%B9-Tampermonkey-4-8-0-0-%EF%BC%8C%E5%B0%86%E8%AF%A5%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E5%9C%A8%E5%AE%89%E5%85%A8%E4%B8%8D%E5%AE%B9%E6%98%93%E8%AF%AF%E5%88%A0%E9%99%A4%E7%9A%84%E5%9C%B0%E6%96%B9%E3%80%82"><span class="toc-number">11.</span> <span class="toc-text">2.解压缩 该文件得到 文件夹 Tampermonkey_4_8_0_0 ，将该文件夹放在安全不容易误删除的地方。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%89%93%E5%BC%80-Google-Chrome-%E6%B5%8F%E8%A7%88%E5%99%A8%EF%BC%8C%E5%9C%A8%E5%9C%B0%E5%9D%80%E6%A0%8F%E8%BE%93%E5%85%A5%E5%9C%B0%E5%9D%80%EF%BC%9Achrome-extensions-%E8%BF%9B%E5%85%A5%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2%EF%BC%8C"><span class="toc-number">12.</span> <span class="toc-text">3.打开 Google Chrome 浏览器，在地址栏输入地址：chrome:&#x2F;&#x2F;extensions 进入插件管理界面，</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%82%B9%E5%87%BB%E5%8F%B3%E4%B8%8A%E8%A7%92%E7%9A%84-%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F-%E5%8A%A0%E8%BD%BD%E5%B7%B2%E8%A7%A3%E5%8E%8B%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F-%EF%BC%8C"><span class="toc-number">13.</span> <span class="toc-text">4.点击右上角的 开发者模式 - 加载已解压的扩展程序 ，</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%80%89%E6%8B%A9%E5%88%9A%E6%89%8D%E8%A7%A3%E5%8E%8B%E7%9A%84-Tampermonkey-4-8-0-0-%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%8C%E6%B3%A8%E6%84%8F%E6%98%AF-%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%81%E4%B8%8D%E8%A6%81%E5%86%8D%E5%8A%A0%E8%BD%BD%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%88%96%E8%80%85crx%E6%96%87%E4%BB%B6%E4%BA%86%EF%BC%81"><span class="toc-number">14.</span> <span class="toc-text">5.选择刚才解压的 Tampermonkey_4_8_0_0 文件夹，注意是 文件夹！不要再加载压缩包或者crx文件了！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E7%82%B9%E5%87%BB-%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E5%A4%B9-%E5%8D%B3%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F%E3%80%82"><span class="toc-number">15.</span> <span class="toc-text">6.点击 选择文件夹 即安装成功。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E5%AE%89%E8%A3%85%E9%83%BD%E4%BC%9A%E6%8F%90%E7%A4%BA%E8%BF%99%E4%B8%AA%E9%94%99%E8%AF%AF%EF%BC%8C%E5%B1%9E%E4%BA%8E%E6%AD%A3%E5%B8%B8%E6%83%85%E5%86%B5%EF%BC%8C%E4%B8%8D%E5%BD%B1%E5%83%8F%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E3%80%82"><span class="toc-number">16.</span> <span class="toc-text">通过开发者模式安装都会提示这个错误，属于正常情况，不影像正常使用。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%80%8Cedge%E7%8E%A9%E5%AE%B6%E5%B0%B1%E9%80%9A%E8%BF%87%E4%BB%A5%E4%B8%8B%E6%93%8D%E4%BD%9C"><span class="toc-number">17.</span> <span class="toc-text">而edge玩家就通过以下操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%E6%98%AF%E5%AE%89%E8%A3%85%E8%BF%99%E4%B8%AA%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%EF%BC%8C%E5%9C%A8%E6%88%91%E4%BB%AC%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BD%93%E4%B8%AD%E6%89%BE%E5%88%B0%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E5%B7%A5%E5%85%B7%E8%BF%99%E4%B8%80%E9%A1%B9-%E5%B9%B6%E6%89%93%E5%BC%80"><span class="toc-number">18.</span> <span class="toc-text">第一步是安装这个油猴插件，在我们的浏览器当中找到开发人员工具这一项 并打开</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E5%B0%B1%E6%98%AF%E6%89%BE%E5%88%B0%E6%89%A9%E5%B1%95%EF%BC%8C%E6%97%A0%E8%AE%BA%E4%BD%A0%E6%98%AF%E8%B0%B7%E6%AD%8C%EF%BC%8C%E8%BF%98%E6%98%AFie%EF%BC%8C%E8%BF%98%E6%98%AF%E7%81%AB%E7%8B%90%EF%BC%8C%E8%BF%98%E6%98%AF360%E7%AD%89%E7%AD%89%E8%BF%99%E4%BA%9B%E6%B5%8F%E8%A7%88%E5%99%A8%E9%83%BD%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%E5%8F%AB%E5%81%9A%E6%89%A9%E5%B1%95%E7%9A%84%E4%B8%9C%E8%A5%BF"><span class="toc-number">19.</span> <span class="toc-text">第二步就是找到扩展，无论你是谷歌，还是ie，还是火狐，还是360等等这些浏览器都会有一个叫做扩展的东西</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%E8%BF%9B%E5%85%A5%E6%89%A9%E5%B1%95%E6%89%BE%E5%88%B0%E4%B8%80%E4%B8%AA%E6%9F%A5%E6%89%BE%E6%96%B0%E6%89%A9%E5%B1%95"><span class="toc-number">20.</span> <span class="toc-text">第三步进入扩展找到一个查找新扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%E6%88%91%E4%BB%AC%E5%B0%B1%E8%BF%9B%E5%85%A5%E4%BA%86%E8%BF%99%E6%A0%B7%E4%B8%80%E4%B8%AA%E9%A1%B5%E9%9D%A2%EF%BC%8C%E7%84%B6%E5%90%8E%E6%88%91%E4%BB%AC%E5%B0%B1%E6%90%9C%E7%B4%A2tampermonkey%EF%BC%8C%E7%84%B6%E5%90%8E%E5%B0%B1%E6%98%AF%E5%AE%89%E8%A3%85%E8%BF%99%E4%B8%AA%E6%8F%92%E4%BB%B6"><span class="toc-number">21.</span> <span class="toc-text">第四步我们就进入了这样一个页面，然后我们就搜索tampermonkey，然后就是安装这个插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%A5%BD%E4%BA%86%E5%90%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%A0%8F%E4%B8%8A%E5%B0%B1%E4%BC%9A%E6%9C%89%E4%B8%AA%E8%BF%99%E6%A0%B7%E7%9A%84%E6%A0%87%E5%BF%97%EF%BC%8C%E7%84%B6%E5%90%8E%E5%B0%B1%E6%98%AF%E7%82%B9%E5%BC%80%E5%AE%83%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%96%B0%E8%84%9A%E6%9C%AC%EF%BC%8C%E5%B0%B1%E4%BC%9A%E5%BE%97%E5%88%B0%E4%B8%80%E4%B8%AA%E8%BF%99%E6%A0%B7%E7%9A%84%E9%A1%B5%E9%9D%A2"><span class="toc-number">22.</span> <span class="toc-text">安装好了后，我们的任务栏上就会有个这样的标志，然后就是点开它，获取新脚本，就会得到一个这样的页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E4%B8%80%E6%AD%A5%E5%B0%B1%E6%98%AF%E6%88%91%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84%EF%BC%8C%E5%BD%93%E7%84%B6%E4%BD%A0%E4%B8%8D%E5%96%9C%E6%AC%A2%E4%BD%A0%E4%B9%9F%E5%8F%AF%E4%BB%A5%E5%8E%BB%E6%89%BE%E5%88%AB%E7%9A%84%EF%BC%8C%E6%89%80%E4%BB%A5%E8%BF%99%E4%B8%80%E6%9C%9F%E6%88%91%E5%B0%B1%E6%8E%A8%E8%8D%90%E8%BF%99%E7%82%B9%EF%BC%8C%E5%B8%8C%E6%9C%9B%E4%BD%A0%E5%96%9C%E6%AC%A2%EF%BC%81%EF%BC%81%EF%BC%81"><span class="toc-number">23.</span> <span class="toc-text">最后一步就是我的一些常用的，当然你不喜欢你也可以去找别的，所以这一期我就推荐这点，希望你喜欢！！！</span></a></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1635311064999"></script>
+
+
+	<script async src="/js/search.js?v=1635311064999"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>
