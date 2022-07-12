@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>JavaScript - VaMin23博客网</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/VaMin.ico" type="image/x-icon" />
+    <meta name="description" content="javaScript学习！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript">
+<meta property="og:url" content="https://github.com/lonely0323/lonely0323.github.io/2022/06/16/text1/index.html">
+<meta property="og:site_name" content="VaMin23博客网">
+<meta property="og:description" content="javaScript学习！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/0ce4f104e24737e922449dfcd54951f2.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/06bab955dce3d478eb0ee1880efdbf13.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/321c5fb7e148d7fa99e59440083b0a4b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/612f0462d3cde3f2fa410ccd8b6da15b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/b9ba0a296f0c0a973fae0c2bda964929.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/8cd27bded82d24387ae42b8444f0d25e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/695dff6b3d3117760c6fba7c0b09895b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/48487fd2d563e9a30beaf4fe8273285f.png">
+<meta property="article:published_time" content="2022-06-15T23:59:59.000Z">
+<meta property="article:modified_time" content="2022-07-12T05:02:23.237Z">
+<meta property="article:author" content="Veam">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/0ce4f104e24737e922449dfcd54951f2.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <link rel="stylesheet" href="/css/style.css?v=1657607025494">
+     
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1657607025494">
+    
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Veam" class="mdui-btn mdui-btn-icon"><img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Veam">
+            <img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam" alt="Veam">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>8</div>
+        <div><span>标签</span>5</div>
+        <div><span>分类</span>6</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form">
+                <label><input class="st-default-search-input" id="search_value" name="q" type="search" placeholder="搜索" style="
+                    font-size: 15px !important;
+                    height: 56px !important;
+                    background-image: none;
+                "></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=MvqLiTM1" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="/veam23@foxmail.com" target="_blank" mdui-tooltip="{content: '邮箱地址'}" style="color: rgb(0,255,255);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-QQyouxiang1"></i>
+        </a><a class="mdui-ripple" href="https://github.com/lonely0323" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://weibo.com/u/6323576495/home?wvr=5" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(220,20,60);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-weibo1"></i>
+        </a><a class="mdui-ripple" href="https://music.163.com/#/user/home?id=302060596" target="_blank" mdui-tooltip="{content: '网易云音乐'}" style="color: rgb(220,20,60);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-wangyiyunyinle"></i>
+        </a><a class="mdui-ripple" href="https://y.qq.com/n/ryqq/profile/like/song" target="_blank" mdui-tooltip="{content: 'QQ音乐'}" style="color: rgb(0,255,0);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-qqyinle"></i>
+        </a><a class="mdui-ripple" href="https://s.team/p/fvbb-wqnb/WPNPNWTQ" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(0,0,255);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/javaScript/">javaScript</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/vue/">vue</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/插件/">插件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/文档/">文档</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音乐/">音乐</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 10px;">文档</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%BD%91%E7%AB%99/" style="font-size: 10px;">网站</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 Veam
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/lonely0323/Veam23" target="_blank">Nexmoe</a>
+        
+    </div>
+    <div style="font-size: 12px;text-align: center;color: #9d00ff">
+        <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+        本站访客数<a id="busuanzi_value_site_uv"></a>人次
+    </div>
+
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
+              <img data-src="https://www.runoob.com/wp-content/uploads/2013/07/js-logo.png" data-sizes="auto" alt="JavaScript" class="lazyload">
+              <h1>JavaScript</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年06月15日</a>
+    <a><i class="nexmoefont icon-areachart"></i>7.5k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 33 分钟</a>
+</div>
+
+      
+
+      <p>javaScript学习！</p>
+<span id="more"></span>
+
+    <div id="aplayer-XQENDzCp" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="5415926126" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+<h1 id="关于学习javascript"><a href="#关于学习javascript" class="headerlink" title="关于学习javascript"></a>关于学习javascript</h1><h2 id="学习资料我放在百度网盘，请自己下载链接-https-pan-baidu-com-s-1-b7lS-A4KvCOgTUlV4v-NA-提取码-j9qe"><a href="#学习资料我放在百度网盘，请自己下载链接-https-pan-baidu-com-s-1-b7lS-A4KvCOgTUlV4v-NA-提取码-j9qe" class="headerlink" title="学习资料我放在百度网盘，请自己下载链接: https://pan.baidu.com/s/1-b7lS_A4KvCOgTUlV4v_NA 提取码: j9qe"></a>学习资料我放在百度网盘，请自己下载链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1-b7lS_A4KvCOgTUlV4v_NA">https://pan.baidu.com/s/1-b7lS_A4KvCOgTUlV4v_NA</a> 提取码: j9qe</h2><h1 id="第一章-javascript简介"><a href="#第一章-javascript简介" class="headerlink" title="第一章 javascript简介"></a>第一章 javascript简介</h1><h2 id="1-1-javascript的使用"><a href="#1-1-javascript的使用" class="headerlink" title="1.1 javascript的使用"></a>1.1 javascript的使用</h2><h3 id="1-1-1-标签引用"><a href="#1-1-1-标签引用" class="headerlink" title="1.1.1 标签引用"></a>1.1.1 标签引用</h3><p>在HTML中在script标签中就可以编写JavaScript代码，以下是一个简单演示。</p>
+<pre><code>&lt;script&gt;
+    alert(&quot;Hello,World!&quot;);
+&lt;/script&gt;
+</code></pre>
+<h3 id="1-1-2-文件引用"><a href="#1-1-2-文件引用" class="headerlink" title="1.1.2 文件引用"></a>1.1.2 文件引用</h3><p>在一个单独的js文件中也可以编写JavaScript代码，然后在HTML文件中使用script标签进行引用，以下是一个简单演示。</p>
+<pre><code>例子：main.html
+&lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<pre><code>例子：main.js
+alert(&quot;Hello,World!&quot;);
+</code></pre>
+<h2 id="1-2javascript的输出"><a href="#1-2javascript的输出" class="headerlink" title="1.2javascript的输出"></a>1.2javascript的输出</h2><h3 id="1-2-1页面输出"><a href="#1-2-1页面输出" class="headerlink" title="1.2.1页面输出"></a>1.2.1页面输出</h3><p>如何使用JavaScript向页面输出一句话，请参考以下代码。</p>
+<pre><code>&lt;script&gt;
+    document.write(&quot;Hello,World!&quot;);
+&lt;/script&gt;
+</code></pre>
+<h3 id="1-2-2、控制台输出"><a href="#1-2-2、控制台输出" class="headerlink" title="1.2.2、控制台输出"></a>1.2.2、控制台输出</h3><p>如何使用JavaScript向控制台输出一句话，请参考以下代码。</p>
+<pre><code>注意：页面按F12弹出控制台
+</code></pre>
+<pre><code>&lt;script&gt;
+    console.log(&quot;输出一条日志&quot;);//最常用
+    console.info(&quot;输出一条信息&quot;);
+    console.warn(&quot;输出一条警告&quot;);
+    console.error(&quot;输出一条错误&quot;);
+&lt;/script&gt;
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/0ce4f104e24737e922449dfcd54951f2.png"></p>
+<h3 id="1-2-3、弹出窗口输出"><a href="#1-2-3、弹出窗口输出" class="headerlink" title="1.2.3、弹出窗口输出"></a>1.2.3、弹出窗口输出</h3><p>如何使用JavaScript向弹出窗口输出一句话，请参考以下代码。</p>
+<pre><code>&lt;script&gt;
+    alert(&quot;Hello,World!&quot;);
+&lt;/script&gt;
+</code></pre>
+<h2 id="1-3、JavaScript的注释"><a href="#1-3、JavaScript的注释" class="headerlink" title="1.3、JavaScript的注释"></a>1.3、JavaScript的注释</h2><p>注释中的内容不会被解析器解析执行，但是会在源码中显示，我们一般会使用注释对程序中的内容进行解释。<br>JS中的注释和Java的的一致，分为两种：</p>
+<ul>
+<li><input disabled="" type="checkbox"> 单行注释：// 注释内容</li>
+<li><input disabled="" type="checkbox"> 多行注释：/* 注释内容 */<h3 id="1-3-1、单行注释"><a href="#1-3-1、单行注释" class="headerlink" title="1.3.1、单行注释"></a>1.3.1、单行注释</h3><pre><code>&lt;script&gt;
+  // 这是注释内容
+  console.log(&quot;Hello,World!&quot;);
+&lt;/script&gt;
+</code></pre>
+</li>
+</ul>
+<h3 id="1-3-2、多行注释"><a href="#1-3-2、多行注释" class="headerlink" title="1.3.2、多行注释"></a>1.3.2、多行注释</h3><pre><code>&lt;script&gt;
+    /**
+     * 这是注释内容
+     */
+    console.log(&quot;Hello,World!&quot;);
+&lt;/script&gt;
+</code></pre>
+<h1 id="第二章-JavaScript基础语法"><a href="#第二章-JavaScript基础语法" class="headerlink" title="第二章 JavaScript基础语法"></a>第二章 JavaScript基础语法</h1><h2 id="2-1、标识符"><a href="#2-1、标识符" class="headerlink" title="2.1、标识符"></a>2.1、<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E6%A0%87%E8%AF%86%E7%AC%A6&spm=1001.2101.3001.7020">标识符</a></h2><p>所谓标识符，就是指给变量、函数、属性或函数的参数起名字。</p>
+<p>标识符可以是按照下列格式规则组合起来的一或多个字符：</p>
+<ul>
+<li>第一个字符必须是一个字母、下划线（ _ ）或一个美元符号（ $ ）。</li>
+<li>其它字符可以是字母、下划线、美元符号或数字。</li>
+<li>按照惯例，ECMAScript 标识符采用驼峰命名法。</li>
+<li>标识符不能是关键字和保留字符。</li>
+</ul>
+<p><strong>关键字：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/06bab955dce3d478eb0ee1880efdbf13.png"></p>
+<p><strong>保留字符：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/321c5fb7e148d7fa99e59440083b0a4b.png"></p>
+<p><strong>其它不建议使用的标识符：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/612f0462d3cde3f2fa410ccd8b6da15b.png"></p>
+<p><strong>单个单词的标识符举例：</strong></p>
+<pre><code>name、age、gender、hobby
+</code></pre>
+<p><strong>多个单词的标识符举例：</strong></p>
+<pre><code>studentName、studentAge、studentGender、studentHobby
+</code></pre>
+<h2 id="2-2、字面量和变量"><a href="#2-2、字面量和变量" class="headerlink" title="2.2、字面量和变量"></a>2.2、字面量和变量</h2><h3 id="2-2-1、字面量"><a href="#2-2-1、字面量" class="headerlink" title="2.2.1、字面量"></a>2.2.1、字面量</h3><p>字面量实际上就是一些固定的值，比如：1、2 、3、true、false、null、NaN、“hello”，字面量都是不可以改变的，由于字面量不是很方便使用，所以在JavaScript中很少直接使用字面量，使用的而是变量。</p>
+<h3 id="2-2-2、变量"><a href="#2-2-2、变量" class="headerlink" title="2.2.2、变量"></a>2.2.2、变量</h3><p>变量的作用是给某一个值或对象标注名称。比如我们的程序中有一个值123，这个值我们是需要反复使用的，这个时候 我们最好将123这个值赋值给一个变量，然后通过变量去使用123这个值。</p>
+<p><strong>变量的声明：</strong> 使用var关键字声明一个变量。</p>
+<pre><code>var a;
+</code></pre>
+<p><strong>变量的赋值：</strong> 使用=为变量赋值。</p>
+<pre><code>a = 123;
+</code></pre>
+<p><strong>声明和赋值同时进行：</strong></p>
+<pre><code>var a = 123;
+</code></pre>
+<h2 id="2-3、数据类型"><a href="#2-3、数据类型" class="headerlink" title="2.3、数据类型"></a>2.3、数据类型</h2><h3 id="2-3-1、类型分类"><a href="#2-3-1、类型分类" class="headerlink" title="2.3.1、类型分类"></a>2.3.1、类型分类</h3><p>数据类型决定了一个数据的特征，比如：123和”123”，直观上看这两个数据都是123，但实际上前者是一个数字，而后者是一个字符串。</p>
+<p>对于不同的数据类型我们在进行操作时会有很大的不同。</p>
+<p>JavaScript中一共有5种基本数据类型：</p>
+<ul>
+<li>字符串型（String）</li>
+<li>数值型（Number）</li>
+<li>布尔型（Boolean）</li>
+<li>undefined型（Undefined）</li>
+<li>null型（Null）</li>
+</ul>
+<p>这5种之外的类型都称为Object，所以总的来看JavaScript中共有六种数据类型。</p>
+<h3 id="2-3-2、typeof运算符"><a href="#2-3-2、typeof运算符" class="headerlink" title="2.3.2、typeof运算符"></a>2.3.2、typeof运算符</h3><p>使用typeof操作符可以用来检查一个变量的数据类型。</p>
+<p><strong>使用方式：</strong></p>
+<pre><code>typeof 数据
+</code></pre>
+<p><strong>示例代码：</strong></p>
+<pre><code>console.log(typeof 123);
+console.log(typeof &quot;Hello,World!&quot;);
+console.log(typeof true);
+console.log(typeof undefined);
+console.log(typeof null);
+</code></pre>
+<p><strong>运行结果：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/b9ba0a296f0c0a973fae0c2bda964929.png"></p>
+<h3 id="2-3-3、String"><a href="#2-3-3、String" class="headerlink" title="2.3.3、String"></a>2.3.3、String</h3><p>String用于表示一个字符序列，即字符串。字符串需要使用 <strong>单引号</strong> 或 <strong>双引号</strong> 括起来。</p>
+<p><strong>转义字符：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/8cd27bded82d24387ae42b8444f0d25e.png"><br>$$<br>注意：使用typeof运算符检查字符串时，会返回”string”。<br>$$</p>
+<h3 id="2-3-4、Number"><a href="#2-3-4、Number" class="headerlink" title="2.3.4、Number"></a>2.3.4、Number</h3><p>Number 类型用来表示整数和浮点数，最常用的功能就是用来表示10进制的整数和浮点数。</p>
+<p>Number表示的数字大小是有限的，如果超过了这个范围，则会返回 ±Infinity。</p>
+<ul>
+<li>最大值：+1.7976931348623157e+308</li>
+<li>最小值：-1.7976931348623157e+308</li>
+<li>0以上的最小值：5e-324</li>
+</ul>
+<p><strong>特殊的数字：</strong></p>
+<ul>
+<li>Infinity：正无穷</li>
+<li>-Infinity：负无穷</li>
+<li>NaN：非法数字（Not A Number）</li>
+</ul>
+<p><strong>其它的进制：</strong></p>
+<ul>
+<li>二进制：0b 开头表示二进制，但是，并不是所有的浏览器都支持</li>
+<li>八进制：0 开头表示八进制</li>
+<li>十六进制：0x 开头表示十六进制</li>
+</ul>
+<pre><code>注意：使用typeof检查一个Number类型的数据时（包括NaN 和 Infinity），会返回&quot;number&quot;。
+</code></pre>
+<h3 id="2-3-5、Boolean"><a href="#2-3-5、Boolean" class="headerlink" title="2.3.5、Boolean"></a>2.3.5、Boolean</h3><p>布尔型也被称为逻辑值类型或者真假值类型。</p>
+<p>布尔型只能够取真（true）和假（false）两种数值。除此以外， 其它的值都不被支持。</p>
+<h3 id="2-3-6、Undefined"><a href="#2-3-6、Undefined" class="headerlink" title="2.3.6、Undefined"></a>2.3.6、Undefined</h3><p>Undefined 类型只有一个值，即特殊的 undefined。</p>
+<p>在使用 var 声明变量但未对其加以初始化时，这个变量的值就是 undefined。</p>
+<pre><code>注意：使用typeof对没有初始化和没有声明的变量，会返回“undefined”。
+</code></pre>
+<h3 id="2-3-7、Null"><a href="#2-3-7、Null" class="headerlink" title="2.3.7、Null"></a>2.3.7、Null</h3><p>Null 类型是第二个只有一个值的数据类型，这个特殊的值是 null。</p>
+<p>undefined值实际上是由null值衍生出来的，所以如果比较undefined和null是否相等，会返回true。</p>
+<pre><code>注意：从语义上看null表示的是一个空的对象，所以使用typeof检查null会返回一个Object。
+</code></pre>
+<h2 id="2-4、强制类型转换"><a href="#2-4、强制类型转换" class="headerlink" title="2.4、强制类型转换"></a>2.4、强制类型转换</h2><p>强制类型转换指将一个数据类型强制转换为其它的数据类型。一般是指，将其它的数据类型转换为String、Number、Boolean。</p>
+<h3 id="2-4-1、转换为String类型"><a href="#2-4-1、转换为String类型" class="headerlink" title="2.4.1、转换为String类型"></a>2.4.1、转换为String类型</h3><p>将其它数值转换为字符串有三种方式：toString()、String()、 拼串。</p>
+<ul>
+<li>方式一：调用被转换数据类型的toString()方法，该方法不会影响到原变量，它会将转换的结果返回，但是注意：null和undefined这两个值没有toString()方法，如果调用它们的方法，会报错。</li>
+</ul>
+<pre><code>var a = 123;
+a = a.toString();
+console.log(a);
+console.log(typeof a);
+</code></pre>
+<ul>
+<li>方式二：调用String()函数，并将被转换的数据作为参数传递给函数，使用String()函数做强制类型转换时，对于Number和Boolean实际上就是调用的toString()方法，但是对于null和undefined，就不会调用toString()方法，它会将 null 直接转换为 “null”，将 undefined 直接转换为 “undefined”。</li>
+</ul>
+<pre><code>var a = 123;
+a = String(a);
+console.log(a);
+console.log(typeof a);
+
+var b = undefined;
+b = String(b);
+console.log(b);
+console.log(typeof b);
+
+var c = null;
+c = String(c);
+console.log(c);
+console.log(typeof c);
+</code></pre>
+<ul>
+<li>方式三：为任意的数据类型 <code>+&quot;&quot;</code></li>
+</ul>
+<pre><code>var a = 123;
+a = a + &quot;&quot;;
+console.log(a);
+console.log(typeof a);
+</code></pre>
+<h3 id="2-4-2、转换为Number类型"><a href="#2-4-2、转换为Number类型" class="headerlink" title="2.4.2、转换为Number类型"></a>2.4.2、转换为Number类型</h3><p>有三个函数可以把非数值转换为数值：Number()、parseInt() 和parseFloat()。Number()可以用来转换任意类型的数据，而后两者只能用于转换字符串。parseInt()只会将字符串转换为整数，而parseFloat()可以将字符串转换为浮点数。</p>
+<ul>
+<li>方式一：使用Number()函数<ul>
+<li>字符串 –&gt; 数字<ul>
+<li>如果是纯数字的字符串，则直接将其转换为数字</li>
+<li>如果字符串中有非数字的内容，则转换为NaN</li>
+<li>如果字符串是一个空串或者是一个全是空格的字符串，则转换为0</li>
+</ul>
+</li>
+<li>布尔 –&gt; 数字<ul>
+<li>true 转成 1</li>
+<li>false 转成 0</li>
+</ul>
+</li>
+<li>null –&gt; 数字<ul>
+<li>null 转成 0</li>
+</ul>
+</li>
+<li>undefined –&gt; 数字<ul>
+<li>undefined 转成 NaN</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>方式二：这种方式专门用来对付字符串，parseInt() 把一个字符串转换为一个整数</li>
+</ul>
+<pre><code>var a = &quot;123&quot;;
+a = parseInt(a);
+console.log(a);
+console.log(typeof a);
+</code></pre>
+<ul>
+<li>方式三：这种方式专门用来对付字符串，parseFloat() 把一个字符串转换为一个浮点数</li>
+</ul>
+<pre><code>var a = &quot;123.456&quot;;
+a = parseFloat(a);
+console.log(a);
+console.log(typeof a);
+</code></pre>
+<pre><code>注意：如果对非String使用parseInt()或parseFloat()，它会先将其转换为String然后在操作
+</code></pre>
+<h3 id="2-4-3、转换为Boolean类型"><a href="#2-4-3、转换为Boolean类型" class="headerlink" title="2.4.3、转换为Boolean类型"></a>2.4.3、转换为Boolean类型</h3><p>将其它的数据类型转换为Boolean，只能使用Boolean()函数。</p>
+<ul>
+<li>使用Boolean()函数<ul>
+<li>数字 —&gt; 布尔<ul>
+<li>除了0和NaN，其余的都是true</li>
+</ul>
+</li>
+<li>字符串 —&gt; 布尔<ul>
+<li>除了空串，其余的都是true</li>
+</ul>
+</li>
+<li>null和undefined都会转换为false</li>
+<li>对象也会转换为true</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-5、运算符"><a href="#2-5、运算符" class="headerlink" title="2.5、运算符"></a>2.5、运算符</h2><p>运算符也叫操作符，通过运算符可以对一个或多个值进行运算并获取运算结果。</p>
+<p>比如：typeof就是运算符，可以来获得一个值的类型，它会将该值的类型以字符串的形式返回（number string boolean undefined object）</p>
+<h3 id="2-5-1、算术运算符"><a href="#2-5-1、算术运算符" class="headerlink" title="2.5.1、算术运算符"></a>2.5.1、算术运算符</h3><p>算术运算符用于表达式计算。</p>
+<p>y=5，下面的表格解释了这些算术运算符：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>例子</th>
+<th>x 运算结果</th>
+<th>y 运算结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>加法</td>
+<td>x=y+2</td>
+<td>7</td>
+<td>5</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减法</td>
+<td>x=y-2</td>
+<td>3</td>
+<td>5</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘法</td>
+<td>x=y*2</td>
+<td>10</td>
+<td>5</td>
+</tr>
+<tr>
+<td>/</td>
+<td>除法</td>
+<td>x=y/2</td>
+<td>2.5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>%</td>
+<td>取模（求余数）</td>
+<td>x=y%2</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>++</td>
+<td>自增</td>
+<td>x=++y x=y++</td>
+<td>6 5</td>
+<td>6 6</td>
+</tr>
+<tr>
+<td>–</td>
+<td>自减</td>
+<td>x=–y x=y–</td>
+<td>4 5</td>
+<td>4 4</td>
+</tr>
+</tbody></table>
+<h3 id="2-5-2、关系运算符"><a href="#2-5-2、关系运算符" class="headerlink" title="2.5.2、关系运算符"></a>2.5.2、关系运算符</h3><p>关系运算符在逻辑语句中使用，以测定变量或值是否相等。</p>
+<p>x=5，下面的表格解释了比较运算符：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>比较</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&gt;</td>
+<td>大于</td>
+<td>x&gt;8</td>
+<td><em>false</em></td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+<td>x&lt;8</td>
+<td><em>true</em></td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于或等于</td>
+<td>x&gt;=8</td>
+<td><em>false</em></td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于或等于</td>
+<td>x&lt;=8</td>
+<td><em>true</em></td>
+</tr>
+</tbody></table>
+<h3 id="2-5-3、赋值运算符"><a href="#2-5-3、赋值运算符" class="headerlink" title="2.5.3、赋值运算符"></a>2.5.3、赋值运算符</h3><p>赋值运算符用于给 JavaScript 变量赋值。</p>
+<p>x=10 和 y=5，下面的表格解释了赋值运算符：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>例子</th>
+<th>等同于</th>
+<th>运算结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=</td>
+<td>x=y</td>
+<td></td>
+<td>x=5</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>x+=y</td>
+<td>x=x+y</td>
+<td>x=15</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>x-=y</td>
+<td>x=x-y</td>
+<td>x=5</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>x*=y</td>
+<td>x=x*y</td>
+<td>x=50</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>x/=y</td>
+<td>x=x/y</td>
+<td>x=2</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>x%=y</td>
+<td>x=x%y</td>
+<td>x=0</td>
+</tr>
+</tbody></table>
+<h3 id="2-5-4、逻辑运算符"><a href="#2-5-4、逻辑运算符" class="headerlink" title="2.5.4、逻辑运算符"></a>2.5.4、逻辑运算符</h3><p>逻辑运算符用于测定变量或值之间的逻辑。</p>
+<p>给定 x=6 以及 y=3，下表解释了逻辑运算符：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;&amp;</td>
+<td>and</td>
+<td>(x &lt; 10 &amp;&amp; y &gt; 1) 为 true</td>
+</tr>
+<tr>
+<td>||</td>
+<td>or</td>
+<td>(x==5 || y==5) 为 false</td>
+</tr>
+<tr>
+<td>!</td>
+<td>not</td>
+<td>!(x==y) 为 true</td>
+</tr>
+</tbody></table>
+<p>关于逻辑运算符我们可以具体探讨一下：</p>
+<ul>
+<li>&amp;&amp; 与：&amp;&amp;可以对符号两侧的值进行与运算并返回结果，运算规则如下：<ul>
+<li>两个值中只要有一个值为false，就返回false，只有两个值都为true时，才会返回true</li>
+<li>JS中的“与”属于短路的与，如果第一个值为false，则不会检查第二个值</li>
+<li>非布尔值时：如果两个都为true，则返回第二个值，如果两个值中有false，则返回靠前的false的值</li>
+</ul>
+</li>
+<li>|| 或：||可以对符号两侧的值进行或运算并返回结果，运算规则如下：<ul>
+<li>两个值中只要有一个true，就返回true，只有两个值都为false，才会返回false</li>
+<li>JS中的“或”属于短路的或，如果第一个值为true，则不会检查第二个值</li>
+<li>非布尔值时：如果两个都为false ，则返回第二个值，如果两个值中有true，则返回靠前的true的值</li>
+</ul>
+</li>
+<li>! 非：!可以用来对一个值进行非运算，所谓非运算就是对一个布尔值进行取反操作，true变false，false变true，运算规则如下：<ul>
+<li>如果对一个值进行两次取反，它不会变化</li>
+<li>非布尔值时：先会将其转换为布尔值，然后再取反，所以我们可以利用该特点，来将一个其它的数据类型转换为布尔值，可以为一个任意数据类型取两次反，来将其转换为布尔值，原理和Boolean()函数一样</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-5-5、比较运算符"><a href="#2-5-5、比较运算符" class="headerlink" title="2.5.5、比较运算符"></a>2.5.5、比较运算符</h3><p>比较运算符用来比较两个值是否相等，如果相等会返回true，否则返回false。</p>
+<ul>
+<li><p>使用</p>
+<p>==</p>
+<p>来做相等运算</p>
+<ul>
+<li>当使用==来比较两个值时，如果值的类型不同，则会自动进行类型转换，将其转换为相同的类型，然后在比较</li>
+</ul>
+</li>
+<li><p>使用</p>
+<p>!=</p>
+<p>来做不相等运算</p>
+<ul>
+<li>不相等用来判断两个值是否不相等，如果不相等返回true，否则返回false，不相等也会对变量进行自动的类型转换，如果转换后相等它也会返回false</li>
+</ul>
+</li>
+<li><p>使用</p>
+<p>===</p>
+<p>来做全等运算</p>
+<ul>
+<li>用来判断两个值是否全等，它和相等类似，不同的是它不会做自动的类型转换，如果两个值的类型不同，直接返回false</li>
+</ul>
+</li>
+<li><p>使用</p>
+<p>!==</p>
+<p>来做不全等运算</p>
+<ul>
+<li>用来判断两个值是否不全等，它和不等类似，不同的是它不会做自动的类型转换，如果两个值的类型不同，直接返回true</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-5-6、条件运算符"><a href="#2-5-6、条件运算符" class="headerlink" title="2.5.6、条件运算符"></a>2.5.6、条件运算符</h3><p>JavaScript 还包含了基于某些条件对变量进行赋值的条件运算符。</p>
+<p>语法：<code>variablename=(condition)?value1:value2;</code></p>
+<p>举例：<code>result=(age&lt;18)?&quot;年龄太小&quot;:&quot;年龄合适&quot;;</code></p>
+<p>执行流程：如果condition为true，则执行语句1，并返回执行结果，如果为false，则执行语句2，并返回执行结果。</p>
+<h3 id="2-5-7、逗号运算符"><a href="#2-5-7、逗号运算符" class="headerlink" title="2.5.7、逗号运算符"></a>2.5.7、逗号运算符</h3><p>使用逗号可以在一条语句中执行多次操作。</p>
+<p>比如：var num1=1, num2=2, num3=3;</p>
+<p>使用逗号运算符分隔的语句会从左到右顺 序依次执行。</p>
+<h2 id="2-6、运算符优先级"><a href="#2-6、运算符优先级" class="headerlink" title="2.6、运算符优先级"></a>2.6、运算符优先级</h2><p>运算符优先级由上到下依次减小，对于同级运算符，采用从左向右依次执行的方法。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/695dff6b3d3117760c6fba7c0b09895b.png"></p>
+<h2 id="2-7、代码块"><a href="#2-7、代码块" class="headerlink" title="2.7、代码块"></a>2.7、代码块</h2><h3 id="2-7-1、语句"><a href="#2-7-1、语句" class="headerlink" title="2.7.1、语句"></a>2.7.1、语句</h3><p>前边我所说表达式和运算符等内容可以理解成是我们一 门语言中的单词，短语。而语句（statement）就是我们这个语言中一句一句完 整的话了。语句是一个程序的基本单位，JavaScript的程序就是由一条一条语句构成的，每一条语句使用;结尾。</p>
+<p>JavaScript中的语句默认是由上至下顺序执行的，但是我们也可以通过一些流程控制语句来控制语句的执行顺序。</p>
+<h3 id="2-7-2、代码块"><a href="#2-7-2、代码块" class="headerlink" title="2.7.2、代码块"></a>2.7.2、代码块</h3><p>代码块是在大括号 {} 中所写的语句，以此将多条语句的集合视为一条语句来使用。</p>
+<p>例如：</p>
+<pre><code>&#123;
+    var a = 123;
+    a++;
+    alert(a);
+&#125;
+</code></pre>
+<p>我们一般使用代码块将需要一起执行的语句进行分组，需要注意的是，代码块结尾不需要加 分号。</p>
+<h2 id="2-8、条件语句"><a href="#2-8、条件语句" class="headerlink" title="2.8、条件语句"></a>2.8、条件语句</h2><p>条件语句是通过判断指定表达式的值来决定执行还是跳过某些语句，最基本的条件语句：</p>
+<ul>
+<li>if…else</li>
+<li>switch…case</li>
+</ul>
+<h3 id="2-8-1、if…else"><a href="#2-8-1、if…else" class="headerlink" title="2.8.1、if…else"></a>2.8.1、if…else</h3><p>if…else语句是一种最基本的控制语句，它让JavaScript可以有条件的执行语句。</p>
+<ul>
+<li>第一种形式：</li>
+</ul>
+<pre><code>if(expression)
+    statement
+</code></pre>
+<pre><code>var age = 16;
+if (age &lt; 18) &#123;
+    console.log(&quot;未成年&quot;);
+&#125;
+</code></pre>
+<ul>
+<li>第二种形式：</li>
+</ul>
+<pre><code>if(expression)
+    statement
+else
+    statement
+</code></pre>
+<pre><code>var age = 16;
+if (age &lt; 18) &#123;
+    console.log(&quot;未成年&quot;);
+&#125; else &#123;
+    console.log(&quot;已成年&quot;);
+&#125;
+</code></pre>
+<ul>
+<li>第三种形式：</li>
+</ul>
+<pre><code>if(expression1)
+    statement
+else if(expression2)
+    statement
+else
+    statement    
+</code></pre>
+<pre><code>var age = 18;
+if (age &lt; 18) &#123;
+    console.log(&quot;小于18岁了&quot;);
+&#125; else if (age == 18) &#123;
+    console.log(&quot;已经18岁了&quot;);
+&#125; else &#123;
+    console.log(&quot;大于18岁了&quot;)
+&#125;
+</code></pre>
+<h3 id="2-8-2、switch…case"><a href="#2-8-2、switch…case" class="headerlink" title="2.8.2、switch…case"></a>2.8.2、switch…case</h3><p>switch…case是另一种流程控制语句。</p>
+<p>switch语句更适用于多条分支使用同一条语句的情况。</p>
+<p>语法格式：</p>
+<pre><code>switch (语句) &#123;
+    case 表达式1:
+        语句...
+    case 表达式2:
+        语句...
+    default:
+        语句...
+&#125;
+</code></pre>
+<pre><code>注意：需要注意的是一旦符合case的条件程序会一直运行到结束，所以我们一般会在case中添加break作为语句的结束。
+</code></pre>
+<p><strong>案例演示1：根据today的数值，输出今天是星期几。</strong></p>
+<pre><code>var today = 1;
+switch (today) &#123;
+    case 1:
+        console.log(&quot;星期一&quot;);
+        break;
+    case 2:
+        console.log(&quot;星期二&quot;);
+        break;
+    case 3:
+        console.log(&quot;星期三&quot;);
+        break;
+    case 4:
+        console.log(&quot;星期四&quot;);
+        break;
+    case 5:
+        console.log(&quot;星期五&quot;);
+        break;
+    case 6:
+        console.log(&quot;星期六&quot;);
+        break;
+    case 7:
+        console.log(&quot;星期日&quot;);
+        break;
+    default:
+        console.log(&quot;输入错误&quot;);
+&#125;
+</code></pre>
+<p><strong>案例演示2：根据month的数值，输出对应月份的天数，2月默认28天。</strong></p>
+<pre><code>var month = 10;
+switch (month) &#123;
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+        console.log(&quot;31天&quot;);
+        break;
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        console.log(&quot;30天&quot;);
+        break;
+    case 2:
+        console.log(&quot;28天&quot;);
+        break;
+    default:
+        console.log(&quot;输入错误&quot;);
+&#125;
+</code></pre>
+<h2 id="2-9、循环语句"><a href="#2-9、循环语句" class="headerlink" title="2.9、循环语句"></a>2.9、循环语句</h2><p>循环语句和条件语句一样，也是基本的控制语句，只要满足一定的条件将会一直执行，最基本的循环语句：</p>
+<ul>
+<li>while</li>
+<li>do…while</li>
+<li>for</li>
+</ul>
+<h3 id="2-9-1、while"><a href="#2-9-1、while" class="headerlink" title="2.9.1、while"></a>2.9.1、while</h3><p>while语句是一个最基本的循环语句，while语句也被称为while循环。</p>
+<p>语法格式：</p>
+<pre><code>while(条件表达式)&#123;
+    语句...
+&#125;
+</code></pre>
+<p><strong>案例演示：输出1-10。</strong></p>
+<pre><code>var i = 1;
+while (i &lt;= 10) &#123;
+    console.log(i);
+    i++;
+&#125;
+</code></pre>
+<h3 id="2-9-2、do…while"><a href="#2-9-2、do…while" class="headerlink" title="2.9.2、do…while"></a>2.9.2、do…while</h3><p>do…while和while非常类似，只不过它会在循环的尾部而不是顶部检查表达式的值，因此，do…while循环会至少执行一次。相比于while，do…while的使用情况并不 是很多。</p>
+<p>语法格式：</p>
+<pre><code>do&#123;
+    语句...
+&#125;while(条件表达式);
+</code></pre>
+<p><strong>案例演示：输出1-10。</strong></p>
+<pre><code>var i = 1;
+do &#123;
+    console.log(i);
+    i++;
+&#125; while (i &lt;= 10);
+</code></pre>
+<h3 id="2-9-3、for"><a href="#2-9-3、for" class="headerlink" title="2.9.3、for"></a>2.9.3、for</h3><p>for语句也是循环控制语句，我们也称它为for循环。大部分循环都会有一个计数器用以控制循环执行的次数， 计数器的三个关键操作是初始化、检测和更新。for语句 就将这三步操作明确为了语法的一部分。</p>
+<p>语法格式：</p>
+<pre><code>for(初始化表达式 ; 条件表达式 ; 更新表达式)&#123;
+    语句...
+&#125;
+</code></pre>
+<p><strong>案例演示：输出1-10。</strong></p>
+<pre><code>for (var i = 1; i &lt;= 10; i++) &#123;
+    console.log(i);
+&#125;
+</code></pre>
+<h3 id="2-9-4、跳转控制"><a href="#2-9-4、跳转控制" class="headerlink" title="2.9.4、跳转控制"></a>2.9.4、跳转控制</h3><ul>
+<li>break：结束最近的一次循环，可以在循环和switch语句中使用。</li>
+<li>continue：结束本次循环，执行下一次循环，只能在循环中使用。</li>
+</ul>
+<p>那如果我们想要跳出多层循环或者跳到指定位置该怎么办呢？可以为循环语句创建一个label，来标识当前的循环，如下例子：</p>
+<pre><code>outer: for (var i = 0; i &lt; 10; i++) &#123;
+    for (var j = 0; j &lt; 10; j++) &#123;
+        if (j == 5) &#123;
+            break outer;
+        &#125;
+        console.log(j);
+    &#125;
+&#125;
+</code></pre>
+<h2 id="2-10、对象基础"><a href="#2-10、对象基础" class="headerlink" title="2.10、对象基础"></a>2.10、对象基础</h2><h3 id="2-10-1、概述"><a href="#2-10-1、概述" class="headerlink" title="2.10.1、概述"></a>2.10.1、概述</h3><p>Object类型，我们也称为一个对象，是JavaScript中的引用数据类型。它是一种复合值，它将很多值聚合到一起，可以通过名字访问这些值。对象也可以看做是属性的无序集合，每个属性都是一个名/值对。对象除了可以创建自有属性，还可以通过从一个名为原型的对象那里继承属性。除了字符串、数字、true、false、null和undefined之外，JavaScript中的值都是对象。</p>
+<h3 id="2-10-2、创建对象"><a href="#2-10-2、创建对象" class="headerlink" title="2.10.2、创建对象"></a>2.10.2、创建对象</h3><p>创建对象有两种方式：</p>
+<ul>
+<li>第一种方式：</li>
+</ul>
+<pre><code>var person = new Object();
+person.name = &quot;孙悟空&quot;;
+person.age = 18;
+console.log(person);
+</code></pre>
+<ul>
+<li>第二种方式：</li>
+</ul>
+<pre><code>var person = &#123;
+    name: &quot;孙悟空&quot;,
+    age: 18
+&#125;;
+console.log(person);
+</code></pre>
+<h3 id="2-10-3、访问属性"><a href="#2-10-3、访问属性" class="headerlink" title="2.10.3、访问属性"></a>2.10.3、访问属性</h3><p>访问属性的两种方式：</p>
+<ul>
+<li>第一种方式：使用 . 来访问</li>
+</ul>
+<pre><code>对象.属性名
+</code></pre>
+<ul>
+<li>第二种方式：使用 [] 来访问</li>
+</ul>
+<pre><code>对象[‘属性名’]
+</code></pre>
+<h3 id="2-10-4、删除属性"><a href="#2-10-4、删除属性" class="headerlink" title="2.10.4、删除属性"></a>2.10.4、删除属性</h3><p>删除对象的属性可以使用delete关键字，格式如下：</p>
+<pre><code>delete 对象.属性名
+</code></pre>
+<p>案例演示：</p>
+<pre><code>var person = new Object();
+person.name = &quot;孙悟空&quot;;
+person.age = 18;
+console.log(person);
+
+delete person.name
+console.log(person);
+</code></pre>
+<h3 id="2-10-5、遍历对象"><a href="#2-10-5、遍历对象" class="headerlink" title="2.10.5、遍历对象"></a>2.10.5、遍历对象</h3><p>枚举遍历对象中的属性，可以使用for … in语句循环，对象中有几个属性，循环体就会执行几次。</p>
+<p>语法格式：</p>
+<pre><code>for (var 变量 in 对象) &#123;
+
+&#125;
+</code></pre>
+<p>案例演示：</p>
+<pre><code>var person = &#123;
+    name: &quot;zhangsan&quot;,
+    age: 18
+&#125;
+
+for (var personKey in person) &#123;
+    var personVal = person[personKey];
+    console.log(personKey + &quot;:&quot; + personVal);
+&#125;
+</code></pre>
+<h3 id="2-10-6、数据类型梳理"><a href="#2-10-6、数据类型梳理" class="headerlink" title="2.10.6、数据类型梳理"></a>2.10.6、数据类型梳理</h3><h4 id="2-10-6-1、基本数据类型"><a href="#2-10-6-1、基本数据类型" class="headerlink" title="2.10.6.1、基本数据类型"></a>2.10.6.1、基本数据类型</h4><p>JavaScript中的变量可能包含两种不同数据类型的值：基本数据类型和引用数据类型。</p>
+<p>JavaScript中一共有5种基本数据类型：String、Number、 Boolean、Undefined、Null。</p>
+<p>基本数据类型的值是无法修改的，是不可变的。</p>
+<p>基本数据类型的比较是值的比较，也就是只要两个变量的值相等，我们就认为这两个变量相等。</p>
+<h4 id="2-10-6-2、引用数据类型"><a href="#2-10-6-2、引用数据类型" class="headerlink" title="2.10.6.2、引用数据类型"></a>2.10.6.2、引用数据类型</h4><p>引用类型的值是保存在内存中的对象。</p>
+<p>当一个变量是一个对象时，实际上变量中保存的并不是对象本身，而是对象的引用。</p>
+<p>当从一个变量向另一个变量复制引用类型的值时，会将对象的引用复制到变量中，并不是创建一个新的对象。</p>
+<p>这时，两个变量指向的是同一个对象。因此，改变其中一个变量会影响另一个。</p>
+<h3 id="2-10-7、栈和堆梳理"><a href="#2-10-7、栈和堆梳理" class="headerlink" title="2.10.7、栈和堆梳理"></a>2.10.7、栈和堆梳理</h3><p>JavaScript在运行时数据是保存到栈内存和堆内存当中的。</p>
+<p>简单来说栈内存用来保存变量和基本类型，堆内存是用来保存对象。</p>
+<p>我们在声明一个变量时，实际上就是在栈内存中创建了一个空间用来保存变量。</p>
+<p>如果是基本类型则在栈内存中直接保存，如果是引用类型则会在堆内存中保存，变量中保存的实际上对象在堆内存中的地址。</p>
+<p>当我们写了下边这几句代码的时候，栈内存和堆内存的结构如下：</p>
+<pre><code>var a = 123;
+var b = true;
+var c = &quot;hello&quot;;
+var d = &#123;name: &#39;sunwukong&#39;, age: 18&#125;;
+</code></pre>
+<p>栈的特点：先进后出，后进先出</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/48487fd2d563e9a30beaf4fe8273285f.png"></p>
+<h2 id="2-11、函数"><a href="#2-11、函数" class="headerlink" title="2.11、函数"></a>2.11、函数</h2><h3 id="2-11-1、概述"><a href="#2-11-1、概述" class="headerlink" title="2.11.1、概述"></a>2.11.1、概述</h3><p>函数是由一连串的子程序（语句的集合）所组成的，可以被外部程序调用，向函数传递参数之后，函数可以返回一定的值。</p>
+<p>通常情况下，JavaScript代码是自上而下执行的，不过函数体内部的代码则不是这样。如果只是对函数进行了声明，其中的代码并不会执行，只有在调用函数时才会执行函数体内部的代码。</p>
+<p>这里要注意的是JavaScript中的函数也是一个对象，使用typeof检查一个函数对象时，会返回function。</p>
+<h3 id="2-11-2、函数创建"><a href="#2-11-2、函数创建" class="headerlink" title="2.11.2、函数创建"></a>2.11.2、函数创建</h3><ul>
+<li><p>使用 <strong>函数对象</strong> 来创建一个函数（几乎不用）</p>
+<p>语法格式：</p>
+<pre><code>var 函数名 = new Function(&quot;执行语句&quot;);
+</code></pre>
+<p>示例代码：</p>
+<pre><code>var fun = new Function(&quot;console.log(&#39;这是我的第一个函数&#39;);&quot;);
+</code></pre>
+<p>使用 <strong>函数声明</strong> 来创建一个函数（比较常用）</p>
+<p>语法格式：</p>
+<pre><code>function 函数名([形参1,形参2,...,形参N]) &#123;
+    语句...
+&#125;]
+</code></pre>
+<p>示例代码：</p>
+<pre><code>var fun  = function() &#123;
+    console.log(&quot;这是我的第三个函数&quot;);
+&#125;
+</code></pre>
+<h3 id="2-11-3、函数调用"><a href="#2-11-3、函数调用" class="headerlink" title="2.11.3、函数调用"></a>2.11.3、函数调用</h3><p>对于无参函数调用：</p>
+<pre><code>// 函数声明
+var fun = function () &#123;
+    console.log(&quot;哈哈，我执行啦！&quot;);
+&#125;
+
+// 函数调用
+fun();
+</code></pre>
+<p>对于有参数函数调用：</p>
+<pre><code>// 函数声明
+var sum = function (num1, num2) &#123;
+    var result = num1 + num2;
+    console.log(&quot;num1 + num2 = &quot; + result);
+&#125;
+
+// 函数调用
+sum(10, 20);
+</code></pre>
+<h3 id="2-11-4、函数参数"><a href="#2-11-4、函数参数" class="headerlink" title="2.11.4、函数参数"></a>2.11.4、函数参数</h3><ul>
+<li>JS中的所有的参数传递都是按值传递的，也就是说把函数外部的值赋值给函数内部的参数，就和把值从一个变量赋值给另一个变量是一样的，在调用函数时，可以在()中指定实参（实际参数），实参将会赋值给函数中对应的形参</li>
+<li>调用函数时，解析器不会检查实参的类型，所以要注意，是否有可能会接收到非法的参数，如果有可能，则需要对参数进行类型的检查，函数的实参可以是任意的数据类型</li>
+<li>调用函数时，解析器也不会检查实参的数量，多余实参不会被赋值，如果实参的数量少于形参的数量，则没有对应实参的形参将是undefined</li>
+</ul>
+<h3 id="2-11-5、函数返回值"><a href="#2-11-5、函数返回值" class="headerlink" title="2.11.5、函数返回值"></a>2.11.5、函数返回值</h3><p>可以使用 return 来设置函数的返回值，return后的值将会作为函数的执行结果返回，可以定义一个变量，来接收该结果。</p>
+<pre><code>注意：在函数中return后的语句都不会执行，如果return语句后不跟任何值就相当于返回一个undefined，如果函数中不写return，则也会返回undefined，return后可以跟任意类型的值
+</code></pre>
+<p>语法格式：return 值</p>
+<p>案例演示：</p>
+<pre><code>function sum(num1, num2) &#123;
+    return num1 + num2;
+&#125;
+
+var result = sum(10, 20);
+console.log(result);
+</code></pre>
+<h3 id="2-11-6、嵌套函数"><a href="#2-11-6、嵌套函数" class="headerlink" title="2.11.6、嵌套函数"></a>2.11.6、嵌套函数</h3><p>嵌套函数：在函数中声明的函数就是嵌套函数，嵌套函数只能在当前函数中可以访问，在当前函数外无法访问。</p>
+<p>案例演示：</p>
+<pre><code>function fu() &#123;
+    function zi() &#123;
+        console.log(&quot;我是儿子&quot;)
+    &#125;
+
+    zi();
+&#125;
+
+fu();
+</code></pre>
+<h3 id="2-11-7、匿名函数"><a href="#2-11-7、匿名函数" class="headerlink" title="2.11.7、匿名函数"></a>2.11.7、匿名函数</h3><p>匿名函数：没有名字的函数就是匿名函数，它可以让一个变量来接收，也就是用 “函数表达式” 方式创建和接收。</p>
+<p>案例演示：</p>
+<pre><code>var fun = function () &#123;
+    alert(&quot;我是一个匿名函数&quot;);
+&#125;
+
+fun();
+</code></pre>
+<h3 id="2-11-8、立即执行函数"><a href="#2-11-8、立即执行函数" class="headerlink" title="2.11.8、立即执行函数"></a>2.11.8、立即执行函数</h3><p>立即执行函数：函数定义完，立即被调用，这种函数叫做立即执行函数，立即执行函数往往只会执行一次。</p>
+<p>案例演示：</p>
+<pre><code>(function () &#123;
+    alert(&quot;我是一个匿名函数&quot;);
+&#125;)();
+</code></pre>
+<h3 id="2-11-9、对象中的函数"><a href="#2-11-9、对象中的函数" class="headerlink" title="2.11.9、对象中的函数"></a>2.11.9、对象中的函数</h3><p>对象的属性值可以是任何的数据类型，也可以是个函数。</p>
+<p>如果一个函数作为一个对象的属性保存，那么我们称这个函数是这个对象的方法，调用这个函数就说调用对象的方法（method）。</p>
+<pre><code>注意：方法和函数只是名称上的区别，没有其它别的区别
+</code></pre>
+<p>案例演示：</p>
+<pre><code>var person = &#123;
+    name: &quot;zhangsan&quot;,
+    age: 18,
+    sayHello: function () &#123;
+        console.log(name + &quot; hello&quot;)
+    &#125;
+&#125;
+
+person.sayHello();
+</code></pre>
+<h3 id="2-11-10、this对象"><a href="#2-11-10、this对象" class="headerlink" title="2.11.10、this对象"></a>2.11.10、this对象</h3><p>解析器在调用函数每次都会向函数内部传递进一个隐含的参数，这个隐含的参数就是this，this指向的是一个对象，这个对象我们称为函数执行的上下文对象，根据函数的调用方式的不同，this会指向不同的对象</p>
+<ul>
+<li>以函数的形式调用时，this永远都是window</li>
+<li>以方法的形式调用时，this就是调用方法的那个对象</li>
+</ul>
+<p>案例演示：</p>
+<pre><code>//创建一个全局变量name
+var name = &quot;全局变量name&quot;;
+
+//创建一个函数
+function fun() &#123;
+    console.log(this.name);
+&#125;
+
+//创建一个对象
+var obj = &#123;
+    name: &quot;孙悟空&quot;,
+    sayName: fun
+&#125;;
+
+//我们希望调用obj.sayName()时可以输出obj的名字而不是全局变量name的名字
+obj.sayName();
+</code></pre>
+<h2 id="2-12、对象进阶"><a href="#2-12、对象进阶" class="headerlink" title="2.12、对象进阶"></a>2.12、对象进阶</h2><h3 id="2-12-1、用工厂方法创建对象"><a href="#2-12-1、用工厂方法创建对象" class="headerlink" title="2.12.1、用工厂方法创建对象"></a>2.12.1、用工厂方法创建对象</h3><p>我们之前已经学习了如何创建一个对象，那我们要是想要创建多个对象又该怎么办？聪明的同学可能会说，直接在写几个对象不就好了吗？比如下边的代码：</p>
+<pre><code>var person1 = &#123;
+    name: &quot;孙悟空&quot;,
+    age: 18,
+    sayName: function () &#123;
+        console.log(this.name);
+    &#125;
+&#125;;
+
+var person2 = &#123;
+    name: &quot;猪八戒&quot;,
+    age: 19,
+    sayName: function () &#123;
+        console.log(this.name);
+    &#125;
+&#125;;
+
+var person3 = &#123;
+    name: &quot;沙和尚&quot;,
+    age: 20,
+    sayName: function () &#123;
+        console.log(this.name);
+    &#125;
+&#125;;
+
+console.log(person1);
+console.log(person2);
+console.log(person3);
+</code></pre>
+<p>的确，上述代码确实可以创建多个对象，但是，这样的解决方案真的好吗？对于少量对象可能使用，我们假设说，要用循环创建1000个对象，那你这种办法似乎就没用了，我们可以这么做，如下代码：</p>
+<pre><code>// 使用工厂模式创建对象
+function createPerson() &#123;
+    // 创建新的对象
+    var obj = new Object();
+    // 设置对象属性
+    obj.name = &quot;孙悟空&quot;;
+    obj.age = 18;
+    // 设置对象方法
+    obj.sayName = function () &#123;
+        console.log(this.name);
+    &#125;;
+    //返回新的对象
+    return obj;
+&#125;
+
+var person1 = createPerson();
+var person2 = createPerson();
+var person3 = createPerson();
+
+console.log(person1);
+console.log(person2);
+console.log(person3);
+</code></pre>
+<p>上述代码看起来更加简洁，但是你会发现每一个人都是孙悟空，我们要是想要给每一个人不同的属性值，请参考：</p>
+<pre><code>// 使用工厂模式创建对象
+function createPerson(name, age) &#123;
+    // 创建新的对象
+    var obj = new Object();
+    // 设置对象属性
+    obj.name = name;
+    obj.age = age;
+    // 设置对象方法
+    obj.sayName = function () &#123;
+        console.log(this.name);
+    &#125;;
+    //返回新的对象
+    return obj;
+&#125;
+
+var person1 = createPerson(&quot;孙悟空&quot;, 18);
+var person2 = createPerson(&quot;猪八戒&quot;, 19);
+var person3 = createPerson(&quot;沙和尚&quot;, 20);
+
+console.log(person1);
+console.log(person2);
+console.log(person3);
+</code></pre>
+<p>现在再看上述代码，发现好像已经完美的解决了创建多个对象的难题，那我们是不是可以用循环批量创建1000个对象了呢？那我们就来试试：</p>
+<pre><code>// 使用工厂模式创建对象
+function createPerson(name, age) &#123;
+    // 创建新的对象
+    var obj = new Object();
+    // 设置对象属性
+    obj.name = name;
+    obj.age = age;
+    // 设置对象方法
+    obj.sayName = function () &#123;
+        console.log(this.name);
+    &#125;;
+    //返回新的对象
+    return obj;
+&#125;
+
+for (var i = 1; i &lt;= 1000; i++) &#123;
+    var person = createPerson(&quot;person&quot; + i, 18);
+    console.log(person);
+&#125;
+</code></pre>
+<p>这样我们就实现了批量创建对象的功能，至于对象的名称和年龄，我们可以通过名称数组和年龄数组来获取，但这并不是我们本小节的重点，我们就忽略了。</p>
+</li>
+</ul>
+<p>​        2022年6/16 代写</p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Veam<br>
+        <strong>本文链接：</strong><a href="https://github.com/lonely0323/lonely0323.github.io/2022/06/16/text1/" title="https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;06&#x2F;16&#x2F;text1&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;06&#x2F;16&#x2F;text1&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/javaScript/">javaScript</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'https://github.com/lonely0323/gitment',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%AD%A6%E4%B9%A0javascript"><span class="toc-number">1.</span> <span class="toc-text">关于学习javascript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%88%91%E6%94%BE%E5%9C%A8%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%EF%BC%8C%E8%AF%B7%E8%87%AA%E5%B7%B1%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5-https-pan-baidu-com-s-1-b7lS-A4KvCOgTUlV4v-NA-%E6%8F%90%E5%8F%96%E7%A0%81-j9qe"><span class="toc-number">1.1.</span> <span class="toc-text">学习资料我放在百度网盘，请自己下载链接: https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1-b7lS_A4KvCOgTUlV4v_NA 提取码: j9qe</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-javascript%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">第一章 javascript简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-javascript%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 javascript的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-%E6%A0%87%E7%AD%BE%E5%BC%95%E7%94%A8"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.1.1 标签引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-2-%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8"><span class="toc-number">2.1.2.</span> <span class="toc-text">1.1.2 文件引用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2javascript%E7%9A%84%E8%BE%93%E5%87%BA"><span class="toc-number">2.2.</span> <span class="toc-text">1.2javascript的输出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1%E9%A1%B5%E9%9D%A2%E8%BE%93%E5%87%BA"><span class="toc-number">2.2.1.</span> <span class="toc-text">1.2.1页面输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-2%E3%80%81%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%87%BA"><span class="toc-number">2.2.2.</span> <span class="toc-text">1.2.2、控制台输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-3%E3%80%81%E5%BC%B9%E5%87%BA%E7%AA%97%E5%8F%A3%E8%BE%93%E5%87%BA"><span class="toc-number">2.2.3.</span> <span class="toc-text">1.2.3、弹出窗口输出</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3%E3%80%81JavaScript%E7%9A%84%E6%B3%A8%E9%87%8A"><span class="toc-number">2.3.</span> <span class="toc-text">1.3、JavaScript的注释</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-1%E3%80%81%E5%8D%95%E8%A1%8C%E6%B3%A8%E9%87%8A"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.3.1、单行注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-2%E3%80%81%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A"><span class="toc-number">2.3.2.</span> <span class="toc-text">1.3.2、多行注释</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-JavaScript%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">第二章 JavaScript基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-number">3.1.</span> <span class="toc-text">2.1、标识符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2%E3%80%81%E5%AD%97%E9%9D%A2%E9%87%8F%E5%92%8C%E5%8F%98%E9%87%8F"><span class="toc-number">3.2.</span> <span class="toc-text">2.2、字面量和变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1%E3%80%81%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="toc-number">3.2.1.</span> <span class="toc-text">2.2.1、字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2%E3%80%81%E5%8F%98%E9%87%8F"><span class="toc-number">3.2.2.</span> <span class="toc-text">2.2.2、变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.3.</span> <span class="toc-text">2.3、数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1%E3%80%81%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB"><span class="toc-number">3.3.1.</span> <span class="toc-text">2.3.1、类型分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2%E3%80%81typeof%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.3.2.</span> <span class="toc-text">2.3.2、typeof运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3%E3%80%81String"><span class="toc-number">3.3.3.</span> <span class="toc-text">2.3.3、String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-4%E3%80%81Number"><span class="toc-number">3.3.4.</span> <span class="toc-text">2.3.4、Number</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-5%E3%80%81Boolean"><span class="toc-number">3.3.5.</span> <span class="toc-text">2.3.5、Boolean</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-6%E3%80%81Undefined"><span class="toc-number">3.3.6.</span> <span class="toc-text">2.3.6、Undefined</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-7%E3%80%81Null"><span class="toc-number">3.3.7.</span> <span class="toc-text">2.3.7、Null</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4%E3%80%81%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.4.</span> <span class="toc-text">2.4、强制类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1%E3%80%81%E8%BD%AC%E6%8D%A2%E4%B8%BAString%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.4.1.</span> <span class="toc-text">2.4.1、转换为String类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2%E3%80%81%E8%BD%AC%E6%8D%A2%E4%B8%BANumber%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.4.2.</span> <span class="toc-text">2.4.2、转换为Number类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-3%E3%80%81%E8%BD%AC%E6%8D%A2%E4%B8%BABoolean%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.4.3.</span> <span class="toc-text">2.4.3、转换为Boolean类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.5.</span> <span class="toc-text">2.5、运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-1%E3%80%81%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.5.1.</span> <span class="toc-text">2.5.1、算术运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-2%E3%80%81%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.5.2.</span> <span class="toc-text">2.5.2、关系运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-3%E3%80%81%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.5.3.</span> <span class="toc-text">2.5.3、赋值运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-4%E3%80%81%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.5.4.</span> <span class="toc-text">2.5.4、逻辑运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-5%E3%80%81%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.5.5.</span> <span class="toc-text">2.5.5、比较运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-6%E3%80%81%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.5.6.</span> <span class="toc-text">2.5.6、条件运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-7%E3%80%81%E9%80%97%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.5.7.</span> <span class="toc-text">2.5.7、逗号运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">3.6.</span> <span class="toc-text">2.6、运算符优先级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7%E3%80%81%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">3.7.</span> <span class="toc-text">2.7、代码块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-1%E3%80%81%E8%AF%AD%E5%8F%A5"><span class="toc-number">3.7.1.</span> <span class="toc-text">2.7.1、语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-2%E3%80%81%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">3.7.2.</span> <span class="toc-text">2.7.2、代码块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-8%E3%80%81%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="toc-number">3.8.</span> <span class="toc-text">2.8、条件语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-1%E3%80%81if%E2%80%A6else"><span class="toc-number">3.8.1.</span> <span class="toc-text">2.8.1、if…else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-2%E3%80%81switch%E2%80%A6case"><span class="toc-number">3.8.2.</span> <span class="toc-text">2.8.2、switch…case</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-9%E3%80%81%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-number">3.9.</span> <span class="toc-text">2.9、循环语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-1%E3%80%81while"><span class="toc-number">3.9.1.</span> <span class="toc-text">2.9.1、while</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-2%E3%80%81do%E2%80%A6while"><span class="toc-number">3.9.2.</span> <span class="toc-text">2.9.2、do…while</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-3%E3%80%81for"><span class="toc-number">3.9.3.</span> <span class="toc-text">2.9.3、for</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-4%E3%80%81%E8%B7%B3%E8%BD%AC%E6%8E%A7%E5%88%B6"><span class="toc-number">3.9.4.</span> <span class="toc-text">2.9.4、跳转控制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-10%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80"><span class="toc-number">3.10.</span> <span class="toc-text">2.10、对象基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-10-1%E3%80%81%E6%A6%82%E8%BF%B0"><span class="toc-number">3.10.1.</span> <span class="toc-text">2.10.1、概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-10-2%E3%80%81%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.10.2.</span> <span class="toc-text">2.10.2、创建对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-10-3%E3%80%81%E8%AE%BF%E9%97%AE%E5%B1%9E%E6%80%A7"><span class="toc-number">3.10.3.</span> <span class="toc-text">2.10.3、访问属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-10-4%E3%80%81%E5%88%A0%E9%99%A4%E5%B1%9E%E6%80%A7"><span class="toc-number">3.10.4.</span> <span class="toc-text">2.10.4、删除属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-10-5%E3%80%81%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.10.5.</span> <span class="toc-text">2.10.5、遍历对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-10-6%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A2%B3%E7%90%86"><span class="toc-number">3.10.6.</span> <span class="toc-text">2.10.6、数据类型梳理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-10-6-1%E3%80%81%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.10.6.1.</span> <span class="toc-text">2.10.6.1、基本数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-10-6-2%E3%80%81%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.10.6.2.</span> <span class="toc-text">2.10.6.2、引用数据类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-10-7%E3%80%81%E6%A0%88%E5%92%8C%E5%A0%86%E6%A2%B3%E7%90%86"><span class="toc-number">3.10.7.</span> <span class="toc-text">2.10.7、栈和堆梳理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-11%E3%80%81%E5%87%BD%E6%95%B0"><span class="toc-number">3.11.</span> <span class="toc-text">2.11、函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-1%E3%80%81%E6%A6%82%E8%BF%B0"><span class="toc-number">3.11.1.</span> <span class="toc-text">2.11.1、概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-2%E3%80%81%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA"><span class="toc-number">3.11.2.</span> <span class="toc-text">2.11.2、函数创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-3%E3%80%81%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="toc-number">3.11.3.</span> <span class="toc-text">2.11.3、函数调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-4%E3%80%81%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="toc-number">3.11.4.</span> <span class="toc-text">2.11.4、函数参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-5%E3%80%81%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">3.11.5.</span> <span class="toc-text">2.11.5、函数返回值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-6%E3%80%81%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0"><span class="toc-number">3.11.6.</span> <span class="toc-text">2.11.6、嵌套函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-7%E3%80%81%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0"><span class="toc-number">3.11.7.</span> <span class="toc-text">2.11.7、匿名函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-8%E3%80%81%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0"><span class="toc-number">3.11.8.</span> <span class="toc-text">2.11.8、立即执行函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-9%E3%80%81%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">3.11.9.</span> <span class="toc-text">2.11.9、对象中的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-10%E3%80%81this%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.11.10.</span> <span class="toc-text">2.11.10、this对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-12%E3%80%81%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6"><span class="toc-number">3.12.</span> <span class="toc-text">2.12、对象进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-12-1%E3%80%81%E7%94%A8%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.12.1.</span> <span class="toc-text">2.12.1、用工厂方法创建对象</span></a></li></ol></li></ol></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1657607025515"></script>
+
+
+	<script async src="/js/search.js?v=1657607025515"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>
