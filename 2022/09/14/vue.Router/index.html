@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>vue的基础之路（路由（Router）使用） - VaMin23博客网</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/VaMin.ico" type="image/x-icon" />
+    <meta name="description" content="vue的常规使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue的基础之路（路由（Router）使用）">
+<meta property="og:url" content="https://github.com/lonely0323/lonely0323.github.io/2022/09/14/vue.Router/index.html">
+<meta property="og:site_name" content="VaMin23博客网">
+<meta property="og:description" content="vue的常规使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/eb30d1fedc32de7be3bdfb34130c7343.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/b6d6064b01489a56a72d6d5210d33dec.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/32e0ee98729c0fd28d2fcbb8c94ba25b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/7cb321d4e958f4a4476ec85c20cfa444.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/69eecafa812cf758a5f43fca6af166fb.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/a77c68d32d5830a28d819c037e5e4507.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/278f72c39b68016234c65600eef0d375.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/6a789b88f0c3f57044171f0f005d2c4c.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/2d7af95d41a28b017740fbed4da005f1.png">
+<meta property="article:published_time" content="2022-09-14T00:50:00.000Z">
+<meta property="article:modified_time" content="2022-09-23T17:50:22.398Z">
+<meta property="article:author" content="Veam">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/eb30d1fedc32de7be3bdfb34130c7343.png">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1663956857756">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1663956857756">
+    
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://s1.ax1x.com/2022/07/12/j2mBm4.png)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Veam" class="mdui-btn mdui-btn-icon"><img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Veam">
+            <img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam" alt="Veam">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>17</div>
+        <div><span>标签</span>6</div>
+        <div><span>分类</span>9</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form">
+                <label><input class="st-default-search-input" id="search_value" name="q" type="search" placeholder="搜索" style="
+                    font-size: 15px !important;
+                    height: 56px !important;
+                    background-image: none;
+                "></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=MvqLiTM1" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-qq1"></i>
+        </a><a class="mdui-ripple" href="/veam23@foxmail.com" target="_blank" mdui-tooltip="{content: '邮箱地址'}" style="color: rgb(44 0 219);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-QQyouxiang1"></i>
+        </a><a class="mdui-ripple" href="https://github.com/lonely0323" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://weibo.com/u/6323576495/home?wvr=5" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(220,20,60);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-weibo1"></i>
+        </a><a class="mdui-ripple" href="https://music.163.com/#/user/home?id=302060596" target="_blank" mdui-tooltip="{content: '网易云音乐'}" style="color: rgb(220,20,60);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-wangyiyunyinle"></i>
+        </a><a class="mdui-ripple" href="https://y.qq.com/n/ryqq/profile/like/song" target="_blank" mdui-tooltip="{content: 'QQ音乐'}" style="color: rgb(0,255,0);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-qqyinle"></i>
+        </a><a class="mdui-ripple" href="https://s.team/p/fvbb-wqnb/WPNPNWTQ" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(0,0,255);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/javaScript/">javaScript</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/uni-app/">uni-app</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/vue/">vue</a>
+          <span class="category-list-count">8</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/公告/">公告</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/学习/">学习</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/插件/">插件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/文档/">文档</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音乐/">音乐</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/%E5%85%B3%E4%BA%8E/" style="font-size: 10px;">关于</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 10px;">文档</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%BD%91%E7%AB%99/" style="font-size: 10px;">网站</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 Veam
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/lonely0323/VaMin23" target="_blank">VaMin23</a>
+        
+        <div style="font-size: 13px; color: #5600ff; ">
+            <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+            本站访客数<a id="busuanzi_value_site_uv"></a>人次
+        </div>
+    </div>
+</div><!-- .nexmoe-drawer -->
+
+
+
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
+              <img src="https://s1.ax1x.com/2022/07/12/jgMz1P.png" alt="vue的基础之路（路由（Router）使用）" loading="lazy">
+              <h1>vue的基础之路（路由（Router）使用）</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年09月14日</a>
+</div>
+
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    
+</div>
+
+      <h3 id="vue的常规使用"><a href="#vue的常规使用" class="headerlink" title="vue的常规使用"></a>vue的常规使用</h3><span id="more"></span>
+
+    <div id="aplayer-lhIMxRxL" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="5415926126" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+<h1 id="一、-vue中路由-Router"><a href="#一、-vue中路由-Router" class="headerlink" title="一、 vue中路由 Router"></a>一、 vue中路由 Router</h1><pre><code>路由:根据请求的路径按照一定的路由规则进行请求的转发从而帮助我们实现统一请求的管理
+</code></pre>
+<p>概念：它和vue.js的核心深度集成，让构成单页面应用变得易如反掌</p>
+<p>理解：让组件使用变得更加灵活，路由可以根据用户访问的url不同动态切换当前使用的组件</p>
+<h3 id="1、作用"><a href="#1、作用" class="headerlink" title="1、作用"></a>1、作用</h3><blockquote>
+<p>用来在vue中实现组件之间的动态切换</p>
+</blockquote>
+<ol>
+<li>路由核心功能：根据用户访问的url动态切换组件</li>
+<li>路由是配合组件一起使用的</li>
+<li>路由使用步骤</li>
+</ol>
+<pre><code class="java">1. 创建组件
+2.创建路由( 1.管理组件 2.制定路由规则)
+3.将路由交由vue管理 在vue中注册路由
+4.在vue实例范围内指定位置，使用路由选中组件
+1234
+</code></pre>
+<h3 id="2、使用路由"><a href="#2、使用路由" class="headerlink" title="2、使用路由"></a>2、使用路由</h3><h4 id="（1）引入路由"><a href="#（1）引入路由" class="headerlink" title="（1）引入路由"></a>（1）引入路由</h4><pre><code class="javascript">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/vue-router/dist/vue-router.js&quot;&gt;&lt;/script&gt;  //vue 路由js
+12
+</code></pre>
+<h4 id="（2）创建组件对象"><a href="#（2）创建组件对象" class="headerlink" title="（2）创建组件对象"></a>（2）创建组件对象</h4><pre><code class="javascript">//声明组件模板
+const login = &#123;
+  template:&#39;&lt;h1&gt;登录&lt;/h1&gt;&#39;
+&#125;;
+
+const register = &#123;
+  template:&#39;&lt;h1&gt;注册&lt;/h1&gt;&#39;
+&#125;;
+
+123456789
+</code></pre>
+<h4 id="（3）定义路由对象的规则"><a href="#（3）定义路由对象的规则" class="headerlink" title="（3）定义路由对象的规则"></a>（3）定义路由对象的规则</h4><pre><code class="javascript"> //创建路由对象
+const router = new VueRouter(&#123;
+  routes:[
+    &#123;path:&#39;/login&#39;,component:login&#125;,   //path: 路由的路径  component:路径对应的组件
+    &#123;path:&#39;/register&#39;,component:register&#125;
+  ]
+&#125;);
+1234567
+</code></pre>
+<h4 id="（4）将路由对象注册到vue实例"><a href="#（4）将路由对象注册到vue实例" class="headerlink" title="（4）将路由对象注册到vue实例"></a>（4）将路由对象注册到vue实例</h4><pre><code class="JavaScript">const app = new Vue(&#123;
+  el: &quot;#app&quot;,
+  data: &#123;
+    username:&quot;小陈&quot;,
+  &#125;,
+  methods: &#123;&#125;,
+  router:router   //设置路由对象
+&#125;);
+12345678
+</code></pre>
+<h4 id="（5）在页面中显示路由的组件"><a href="#（5）在页面中显示路由的组件" class="headerlink" title="（5）在页面中显示路由的组件"></a>（5）在页面中显示路由的组件</h4><pre><code class="html">&lt;!--显示路由的组件--&gt;
+&lt;router-view&gt;&lt;/router-view&gt;
+12
+</code></pre>
+<h4 id="（6）根据连接切换路由"><a href="#（6）根据连接切换路由" class="headerlink" title="（6）根据连接切换路由"></a>（6）根据连接切换路由</h4><pre><code class="html">&lt;a href=&quot;#/login&quot;&gt;点我登录&lt;/a&gt;
+&lt;a href=&quot;#/register&quot;&gt;点我注册&lt;/a&gt;
+12
+</code></pre>
+<h3 id="3、vue中路由-Router案例"><a href="#3、vue中路由-Router案例" class="headerlink" title="3、vue中路由 Router案例"></a>3、vue中路由 Router案例</h3><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;route的基本使用&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+  &#123;&#123;msg&#125;&#125;
+  &lt;!--4、路由选中的组件展示--&gt;
+  &lt;div&gt;&lt;router-view&gt;&lt;/router-view&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;../js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../js/vue-router.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  const  login=&#123;
+    template:`&lt;div&gt;&lt;h2&gt;登录组件&lt;/h2&gt;&lt;/div&gt;`
+  &#125;
+  const  reg=&#123;
+    template:`&lt;div&gt;&lt;h2&gt;注册组件&lt;/h2&gt;&lt;/div&gt;`
+  &#125;
+
+  //创建路由 1、管理组件 2、配置路由规则
+  const  router=new VueRouter(&#123;
+  //  指定路由规则
+    routes:[
+      &#123;path:&quot;/login&quot;,component:login&#125;,
+      &#123;path:&quot;/register&quot;,component:reg&#125;
+    ]
+  &#125;);
+
+
+  new Vue(&#123;
+    el:&quot;#app&quot;,
+    data:&#123;
+      msg:&quot;route的基本使用&quot;
+    &#125;,
+  //  3.将路由对象注册给vue实例
+    router
+  &#125;)
+&lt;/script&gt;
+12345678910111213141516171819202122232425262728293031323334353637383940414243
+</code></pre>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-CKpPylBL-1640243602421)(image/image.png)]</p>
+<h1 id="二、通过超链接切换路由的方式"><a href="#二、通过超链接切换路由的方式" class="headerlink" title="二、通过超链接切换路由的方式"></a>二、通过超链接切换路由的方式</h1><h3 id="1、链接切换路由"><a href="#1、链接切换路由" class="headerlink" title="1、链接切换路由"></a>1、链接切换路由</h3><pre><code class="html">&lt;!-- 使用链接切换路径--&gt;
+  &lt;a href=&quot;#/login&quot;&gt;登录组件&lt;/a&gt;
+  &lt;a href=&quot;#/register&quot;&gt;注册组件&lt;/a&gt;
+123
+</code></pre>
+<ul>
+<li>案例</li>
+</ul>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;route的基本使用&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+  &#123;&#123;msg&#125;&#125;
+  &lt;!--4、路由选中的组件展示--&gt;
+  &lt;div&gt;&lt;router-view&gt;&lt;/router-view&gt;&lt;/div&gt;
+
+&lt;!-- 使用链接切换路径--&gt;
+  &lt;a href=&quot;#/login&quot;&gt;登录组件&lt;/a&gt;
+  &lt;a href=&quot;#/register&quot;&gt;注册组件&lt;/a&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;../js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../js/vue-router.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  const  login=&#123;
+    template:`&lt;div&gt;&lt;h2&gt;登录组件&lt;/h2&gt;&lt;/div&gt;`
+  &#125;
+  const  reg=&#123;
+    template:`&lt;div&gt;&lt;h2&gt;注册组件&lt;/h2&gt;&lt;/div&gt;`
+  &#125;
+  //路由错误时的提示组件
+  const notFound=&#123;
+    template:`&lt;div&gt;&lt;h2&gt;你访问的路径有误，请重新输入&lt;/h2&gt;&lt;/div&gt;`
+  &#125;
+
+  //创建路由 1、管理组件 2、配置路由规则
+  const  router=new VueRouter(&#123;
+  //  指定路由规则
+    routes:[
+      &#123;path:&quot;/&quot;,redirect:&quot;/login&quot;&#125;,//配置根路由 切换方式为：重定向到指定路径
+      &#123;path:&quot;/login&quot;,component:login&#125;,
+      &#123;path:&quot;/register&quot;,component:reg&#125;,
+      &#123;path:&quot;*&quot;,component:notFound&#125;   //路径错误时的提示
+    ]
+  &#125;);
+
+
+  new Vue(&#123;
+    el:&quot;#app&quot;,
+    data:&#123;
+      msg:&quot;route的基本使用&quot;
+    &#125;,
+  //  3.将路由对象注册给vue实例
+    router
+  &#125;)
+&lt;/script&gt;
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/eb30d1fedc32de7be3bdfb34130c7343.png" alt="img" data-caption="img" loading="lazy"></p>
+<h3 id="2、router-link使用"><a href="#2、router-link使用" class="headerlink" title="2、router-link使用"></a>2、router-link使用</h3><pre><code>作用:用来替换我们在切换路由时使用a标签切换路由
+好处:就是可以自动给路由路径加入#不需要手动加入
+</code></pre>
+<h4 id="（1）使用router-link切换路由"><a href="#（1）使用router-link切换路由" class="headerlink" title="（1）使用router-link切换路由"></a>（1）使用router-link切换路由</h4><pre><code class="html">&lt;router-view&gt;&lt;/router-view&gt;
+&lt;!-- 使用链接切换路径--&gt;
+  &lt;a href=&quot;#/login&quot;&gt;登录组件&lt;/a&gt;
+  &lt;a href=&quot;#/register&quot;&gt;注册组件&lt;/a&gt;
+    
+&lt;!--使用router-link切换路由--&gt;
+    &lt;hr/&gt;
+&lt;router-link to=&quot;/login&quot;&gt;登录组件&lt;/router-link&gt;
+&lt;router-link to=&quot;/register&quot;&gt;注册组件&lt;/router-link&gt;
+
+12345678910
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/b6d6064b01489a56a72d6d5210d33dec.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="（2）根据路径去切换路由"><a href="#（2）根据路径去切换路由" class="headerlink" title="（2）根据路径去切换路由"></a>（2）根据路径去切换路由</h4><pre><code class="html">&lt;router-view&gt;&lt;/router-view&gt;
+
+    &lt;!-- 使用链接切换路径--&gt;
+    &lt;a href=&quot;#/login&quot;&gt;登录组件&lt;/a&gt;
+    &lt;a href=&quot;#/register&quot;&gt;注册组件&lt;/a&gt;
+
+    &lt;!--使用router-link切换路由--&gt;
+    &lt;hr/&gt;
+    &lt;router-link to=&quot;/login&quot;&gt;登录组件&lt;/router-link&gt;
+    &lt;router-link to=&quot;/register&quot;&gt;注册组件&lt;/router-link&gt;
+
+    &lt;hr/&gt;
+    &lt;!--根据路径去切换路由 --&gt;
+    &lt;router-link :to=&quot;&#123;path:&#39;/login&#39;&#125;&quot;&gt;登录组件&lt;/router-link&gt;
+    &lt;router-link :to=&quot;&#123;path:&#39;/register&#39;&#125;&quot;&gt;注册组件&lt;/router-link&gt;
+
+12345678910111213141516
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/32e0ee98729c0fd28d2fcbb8c94ba25b.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="（3）根据名称去切换路由-官方推荐-解耦合"><a href="#（3）根据名称去切换路由-官方推荐-解耦合" class="headerlink" title="（3）根据名称去切换路由 官方推荐 解耦合"></a>（3）根据名称去切换路由 官方推荐 解耦合</h4><ul>
+<li><code>官方建议使用名称切换，可以和当前路由配置的path解耦合 修改path属性不会影响到路由切换</code></li>
+</ul>
+<pre><code class="html">    &lt;router-view&gt;&lt;/router-view&gt;
+    &lt;!-- 使用链接切换路径--&gt;
+    &lt;a href=&quot;#/login&quot;&gt;登录组件&lt;/a&gt;
+    &lt;a href=&quot;#/register&quot;&gt;注册组件&lt;/a&gt;
+
+    &lt;!--使用router-link切换路由--&gt;
+    &lt;hr/&gt;
+    &lt;router-link to=&quot;/login&quot;&gt;登录组件&lt;/router-link&gt;
+    &lt;router-link to=&quot;/register&quot;&gt;注册组件&lt;/router-link&gt;
+
+    &lt;hr/&gt;
+    &lt;!--根据路径去切换路由--&gt;
+    &lt;router-link :to=&quot;&#123;path:&#39;/login&#39;&#125;&quot;&gt;登录组件&lt;/router-link&gt;
+    &lt;router-link :to=&quot;&#123;path:&#39;/register&#39;&#125;&quot;&gt;注册组件&lt;/router-link&gt;
+    &lt;hr/&gt;
+    
+    &lt;!--根据名称去切换路由 官方推荐--&gt;
+    &lt;hr/&gt;
+    &lt;router-link :to=&quot;&#123;name:&#39;login&#39;&#125;&quot;&gt;登录组件&lt;/router-link&gt;
+    &lt;router-link :to=&quot;&#123;name:&#39;register&#39;&#125;&quot;&gt;注册组件&lt;/router-link&gt;
+
+123456789101112131415161718192021
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/7cb321d4e958f4a4476ec85c20cfa444.png" alt="img" data-caption="img" loading="lazy"></p>
+<pre><code class="markdown"># 总结:
+  1.router-link 用来替换使用a标签实现路由切换 好处是不需要书写#号直接书写路由路径
+  2.router-link to属性用来书写路由路径   tag属性:用来将router-link渲染成指定的标签
+123
+</code></pre>
+<h1 id="三、通过js切换路由的方式"><a href="#三、通过js切换路由的方式" class="headerlink" title="三、通过js切换路由的方式"></a>三、通过js切换路由的方式</h1><p>当前vue实例中 存在两个路由相关的对象</p>
+<pre><code>$router 当前路由对象 | $router路由管理器对象
+</code></pre>
+<p>切换路由使用时 路由管理器对象 <code>$router</code></p>
+<ul>
+<li>语法：<code>this.$router.push(&#123;name:&quot;目标路由的name属性值&quot;&#125;)</code></li>
+</ul>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/69eecafa812cf758a5f43fca6af166fb.png" alt="img" data-caption="img" loading="lazy"></p>
+<h3 id="2、通过js切换路由的方式"><a href="#2、通过js切换路由的方式" class="headerlink" title="2、通过js切换路由的方式"></a>2、通过js切换路由的方式</h3><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;路由的切换&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+
+    &lt;router-view&gt;&lt;/router-view&gt;
+    &lt;!--根据名称去切换路由 官方推荐--&gt;
+    &lt;hr/&gt;
+    &lt;router-link :to=&quot;&#123;name:&#39;login&#39;&#125;&quot;&gt;登录组件&lt;/router-link&gt;
+    &lt;router-link :to=&quot;&#123;name:&#39;register&#39;&#125;&quot;&gt;注册组件&lt;/router-link&gt;
+    &lt;hr/&gt;
+    &lt;button @click=&quot;toLogin()&quot;&gt;切换到登录&lt;/button&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;../js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../js/vue-router.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    const login = &#123;
+        template: `&lt;div&gt;&lt;h2&gt;登录组件&lt;/h2&gt;&lt;/div&gt;`
+    &#125;
+    const reg = &#123;
+        template: `&lt;div&gt;&lt;h2&gt;注册组件&lt;/h2&gt;&lt;/div&gt;`
+    &#125;
+    //路由错误时的提示组件
+    const notFound = &#123;
+        template: `&lt;div&gt;&lt;h2&gt;你访问的路径有误，请重新输入&lt;/h2&gt;&lt;/div&gt;`
+    &#125;
+
+    //2、创建路由 1、管理组件 2、配置路由规则
+    const router = new VueRouter(&#123;
+        //  指定路由规则
+        routes: [
+            &#123;path: &quot;/&quot;, redirect: &quot;/login&quot;&#125;,//配置根路由 切换方式为：重定向到指定路径
+            &#123;path: &quot;/login&quot;, component: login, name: &quot;login&quot;&#125;,
+            &#123;path: &quot;/register&quot;, component: reg, name: &quot;register&quot;&#125;,
+            &#123;path: &quot;*&quot;, component: notFound&#125;   //路径错误时的提示
+        ]
+    &#125;);
+
+
+    new Vue(&#123;
+        el: &quot;#app&quot;,
+        data: &#123;
+            msg: &quot;route的基本使用&quot;
+        &#125;,
+        methods: &#123;
+            toLogin() &#123;
+                //  发送请求
+                // axios.get(&quot;url&quot;).then(()=&gt;&#123;&#125;)
+                //  正确响应时切换到登录页面 当前路由 routrt VueRouter路由管理对象
+                console.log(this);
+                //使用路由管理器对象 推入新的路由对象 替换原有的路由
+                this.$router.push(&#123;name:&quot;login&quot;&#125;);
+            &#125;
+        &#125;,
+        //  3.将路由对象注册给vue实例
+        router: router
+    &#125;)
+&lt;/script&gt;
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/a77c68d32d5830a28d819c037e5e4507.png" alt="img" data-caption="img" loading="lazy"></p>
+<h3 id="2、切换到同一路由报错"><a href="#2、切换到同一路由报错" class="headerlink" title="2、切换到同一路由报错"></a>2、切换到同一路由报错</h3><ul>
+<li><p>通过js程序切换路由时 存在的一个错误提示</p>
+</li>
+<li><p>原因：反复切换同一路由组件出现错误提示：</p>
+<p><code>vue-router.js:2071 Uncaught (in promise) NavigationDuplicated: Avoided redundant navigation to current location: &quot;/login&quot;.</code></p>
+</li>
+</ul>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/278f72c39b68016234c65600eef0d375.png" alt="img" data-caption="img" loading="lazy"></p>
+<ul>
+<li><p>解决方案：</p>
+<p>（1）通过程序去切换路由时，添加一个判断，如果要切换的是对应的路由，使用的路由组件不切换</p>
+</li>
+</ul>
+<pre><code class="javascript">methods: &#123;
+            toLogin() &#123;
+              console.log(this);
+                //使用路由管理器对象 推入新的路由对象 替换原有的路由
+                if(this.$route.name!=&quot;login&quot;)&#123;  //判断 当前的路由对象是否要切换的路由
+                    this.$router.push(&#123;name:&quot;login&quot;&#125;);
+                &#125;
+
+            &#125;,
+            toRegister() &#123;
+              //使用路由管理器对象 推入新的路由对象 替换原有的路由
+                if(this.$route.name!=&quot;register&quot;)
+                this.$router.push(&#123;name:&quot;register&quot;&#125;);
+            &#125;
+        &#125;
+123456789101112131415
+</code></pre>
+<p>(2)通过配置的形式</p>
+<ul>
+<li>反复切换同一个路由出现问题的解决方案 (配置信息)</li>
+</ul>
+<pre><code class="javascript">  const VueRouterPush = VueRouter.prototype.push
+  VueRouter.prototype.push = function push (to) &#123;
+      return VueRouterPush.call(this, to).catch(err =&gt; err)
+  &#125;
+1234
+</code></pre>
+<h1 id="四、默认路由"><a href="#四、默认路由" class="headerlink" title="四、默认路由"></a>四、默认路由</h1><pre><code>作用:用来在第一次进入界面是显示一个默认的组件
+  //2、创建路由 1、管理组件 2、配置路由规则
+    const router = new VueRouter(&#123;
+        //  指定路由规则
+        routes: [
+            &#123;path: &quot;/&quot;, redirect: &quot;/login&quot;&#125;,//配置根路由 切换方式为：重定向到指定路径
+            &#123;path: &quot;/login&quot;, component: login,name:&quot;login&quot;&#125;,
+            &#123;path: &quot;/register&quot;, component: reg,name:&quot;register&quot;&#125;,
+            &#123;path: &quot;*&quot;, component: notFound&#125;   //路径错误时的提示
+        ]
+    &#125;);
+12345678910
+</code></pre>
+<h1 id="五、路由中参数传递"><a href="#五、路由中参数传递" class="headerlink" title="五、路由中参数传递"></a>五、路由中参数传递</h1><h3 id="1、第一种方式传递参数-传统方式"><a href="#1、第一种方式传递参数-传统方式" class="headerlink" title="1、第一种方式传递参数 传统方式"></a>1、第一种方式传递参数 传统方式</h3><h4 id="（1）通过-号形式拼接参数"><a href="#（1）通过-号形式拼接参数" class="headerlink" title="（1）通过?号形式拼接参数"></a>（1）通过?号形式拼接参数</h4><pre><code class="html"> &lt;router-link to=&quot;/login?id=21&amp;name=zhangsan&quot;&gt;我要登录&lt;/router-link&gt;
+1
+</code></pre>
+<h4 id="（2）组件中获取参数"><a href="#（2）组件中获取参数" class="headerlink" title="（2）组件中获取参数"></a>（2）组件中获取参数</h4><pre><code class="javascript">const login = &#123;
+  template:&#39;&lt;h1&gt;用户登录&lt;/h1&gt;&#39;,
+  data()&#123;return &#123;&#125;&#125;,
+  methods:&#123;&#125;,
+  created()&#123;
+    console.log(&quot;=============&gt;&quot;+this.$route.query.id+&quot;======&gt;&quot;+this.$route.query.name);
+  &#125;
+&#125;;
+12345678
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/6a789b88f0c3f57044171f0f005d2c4c.png" alt="img" data-caption="img" loading="lazy"></p>
+<h3 id="2、第二种方式传递参数-restful风格"><a href="#2、第二种方式传递参数-restful风格" class="headerlink" title="2、第二种方式传递参数 restful风格"></a>2、第二种方式传递参数 restful风格</h3><p>指定动词: <code>get post put delete</code></p>
+<h4 id="（1）通过使用路径方式传递参数"><a href="#（1）通过使用路径方式传递参数" class="headerlink" title="（1）通过使用路径方式传递参数"></a>（1）通过使用路径方式传递参数</h4><pre><code class="javascript">&lt;router-link to=&quot;/register/24/张三&quot;&gt;我要注册&lt;/router-link&gt;
+var router = new VueRouter(&#123;
+  routes:[
+    &#123;path:&#39;/register/:id/:name&#39;,component:register&#125;   //定义路径中获取对应参数
+  ]
+&#125;);
+123456
+</code></pre>
+<h4 id="（2）组件中获取参数-1"><a href="#（2）组件中获取参数-1" class="headerlink" title="（2）组件中获取参数"></a>（2）组件中获取参数</h4><pre><code class="javascript">const register = &#123;
+  template:&#39;&lt;h1&gt;用户注册&#123;&#123; $route.params.name &#125;&#125;&lt;/h1&gt;&#39;,
+  created()&#123;
+    console.log(&quot;注册组件中id:   &quot;+this.$route.params.id+this.$route.params.name);
+  &#125;
+&#125;;
+123456
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/2d7af95d41a28b017740fbed4da005f1.png" alt="img" data-caption="img" loading="lazy"></p>
+<h1 id="六、-嵌套路由"><a href="#六、-嵌套路由" class="headerlink" title="六、 嵌套路由"></a>六、 嵌套路由</h1><h3 id="1、声明最外层和内层路由"><a href="#1、声明最外层和内层路由" class="headerlink" title="1、声明最外层和内层路由"></a>1、声明最外层和内层路由</h3><pre><code class="javascript">&lt;template id=&quot;product&quot;&gt;
+    &lt;div&gt;
+        &lt;h1&gt;商品管理&lt;/h1&gt;
+
+        &lt;router-link to=&quot;/product/add&quot;&gt;商品添加&lt;/router-link&gt;
+        &lt;router-link to=&quot;/product/edit&quot;&gt;商品编辑&lt;/router-link&gt;
+
+        &lt;router-view&gt;&lt;/router-view&gt;
+
+    &lt;/div&gt;
+&lt;/template&gt;
+
+//声明组件模板
+const product=&#123;
+  template:&#39;#product&#39;
+&#125;;
+
+const add = &#123;
+  template:&#39;&lt;h4&gt;商品添加&lt;/h4&gt;&#39;
+&#125;;
+
+const edit = &#123;
+  template:&#39;&lt;h4&gt;商品编辑&lt;/h4&gt;&#39;
+&#125;;
+123456789101112131415161718192021222324
+</code></pre>
+<h3 id="2、创建路由对象含有嵌套路由"><a href="#2、创建路由对象含有嵌套路由" class="headerlink" title="2、创建路由对象含有嵌套路由"></a>2、创建路由对象含有嵌套路由</h3><pre><code class="javascript">const router = new VueRouter(&#123;
+        routes:[
+            &#123;
+                path:&#39;/product&#39;,
+                component:product,
+                children:[
+                    &#123;path:&#39;add&#39;,component: add&#125;,
+                    &#123;path:&#39;edit&#39;,component: edit&#125;,
+                ]
+            &#125;,
+        ]
+    &#125;);
+123456789101112
+</code></pre>
+<h3 id="3、注册路由对象"><a href="#3、注册路由对象" class="headerlink" title="3、注册路由对象"></a>3、注册路由对象</h3><pre><code class="javascript">const app = new Vue(&#123;
+    el: &quot;#app&quot;,
+    data: &#123;&#125;,
+    methods: &#123;&#125;,
+    router,//定义路由对象
+&#125;);
+123456
+</code></pre>
+<h3 id="4、测试路由"><a href="#4、测试路由" class="headerlink" title="4、测试路由"></a>4、测试路由</h3><pre><code class="html">&lt;router-link to=&quot;/product&quot;&gt;商品管理&lt;/router-link&gt;
+&lt;router-view&gt;&lt;/router-view&gt;
+12
+</code></pre>
+<h1 id="七、综合案例"><a href="#七、综合案例" class="headerlink" title="七、综合案例"></a>七、综合案例</h1><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;router&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &#123;&#123;msg&#125;&#125;
+
+    &lt;a href=&quot;#/users&quot;&gt;点击切换展示所有&lt;/a&gt;
+    &lt;router-link to=&quot;/users&quot;&gt;点击切换展示所有&lt;/router-link&gt;
+    &lt;router-link :to=&quot;&#123;path:&#39;/users&#39;&#125;&quot;&gt;点击切换展示所有&lt;/router-link&gt;
+    &lt;router-link :to=&quot;&#123;name:&#39;Users&#39;&#125;&quot;&gt;点击切换展示所有&lt;/router-link&gt;
+
+    &lt;hr/&gt;
+    &lt;a href=&quot;#/users/userAdd&quot;&gt;添加&lt;/a&gt;
+
+    &lt;!--4、在vue实例范围内使用路由选中组件--&gt;
+    &lt;router-view/&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;!--展示所有用户组件模板template--&gt;
+&lt;template id=&quot;users&quot;&gt;
+    &lt;div&gt;
+        &lt;table border=&quot;1&quot;&gt;
+            &lt;tr&gt;
+                &lt;td&gt;编号&lt;/td&gt;
+                &lt;td&gt;名称&lt;/td&gt;
+                &lt;td&gt;年龄&lt;/td&gt;
+                &lt;td&gt;薪资&lt;/td&gt;
+                &lt;td&gt;操作&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr v-for=&quot;(user,index) in users&quot; :key=&quot;user.id&quot;&gt;
+                &lt;td&gt;&#123;&#123;user.id&#125;&#125;&lt;/td&gt;
+                &lt;td&gt;&#123;&#123;user.name&#125;&#125;&lt;/td&gt;
+                &lt;td v-text=&quot;user.age&quot;&gt;&lt;/td&gt;
+                &lt;td v-html=&quot;user.salary&quot;&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;a href=&quot;&quot;&gt;删除&lt;/a&gt; | &lt;router-link :to=&quot;&#123;name:&#39;UserUpdate&#39;,query:&#123;id:user.id&#125;&#125;&quot;&gt;修改&lt;/router-link&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+        &lt;!--展示子路由选中的组件--&gt;
+        &lt;router-view/&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script src=&quot;../js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../js/vue-router.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    //1、创建组件
+    //展示所有用户组件
+    const users = &#123;
+        template:&quot;#users&quot;,
+        data()&#123;
+            return&#123;
+                users:[]
+            &#125;
+        &#125;,
+        created()&#123;
+            //发送异步请求 接收数据交给当前组件管理
+            /* axios.get(&quot;url&quot;).then(response=&gt;&#123;
+                this.users = response.data
+            &#125;).catch(erro=&gt;&#123;
+            &#125;)*/
+            this.users = [&#123;id:1 , name:&quot;王恒杰&quot;,age:18,salary:18&#125;,&#123;id:2 , name:&quot;杨福君&quot;,age:58,salary:58&#125;]
+        &#125;
+    &#125;
+
+    const userAdd = &#123;
+        template:`&lt;div&gt;名称:&lt;input type=&quot;text&quot; v-model=&quot;user.name&quot;/&gt; &lt;br/&gt; 年龄:&lt;input type=&quot;text&quot; v-model=&quot;user.age&quot;/&gt;&lt;br/&gt; 薪资:&lt;input type=&quot;text&quot; v-model=&quot;user.salary&quot;/&gt;&lt;br/&gt; &lt;button @click=&quot;addUser&quot;&gt;添加&lt;/button&gt;&lt;/div&gt;` ,
+        data()&#123;
+            return&#123;
+                user:&#123;&#125;
+            &#125;
+        &#125;,
+        methods:&#123;
+            addUser()&#123;
+                //发送异步请求 完成数据添加  用户数据接收
+                /*axios.post(&quot;url&quot;, this.user).then(response=&gt;&#123;
+                &#125;).catch(error=&gt;&#123;
+                &#125;)*/
+                //2 切换路由  this   $route 当前路由对象 Object   |  $router  当前路由管理器对象 VueRouter
+                this.$router.push(&#123;name:&quot;Users&quot;&#125;)
+            &#125;
+        &#125;
+    &#125;
+
+    const userUpdate = &#123;
+        template:`&lt;div&gt;编号:&lt;input type=&quot;text&quot; v-model=&quot;user.id&quot;/&gt; &lt;br/&gt;名称:&lt;input type=&quot;text&quot; v-model=&quot;user.name&quot;/&gt; &lt;br/&gt; 年龄:&lt;input type=&quot;text&quot; v-model=&quot;user.age&quot;/&gt;&lt;br/&gt; 薪资:&lt;input type=&quot;text&quot; v-model=&quot;user.salary&quot;/&gt;&lt;br/&gt;&lt;button @click=&quot;updateUser&quot;&gt;修改&lt;/button&gt;&lt;/div&gt;`
+        ,
+        data()&#123;
+            return&#123;
+                user:&#123;&#125;
+            &#125;
+        &#125;,
+        methods:&#123;
+            updateUser()&#123;
+                //切换路由  切换到展示所有路由
+                this.$router.push(&#123;name:&quot;Users&quot;&#125;)
+            &#125;
+        &#125;,
+        created()&#123;
+            let id = this.$route.query.id;
+            //发送异步请求查询数据  数据回显
+            /*axios.get(&quot;url?id=&quot;+id).then(response=&gt;&#123;
+                  this.user= response.data
+            &#125;).catch(error=&gt;&#123;&#125;)*/
+            this.user = &#123;id,name:&quot;liuh&quot;,age:18,salary:18&#125;
+        &#125;
+    &#125;
+    //2、创建路由   a、管理组件   b、配置路由规则 [/users - 组件]
+    const router = new VueRouter(&#123;
+        routes:[
+            &#123;path:&quot;/users&quot; , component:users , name:&quot;Users&quot; ,
+                /*配置路由的子路由     注意： path属性中不能以/开头  切换子路由：/users/userAdd   */
+                children:[
+                    &#123;path:&quot;userAdd&quot; , component:userAdd , name:&quot;UserAdd&quot;&#125;,
+                    &#123;path:&quot;userUpdate&quot; , component:userUpdate , name:&quot;UserUpdate&quot;&#125;
+                ]
+            &#125; ,
+            /*&#123;path:&quot;/userAdd&quot; , component:userAdd , name:&quot;UserAdd&quot;&#125;*/
+        ]
+    &#125;);
+
+    new Vue(&#123;
+        el:&quot;#app&quot; ,
+        data:&#123;
+            msg:&quot;路由嵌套！&quot;
+        &#125;,
+        //3、将路由交由vue实例管理
+        router
+    &#125;)
+
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>后续发布vue博客相关内容<br>🍅 Vue学习之路（基础篇）<br>🍅 vue的学习之路（Axios 基本使用）<br>🍅 vue的学习之路（Vue 生命周期）<br>🍅 vue的学习之路（Vue中组件(component)<br>🍅 <strong>vue的学习之路（Vue中路由 (Vue Router)）</strong><br>🍅 vue的学习之路（Vue CLI 脚手架）<br>🍅 vue的学习之路（VueX 状态管理）<br>🍅 vue的学习之路（Vue创建项目）</li>
+</ul>
+<h3 id="学习完这篇文章请移动到下一步"><a href="#学习完这篇文章请移动到下一步" class="headerlink" title="学习完这篇文章请移动到下一步"></a>学习完这篇文章请移动到下一步</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://veam.top/2022/09/17/Vue.CLI">Vue学习之路（Vue CLI （脚手架）使用）</a></li>
+</ul>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Veam<br>
+        <strong>本文链接：</strong><a href="https://github.com/lonely0323/lonely0323.github.io/2022/09/14/vue.Router/" title="https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;09&#x2F;14&#x2F;vue.Router&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;09&#x2F;14&#x2F;vue.Router&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/vue/">vue</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '84f0a52c730b2624c264',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'https://github.com/lonely0323/gitment',
+        owner: 'lonely0323',
+        admin: 'lonely0323'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue%E7%9A%84%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">vue的常规使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81-vue%E4%B8%AD%E8%B7%AF%E7%94%B1-Router"><span class="toc-number"></span> <span class="toc-text">一、 vue中路由 Router</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E4%BD%9C%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">1、作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E4%BD%BF%E7%94%A8%E8%B7%AF%E7%94%B1"><span class="toc-number">2.</span> <span class="toc-text">2、使用路由</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%BC%95%E5%85%A5%E8%B7%AF%E7%94%B1"><span class="toc-number">2.1.</span> <span class="toc-text">（1）引入路由</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%88%9B%E5%BB%BA%E7%BB%84%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.2.</span> <span class="toc-text">（2）创建组件对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E5%AE%9A%E4%B9%89%E8%B7%AF%E7%94%B1%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%A7%84%E5%88%99"><span class="toc-number">2.3.</span> <span class="toc-text">（3）定义路由对象的规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E5%B0%86%E8%B7%AF%E7%94%B1%E5%AF%B9%E8%B1%A1%E6%B3%A8%E5%86%8C%E5%88%B0vue%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.4.</span> <span class="toc-text">（4）将路由对象注册到vue实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%885%EF%BC%89%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%AD%E6%98%BE%E7%A4%BA%E8%B7%AF%E7%94%B1%E7%9A%84%E7%BB%84%E4%BB%B6"><span class="toc-number">2.5.</span> <span class="toc-text">（5）在页面中显示路由的组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%886%EF%BC%89%E6%A0%B9%E6%8D%AE%E8%BF%9E%E6%8E%A5%E5%88%87%E6%8D%A2%E8%B7%AF%E7%94%B1"><span class="toc-number">2.6.</span> <span class="toc-text">（6）根据连接切换路由</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81vue%E4%B8%AD%E8%B7%AF%E7%94%B1-Router%E6%A1%88%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">3、vue中路由 Router案例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%80%9A%E8%BF%87%E8%B6%85%E9%93%BE%E6%8E%A5%E5%88%87%E6%8D%A2%E8%B7%AF%E7%94%B1%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number"></span> <span class="toc-text">二、通过超链接切换路由的方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E9%93%BE%E6%8E%A5%E5%88%87%E6%8D%A2%E8%B7%AF%E7%94%B1"><span class="toc-number">1.</span> <span class="toc-text">1、链接切换路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81router-link%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">2、router-link使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E4%BD%BF%E7%94%A8router-link%E5%88%87%E6%8D%A2%E8%B7%AF%E7%94%B1"><span class="toc-number">2.1.</span> <span class="toc-text">（1）使用router-link切换路由</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E6%A0%B9%E6%8D%AE%E8%B7%AF%E5%BE%84%E5%8E%BB%E5%88%87%E6%8D%A2%E8%B7%AF%E7%94%B1"><span class="toc-number">2.2.</span> <span class="toc-text">（2）根据路径去切换路由</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E6%A0%B9%E6%8D%AE%E5%90%8D%E7%A7%B0%E5%8E%BB%E5%88%87%E6%8D%A2%E8%B7%AF%E7%94%B1-%E5%AE%98%E6%96%B9%E6%8E%A8%E8%8D%90-%E8%A7%A3%E8%80%A6%E5%90%88"><span class="toc-number">2.3.</span> <span class="toc-text">（3）根据名称去切换路由 官方推荐 解耦合</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%80%9A%E8%BF%87js%E5%88%87%E6%8D%A2%E8%B7%AF%E7%94%B1%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number"></span> <span class="toc-text">三、通过js切换路由的方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E9%80%9A%E8%BF%87js%E5%88%87%E6%8D%A2%E8%B7%AF%E7%94%B1%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">2、通过js切换路由的方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%88%87%E6%8D%A2%E5%88%B0%E5%90%8C%E4%B8%80%E8%B7%AF%E7%94%B1%E6%8A%A5%E9%94%99"><span class="toc-number">2.</span> <span class="toc-text">2、切换到同一路由报错</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%BB%98%E8%AE%A4%E8%B7%AF%E7%94%B1"><span class="toc-number"></span> <span class="toc-text">四、默认路由</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E8%B7%AF%E7%94%B1%E4%B8%AD%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="toc-number"></span> <span class="toc-text">五、路由中参数传递</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%96%B9%E5%BC%8F%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0-%E4%BC%A0%E7%BB%9F%E6%96%B9%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">1、第一种方式传递参数 传统方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E9%80%9A%E8%BF%87-%E5%8F%B7%E5%BD%A2%E5%BC%8F%E6%8B%BC%E6%8E%A5%E5%8F%82%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">（1）通过?号形式拼接参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E7%BB%84%E4%BB%B6%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%8F%82%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text">（2）组件中获取参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E5%BC%8F%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0-restful%E9%A3%8E%E6%A0%BC"><span class="toc-number">2.</span> <span class="toc-text">2、第二种方式传递参数 restful风格</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E9%80%9A%E8%BF%87%E4%BD%BF%E7%94%A8%E8%B7%AF%E5%BE%84%E6%96%B9%E5%BC%8F%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0"><span class="toc-number">2.1.</span> <span class="toc-text">（1）通过使用路径方式传递参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E7%BB%84%E4%BB%B6%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%8F%82%E6%95%B0-1"><span class="toc-number">2.2.</span> <span class="toc-text">（2）组件中获取参数</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81-%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1"><span class="toc-number"></span> <span class="toc-text">六、 嵌套路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E5%A3%B0%E6%98%8E%E6%9C%80%E5%A4%96%E5%B1%82%E5%92%8C%E5%86%85%E5%B1%82%E8%B7%AF%E7%94%B1"><span class="toc-number">1.</span> <span class="toc-text">1、声明最外层和内层路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%88%9B%E5%BB%BA%E8%B7%AF%E7%94%B1%E5%AF%B9%E8%B1%A1%E5%90%AB%E6%9C%89%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1"><span class="toc-number">2.</span> <span class="toc-text">2、创建路由对象含有嵌套路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E6%B3%A8%E5%86%8C%E8%B7%AF%E7%94%B1%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.</span> <span class="toc-text">3、注册路由对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E6%B5%8B%E8%AF%95%E8%B7%AF%E7%94%B1"><span class="toc-number">4.</span> <span class="toc-text">4、测试路由</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B"><span class="toc-number"></span> <span class="toc-text">七、综合案例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E5%AE%8C%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E8%AF%B7%E7%A7%BB%E5%8A%A8%E5%88%B0%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="toc-number">1.</span> <span class="toc-text">学习完这篇文章请移动到下一步</span></a></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
+
+
+ 
+
+<script async src="/js/app.js?v=1663956857761"></script>
+
+
+	<script async src="/js/search.js?v=1663956857761"></script>
+
+
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>vue的基础之路（axios篇） - VaMin23博客网</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/VaMin.ico" type="image/x-icon" />
+    <meta name="description" content="vue的常规使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue的基础之路（axios篇）">
+<meta property="og:url" content="https://github.com/lonely0323/lonely0323.github.io/2022/08/20/vue.axios/index.html">
+<meta property="og:site_name" content="VaMin23博客网">
+<meta property="og:description" content="vue的常规使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/de0ba62ff1e0c4fe4fc93c21d04882d4.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/5ca4a23ac6e4e9ae06b19dfa5db6c476.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/a172b7b461547e49474dfa7f48bc7cc3.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/33122f03d98fd402e4d57ecf947ad035.png">
+<meta property="article:published_time" content="2022-08-20T01:30:28.000Z">
+<meta property="article:modified_time" content="2022-09-23T17:46:59.152Z">
+<meta property="article:author" content="Veam">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/de0ba62ff1e0c4fe4fc93c21d04882d4.png">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1663956857768">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1663956857768">
+    
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://s1.ax1x.com/2022/07/12/j2mBm4.png)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Veam" class="mdui-btn mdui-btn-icon"><img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Veam">
+            <img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam" alt="Veam">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>17</div>
+        <div><span>标签</span>6</div>
+        <div><span>分类</span>9</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form">
+                <label><input class="st-default-search-input" id="search_value" name="q" type="search" placeholder="搜索" style="
+                    font-size: 15px !important;
+                    height: 56px !important;
+                    background-image: none;
+                "></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=MvqLiTM1" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-qq1"></i>
+        </a><a class="mdui-ripple" href="/veam23@foxmail.com" target="_blank" mdui-tooltip="{content: '邮箱地址'}" style="color: rgb(44 0 219);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-QQyouxiang1"></i>
+        </a><a class="mdui-ripple" href="https://github.com/lonely0323" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://weibo.com/u/6323576495/home?wvr=5" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(220,20,60);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-weibo1"></i>
+        </a><a class="mdui-ripple" href="https://music.163.com/#/user/home?id=302060596" target="_blank" mdui-tooltip="{content: '网易云音乐'}" style="color: rgb(220,20,60);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-wangyiyunyinle"></i>
+        </a><a class="mdui-ripple" href="https://y.qq.com/n/ryqq/profile/like/song" target="_blank" mdui-tooltip="{content: 'QQ音乐'}" style="color: rgb(0,255,0);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-qqyinle"></i>
+        </a><a class="mdui-ripple" href="https://s.team/p/fvbb-wqnb/WPNPNWTQ" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(0,0,255);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/javaScript/">javaScript</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/uni-app/">uni-app</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/vue/">vue</a>
+          <span class="category-list-count">8</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/公告/">公告</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/学习/">学习</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/插件/">插件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/文档/">文档</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音乐/">音乐</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/%E5%85%B3%E4%BA%8E/" style="font-size: 10px;">关于</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 10px;">文档</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%BD%91%E7%AB%99/" style="font-size: 10px;">网站</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 Veam
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/lonely0323/VaMin23" target="_blank">VaMin23</a>
+        
+        <div style="font-size: 13px; color: #5600ff; ">
+            <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+            本站访客数<a id="busuanzi_value_site_uv"></a>人次
+        </div>
+    </div>
+</div><!-- .nexmoe-drawer -->
+
+
+
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
+              <img src="https://s1.ax1x.com/2022/07/12/jgMz1P.png" alt="vue的基础之路（axios篇）" loading="lazy">
+              <h1>vue的基础之路（axios篇）</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年08月20日</a>
+</div>
+
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    
+</div>
+
+      <h3 id="vue的常规使用"><a href="#vue的常规使用" class="headerlink" title="vue的常规使用"></a>vue的常规使用</h3><span id="more"></span>
+
+    <div id="aplayer-xPHPLOwF" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="5415926126" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+<h1 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h1><p>建议学习Axios之前先学习</p>
+<h3 id="1、什么是axios"><a href="#1、什么是axios" class="headerlink" title="1、什么是axios?"></a>1、什么是axios?</h3><p>1、<code>Ajax</code> 异步请求技术 通过ajax发送的请求叫做异步请求，请求之后响应回来只会刷新页面局部</p>
+<p>2、<code>js</code> 基础ajax发送请求，<code>jquery</code>:对<code>ajax</code>进行封装<code>$.ajax() $.get() $post()</code> <code>$getJson()</code></p>
+<p>3、<code>Axios</code> 是一个异步请求技术,核心作用就是用来在页面中发送异步请求,并获取对应数据在页面中渲染 页面局部更新技术 Ajax</p>
+<h3 id="2、作用："><a href="#2、作用：" class="headerlink" title="2、作用："></a>2、作用：</h3><p>在页面中发送异步请求，并获取数据在页面渲染</p>
+<h3 id="3、本质"><a href="#3、本质" class="headerlink" title="3、本质"></a>3、本质</h3><p>实现页面局部更新 ajax</p>
+<h3 id="4、在vue中官方建议用axios发送ajax"><a href="#4、在vue中官方建议用axios发送ajax" class="headerlink" title="4、在vue中官方建议用axios发送ajax"></a>4、在vue中官方建议用axios发送ajax</h3><h3 id="5、axios的特性"><a href="#5、axios的特性" class="headerlink" title="5、axios的特性"></a>5、axios的特性</h3><ul>
+<li>从浏览器中创建XMLHTTPRequests</li>
+<li>从node.js创建http请求</li>
+<li>支持Promise API</li>
+<li><strong>拦截请求数据 和响应</strong></li>
+<li>转换请求数据和响应数据</li>
+<li>取消请求</li>
+<li><strong>自动转换JSON数据</strong></li>
+<li>客户端支持防御XSRF</li>
+</ul>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/de0ba62ff1e0c4fe4fc93c21d04882d4.png" alt="img" data-caption="img" loading="lazy"></p>
+<h1 id="二、axios使用方式"><a href="#二、axios使用方式" class="headerlink" title="二、axios使用方式"></a>二、axios使用方式</h1><h3 id="1、从axios官网下载axios"><a href="#1、从axios官网下载axios" class="headerlink" title="1、从axios官网下载axios"></a>1、从axios官网下载axios</h3><p>中文网站:<a target="_blank" rel="noopener" href="https://www.kancloud.cn/yunye/axios/234845">https://www.kancloud.cn/yunye/axios/234845</a></p>
+<p>安装: <a target="_blank" rel="noopener" href="https://unpkg.com/axios/dist/axios.min.js">https://unpkg.com/axios/dist/axios.min.js</a></p>
+<h3 id="2、将文件放入项目的webapp中"><a href="#2、将文件放入项目的webapp中" class="headerlink" title="2、将文件放入项目的webapp中"></a>2、将文件放入项目的webapp中</h3><script src="js/axios.min.js"></script>
+
+<h3 id="3、在页面中引用"><a href="#3、在页面中引用" class="headerlink" title="3、在页面中引用"></a>3、在页面中引用</h3><h3 id="4、发送异步请求"><a href="#4、发送异步请求" class="headerlink" title="4、发送异步请求"></a>4、发送异步请求</h3><ul>
+<li>url?xxx</li>
+<li>rest请求【<code>GET,POST,DELETE,PATCH</code>】</li>
+</ul>
+<h3 id="5、准备一个SpringBoot的控制层与axios进行交互"><a href="#5、准备一个SpringBoot的控制层与axios进行交互" class="headerlink" title="5、准备一个SpringBoot的控制层与axios进行交互"></a>5、准备一个SpringBoot的控制层与axios进行交互</h3><ul>
+<li>实体类</li>
+</ul>
+<pre><code class="java">public class User &#123;
+    private Integer id;
+    private String username;
+123
+</code></pre>
+<ul>
+<li>控制层</li>
+</ul>
+<pre><code class="java">/**
+ * @author 王恒杰
+ * @date 2021/12/16 16:25
+ * @Description:
+ */
+@Controller
+@CrossOrigin //设置当前控制器支持所有域访问   解决跨域问题
+public class UserAction &#123;
+    @RequestMapping(&quot;test1&quot;)
+    @ResponseBody
+    public String test1(Integer id,String username)&#123;
+        System.out.println(&quot;test1&quot;);
+        System.out.println(&quot;id:&quot;+id);
+        System.out.println(&quot;username:&quot;+username);
+       return  &quot;test1 response&quot;+id+username;
+    &#125;
+&#125;
+
+123456789101112131415161718
+</code></pre>
+<h3 id="6、-GET方式的请求"><a href="#6、-GET方式的请求" class="headerlink" title="6、 GET方式的请求"></a>6、 GET方式的请求</h3><pre><code class="javascript">    axios.get(&quot;http://localhost:8080/aa/test1?id=1&amp;username=whj&quot;)
+        .then(function (response) &#123;
+            console.log(response.data)
+        &#125;)
+        .catch(function (err) &#123;
+            console.log(err)
+        &#125;)
+1234567
+</code></pre>
+<h3 id="7、POST方式请求"><a href="#7、POST方式请求" class="headerlink" title="7、POST方式请求"></a>7、POST方式请求</h3><ul>
+<li>前台传的数据是json</li>
+</ul>
+<pre><code class="javascript">    //发送POST方式请求
+ axios.post(&quot;http://localhost:8080/aa/test2&quot;,&#123;
+     id:2,
+     username:&quot;王恒杰&quot;
+ &#125;).then(function (response) &#123;
+     console.log(response.data);
+ &#125;).catch(function (err) &#123;
+     console.log(err)
+ &#125;)
+123456789
+</code></pre>
+<ul>
+<li>**注意： post接收数据时，需要在参数上添加 ** <strong>requestBody</strong></li>
+</ul>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/5ca4a23ac6e4e9ae06b19dfa5db6c476.png" alt="img" data-caption="img" loading="lazy"></p>
+<h3 id="8-axios并发请求"><a href="#8-axios并发请求" class="headerlink" title="8. axios并发请求"></a>8. axios并发请求</h3><blockquote>
+<p><code>并发请求</code>: 将多个请求在同一时刻发送到后端服务接口,最后在集中处理每个请求的响应结果</p>
+</blockquote>
+<pre><code class="javascript">function getUserAccount() &#123;
+  return axios.get(&#39;/user/12345&#39;);
+&#125;
+
+function getUserPermissions() &#123;
+  return axios.get(&#39;/user/12345/permissions&#39;);
+&#125;
+
+axios.all([getUserAccount(), getUserPermissions()])
+  .then(axios.spread(function (acct, perms) &#123;
+    // 两个请求现在都执行完成
+&#125;));
+123456789101112
+</code></pre>
+<h3 id="9-自定义配置对象发送请求"><a href="#9-自定义配置对象发送请求" class="headerlink" title="9.自定义配置对象发送请求"></a>9.自定义配置对象发送请求</h3><pre><code class="javascript">//自定义配置对象发送请求(创建实例 发送异步请求) 【企业开发必背】
+     var instaus = axios.create(&#123;
+         baseURL:&quot;http://localhost:8080/aa/&quot;,
+        // timeout: 5000   //设置响应超时时间 如果超过了5000秒报异常
+     &#125;);
+     instaus.get(&quot;test1?id=3&amp;username=yfj&quot;)
+    .then(function (response) &#123;
+        console.log(response.data);
+    &#125;)
+    .catch(function (err) &#123;
+        console.log(err);
+    &#125;)
+123456789101112
+</code></pre>
+<h3 id="10、-拦截器"><a href="#10、-拦截器" class="headerlink" title="10、 拦截器"></a>10、 拦截器</h3><ul>
+<li>作用：抽取共有代码 解决冗余问题，提升效率，提高程序的可维护性</li>
+</ul>
+<p>axios中的拦截器：解决冗余问题</p>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/a172b7b461547e49474dfa7f48bc7cc3.png" alt="img" data-caption="img" loading="lazy"></p>
+<p>请求拦截器：发送请求时可以进行拦截，添加功能</p>
+<p>响应拦截器：响应回来时进行拦截 添加功能</p>
+<pre><code class="javascript">     var instaus = axios.create(&#123;
+         baseURL:&quot;http://localhost:8080/aa/&quot;,
+        // timeout: 5000   //设置响应超时时间 如果超过了5000秒报异常
+     &#125;);
+
+     //添加请求拦截器
+    instaus.interceptors.request.use(function (config) &#123;
+    //    在发送之前做什么
+        console.log(config);
+        console.url+&quot;&amp;status=1&quot;;
+        return config;
+    &#125;)
+
+     //发送get形式请求
+     instaus.get(&quot;test1?id=3&amp;username=yfj&quot;)
+    .then(function (response) &#123;
+        console.log(response.data);
+    &#125;)
+    .catch(function (err) &#123;
+        console.log(err);
+    &#125;)
+    
+//    添加响应拦截器
+    instaus.interceptors.response.use(function (response) &#123;
+    //    在获取响应之后做些什么
+        console.log(response);
+    //    response.data=&quot;请稍等五分钟&quot; 修改服务端响应数据 不建议
+        if(response.status!=200)&#123;
+            alert(&quot;操作失败！&quot;)
+        &#125;
+        return response;
+    &#125;)
+1234567891011121314151617181920212223242526272829303132
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/33122f03d98fd402e4d57ecf947ad035.png" alt="img" data-caption="img" loading="lazy"></p>
+<h3 id="11、后续发布vue博客相关内容"><a href="#11、后续发布vue博客相关内容" class="headerlink" title="11、后续发布vue博客相关内容"></a>11、后续发布vue博客相关内容</h3><p>🍅 Vue学习之路（基础篇）<br>🍅 <strong>vue的学习之路（Axios 基本使用）</strong><br>🍅 vue的学习之路（Vue 生命周期）<br>🍅 vue的学习之路（Vue中组件(component)）<br>🍅 vue的学习之路（Vue中路由 (Vue Router)）<br>🍅 vue的学习之路（Vue CLI 脚手架）<br>🍅 vue的学习之路（VueX 状态管理）<br>🍅 vue的学习之路（Vue创建项目）</p>
+<h3 id="学习完这篇文章请移动到下一步"><a href="#学习完这篇文章请移动到下一步" class="headerlink" title="学习完这篇文章请移动到下一步"></a>学习完这篇文章请移动到下一步</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://veam.top/2022/08/27/vue.shengming">Vue学习之路（生命周期）</a></li>
+</ul>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Veam<br>
+        <strong>本文链接：</strong><a href="https://github.com/lonely0323/lonely0323.github.io/2022/08/20/vue.axios/" title="https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;08&#x2F;20&#x2F;vue.axios&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;08&#x2F;20&#x2F;vue.axios&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/vue/">vue</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '84f0a52c730b2624c264',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'https://github.com/lonely0323/gitment',
+        owner: 'lonely0323',
+        admin: 'lonely0323'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue%E7%9A%84%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">vue的常规使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%BC%95%E8%A8%80"><span class="toc-number"></span> <span class="toc-text">一、引言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFaxios"><span class="toc-number">1.</span> <span class="toc-text">1、什么是axios?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E4%BD%9C%E7%94%A8%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">2、作用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E6%9C%AC%E8%B4%A8"><span class="toc-number">3.</span> <span class="toc-text">3、本质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E5%9C%A8vue%E4%B8%AD%E5%AE%98%E6%96%B9%E5%BB%BA%E8%AE%AE%E7%94%A8axios%E5%8F%91%E9%80%81ajax"><span class="toc-number">4.</span> <span class="toc-text">4、在vue中官方建议用axios发送ajax</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81axios%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">5.</span> <span class="toc-text">5、axios的特性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81axios%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-number"></span> <span class="toc-text">二、axios使用方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E4%BB%8Eaxios%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BDaxios"><span class="toc-number">1.</span> <span class="toc-text">1、从axios官网下载axios</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%B0%86%E6%96%87%E4%BB%B6%E6%94%BE%E5%85%A5%E9%A1%B9%E7%9B%AE%E7%9A%84webapp%E4%B8%AD"><span class="toc-number">2.</span> <span class="toc-text">2、将文件放入项目的webapp中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%AD%E5%BC%95%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">3、在页面中引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E5%8F%91%E9%80%81%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82"><span class="toc-number">4.</span> <span class="toc-text">4、发送异步请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E5%87%86%E5%A4%87%E4%B8%80%E4%B8%AASpringBoot%E7%9A%84%E6%8E%A7%E5%88%B6%E5%B1%82%E4%B8%8Eaxios%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92"><span class="toc-number">5.</span> <span class="toc-text">5、准备一个SpringBoot的控制层与axios进行交互</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81-GET%E6%96%B9%E5%BC%8F%E7%9A%84%E8%AF%B7%E6%B1%82"><span class="toc-number">6.</span> <span class="toc-text">6、 GET方式的请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81POST%E6%96%B9%E5%BC%8F%E8%AF%B7%E6%B1%82"><span class="toc-number">7.</span> <span class="toc-text">7、POST方式请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-axios%E5%B9%B6%E5%8F%91%E8%AF%B7%E6%B1%82"><span class="toc-number">8.</span> <span class="toc-text">8. axios并发请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE%E5%AF%B9%E8%B1%A1%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82"><span class="toc-number">9.</span> <span class="toc-text">9.自定义配置对象发送请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E3%80%81-%E6%8B%A6%E6%88%AA%E5%99%A8"><span class="toc-number">10.</span> <span class="toc-text">10、 拦截器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11%E3%80%81%E5%90%8E%E7%BB%AD%E5%8F%91%E5%B8%83vue%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="toc-number">11.</span> <span class="toc-text">11、后续发布vue博客相关内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E5%AE%8C%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E8%AF%B7%E7%A7%BB%E5%8A%A8%E5%88%B0%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="toc-number">12.</span> <span class="toc-text">学习完这篇文章请移动到下一步</span></a></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
+
+
+ 
+
+<script async src="/js/app.js?v=1663956857771"></script>
+
+
+	<script async src="/js/search.js?v=1663956857771"></script>
+
+
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>

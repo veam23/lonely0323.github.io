@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>vue的基础之路（组件（component）使用） - VaMin23博客网</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/VaMin.ico" type="image/x-icon" />
+    <meta name="description" content="vue的常规使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue的基础之路（组件（component）使用）">
+<meta property="og:url" content="https://github.com/lonely0323/lonely0323.github.io/2022/09/04/vue.component/index.html">
+<meta property="og:site_name" content="VaMin23博客网">
+<meta property="og:description" content="vue的常规使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/ff0a1ba2d0f5bfe9cfacc0b6fdab33c6.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/b01a687b7df104c72bd8936c36f9b64f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/f00a52135db34aca3e36d60cfcd0df73.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/6405c1a8c151461275601b401bec2180.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/1b36eefcbcbb388f4083f0a5ed879745.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/8261ccfd74f414e12d5e803dcf06f1f9.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/a68e8eaf3809feb169ce25772252b039.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/e4f08126257a867a5b89041c5a4fca10.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9ab9a21255a74cd9b5779d51625332ef.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5bCP546LamF2YQ==,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/af22dfc9580a4f5fef00e4b2c3c8a61f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/e1684cf546faa787b7be0b956d2750c9.png">
+<meta property="article:published_time" content="2022-09-04T00:50:00.000Z">
+<meta property="article:modified_time" content="2022-09-23T17:49:09.124Z">
+<meta property="article:author" content="Veam">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/ff0a1ba2d0f5bfe9cfacc0b6fdab33c6.png">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1663956857762">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1663956857762">
+    
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://s1.ax1x.com/2022/07/12/j2mBm4.png)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Veam" class="mdui-btn mdui-btn-icon"><img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Veam">
+            <img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam" alt="Veam">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>17</div>
+        <div><span>标签</span>6</div>
+        <div><span>分类</span>9</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form">
+                <label><input class="st-default-search-input" id="search_value" name="q" type="search" placeholder="搜索" style="
+                    font-size: 15px !important;
+                    height: 56px !important;
+                    background-image: none;
+                "></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=MvqLiTM1" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-qq1"></i>
+        </a><a class="mdui-ripple" href="/veam23@foxmail.com" target="_blank" mdui-tooltip="{content: '邮箱地址'}" style="color: rgb(44 0 219);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-QQyouxiang1"></i>
+        </a><a class="mdui-ripple" href="https://github.com/lonely0323" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://weibo.com/u/6323576495/home?wvr=5" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(220,20,60);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-weibo1"></i>
+        </a><a class="mdui-ripple" href="https://music.163.com/#/user/home?id=302060596" target="_blank" mdui-tooltip="{content: '网易云音乐'}" style="color: rgb(220,20,60);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-wangyiyunyinle"></i>
+        </a><a class="mdui-ripple" href="https://y.qq.com/n/ryqq/profile/like/song" target="_blank" mdui-tooltip="{content: 'QQ音乐'}" style="color: rgb(0,255,0);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-qqyinle"></i>
+        </a><a class="mdui-ripple" href="https://s.team/p/fvbb-wqnb/WPNPNWTQ" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(0,0,255);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/javaScript/">javaScript</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/uni-app/">uni-app</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/vue/">vue</a>
+          <span class="category-list-count">8</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/公告/">公告</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/学习/">学习</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/插件/">插件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/文档/">文档</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音乐/">音乐</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/%E5%85%B3%E4%BA%8E/" style="font-size: 10px;">关于</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 10px;">文档</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%BD%91%E7%AB%99/" style="font-size: 10px;">网站</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 Veam
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/lonely0323/VaMin23" target="_blank">VaMin23</a>
+        
+        <div style="font-size: 13px; color: #5600ff; ">
+            <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+            本站访客数<a id="busuanzi_value_site_uv"></a>人次
+        </div>
+    </div>
+</div><!-- .nexmoe-drawer -->
+
+
+
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
+              <img src="https://s1.ax1x.com/2022/07/12/jgMz1P.png" alt="vue的基础之路（组件（component）使用）" loading="lazy">
+              <h1>vue的基础之路（组件（component）使用）</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年09月04日</a>
+</div>
+
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    
+</div>
+
+      <h3 id="vue的常规使用"><a href="#vue的常规使用" class="headerlink" title="vue的常规使用"></a>vue的常规使用</h3><span id="more"></span>
+
+    <div id="aplayer-jPjFysxf" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="5415926126" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+<h1 id="一、vue官方支持的开发模式——SPA"><a href="#一、vue官方支持的开发模式——SPA" class="headerlink" title="一、vue官方支持的开发模式——SPA"></a>一、vue官方支持的开发模式——SPA</h1><h3 id="1、什么是SPA-单页面Web应用"><a href="#1、什么是SPA-单页面Web应用" class="headerlink" title="1、什么是SPA 单页面Web应用"></a>1、什么是SPA 单页面Web应用</h3><ul>
+<li>vue官方支持的开发模式-SPA（Single Page Application）单页面WEB应用</li>
+<li>一个应用只有一张页面==》index.html SPA</li>
+</ul>
+<h3 id="2、为什么支持单页面开发？"><a href="#2、为什么支持单页面开发？" class="headerlink" title="2、为什么支持单页面开发？"></a>2、为什么支持单页面开发？</h3><p>维护vue效率使用效用问题</p>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/ff0a1ba2d0f5bfe9cfacc0b6fdab33c6.png" alt="img" data-caption="img" loading="lazy"></p>
+<h3 id="3、按照SPA开发模式进行-存在问题"><a href="#3、按照SPA开发模式进行-存在问题" class="headerlink" title="3、按照SPA开发模式进行 存在问题"></a>3、按照SPA开发模式进行 存在问题</h3><p>1、主页面代码过多 不利于管理 后续维护</p>
+<p>2、vue实例需要一起初始化页面内容，可能会降低vue效率</p>
+<p>3、功能展示过多 用户体验差</p>
+<h3 id="4、vue官方提供-组件技术"><a href="#4、vue官方提供-组件技术" class="headerlink" title="4、vue官方提供 组件技术"></a>4、vue官方提供 组件技术</h3><p>（1）一个组件负责一组功能 实现组件之间的隔离</p>
+<p>（2） 组件还可以实现复用</p>
+<p>（3）减少vue实例对象中代码量</p>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/b01a687b7df104c72bd8936c36f9b64f.png" alt="img" data-caption="img" loading="lazy"></p>
+<h1 id="二、vue中的组件"><a href="#二、vue中的组件" class="headerlink" title="二、vue中的组件"></a>二、vue中的组件</h1><h3 id="1、组件作用"><a href="#1、组件作用" class="headerlink" title="1、组件作用"></a>1、组件作用</h3><p><strong>Vue中组件</strong> (component[<code>kəmˈpoʊnənt</code>])</p>
+<p>组件作用: 用来减少Vue实例对象中代码量,日后在使用Vue开发过程中,可以根据 不同业务功能将页面中划分不同的多个组件,然后由多个组件去完成整个页面的布局,便于日后使用Vue进行开发时页面管理,方便开发人员维护。</p>
+<h3 id="2、组件分类"><a href="#2、组件分类" class="headerlink" title="2、组件分类"></a>2、组件分类</h3><ul>
+<li>全局组件 直接注册给vue实例</li>
+<li>局部组件 注册给vue实例中的compents属性 只能在vue中使用</li>
+</ul>
+<h3 id="3、全局组件注册"><a href="#3、全局组件注册" class="headerlink" title="3、全局组件注册"></a>3、全局组件注册</h3><blockquote>
+<p>说明:全局组件注册给Vue实例,日后可以在任意Vue实例的范围内使用该组件</p>
+</blockquote>
+<h4 id="（1）全局组件使用案例"><a href="#（1）全局组件使用案例" class="headerlink" title="（1）全局组件使用案例"></a>（1）全局组件使用案例</h4><pre><code class="javascript">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;全局组件的定义&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+&#123;&#123;msg&#125;&#125;
+  &lt;hr/&gt;
+&lt;!--使用全局组件 在vue实例中配置对象--&gt;
+  &lt;login&gt;&lt;/login&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;../js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../js/axios.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+&lt;!--  1.开发全局组件--&gt;
+  /*
+  新建登录全局组件：
+  * 参数一：当前全局组件的名字
+    参数二：当前全局组件的配置对象
+  * */
+  Vue.component(&quot;login&quot;,&#123;
+  // 组件对应标签内容
+    template:`&lt;form&gt;
+              姓名：&lt;input type=&quot;text&quot; value=&quot;&quot;&gt;
+              密码：&lt;input type=&quot;text&quot; value=&quot;&quot;&gt;
+              &lt;input type=&quot;submit&quot; value=&quot;登录&quot;&gt;
+              &lt;/form&gt;`
+  &#125;)
+  //vue代码
+  new Vue(&#123;
+    el: &quot;#app&quot;,  //vue的实例作用范围
+    data: &#123;   //vue中定义的一系列数据
+      msg:&quot;全局组件的定义&quot;
+    &#125;,
+    methods:&#123;
+
+    &#125;
+  &#125;);
+&lt;/script&gt;
+12345678910111213141516171819202122232425262728293031323334353637383940414243
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/f00a52135db34aca3e36d60cfcd0df73.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="（2）全局组件具体使用"><a href="#（2）全局组件具体使用" class="headerlink" title="（2）全局组件具体使用"></a>（2）全局组件具体使用</h4><ul>
+<li>1.开发全局组件</li>
+</ul>
+<pre><code class="javascript">/*
+  新建登录全局组件：
+  * 参数一：当前全局组件的名字
+    参数二：当前全局组件的配置对象
+  * */
+  Vue.component(&quot;login&quot;,&#123;
+  // 组件对应标签内容
+    template:`&lt;form&gt;
+              姓名：&lt;input type=&quot;text&quot; value=&quot;&quot;&gt;
+              密码：&lt;input type=&quot;text&quot; value=&quot;&quot;&gt;
+              &lt;input type=&quot;submit&quot; value=&quot;登录&quot;&gt;
+              &lt;/form&gt;`
+  &#125;)
+
+1234567891011121314
+</code></pre>
+<ul>
+<li>2.使用全局组件 在Vue实例范围内</li>
+</ul>
+<pre><code class="javascript">&lt;login&gt;&lt;/login&gt;  
+1
+</code></pre>
+<h4 id="（3）注意事项"><a href="#（3）注意事项" class="headerlink" title="（3）注意事项:"></a>（3）注意事项:</h4><ul>
+<li>1.<code>Vue.component</code>用来开发全局组件<br>参数1: 组件的名称<br>参数2: 组件配置{} template:’’用来书写组件的html代码 <code>template中必须有且只有一个root元素</code></li>
+<li>2.使用时需要在Vue的作用范围内根据组件名使用全局组件</li>
+<li>3.如果在注册组件过程中使用 驼峰命名组件的方式 在使用组件时 必须将驼峰的所有单词小写加入-线进行使用</li>
+</ul>
+<h3 id="4、局部组件注册"><a href="#4、局部组件注册" class="headerlink" title="4、局部组件注册"></a>4、局部组件注册</h3><blockquote>
+<p>说明:通过将组件注册给对应Vue实例中一个components属性来完成组件注册,这种方式不会对Vue实例造成累加</p>
+</blockquote>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code class="javascript">   new Vue(&#123;
+    el:&quot;#app&quot;,
+    data:&#123;&#125;,
+    methods:&#123;&#125;,
+    computed:&#123;&#125;,
+    components:&#123;
+     &quot;组件名&quot;：&#123;
+        //组件的配置对象
+     &#125;
+    &#125;
+   &#125;)
+1234567891011
+</code></pre>
+<h4 id="（1）局部组件注册案例"><a href="#（1）局部组件注册案例" class="headerlink" title="（1）局部组件注册案例"></a>（1）局部组件注册案例</h4><pre><code class="javascript">&lt;body&gt;
+
+&lt;div id=&quot;app&quot;&gt;
+&#123;&#123;msg&#125;&#125;
+  &lt;hr&gt;
+  
+&lt;!--使用局部组件--&gt;
+  &lt;login&gt;&lt;/login&gt;
+&lt;!--注册--&gt;
+  &lt;hr/&gt;
+  &lt;register&gt;&lt;/register&gt;
+
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;../js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  //vue代码
+  new Vue(&#123;
+    el: &quot;#app&quot;,  //vue的实例作用范围
+    data: &#123;   //vue中定义的一系列数据
+      msg:&quot;局部组件&quot;
+    &#125;,
+    components:&#123;
+      login:&#123;
+        //其中添加div的意义就是让remplate标签有一个根标签，否则只展示“欢迎进入登录程序”
+        template:`
+              &lt;div&gt;
+              &lt;center&gt;欢迎进入登录程序&lt;/center&gt;
+              &lt;form&gt;
+              姓名：&lt;input type=&quot;text&quot; value=&quot;&quot;&gt;
+              密码：&lt;input type=&quot;text&quot; value=&quot;&quot;&gt;
+              &lt;input type=&quot;submit&quot; value=&quot;登录&quot;&gt;
+              &lt;/form&gt;
+              &lt;/div&gt;`
+
+      &#125;,
+      register:&#123;
+        template: `
+        &lt;form&gt;
+              姓名：&lt;input type=&quot;text&quot; value=&quot;&quot;&gt;
+              密码：&lt;input type=&quot;text&quot; value=&quot;&quot;&gt;
+              &lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;
+              &lt;/form&gt;
+        `
+      &#125;
+    &#125;
+  &#125;)
+&lt;/script&gt;
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/6405c1a8c151461275601b401bec2180.png" alt="img" data-caption="img" loading="lazy"></p>
+<ul>
+<li>注意：其中<strong>添加div的意义就是让template标签有一个根标签</strong> ，否则只展示“欢迎进入登录程序”</li>
+</ul>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/1b36eefcbcbb388f4083f0a5ed879745.png" alt="img" data-caption="img" loading="lazy"></p>
+<ul>
+<li>不加div效果图</li>
+</ul>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/8261ccfd74f414e12d5e803dcf06f1f9.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="（2）两种开发方式"><a href="#（2）两种开发方式" class="headerlink" title="（2）两种开发方式"></a>（2）两种开发方式</h4><ul>
+<li>第一种开发方式</li>
+</ul>
+<pre><code class="javascript">//局部组件登录模板声明
+let login =&#123;   //具体局部组件名称
+  template:&#39;&lt;div&gt;&lt;h2&gt;用户登录&lt;/h2&gt;&lt;/div&gt;&#39;
+&#125;;
+const app = new Vue(&#123;
+  el: &quot;#app&quot;,
+  data: &#123;&#125;,
+  methods: &#123;&#125;,
+  components:&#123;  //用来注册局部组件
+    login:login  //注册局部组件 es6的新特性可以直接写login，也可以的
+  &#125;
+&#125;);
+
+//局部组件使用 在Vue实例范围内
+&lt;login&gt;&lt;/login&gt;
+123456789101112131415
+</code></pre>
+<ul>
+<li>第二种开发方式</li>
+</ul>
+<pre><code class="javascript">//1.声明局部组件模板  template 标签 注意:在Vue实例作用范围外声明
+  &lt;template id=&quot;loginTemplate&quot;&gt;
+      &lt;h1&gt;用户登录&lt;/h1&gt;
+  &lt;/template&gt;
+
+//2.定义变量用来保存模板配置对象
+    let login =&#123;   //具体局部组件名称
+        template:&#39;#loginTemplate&#39;  //使用自定义template标签选择器即可
+    &#125;;
+
+//3.注册组件  
+    const app = new Vue(&#123;
+        el: &quot;#app&quot;,
+        data: &#123;&#125;,
+        methods: &#123;&#125;,
+        components:&#123;  //用来注册局部组件
+            login:login  //注册局部组件
+        &#125;
+    &#125;);
+
+ //4.局部组件使用 在Vue实例范围内
+   &lt;login&gt;&lt;/login&gt;
+12345678910111213141516171819202122
+</code></pre>
+<h3 id="5、Prop的使用"><a href="#5、Prop的使用" class="headerlink" title="5、Prop的使用"></a>5、Prop的使用</h3><pre><code>作用:props用来给组件传递相应静态数据或者是动态数据的
+</code></pre>
+<h4 id="1-通过在组件上声明静态数据传递给组件内部"><a href="#1-通过在组件上声明静态数据传递给组件内部" class="headerlink" title="(1)通过在组件上声明静态数据传递给组件内部"></a>(1)通过在组件上声明静态数据传递给组件内部</h4><pre><code class="javascript">//1.声明组件模板配置对象
+    let login = &#123;
+        template:&quot;&lt;div&gt;&lt;h1&gt;欢迎:&#123;&#123; userName &#125;&#125; 年龄:&#123;&#123; age &#125;&#125;&lt;/h1&gt;&lt;/div&gt;&quot;,
+        props:[&#39;userName&#39;,&#39;age&#39;]  //props作用 用来接收使用组件时通过组件标签传递的数据
+    &#125;
+
+//2.注册组件
+    const app = new Vue(&#123;
+        el: &quot;#app&quot;,
+        data: &#123;&#125;,
+        methods: &#123;&#125;,
+        components:&#123;
+            login //组件注册
+        &#125;
+    &#125;);
+
+//3.通过组件完成数据传递
+  &lt;login user-name=&quot;王恒杰&quot; age=&quot;23&quot;&gt;&lt;/login&gt;
+123456789101112131415161718
+</code></pre>
+<p>总结:<br>1.使用组件时可以在组件上定义多个属性以及对应数据<br>2.在组件内部可以使用props数组生命多个定义在组件上的属性名<br>3.日后可以在组件中通过 方式获取组件中属性值</p>
+<h4 id="2-通过在组件上声明动态数据传递给组件内部"><a href="#2-通过在组件上声明动态数据传递给组件内部" class="headerlink" title="(2)通过在组件上声明动态数据传递给组件内部"></a>(2)通过在组件上声明动态数据传递给组件内部</h4><pre><code class="javascript">//1.声明组件模板对象
+    const login = &#123;
+        template:&#39;&lt;div&gt;&lt;h2&gt;欢迎: &#123;&#123; name &#125;&#125; 年龄:&#123;&#123; age &#125;&#125;&lt;/h2&gt;&lt;/div&gt;&#39;,
+        props:[&#39;name&#39;,&#39;age&#39;]
+    &#125;
+ 
+//2.注册局部组件
+    const app = new Vue(&#123;
+        el: &quot;#app&quot;,
+        data: &#123;
+            username:&quot;小陈陈&quot;,
+            age:23
+        &#125;,
+        methods: &#123;&#125;,
+        components:&#123;
+            login //注册组件
+        &#125;
+    &#125;);
+
+//3.使用组件
+   &lt;login :name=&quot;username&quot; :age=&quot;age&quot;&gt;&lt;/login&gt;  //使用v-bind形式将数据绑定Vue实例中data属性,日后data属性发生变化,组件内部数据跟着变化
+123456789101112131415161718192021
+</code></pre>
+<h4 id="3-prop的单向数据流"><a href="#3-prop的单向数据流" class="headerlink" title="(3) prop的单向数据流"></a>(3) prop的单向数据流</h4><blockquote>
+<p>单向数据流:所有的 prop 都使得其父子 prop 之间形成了一个<strong>单向下行绑定</strong> ：父级 prop 的更新会向下流动到子组件中，但是反过来则不行。</p>
+</blockquote>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/a68e8eaf3809feb169ce25772252b039.png" alt="img" data-caption="img" loading="lazy"></p>
+<ul>
+<li>所有的 prop 都使得其父子 prop 之间形成了一个<strong>单向下行绑定</strong> ：父级 prop 的更新会向下流动到子组件中，但是反过来则不行。这样会防止从子组件意外改变父级组件的状态，从而导致你的应用的数据流向难以理解。</li>
+<li>额外的，每次父级组件发生更新时，子组件中所有的 prop 都将会刷新为最新的值。这意味着你<strong>不</strong> 应该在一个子组件内部改变 prop。如果你这样做了，Vue 会在浏览器的控制台中发出警告。—摘自官网</li>
+</ul>
+<h4 id="4-父组件向局部组件传递静态数据"><a href="#4-父组件向局部组件传递静态数据" class="headerlink" title="(4)父组件向局部组件传递静态数据"></a>(4)父组件向局部组件传递静态数据</h4><pre><code class="javascript">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;v-model指令&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+  &#123;&#123;msg&#125;&#125;
+&lt;login&gt;&lt;/login&gt;
+
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;../js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  const  login=&#123;
+
+    template:`
+        &lt;div&gt;
+        &lt;h1&gt;登录组件&lt;/h1&gt;
+        &#123;&#123;name&#125;&#125;----&#123;&#123;count&#125;&#125;---&#123;&#123; countSqrt&#125;&#125;
+        &lt;button @click=&quot;incrCount()&quot;&gt;点我count+1&lt;/button&gt;
+        &lt;/div&gt;
+  `,
+  //  在组件中定义数据
+    data()&#123;
+      return&#123;
+        name:&quot;王恒杰&quot;,
+        count:10
+      &#125;
+    &#125;,
+  //  定义组件自己的函数
+    methods: &#123;
+      incrCount()&#123;
+        this.count++;
+      &#125;
+    &#125;,
+    computed:&#123;
+      countSqrt()&#123;
+        //计算属性当方法用
+        return this.count*this.count;
+      &#125;
+    &#125;,
+  //  声明周期函数
+    created()&#123;
+      console.log(&quot;当前组件数据初始化完成！&quot;);
+    &#125;
+  &#125;
+  //vue代码
+  new Vue(&#123;
+    el: &quot;#app&quot;,  //vue的实例作用范围
+    data: &#123;   //vue中定义的一系列数据
+      msg:&quot;组件其他属性的定义&quot;
+    &#125;,
+    methods:&#123;
+
+    &#125;,
+    components: &#123;
+      login:login
+    &#125;
+  &#125;)
+&lt;/script&gt;
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/e4f08126257a867a5b89041c5a4fca10.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="5-父组件向局部组件传递动态数据"><a href="#5-父组件向局部组件传递动态数据" class="headerlink" title="(5)父组件向局部组件传递动态数据"></a>(5)父组件向局部组件传递动态数据</h4><pre><code class="javascript">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;v-model指令&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+  &lt;!--
+传递：父组件 在子组件调用处 以键值对的形式传递数据 数据要绑定交给vue实例进管理
+接收：子组件 在props属性值以指定的键接收即可
+注意：官方规定数据流是单选下行绑定，建议从父组件向子组件传递数据，但是不支持子组件修改父组件的数据状态
+  --&gt;
+  &#123;&#123;msg&#125;&#125;
+&lt;login name=&quot;王恒杰&quot; :msg=&quot;msg&quot; :count=&quot;count&quot;&gt;&lt;/login&gt;
+
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;../js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  const  login=&#123;
+    template:`&lt;div&gt;&lt;h3&gt;登录组件&lt;/h3&gt;&#123;&#123;name&#125;&#125;--&#123;&#123;msg&#125;&#125;--&#123;&#123;subCount&#125;&#125;  &lt;button @click=&quot;countAdd&quot;&gt;点击count+10&lt;/button&gt;&lt;/div&gt;`
+    ,data()&#123;
+      return&#123;
+        subCount:this.count
+      &#125;
+    &#125;,
+    props:[&quot;name&quot;,&quot;msg&quot;,&quot;count&quot;],
+    methods: &#123;
+      countAdd()&#123;
+        //props里面的值相当于data里面的值
+        this.subCount+=10;
+      &#125;
+    &#125;
+  &#125;
+  //vue代码
+  new Vue(&#123;
+    el: &quot;#app&quot;,  //vue的实例作用范围
+    data: &#123;   //vue中定义的一系列数据
+      msg:&quot;父组件向局部组件传递动态数据&quot;,
+      count:0
+    &#125;,
+    methods:&#123;
+
+    &#125;,
+    components:&#123;
+      login
+    &#125;
+  &#125;)
+&lt;/script&gt;
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/9ab9a21255a74cd9b5779d51625332ef.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5bCP546LamF2YQ==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述" data-caption="在这里插入图片描述" loading="lazy"></p>
+<h3 id="6、组件中定义数据和事件使用"><a href="#6、组件中定义数据和事件使用" class="headerlink" title="6、组件中定义数据和事件使用"></a>6、组件中定义数据和事件使用</h3><h4 id="1-组件中定义属于组件的数据"><a href="#1-组件中定义属于组件的数据" class="headerlink" title="1. 组件中定义属于组件的数据"></a>1. 组件中定义属于组件的数据</h4><pre><code class="javascript">&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+&lt;!--
+1、传递
+   以键值对的形式 定义在局部组件的调用处
+2、局部组件 核心：接收 props属性
+props:[传递数据时的键]
+注意：使用props属性接收的值 就相当于在data中定义对应的内容&#123;key:value&#125;
+--&gt;
+  &#123;&#123;msg&#125;&#125;
+  &lt;login name=&quot;王恒杰&quot; msg=&quot;&#123;&#123;msg&#125;&#125;&quot;&gt;&lt;/login&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;../js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  const  login=&#123;
+    template:`&lt;div&gt;&lt;h3&gt;登录组件&lt;/h3&gt;&#123;&#123;name&#125;&#125;&lt;/div&gt;`,
+    props:[&quot;name&quot;],
+    data()&#123;
+      return&#123;
+        name:this.name
+      &#125;
+    &#125;
+  &#125;
+  //vue代码
+  new Vue(&#123;
+    el: &quot;#app&quot;,  //vue的实例作用范围
+    data: &#123;   //vue中定义的一系列数据
+      msg:&quot;父组件向局部组件传递静态数据&quot;
+    &#125;,
+    methods:&#123;
+
+    &#125;,
+    components:&#123;
+      login
+    &#125;
+  &#125;)
+&lt;/script&gt;
+123456789101112131415161718192021222324252627282930313233343536373839
+</code></pre>
+<h4 id="2-组件中事件定义"><a href="#2-组件中事件定义" class="headerlink" title="2.组件中事件定义"></a>2.组件中事件定义</h4><pre><code class="javascript"> const login=&#123;
+        template:&#39;&lt;div&gt;&lt;input type=&quot;button&quot; value=&quot;点我触发组件中事件&quot; @click=&quot;change&quot;&gt;&lt;/div&gt;&#39;,
+        data()&#123;
+            return &#123;
+                name:&#39;王恒杰&#39;
+            &#125;;
+        &#125;,
+        methods:&#123;
+            change()&#123;
+                alert(this.name)
+                alert(&#39;触发事件&#39;);
+            &#125;
+        &#125;
+    &#125;
+1234567891011121314
+# 总结  
+
+    1.组件中定义事件和直接在Vue中定义事件基本一致 
+      直接在组件内部对应的html代码上加入@事件名=函数名方式即可
+      
+    2.在组件内部使用methods属性用来定义对应的事件函数即可,
+      事件函数中this 指向的是当前组件的实例
+1234567
+</code></pre>
+<h3 id="7、向子组件中传递事件并在子组件中调用该事件-子组件向父组件传递数据"><a href="#7、向子组件中传递事件并在子组件中调用该事件-子组件向父组件传递数据" class="headerlink" title="7、向子组件中传递事件并在子组件中调用该事件(子组件向父组件传递数据)"></a>7、向子组件中传递事件并在子组件中调用该事件(子组件向父组件传递数据)</h3><pre><code>在子组件中调用传递过来的相关事件必须使用 this.$emit(&#39;函数名&#39;) 方式调用
+</code></pre>
+<h4 id="1-子组件调用父组件，并向父组件传递数据"><a href="#1-子组件调用父组件，并向父组件传递数据" class="headerlink" title="(1)子组件调用父组件，并向父组件传递数据"></a>(1)子组件调用父组件，并向父组件传递数据</h4><pre><code class="javascript">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;v-model指令&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+  &lt;button @click=&quot;sup()&quot;&gt;点我触发父组件事件&lt;/button&gt;
+  &#123;&#123;msg&#125;&#125;
+&lt;!--
+  父组件向子组件传递事件
+  传递:在子组件调用处使用 @事件在子组件的名字=“要传递的事件的名字”
+--&gt;
+&lt;login @sup=&quot;sup&quot;&gt;&lt;/login&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;../js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+&lt;!--定义组件对象--&gt;
+const  login=&#123;
+  template:`&lt;div&gt;&lt;h3&gt;登录组件&lt;/h3&gt;&lt;button @click=&quot;sub()&quot;&gt;点我触发子组件事件&lt;/button&gt; &lt;/button&gt;&lt;/div&gt;`
+  ,methods: &#123;
+    sub()&#123;
+      console.log(&quot;这是子组件的单机事件&quot;)
+    //  调用父组件的功能 sup 参数一：要触发的事件名
+      this.$emit(&quot;sup&quot;)
+    &#125;
+  &#125;
+&#125;
+  //vue代码
+  new Vue(&#123;
+    el: &quot;#app&quot;,  //vue的实例作用范围
+    data: &#123;   //vue中定义的一系列数据
+      msg:&quot;父组件向子组件传递事件&quot;
+    &#125;,
+    methods:&#123;
+      sup()&#123;
+        console.log(&quot;这是父组件的单机事件&quot;)
+      &#125;
+    &#125;,
+    components:&#123;
+      login
+    &#125;
+  &#125;)
+&lt;/script&gt;
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/af22dfc9580a4f5fef00e4b2c3c8a61f.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="2-子组件向父组件传递对象"><a href="#2-子组件向父组件传递对象" class="headerlink" title="(2)子组件向父组件传递对象"></a>(2)子组件向父组件传递对象</h4><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;v-model指令&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+  &lt;button @click=&quot;sup()&quot;&gt;点我触发父组件事件&lt;/button&gt;
+ &#123;&#123;user&#125;&#125;
+  &lt;hr/&gt;
+  &#123;&#123;msg&#125;&#125;
+  &lt;hr/&gt;
+&lt;!--
+  父组件向子组件传递事件
+  传递:在子组件调用处使用 @事件在子组件的名字=“要传递的事件的名字”
+--&gt;
+&lt;login @sup=&quot;sup&quot;&gt;&lt;/login&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;../js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+&lt;!--定义组件对象--&gt;
+const  login=&#123;
+  template:`&lt;div&gt;&lt;h3&gt;登录组件&lt;/h3&gt;&lt;button @click=&quot;sub()&quot;&gt;点我触发子组件事件&lt;/button&gt; &lt;/div&gt;`
+  ,methods: &#123;
+    sub()&#123;
+      console.log(&quot;这是子组件的单机事件&quot;)
+    //  调用父组件的功能 sup 参数一：要触发的事件名
+      //调用组件传递过来的其他函数时需要使用 this.$emit(&#39;函数名调用&#39;)
+      this.$emit(&quot;sup&quot;,&#123;name:&quot;王恒杰&quot;,age:&quot;21&quot;,content:&quot;秋招完成！&quot;&#125;) 
+    &#125;
+  &#125;
+&#125;
+  //vue代码
+  new Vue(&#123;
+    el: &quot;#app&quot;,  //vue的实例作用范围
+    data: &#123;   //vue中定义的一系列数据
+      msg:&quot;父组件向子组件传递事件&quot;,
+      user:&#123;&#125;
+    &#125;,
+    methods:&#123;
+      sup(user)&#123;  //一个事件函数  将这个函数传递给子组件
+        console.log(&quot;这是父组件的单机事件&quot;);
+      console.log(user)
+        this.user=user;
+
+      &#125;
+    &#125;,
+    components:&#123;
+      login //组件的注册
+    &#125;
+  &#125;)
+&lt;/script&gt;
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/e1684cf546faa787b7be0b956d2750c9.png" alt="img" data-caption="img" loading="lazy"></p>
+<ul>
+<li>后续发布vue博客相关内容<br>🍅 Vue学习之路（基础篇）<br>🍅 vue的学习之路（Axios 基本使用）<br>🍅 vue的学习之路（Vue 生命周期）<br>🍅 <strong>vue的学习之路（Vue中组件(component)</strong><br>🍅 vue的学习之路（Vue中路由 (Vue Router)）<br>🍅 vue的学习之路（Vue CLI 脚手架）<br>🍅 vue的学习之路（VueX 状态管理）<br>🍅 vue的学习之路（Vue创建项目）</li>
+</ul>
+<h3 id="学习完这篇文章请移动到下一步"><a href="#学习完这篇文章请移动到下一步" class="headerlink" title="学习完这篇文章请移动到下一步"></a>学习完这篇文章请移动到下一步</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://veam.top/2022/09/14/vue.Router">Vue学习之路（路由（Router）使用）</a></li>
+</ul>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Veam<br>
+        <strong>本文链接：</strong><a href="https://github.com/lonely0323/lonely0323.github.io/2022/09/04/vue.component/" title="https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;09&#x2F;04&#x2F;vue.component&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;09&#x2F;04&#x2F;vue.component&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/vue/">vue</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '84f0a52c730b2624c264',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'https://github.com/lonely0323/gitment',
+        owner: 'lonely0323',
+        admin: 'lonely0323'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue%E7%9A%84%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">vue的常规使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81vue%E5%AE%98%E6%96%B9%E6%94%AF%E6%8C%81%E7%9A%84%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F%E2%80%94%E2%80%94SPA"><span class="toc-number"></span> <span class="toc-text">一、vue官方支持的开发模式——SPA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFSPA-%E5%8D%95%E9%A1%B5%E9%9D%A2Web%E5%BA%94%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">1、什么是SPA 单页面Web应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E6%94%AF%E6%8C%81%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BC%80%E5%8F%91%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">2、为什么支持单页面开发？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E6%8C%89%E7%85%A7SPA%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F%E8%BF%9B%E8%A1%8C-%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">3、按照SPA开发模式进行 存在问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81vue%E5%AE%98%E6%96%B9%E6%8F%90%E4%BE%9B-%E7%BB%84%E4%BB%B6%E6%8A%80%E6%9C%AF"><span class="toc-number">4.</span> <span class="toc-text">4、vue官方提供 组件技术</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81vue%E4%B8%AD%E7%9A%84%E7%BB%84%E4%BB%B6"><span class="toc-number"></span> <span class="toc-text">二、vue中的组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E7%BB%84%E4%BB%B6%E4%BD%9C%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">1、组件作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E7%BB%84%E4%BB%B6%E5%88%86%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">2、组件分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E5%85%A8%E5%B1%80%E7%BB%84%E4%BB%B6%E6%B3%A8%E5%86%8C"><span class="toc-number">3.</span> <span class="toc-text">3、全局组件注册</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%85%A8%E5%B1%80%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%A1%88%E4%BE%8B"><span class="toc-number">3.1.</span> <span class="toc-text">（1）全局组件使用案例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%85%A8%E5%B1%80%E7%BB%84%E4%BB%B6%E5%85%B7%E4%BD%93%E4%BD%BF%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text">（2）全局组件具体使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">3.3.</span> <span class="toc-text">（3）注意事项:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E5%B1%80%E9%83%A8%E7%BB%84%E4%BB%B6%E6%B3%A8%E5%86%8C"><span class="toc-number">4.</span> <span class="toc-text">4、局部组件注册</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%B1%80%E9%83%A8%E7%BB%84%E4%BB%B6%E6%B3%A8%E5%86%8C%E6%A1%88%E4%BE%8B"><span class="toc-number">4.1.</span> <span class="toc-text">（1）局部组件注册案例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E4%B8%A4%E7%A7%8D%E5%BC%80%E5%8F%91%E6%96%B9%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">（2）两种开发方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81Prop%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">5、Prop的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%80%9A%E8%BF%87%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%8A%E5%A3%B0%E6%98%8E%E9%9D%99%E6%80%81%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92%E7%BB%99%E7%BB%84%E4%BB%B6%E5%86%85%E9%83%A8"><span class="toc-number">5.1.</span> <span class="toc-text">(1)通过在组件上声明静态数据传递给组件内部</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%80%9A%E8%BF%87%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%8A%E5%A3%B0%E6%98%8E%E5%8A%A8%E6%80%81%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92%E7%BB%99%E7%BB%84%E4%BB%B6%E5%86%85%E9%83%A8"><span class="toc-number">5.2.</span> <span class="toc-text">(2)通过在组件上声明动态数据传递给组件内部</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-prop%E7%9A%84%E5%8D%95%E5%90%91%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="toc-number">5.3.</span> <span class="toc-text">(3) prop的单向数据流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E7%88%B6%E7%BB%84%E4%BB%B6%E5%90%91%E5%B1%80%E9%83%A8%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E9%9D%99%E6%80%81%E6%95%B0%E6%8D%AE"><span class="toc-number">5.4.</span> <span class="toc-text">(4)父组件向局部组件传递静态数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E7%88%B6%E7%BB%84%E4%BB%B6%E5%90%91%E5%B1%80%E9%83%A8%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E5%8A%A8%E6%80%81%E6%95%B0%E6%8D%AE"><span class="toc-number">5.5.</span> <span class="toc-text">(5)父组件向局部组件传递动态数据</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81%E7%BB%84%E4%BB%B6%E4%B8%AD%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E5%92%8C%E4%BA%8B%E4%BB%B6%E4%BD%BF%E7%94%A8"><span class="toc-number">6.</span> <span class="toc-text">6、组件中定义数据和事件使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%BB%84%E4%BB%B6%E4%B8%AD%E5%AE%9A%E4%B9%89%E5%B1%9E%E4%BA%8E%E7%BB%84%E4%BB%B6%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">6.1.</span> <span class="toc-text">1. 组件中定义属于组件的数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%BB%84%E4%BB%B6%E4%B8%AD%E4%BA%8B%E4%BB%B6%E5%AE%9A%E4%B9%89"><span class="toc-number">6.2.</span> <span class="toc-text">2.组件中事件定义</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81%E5%90%91%E5%AD%90%E7%BB%84%E4%BB%B6%E4%B8%AD%E4%BC%A0%E9%80%92%E4%BA%8B%E4%BB%B6%E5%B9%B6%E5%9C%A8%E5%AD%90%E7%BB%84%E4%BB%B6%E4%B8%AD%E8%B0%83%E7%94%A8%E8%AF%A5%E4%BA%8B%E4%BB%B6-%E5%AD%90%E7%BB%84%E4%BB%B6%E5%90%91%E7%88%B6%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE"><span class="toc-number">7.</span> <span class="toc-text">7、向子组件中传递事件并在子组件中调用该事件(子组件向父组件传递数据)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AD%90%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E7%88%B6%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%B9%B6%E5%90%91%E7%88%B6%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE"><span class="toc-number">7.1.</span> <span class="toc-text">(1)子组件调用父组件，并向父组件传递数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AD%90%E7%BB%84%E4%BB%B6%E5%90%91%E7%88%B6%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A1"><span class="toc-number">7.2.</span> <span class="toc-text">(2)子组件向父组件传递对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E5%AE%8C%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E8%AF%B7%E7%A7%BB%E5%8A%A8%E5%88%B0%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="toc-number">8.</span> <span class="toc-text">学习完这篇文章请移动到下一步</span></a></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
+
+
+ 
+
+<script async src="/js/app.js?v=1663956857765"></script>
+
+
+	<script async src="/js/search.js?v=1663956857765"></script>
+
+
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>

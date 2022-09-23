@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>vue的基础之路(vueX/状态管理包) - VaMin23博客网</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/VaMin.ico" type="image/x-icon" />
+    <meta name="description" content="vue的常规使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue的基础之路(vueX&#x2F;状态管理包)">
+<meta property="og:url" content="https://github.com/lonely0323/lonely0323.github.io/2022/09/20/vueX/index.html">
+<meta property="og:site_name" content="VaMin23博客网">
+<meta property="og:description" content="vue的常规使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.csdn.net/zhangchen124/article/details/assets/image-20220301144022193.png">
+<meta property="og:image" content="https://blog.csdn.net/zhangchen124/article/details/assets/image-20220301000250691.png">
+<meta property="og:image" content="https://blog.csdn.net/zhangchen124/article/details/assets/image-20220301004218569.png">
+<meta property="article:published_time" content="2022-09-20T02:30:00.000Z">
+<meta property="article:modified_time" content="2022-09-23T17:56:25.945Z">
+<meta property="article:author" content="Veam">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.csdn.net/zhangchen124/article/details/assets/image-20220301144022193.png">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1663956857741">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1663956857741">
+    
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://s1.ax1x.com/2022/07/12/j2mBm4.png)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Veam" class="mdui-btn mdui-btn-icon"><img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Veam">
+            <img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam" alt="Veam">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>17</div>
+        <div><span>标签</span>6</div>
+        <div><span>分类</span>9</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form">
+                <label><input class="st-default-search-input" id="search_value" name="q" type="search" placeholder="搜索" style="
+                    font-size: 15px !important;
+                    height: 56px !important;
+                    background-image: none;
+                "></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=MvqLiTM1" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-qq1"></i>
+        </a><a class="mdui-ripple" href="/veam23@foxmail.com" target="_blank" mdui-tooltip="{content: '邮箱地址'}" style="color: rgb(44 0 219);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-QQyouxiang1"></i>
+        </a><a class="mdui-ripple" href="https://github.com/lonely0323" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://weibo.com/u/6323576495/home?wvr=5" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(220,20,60);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-weibo1"></i>
+        </a><a class="mdui-ripple" href="https://music.163.com/#/user/home?id=302060596" target="_blank" mdui-tooltip="{content: '网易云音乐'}" style="color: rgb(220,20,60);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-wangyiyunyinle"></i>
+        </a><a class="mdui-ripple" href="https://y.qq.com/n/ryqq/profile/like/song" target="_blank" mdui-tooltip="{content: 'QQ音乐'}" style="color: rgb(0,255,0);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-qqyinle"></i>
+        </a><a class="mdui-ripple" href="https://s.team/p/fvbb-wqnb/WPNPNWTQ" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(0,0,255);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/javaScript/">javaScript</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/uni-app/">uni-app</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/vue/">vue</a>
+          <span class="category-list-count">8</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/公告/">公告</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/学习/">学习</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/插件/">插件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/文档/">文档</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音乐/">音乐</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/%E5%85%B3%E4%BA%8E/" style="font-size: 10px;">关于</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 10px;">文档</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%BD%91%E7%AB%99/" style="font-size: 10px;">网站</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 Veam
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/lonely0323/VaMin23" target="_blank">VaMin23</a>
+        
+        <div style="font-size: 13px; color: #5600ff; ">
+            <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+            本站访客数<a id="busuanzi_value_site_uv"></a>人次
+        </div>
+    </div>
+</div><!-- .nexmoe-drawer -->
+
+
+
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
+              <img src="https://s1.ax1x.com/2022/07/12/jgMz1P.png" alt="vue的基础之路(vueX/状态管理包)" loading="lazy">
+              <h1>vue的基础之路(vueX/状态管理包)</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年09月20日</a>
+</div>
+
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    
+</div>
+
+      <h3 id="vue的常规使用"><a href="#vue的常规使用" class="headerlink" title="vue的常规使用"></a>vue的常规使用</h3><span id="more"></span>
+
+    <div id="aplayer-teENaJnq" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="5415926126" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+
+
+<h2 id="一、Vuex"><a href="#一、Vuex" class="headerlink" title="一、Vuex"></a>一、Vuex</h2><p>import <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=eventbus&spm=1001.2101.3001.7020">eventbus</a></p>
+<p>Vue.proptotype.enventBus = eventBus</p>
+<p>全局事件总线。</p>
+<p>组件之间的通信：</p>
+<p> props属性</p>
+<p> 自定义事件</p>
+<p> 总线传值eventBus</p>
+<p> <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E6%8F%92%E6%A7%BD&spm=1001.2101.3001.7020">插槽</a>传值</p>
+<p> vuex</p>
+<h3 id="1-1-什么是vuex"><a href="#1-1-什么是vuex" class="headerlink" title="1.1 什么是vuex"></a>1.1 什么是vuex</h3><p><strong>概念：**Vuex 是一个专为 Vue.js 应用程序开发的**状态管理模式**。它采用</strong>集中式存储<strong>管理应用的所有组件的状态，并以相应的规则保证状态以一种</strong>可预测**的方式发生变化，可以用于组件之间的通信。</p>
+<h3 id="1-2-为什么要用vuex-什么时候使用vuex"><a href="#1-2-为什么要用vuex-什么时候使用vuex" class="headerlink" title="1.2 为什么要用vuex(什么时候使用vuex)"></a>1.2 为什么要用vuex(什么时候使用vuex)</h3><p>当我们的应用遇到<strong>多个组件共享状态</strong>时，我们会遇到如下问题：</p>
+<ul>
+<li>多个视图依赖于同一状态<ul>
+<li>传参的方法对于多层嵌套的组件将会非常繁琐，并且对于兄弟组件间的状态传递无能为力</li>
+</ul>
+</li>
+<li>来自不同的视图的行为需要变更同一状态<ul>
+<li>我们经常会采用父子组件直接引用或者通过事件来变更和同步状态的多份拷贝。以上的这些模式非常脆弱，通常会导致无法维护的代码。</li>
+</ul>
+</li>
+</ul>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-6ofmLNcR-1655307718848)(assets/image-20220228223528678.png)]</p>
+<p>因此，我们为什么不把组件的共享状态抽取出来，以一个全局单例模式管理，通过定义和隔离状态管理中的各种概念并通过强制规则维持视图和状态间的独立性，我们的代码将会变得更结构化且易维护。</p>
+<h3 id="1-3-vuex原理分析"><a href="#1-3-vuex原理分析" class="headerlink" title="1.3 vuex原理分析"></a>1.3 vuex原理分析</h3><p><img data-fancybox="gallery" src="https://blog.csdn.net/zhangchen124/article/details/assets/image-20220301144022193.png" alt="image-20220301144022193" data-caption="image-20220301144022193" loading="lazy"></p>
+<p>我们可以把数据存储在state中 state是一个对象(key=value)，由它来替我们管理公用的一些数据，首先我们在组件中会向actions中发送一个请求 类似函数的发送，调用dispatch(‘操作type’,参数) actions也是一个对象类型的数据集合，在其中会有一个key值 跟我们发送的dispatch中的操作 对应，其value是一个回调函数 但是这个回调函数并不会直接帮我们去修改state中的数据，而是要再次进行请求,调用commit方法，把请求》传递到mutations对象中，让mutations中的对应函数来做对state中数据的更新操作。并且在state中数据更新后 自动的把这个数据再次渲染(render)到所有使用这个数据的组件中去。</p>
+<p>问题：上述过程中的actions好像没有什么作用，为什么还要有actions呢？</p>
+<p> 因为，我们一般要在actions中进行异步操作,/复杂业务逻辑处理。并且vue官方推荐，如果我们的操作中不存在异步，那么此时可以直接从组件中调用commit到Mutations中直接执行操作。</p>
+<p>注意：在vuex中有一个对象叫做store，上边看到的Actions,Mutations,State 这三个对象都要被Store对象所管理。图中体现的dispatch和commit方法都是由Store提供的。</p>
+<pre><code class="js">#Vuex 可以帮助我们管理共享状态，并附带了更多的概念和框架。这需要对短期和长期效益进行权衡
+#如果您不打算开发大型单页应用，使用 Vuex 可能是繁琐冗余的
+#如果您的应用够简单，您最好不要使用 Vuex。
+#如果您需要构建一个中大型单页应用，您很可能会考虑如何更好地在组件外部管理状态，Vuex 将会成为自然而然的选择
+1234
+</code></pre>
+<h3 id="1-4-vuex的使用"><a href="#1-4-vuex的使用" class="headerlink" title="1.4 vuex的使用"></a>1.4 vuex的使用</h3><h4 id="1-4-1-安装"><a href="#1-4-1-安装" class="headerlink" title="1.4.1 安装"></a>1.4.1 安装</h4><p>注意：现在vue3已经是vue的默认版本 直接执行<code>npm i vuex</code>安装的vuex是4版本。</p>
+<p>vue2 =&gt; vuex3 vue3==&gt;vuex4</p>
+<pre><code class="js">npm :    npm install vuex@3 --save
+1
+</code></pre>
+<h4 id="1-4-2-使用"><a href="#1-4-2-使用" class="headerlink" title="1.4.2 使用"></a>1.4.2 使用</h4><pre><code class="js">第一步：#src/store/index.js 创建vuex模块文件，开始使用vuex
+在一个模块化的打包系统中，您必须显式地通过 `Vue.use()` 来安装 Vuex：
+import Vue from &#39;vue&#39;
+import Vuex from &#39;vuex&#39;
+Vue.use(Vuex)
+
+第二步：#实例化Vuex.store ，并进行相关配置
+export default new Vuex.Store(&#123;
+  state: &#123;
+      //存储状态
+  &#125;,
+  mutations: &#123;
+      //变更store中的状态
+  &#125;,
+  actions: &#123;
+      //类似于mutation,
+      //action提交的是mutation,而不是直接变更状态
+      //action可以包含异步操作
+  &#125;,
+  getters:&#123;
+    //state的派生状态  
+  &#125;,
+  modules: &#123;
+      //将store分割成模块
+  &#125;
+&#125;)
+
+
+第三步：#在main.js中，vue实例对象中注册store
+import store from &#39;./store&#39;
+new Vue(&#123;
+  store,
+  render: h =&gt; h(App)
+&#125;).$mount(&#39;#app&#39;)
+12345678910111213141516171819202122232425262728293031323334
+</code></pre>
+<p>每一个 Vuex 应用的核心就是 store（仓库）。“store”基本上就是一个容器，它包含着你的应用中大部分的**状态 (state)**。Vuex 和单纯的全局对象有以下两点不同：</p>
+<ol>
+<li>Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会相应地得到高效更新。</li>
+<li>你不能直接改变 store 中的状态。改变 store 中的状态的唯一途径就是显式地<strong>提交 (commit) mutation</strong>。这样使得我们可以方便地跟踪每一个状态的变化，从而让我们能够实现一些工具帮助我们更好地了解我们的应用。</li>
+</ol>
+<p><strong>案例：使用vue完成求和案例</strong></p>
+<p><img data-fancybox="gallery" src="https://blog.csdn.net/zhangchen124/article/details/assets/image-20220301000250691.png" alt="image-20220301000250691" data-caption="image-20220301000250691" loading="lazy"></p>
+<p>最初版不用vuex的代码：见 笔记 src1目录</p>
+<p>vuex版本</p>
+<ul>
+<li><strong>state对象</strong></li>
+</ul>
+<pre><code class="js">#存储共享状态
+state:&#123;
+    num:100,
+    userinfo:&#123;&#125;
+&#125;
+#通过在根实例中注册 store 选项，该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 this.$store 访问到
+#由于 Vuex 的状态存储是响应式的，从 store 实例中读取状态最简单的方法就是在计算属性中返回某个状态
+computed:&#123;
+    num()&#123;
+        return this.$store.state.num;
+    &#125;
+&#125;,
+
+12345678910111213
+</code></pre>
+<ul>
+<li><strong>Actions</strong></li>
+</ul>
+<p>Action 类似于 mutation，不同在于：</p>
+<ul>
+<li>Action 提交的是 mutation，而不是直接变更状态。</li>
+<li>Action 可以包含任意异步操作。</li>
+</ul>
+<pre><code class="js">actions: &#123;
+    increment (context) &#123;
+        context.commit(&#39;increment&#39;)
+    &#125;
+&#125;
+
+//Action 函数接受一个与 store 实例具有相同方法和属性的 context 对象，因此你可以调用 context.commit 提交一个 mutation，或者通过 context.state 和 context.getters 来获取 state 和 getters。
+
+//Action 通过 store.dispatch 方法触发：
+store.dispatch(&#39;increment&#39;)
+
+//Actions 支持同样的载荷方式和对象方式进行分发：
+// 以载荷形式分发
+store.dispatch(&#39;incrementAsync&#39;, &#123;
+  amount: 10
+&#125;)
+
+// 以对象形式分发
+store.dispatch(&#123;
+  type: &#39;incrementAsync&#39;,
+  amount: 10
+&#125;)
+12345678910111213141516171819202122
+</code></pre>
+<ul>
+<li><strong>Mutations</strong></li>
+</ul>
+<pre><code class="js">#你不能直接改变 store 中的状态。改变 store 中的状态的唯一途径就是显式地提交 (commit) mutations。这样使得我们可以方便地跟踪每一个状态的变化，从而让我们能够实现一些工具（devToolS）帮助我们更好地了解我们的应用
+
+#Vuex 中的 mutation 非常类似于事件：每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)。这个回调函数就是我们实际进行状态更改的地方，并且它会接受 state 作为第一个参数：
+mutations: &#123;
+    increment (state,payload) &#123;
+      // 变更状态
+      //state.num++
+        state.num+=payload
+    &#125;
+  &#125;
+
+#怎么提交mutations
+commit 接收俩个参数(事件名，额外的参数)  用在组件中修改store中状态时使用
+
+//store.commit(&#39;increment&#39;)
+methods:&#123;
+    add()&#123;
+        this.$store.commit(&#39;increment&#39;,45);
+    &#125;
+&#125;,
+#一条重要的原则就是要记住 mutation 必须是同步函数，每一条 mutation 被记录，devtools 都需要捕捉到前一状态和后一状态的快照，但是异步中的状态的改变都是不可追踪的
+123456789101112131415161718192021
+</code></pre>
+<p><strong>案例：使用vuex完成求和案例</strong></p>
+<p>home.vue组件中：</p>
+<pre><code class="vue">&lt;template&gt;
+    &lt;div class=&quot;home&quot;&gt;
+        &lt;h1&gt;sum求和:&#123;&#123;$store.state.sum&#125;&#125;&lt;/h1&gt;
+        &lt;button type=&quot;button&quot; @click=&quot;addOne&quot;&gt;点我+1&lt;/button&gt;
+        &lt;button type=&quot;button&quot; @click=&quot;addTwo&quot;&gt;点我+2&lt;/button&gt;
+        &lt;button type=&quot;button&quot; @click=&quot;addThree&quot;&gt;点我+3&lt;/button&gt;
+        &lt;button type=&quot;button&quot; @click=&quot;addFour&quot;&gt;等2s,点我+4&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    export default &#123;
+        name: &#39;Home&#39;,
+        data() &#123;return &#123;sum: 0&#125;&#125;,
+        methods: &#123;
+            addOne() &#123;
+                //console.log(this.$store.state.sum)
+                this.$store.dispatch(&#39;jia&#39;,1)
+            &#125;,
+            addTwo() &#123;
+                this.$store.dispatch(&#39;jia2&#39;,2)
+            &#125;,
+            addThree() &#123;
+                this.sum += 3
+            &#125;,
+            addFour() &#123;
+                setTimeout(()=&gt;&#123;
+                    this.sum += 4
+                &#125;,2000 )
+            &#125;
+        &#125;
+    &#125;
+&lt;/script&gt;
+1234567891011121314151617181920212223242526272829303132
+</code></pre>
+<p>store目录下的index.js:</p>
+<pre><code class="js">//1.导入vue 和vuex
+import Vue from &#39;vue&#39;
+import Vuex from &#39;vuex&#39;
+Vue.use(Vuex)
+//2.实例化vuex 并进行相关的配置
+export default new Vuex.Store(&#123;
+    //进行状态管理，公用的数据放在这里
+    state:&#123;
+        sum:0,
+        name:&#39;张三&#39;,
+        age:18
+    &#125;,
+    //用于响应组件中的动作
+    //mutations变更state之前的操作，类似于mutations但是 这里不进行state变更操作，主要这里执行异步代码
+    actions:&#123;
+        //此处函数对应组件中调用的 $store.dispatch(&#39;jia&#39;,1)方法
+        //context 就是一个类似于Store对象的参数，但是其中的内容比Store对象少  payload就是 1
+        /*addOne(context,payload) &#123;
+            //console.log(context,payload)
+            //此处需要调用store的commit()方法 通知 mutations执行操作 会自动调用mutations中对应JIA的函数
+            context.commit(&#39;ADDONE&#39;,payload)
+        &#125;,
+        addTwo(context,payload)&#123;
+            context.commit(&#39;ADDTWO&#39;,payload)
+        &#125;,*/
+        注意：以上的addOne和addTwo方法因为其中没有什么业务逻辑，所以可以直接通过组件与mutations连接，不需要再经过actions了。
+        
+        addThree(context,payload)&#123;
+            context.commit(&#39;ADDTHREE&#39;,payload)
+        &#125;,
+        addFour(context,payload)&#123;
+            setTimeout(function() &#123;
+                context.commit(&#39;ADDFOUR&#39;,payload)
+            &#125;, 2000)
+        &#125;
+    &#125;,
+    //具体执行操作state中数据的方法都在这里
+    mutations:&#123;
+        //此处接收两个参数 state 数据对象  payload就是参数 1
+        addOne(state,payload)&#123;
+            state.sum+=payload
+        &#125;,
+        addTwo(state,payload)&#123;
+            state.sum+=payload
+        &#125;,
+        ADDTHREE(state,payload)&#123;
+            state.sum+=payload
+        &#125;,
+        ADDFOUR(state,payload)&#123;
+            state.sum+=payload
+        &#125;,
+    &#125;,
+    //可以对state中的数据进行额外的处理操作 类似于 computed计算属性
+    getters:&#123;
+        //定义张三父亲的年龄 比张三大30岁
+        fatherAge(state)&#123;
+            return state.age+=25
+        &#125;
+    &#125;,
+    //模块化
+    modules:&#123;&#125;
+&#125;)
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162
+</code></pre>
+<h4 id="vuetools如何调试vuex"><a href="#vuetools如何调试vuex" class="headerlink" title="vuetools如何调试vuex"></a>vuetools如何调试vuex</h4><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-jhw5AQ0B-1655307718855)(assets/image-20220301002244378.png)]</p>
+<p><strong>注意：</strong>如果在Actions中操作state数据也可以生效，但是会造成开发者工具失效，无法侦听vuex的变化。</p>
+<h3 id="1-5-Getters"><a href="#1-5-Getters" class="headerlink" title="1.5 Getters"></a>1.5 <strong>Getters</strong></h3><p>有时候我们需要从 store 中的 state 中派生出一些状态/数据，例如对列表进行过滤并计数.</p>
+<p>Vuex 允许我们在 store 中定义“getter”（可以认为是 store 的计算属性）。就像计算属性一样，getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。</p>
+<pre><code class="js">#接受state作为第一个参数，对state中的数据进行过滤，二次处理
+getters:&#123;
+    //过滤年龄小于30
+     filter_age(state)&#123;
+        return state.student.filter(item =&gt; item.age&lt;30);
+     &#125;
+&#125;
+#Getters 会暴露为 store.getters 对象，你可以以属性的形式访问这些值
+组件中读取数据：this.$store.getters.filter_age
+123456789
+</code></pre>
+<h3 id="1-6-vuex中的mapState、mapGetters、mapActions、mapMutations对象"><a href="#1-6-vuex中的mapState、mapGetters、mapActions、mapMutations对象" class="headerlink" title="1.6 vuex中的mapState、mapGetters、mapActions、mapMutations对象"></a>1.6 vuex中的mapState、mapGetters、mapActions、mapMutations对象</h3><p>需求：假如我们要在页面中显示如下图内容：</p>
+<p><img data-fancybox="gallery" src="https://blog.csdn.net/zhangchen124/article/details/assets/image-20220301004218569.png" alt="image-20220301004218569" data-caption="image-20220301004218569" loading="lazy"></p>
+<p>第一步：在store目录下的index.js的state中添加属性 name,age</p>
+<pre><code class="js">state:&#123;
+        sum:0,
+        name:&#39;张三&#39;,
+        age:18
+    &#125;,
+12345
+</code></pre>
+<p>第二步：通过getters计算出张三父亲的年龄：</p>
+<pre><code>getters:&#123;
+        //定义张三父亲的年龄 比张三大30岁
+        fatherAge(state)&#123;
+            return state.age+25
+        &#125;
+    &#125;,
+123456
+</code></pre>
+<p>第三步：把数据展示在Home.vue组件上</p>
+<pre><code class="js">&lt;template&gt;
+    &lt;div class=&quot;home&quot;&gt;
+        &lt;h1&gt;sum求和:&#123;&#123;$store.state.sum&#125;&#125;&lt;/h1&gt;
+        &lt;h1&gt;我的名字叫：&#123;&#123;$store.state.name&#125;&#125;&lt;/h1&gt;
+        &lt;h1&gt;我的年龄是：&#123;&#123;$store.state.age&#125;&#125;&lt;/h1&gt;
+        &lt;h1&gt;我父亲的年龄是：&#123;&#123;$store.getters.fatherAge&#125;&#125;&lt;/h1&gt;
+        &lt;button type=&quot;button&quot; @click=&quot;addOne&quot;&gt;点我+1&lt;/button&gt;
+        &lt;button type=&quot;button&quot; @click=&quot;addTwo&quot;&gt;点我+2&lt;/button&gt;
+        &lt;button type=&quot;button&quot; @click=&quot;addThree&quot;&gt;点我+3&lt;/button&gt;
+        &lt;button type=&quot;button&quot; @click=&quot;addFour&quot;&gt;等2s,点我+4&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+123456789101112
+</code></pre>
+<p><strong>问题：</strong>效果完成，但是观察发现，我们每次取数据的代码中包含有很多的重复代码，思考: 能否简化？</p>
+<p>简化代码：在home组件中修改代码如下：把从$store中提取数据的方式都改成<strong>计算属性</strong>的形式，会方便很多。</p>
+<pre><code class="js">&lt;template&gt;
+    &lt;div class=&quot;home&quot;&gt;
+        &lt;h1&gt;sum求和:&#123;&#123;sum&#125;&#125;&lt;/h1&gt;
+        &lt;h1&gt;我的名字叫：&#123;&#123;name&#125;&#125;&lt;/h1&gt;
+        &lt;h1&gt;我的年龄是：&#123;&#123;$store.state.age&#125;&#125;&lt;/h1&gt;
+        &lt;h1&gt;我父亲的年龄是：&#123;&#123;fAge&#125;&#125;&lt;/h1&gt;
+        &lt;button type=&quot;button&quot; @click=&quot;addOne&quot;&gt;点我+1&lt;/button&gt;
+        &lt;button type=&quot;button&quot; @click=&quot;addTwo&quot;&gt;点我+2&lt;/button&gt;
+        &lt;button type=&quot;button&quot; @click=&quot;addThree&quot;&gt;点我+3&lt;/button&gt;
+        &lt;button type=&quot;button&quot; @click=&quot;addFour&quot;&gt;等2s,点我+4&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    export default &#123;
+        name: &#39;Home&#39;,
+        computed:&#123;
+            sum()&#123;
+                return this.$store.state.sum
+            &#125;,
+            name()&#123;
+                return this.$store.state.name
+            &#125;,
+            fAge()&#123;
+                return this.$store.getters.fatherAge
+            &#125;
+        &#125;
+    &#125;
+&lt;/script&gt;
+1234567891011121314151617181920212223242526272829
+</code></pre>
+<p><strong>问题：</strong>此时观察发现 计算属性中仍然是 重复代码，怎么解决？ 借助 内置提供的 mapState mapGetters属性</p>
+<p><strong>第一步：</strong>在组件中导入vuex中提供的 <code>mapState,mapGetters,mapMutations,mapActions</code> 对象</p>
+<pre><code>import &#123;mapState,mapGetters,mapMutations,mapActions&#125; from &#39;vuex&#39;
+1
+</code></pre>
+<p><strong>第二步：</strong>修改computed计算属性中的代码</p>
+<ul>
+<li>对象式</li>
+</ul>
+<p> 使用<code>...mapState(&#123;sum:&#39;sum&#39;,name:&#39;name&#39;,age:&#39;age&#39;&#125;)</code> 简写形式把 计算属性给替换掉。</p>
+<p> 使用<code>...mapGetters(&#123;fAge:&#39;fatherAge&#39;&#125;)</code> 简写形式把 计算属性给替换掉。</p>
+<ul>
+<li>数组式</li>
+</ul>
+<p> 使用<code>...mapState([&#39;sum&#39;,&#39;name&#39;,&#39;age&#39;])</code> 简写形式把 计算属性给替换掉。</p>
+<p> 使用<code>...mapGetters([&#39;fatherAge&#39;])</code> 简写形式把 计算属性给替换掉。</p>
+<pre><code class="js">computed:&#123;
+            /* sum()&#123;
+                return this.$store.state.sum
+            &#125;,
+            name()&#123;
+                return this.$store.state.name
+            &#125;, 
+            age()&#123;
+                return this.$store.state.age
+            &#125;
+            */
+        State数据获取的简写形式
+            //对象形式
+            ...mapState(&#123;sum:&#39;sum&#39;,name:&#39;name&#39;,age:&#39;age&#39;&#125;),
+            //数组形式
+            ...mapState([&#39;sum&#39;,&#39;name&#39;,&#39;age&#39;]),
+                
+         Getters数据获取的简写形式   
+            /*fAge()&#123;
+                return this.$store.getters.fatherAge
+            &#125;*/
+            //对象式
+            ...mapGetters(&#123;fAge:&#39;fatherAge&#39;&#125;),
+            //数组式
+            ...mapGetters([&#39;fatherAge&#39;])
+        &#125;,
+1234567891011121314151617181920212223242526
+</code></pre>
+<p>使用<code>mapMutations和mapActions</code> 对象来完成 简写 与 Store目录下index.js中 mutations和actions中方法的连接：</p>
+<p><strong>注意：</strong> 方法简写时 需要把参数在函数调用时进行传递。</p>
+<p>home组件中原本methods中函数的写法：</p>
+<pre><code class="js">methods: &#123;
+            addOne() &#123;
+                this.$store.dispatch(&#39;addOne&#39;,1)
+            &#125;,
+            addTwo() &#123;
+                this.$store.dispatch(&#39;addTwo&#39;,2)
+            &#125;,
+            addThree() &#123;
+                this.$store.dispatch(&#39;addThree&#39;,3)
+            &#125;,
+            addFour() &#123;
+                this.$store.dispatch(&#39;addFour&#39;,4)
+            &#125;
+        &#125;,
+1234567891011121314
+</code></pre>
+<p>替换成：</p>
+<pre><code>//对应actions中的方法
+...mapActions(&#123;addThree:&#39;addThree&#39;,addFour:&#39;addFour&#39;&#125;),
+//对应mutations中的方法
+...mapMutations(&#123;addOne:&#39;addOne&#39;,addTwo:&#39;addTwo&#39;&#125;)
+1234
+</code></pre>
+<p><strong>最终代码：</strong></p>
+<p>home.vue组件中：</p>
+<pre><code class="vue">&lt;template&gt;
+    &lt;div class=&quot;home&quot;&gt;
+        &lt;h1&gt;sum求和:&#123;&#123;sum&#125;&#125;&lt;/h1&gt;
+        &lt;h1&gt;我的名字叫：&#123;&#123;name&#125;&#125;&lt;/h1&gt;
+        &lt;h1&gt;我的年龄是：&#123;&#123;$store.state.age&#125;&#125;&lt;/h1&gt;
+        &lt;h1&gt;我父亲的年龄是：&#123;&#123;fatherAge&#125;&#125;&lt;/h1&gt;
+        &lt;button type=&quot;button&quot; @click=&quot;addOne(1)&quot;&gt;点我+1&lt;/button&gt;
+        &lt;button type=&quot;button&quot; @click=&quot;addTwo(2)&quot;&gt;点我+2&lt;/button&gt;
+        &lt;button type=&quot;button&quot; @click=&quot;addThree(3)&quot;&gt;点我+3&lt;/button&gt;
+        &lt;button type=&quot;button&quot; @click=&quot;addFour(4)&quot;&gt;等2s,点我+4&lt;/button&gt;
+
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    import &#123;mapState,mapGetters,mapActions,mapMutations&#125; from &#39;vuex&#39;
+    export default &#123;
+        name: &#39;Home&#39;,
+        computed:&#123;
+           //对象形式
+            //...mapState(&#123;sum:&#39;sum&#39;,name:&#39;name&#39;,age:&#39;age&#39;&#125;),
+            //数组形式
+            ...mapState([&#39;sum&#39;,&#39;name&#39;,&#39;age&#39;]),
+            /* ...mapGetters(&#123;fAge:&#39;fatherAge&#39;&#125;) */
+            ...mapGetters([&#39;fatherAge&#39;])
+        &#125;,
+        methods: &#123;
+            ...mapMutations(&#123;addOne:&#39;addOne&#39;,addTwo:&#39;addTwo&#39;&#125;),
+            ...mapActions(&#123;addThree:&#39;addThree&#39;,addFour:&#39;addFour&#39;&#125;),
+        &#125;
+    &#125;
+&lt;/script&gt;
+12345678910111213141516171819202122232425262728293031
+</code></pre>
+<p>store目录下的index.js中</p>
+<pre><code class="js">//1.导入vue 和vuex
+import Vue from &#39;vue&#39;
+import Vuex from &#39;vuex&#39;
+Vue.use(Vuex)
+//2.实例化vuex 并进行相关的配置
+export default new Vuex.Store(&#123;
+    //进行状态管理，公用的数据放在这里
+    state:&#123;
+        sum:0,
+        name:&#39;张三&#39;,
+        age:18
+    &#125;,
+    //用于响应组件中的动作
+    //mutations变更state之前的操作，类似于mutations但是 这里不进行state变更操作，主要这里执行异步代码
+    actions:&#123;
+        //此处函数对应组件中调用的 $store.dispatch(&#39;jia&#39;,1)方法
+        //context 就是一个类似于Store对象的参数，但是其中的内容比Store对象少  payload就是 1
+        /* addOne(context,payload) &#123;
+            //console.log(context,payload)
+            //此处需要调用store的commit()方法 通知 mutations执行操作 会自动调用mutations中对应JIA的函数
+            context.commit(&#39;ADDONE&#39;,payload)
+        &#125;, */
+        /* addTwo(context,payload)&#123;
+            context.commit(&#39;ADDTWO&#39;,payload)
+        &#125;, */
+        addThree(context,payload)&#123;
+            context.commit(&#39;ADDTHREE&#39;,payload)
+        &#125;,
+        addFour(context,payload)&#123;
+            setTimeout(function() &#123;
+                context.commit(&#39;ADDFOUR&#39;,payload)
+            &#125;, 2000)
+        &#125;
+    &#125;,
+    //具体执行操作state中数据的方法都在这里
+    mutations:&#123;
+        //此处接收两个参数 state 数据对象  payload就是参数 1
+        addOne(state,payload)&#123;
+            state.sum+=payload
+        &#125;,
+        addTwo(state,payload)&#123;
+            state.sum+=payload
+        &#125;,
+        ADDTHREE(state,payload)&#123;
+            state.sum+=payload
+        &#125;,
+        ADDFOUR(state,payload)&#123;
+            state.sum+=payload
+        &#125;,
+    &#125;,
+    //迷你版State其中包含我们需要的一些信息
+    getters:&#123;
+        //定义张三父亲的年龄 比张三大30岁
+        fatherAge(state)&#123;
+            return state.age+=25
+        &#125;
+    &#125;,
+    //模块化
+    modules:&#123;&#125;
+&#125;)
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960
+</code></pre>
+<h3 id="1-7-多组件共享数据"><a href="#1-7-多组件共享数据" class="headerlink" title="1.7 多组件共享数据"></a>1.7 多组件共享数据</h3><h3 id="1-8-Module"><a href="#1-8-Module" class="headerlink" title="1.8 Module"></a>1.8 Module</h3><p>由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。</p>
+<p>为了解决以上问题，Vuex 允许我们将 store 分割成<strong>模块（module）</strong>。每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块——从上至下进行同样方式的分割：</p>
+<pre><code class="js">#moduleA.js
+const moduleA = &#123;
+  namespaced:true,
+  state:&#123; xx &#125;,
+  mutations: &#123; ... &#125;,
+  actions: &#123; ... &#125;,
+  getters: &#123; ... &#125;
+&#125;
+export default moduleA;
+            
+#modulesB.js
+const moduleB = &#123;
+  //开启命名空间
+  namespaced:true,
+  state: () =&gt; (&#123; ... &#125;),
+  mutations: &#123; ... &#125;,
+  actions: &#123; ... &#125;
+&#125;
+
+#index.js
+import moduleA from &#39;./moduleA.js&#39;
+const store = new Vuex.Store(&#123;
+  modules: &#123;
+    a: moduleA,
+    b: moduleB
+  &#125;
+&#125;)
+//使用：this.$store.state.a.xx
+12345678910111213141516171819202122232425262728
+</code></pre>
+<h2 id="二、总结与作业"><a href="#二、总结与作业" class="headerlink" title="二、总结与作业"></a>二、总结与作业</h2><p>杂时，store 对象就有可能变得相当臃肿。</p>
+<p>为了解决以上问题，Vuex 允许我们将 store 分割成<strong>模块（module）</strong>。每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块——从上至下进行同样方式的分割：</p>
+<pre><code class="js">#moduleA.js
+const moduleA = &#123;
+  namespaced:true,
+  state:&#123; xx &#125;,
+  mutations: &#123; ... &#125;,
+  actions: &#123; ... &#125;,
+  getters: &#123; ... &#125;
+&#125;
+export default moduleA;
+            
+#modulesB.js
+const moduleB = &#123;
+  //开启命名空间
+  namespaced:true,
+  state: () =&gt; (&#123; ... &#125;),
+  mutations: &#123; ... &#125;,
+  actions: &#123; ... &#125;
+&#125;
+
+#index.js
+import moduleA from &#39;./moduleA.js&#39;
+const store = new Vuex.Store(&#123;
+  modules: &#123;
+    a: moduleA,
+    b: moduleB
+  &#125;
+&#125;)
+//使用：this.$store.state.a.xx
+</code></pre>
+<p>🍅 Vue学习之路（基础篇）<br>🍅 vue的学习之路（Axios 基本使用）<br>🍅 vue的学习之路（Vue 生命周期）<br>🍅 vue的学习之路（Vue中组件(component)）<br>🍅 vue的学习之路（Vue中路由 (Vue Router)）<br>🍅 vue的学习之路（Vue CLI 脚手架）<br>🍅 <strong>vue的学习之路（VueX 状态管理）</strong><br>🍅 vue的学习之路（Vue创建项目）</p>
+<h2 id="以上就是vue的基本使用和路线接下来就是项目实战啦！祝你旗开得胜，学得更精通更美妙！！！一切学习起来吧"><a href="#以上就是vue的基本使用和路线接下来就是项目实战啦！祝你旗开得胜，学得更精通更美妙！！！一切学习起来吧" class="headerlink" title="以上就是vue的基本使用和路线接下来就是项目实战啦！祝你旗开得胜，学得更精通更美妙！！！一切学习起来吧"></a>以上就是vue的基本使用和路线接下来就是项目实战啦！祝你旗开得胜，学得更精通更美妙！！！一切学习起来吧</h2><h3 id="学习完这篇文章请移动到下一步"><a href="#学习完这篇文章请移动到下一步" class="headerlink" title="学习完这篇文章请移动到下一步"></a>学习完这篇文章请移动到下一步</h3>
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Veam<br>
+        <strong>本文链接：</strong><a href="https://github.com/lonely0323/lonely0323.github.io/2022/09/20/vueX/" title="https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;09&#x2F;20&#x2F;vueX&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;09&#x2F;20&#x2F;vueX&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/vue/">vue</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '84f0a52c730b2624c264',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'https://github.com/lonely0323/gitment',
+        owner: 'lonely0323',
+        admin: 'lonely0323'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue%E7%9A%84%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">vue的常规使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81Vuex"><span class="toc-number"></span> <span class="toc-text">一、Vuex</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AFvuex"><span class="toc-number">1.</span> <span class="toc-text">1.1 什么是vuex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8vuex-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BD%BF%E7%94%A8vuex"><span class="toc-number">2.</span> <span class="toc-text">1.2 为什么要用vuex(什么时候使用vuex)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-vuex%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">1.3 vuex原理分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-vuex%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">1.4 vuex的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-1-%E5%AE%89%E8%A3%85"><span class="toc-number">4.1.</span> <span class="toc-text">1.4.1 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-2-%E4%BD%BF%E7%94%A8"><span class="toc-number">4.2.</span> <span class="toc-text">1.4.2 使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vuetools%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95vuex"><span class="toc-number">4.3.</span> <span class="toc-text">vuetools如何调试vuex</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-Getters"><span class="toc-number">5.</span> <span class="toc-text">1.5 Getters</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-vuex%E4%B8%AD%E7%9A%84mapState%E3%80%81mapGetters%E3%80%81mapActions%E3%80%81mapMutations%E5%AF%B9%E8%B1%A1"><span class="toc-number">6.</span> <span class="toc-text">1.6 vuex中的mapState、mapGetters、mapActions、mapMutations对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-%E5%A4%9A%E7%BB%84%E4%BB%B6%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE"><span class="toc-number">7.</span> <span class="toc-text">1.7 多组件共享数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-Module"><span class="toc-number">8.</span> <span class="toc-text">1.8 Module</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%80%BB%E7%BB%93%E4%B8%8E%E4%BD%9C%E4%B8%9A"><span class="toc-number"></span> <span class="toc-text">二、总结与作业</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8A%E5%B0%B1%E6%98%AFvue%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%92%8C%E8%B7%AF%E7%BA%BF%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%B0%B1%E6%98%AF%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E5%95%A6%EF%BC%81%E7%A5%9D%E4%BD%A0%E6%97%97%E5%BC%80%E5%BE%97%E8%83%9C%EF%BC%8C%E5%AD%A6%E5%BE%97%E6%9B%B4%E7%B2%BE%E9%80%9A%E6%9B%B4%E7%BE%8E%E5%A6%99%EF%BC%81%EF%BC%81%EF%BC%81%E4%B8%80%E5%88%87%E5%AD%A6%E4%B9%A0%E8%B5%B7%E6%9D%A5%E5%90%A7"><span class="toc-number"></span> <span class="toc-text">以上就是vue的基本使用和路线接下来就是项目实战啦！祝你旗开得胜，学得更精通更美妙！！！一切学习起来吧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E5%AE%8C%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E8%AF%B7%E7%A7%BB%E5%8A%A8%E5%88%B0%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="toc-number">1.</span> <span class="toc-text">学习完这篇文章请移动到下一步</span></a></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
+
+
+ 
+
+<script async src="/js/app.js?v=1663956857750"></script>
+
+
+	<script async src="/js/search.js?v=1663956857750"></script>
+
+
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>

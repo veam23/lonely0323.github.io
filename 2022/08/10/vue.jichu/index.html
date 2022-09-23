@@ -15,7 +15,7 @@
     <meta name="description" content="vue的常规使用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue的基础之路">
-<meta property="og:url" content="https://github.com/lonely0323/lonely0323.github.io/2022/09/24/vue/index.html">
+<meta property="og:url" content="https://github.com/lonely0323/lonely0323.github.io/2022/08/10/vue.jichu/index.html">
 <meta property="og:site_name" content="VaMin23博客网">
 <meta property="og:description" content="vue的常规使用">
 <meta property="og:locale" content="zh_CN">
@@ -40,8 +40,8 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/f933e906f0e1c0eec3a5f8629affe267.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/87bcdf7a7bf73bb5226359d95ed9e16d.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/4ea6cfa5fd80da651c1e122b42081e7a.png">
-<meta property="article:published_time" content="2022-09-24T00:30:00.000Z">
-<meta property="article:modified_time" content="2022-09-23T16:35:24.192Z">
+<meta property="article:published_time" content="2022-08-10T00:30:00.000Z">
+<meta property="article:modified_time" content="2022-09-23T18:12:19.851Z">
 <meta property="article:author" content="Veam">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
@@ -52,9 +52,9 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1663951047673">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1663956857772">
     
-    <link rel="stylesheet" href="/css/style.css?v=1663951047673">
+    <link rel="stylesheet" href="/css/style.css?v=1663956857772">
     
 <meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
 <script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
@@ -82,9 +82,9 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>11</div>
+        <div><span>文章</span>17</div>
         <div><span>标签</span>6</div>
-        <div><span>分类</span>10</div>
+        <div><span>分类</span>9</div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
@@ -184,7 +184,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/vue/">vue</a>
-          <span class="category-list-count">1</span>
+          <span class="category-list-count">8</span>
         </li>
 
         
@@ -212,13 +212,6 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/文档/">文档</a>
-          <span class="category-list-count">1</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/框架，vue/">框架，vue</a>
           <span class="category-list-count">1</span>
         </li>
 
@@ -277,13 +270,13 @@
   <article>
       
           <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
-              <img src="https://s1.ax1x.com/2022/03/18/qFOXX4.png" alt="vue的基础之路" loading="lazy">
+              <img src="https://s1.ax1x.com/2022/07/12/jgMz1P.png" alt="vue的基础之路" loading="lazy">
               <h1>vue的基础之路</h1>
           </div>
       
       
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2022年09月24日</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年08月10日</a>
 </div>
 
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
@@ -292,7 +285,7 @@
 
       <h3 id="vue的常规使用"><a href="#vue的常规使用" class="headerlink" title="vue的常规使用"></a>vue的常规使用</h3><span id="more"></span>
 
-    <div id="aplayer-IaAsTZHG" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-lDaYkpki" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="5415926126" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
     ></div>
 
@@ -1205,7 +1198,89 @@ v-if与v-show的区别：
 &lt;/script&gt;
 1234567891011121314151617
 </code></pre>
-<h3 id="5-4-v-bind-简化写法"><a href="#5-4-v-bind-简化写法" class="headerlink" title="5.4 v-bind 简化写法"></a>5.4 v-bind 简化写法</h3><blockquote>
+<p>xxxxxxxxxx <br><!DOCTYPE html></p>
+<html lang="en"><head>    
+<meta charset="UTF-8">    <title>router</title></head>
+<body>
+<div id="app">    ​    
+<a href="#/users">点击切换展示所有</a>   
+<router-link to="/users">点击切换展示所有</router-link>   
+<router-link :to="{path:'/users'}">点击切换展示所有</router-link>    
+<router-link :to="{name:'Users'}">点击切换展示所有</router-link>​    <hr/>    
+<a href="#/users/userAdd">添加</a>​    
+<!--4、在vue实例范围内使用路由选中组件-->    
+<router-view/></div>
+</body>
+</html>
+
+<!--展示所有用户组件模板template-->
+<p><template id="users">    </p>
+<div>        
+<table border="1">           
+<tr>                
+<td>编号</td>                
+<td>名称</td>              
+<td>年龄</td>                
+<td>薪资</td>                
+<td>操作</td>            
+</tr>            
+<tr v-for="(user,index) in users" :key="user.id">                
+<td></td>               
+<td></td>                
+<td v-text="user.age"></td>                
+<td v-html="user.salary"></td>                
+<td><a href="">删除</a> | 
+<router-link :to="{name:'UserUpdate',query:{id:user.id}}">修改</router-link>
+</td>            
+</tr>        
+</table>        
+<!--展示子路由选中的组件-->        
+<router-view/>   
+</div>
+</template>
+<script src="../js/vue-min.js"></script>
+<script src="../js/vue-router.js"></script>
+<script>    
+//1、创建组件    //展示所有用户组件    
+const users = {template:"#users",        
+               data(){            
+                   return{                
+                       users:[]            
+                   }        
+               },        
+               created(){
+                   //发送异步请求 接收数据交给当前组件管理            
+         /* axios.get("url").then(response=>{                                    this.users = response.data            
+         }).
+         catch(erro=>{           
+         
+<pre><code>     &#125;)*/            
+     this.users = [
+         &#123;id:1 , name:&quot;王恒杰&quot;,age:18,salary:18&#125;,
+         &#123;id:2 , name:&quot;杨福君&quot;,age:58,salary:58&#125;]        
+           &#125;    
+          &#125;​    
+          const userAdd = &#123;
+              template:`&lt;div&gt;名称:
+      &lt;input type=&quot;text&quot; v-model=&quot;user.name&quot;/&gt; 
+      &lt;br/&gt; 
+ 年龄:&lt;input type=&quot;text&quot; v-model=&quot;user.age&quot;/&gt;
+ &lt;br/&gt; 
+ 薪资:&lt;input type=&quot;text&quot; v-model=&quot;user.salary&quot;/&gt;
+ &lt;br/&gt; 
+ &lt;button @click=&quot;addUser&quot;&gt;添加&lt;/button&gt;&lt;/div&gt;` ,        
+       data()&#123;
+           return&#123;
+               user:&#123;&#125;            
+           &#125;        
+       &#125;,        
+     methods:&#123;
+         addUser()&#123;
+      //发送异步请求 完成数据添加  用户数据接收                /*
+   axios.post(&quot;url&quot;, this.user).then(response=&gt;&#123;    &#125;)
+</code></pre>
+<p> .catch(error=&gt;{     })*/                <br>//2 切换路由  this   $route 当前路由对象 Object |$router  当前路由管理器对象<br>        VueRouter  this.$router.push({name:”Users”})          <br>             }      <br>         }  <br>              }​    <br>  const userUpdate = {        <br>    template:<code>&lt;div&gt;编号:&lt;input type=&quot;text&quot; v-model=&quot;user.id&quot;/&gt;      &lt;br/&gt;        名称:&lt;input type=&quot;text&quot; v-model=&quot;user.name&quot;/&gt;         &lt;br/&gt;         年龄:&lt;input type=&quot;text&quot; v-model=&quot;user.age&quot;/&gt;        &lt;br/&gt;         薪资:&lt;input type=&quot;text&quot; v-model=&quot;user.salary&quot;/&gt;        &lt;br/&gt;        &lt;button @click=&quot;updateUser&quot;&gt;修改&lt;/button&gt;     &lt;/div&gt;</code>        ,        <br>        data(){            <br>         return{                <br>           user:{}          <br>         }      <br>        },        <br>         methods:{            <br>             updateUser(){<br>                 //切换路由  切换到展示所有路由                this.$router.push({name:”Users”})<br>             }<br>         },        <br>         created(){<br>         let id = this.$route.query.id; //发送异步请求查询数据  数据回显            /<em>axios.get(“url?id=”+id).then(response=&gt;{                  this.user= response.data          <br>         }).catch(error=&gt;{})</em>/            <br>           this.user = {id,name:”liuh”,age:18,salary:18}      <br>             }  <br>         }    <br>      //2、创建路由   a、管理组件   b、配置路由规则 [/users - 组件]    <br>      const router = new VueRouter({<br>        routes:[          <br>            {path:”/users” ,<br>                  component:users , name:”Users” ,<br>/<em>配置路由的子路由注意：path属性中不能以/开头  切换子路由：/users/userAdd   <em>/           children:[                  <br>             {path:”userAdd” ,<br>                 component:userAdd , name:”UserAdd”<br>              },                  <br>             {path:”userUpdate” ,<br>             component:userUpdate ,<br>              name:”UserUpdate”<br>             }              <br>              ]          <br>    } ,          <br>    /</em>{path:”/userAdd” , component:userAdd , name:”UserAdd”}</em>/      <br>        ]  <br>    });​    <br>    new Vue({        <br>        el:”#app” ,        <br>        data:{          <br>            msg:”路由嵌套！”      <br>        },        <br>        //3、将路由交由vue实例管理        <br>        router })​<br></script><br>html</p>
+<blockquote>
 <p> vue为了方便我们日后绑定标签的属性提供了对属性绑定的简化写法如 <code>v-bind:属性名</code> 简化之后 <code>:属性名</code></p>
 </blockquote>
 <pre><code class="html">&lt;div id=&quot;app&quot;&gt;
@@ -1605,7 +1680,10 @@ v-model双向绑定
 1234567891011121314151617181920212223242526272829303132333435363738394041
 </code></pre>
 <p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/4ea6cfa5fd80da651c1e122b42081e7a.png" alt="img" data-caption="img" loading="lazy"></p>
-<h1 id="十-后续发布vue博客相关内容"><a href="#十-后续发布vue博客相关内容" class="headerlink" title="十.后续发布vue博客相关内容"></a>十.后续发布vue博客相关内容</h1><p>🍅 <strong>Vue学习之路（基础篇）</strong><br>🍅 vue的学习之路（Axios 基本使用）<br>🍅 vue的学习之路（Vue 生命周期）<br>🍅 vue的学习之路（Vue中组件(component)）<br>🍅 vue的学习之路（Vue中路由 (Vue Router)）<br>🍅 vue的学习之路（Vue CLI 脚手架）<br>🍅 vue的学习之路（VueX 状态管理）</p>
+<h1 id="十-后续发布vue博客相关内容"><a href="#十-后续发布vue博客相关内容" class="headerlink" title="十.后续发布vue博客相关内容"></a>十.后续发布vue博客相关内容</h1><p>🍅 <strong>Vue学习之路（基础篇）</strong><br>🍅 vue的学习之路（Axios 基本使用）<br>🍅 vue的学习之路（Vue 生命周期）<br>🍅 vue的学习之路（Vue中组件(component)）<br>🍅 vue的学习之路（Vue中路由 (Vue Router)）<br>🍅 vue的学习之路（Vue CLI 脚手架）<br>🍅 vue的学习之路（VueX 状态管理）<br>🍅 vue的学习之路（Vue创建项目）</p>
+<h3 id="学习完这篇文章请移动到下一步"><a href="#学习完这篇文章请移动到下一步" class="headerlink" title="学习完这篇文章请移动到下一步"></a>学习完这篇文章请移动到下一步</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://veam.top/2022/08/20/vue.axios">Vue学习之路（axios篇）</a></li>
+</ul>
 
   </article>
 
@@ -1613,7 +1691,7 @@ v-model双向绑定
       
     <div class="nexmoe-post-copyright">
         <strong>本文作者：</strong>Veam<br>
-        <strong>本文链接：</strong><a href="https://github.com/lonely0323/lonely0323.github.io/2022/09/24/vue/" title="https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;09&#x2F;24&#x2F;vue&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;09&#x2F;24&#x2F;vue&#x2F;</a><br>
+        <strong>本文链接：</strong><a href="https://github.com/lonely0323/lonely0323.github.io/2022/08/10/vue.jichu/" title="https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;08&#x2F;10&#x2F;vue.jichu&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;08&#x2F;10&#x2F;vue.jichu&#x2F;</a><br>
         
             <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
         
@@ -1624,7 +1702,7 @@ v-model双向绑定
   
   <div class="nexmoe-post-meta nexmoe-rainbow">
     
-        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E6%A1%86%E6%9E%B6%EF%BC%8Cvue/">框架，vue</a>
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/vue/">vue</a>
     
     
         <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a>
@@ -1663,7 +1741,7 @@ v-model双向绑定
                               <button class="mdui-fab catalog" style="overflow:unset;">
                                   <i class="nexmoefont icon-i-catalog"></i>
                                   <div class="nexmoe-toc">
-                                      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue%E7%9A%84%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">vue的常规使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-vue%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">2.</span> <span class="toc-text">1.1 vue的优势</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C-Vue%E5%85%A5%E9%97%A8"><span class="toc-number"></span> <span class="toc-text">二. Vue入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%B8%8B%E8%BD%BDVuejs"><span class="toc-number">1.</span> <span class="toc-text">2.1 下载Vuejs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Vue%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%A5%E9%97%A8%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">2.2 Vue第一个入门应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Vue%E4%B8%AD%E7%9A%84%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE"><span class="toc-number">3.</span> <span class="toc-text">2.3 Vue中的复杂数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89-v-text%E5%92%8Cv-html"><span class="toc-number"></span> <span class="toc-text">三. v-text和v-html</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-v-text"><span class="toc-number">1.</span> <span class="toc-text">3.1 v-text</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-v-html%E4%B8%8Ev-text%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.</span> <span class="toc-text">3.3 v-html与v-text的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BE%8B1%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">(1)例1：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E4%BE%8B2%EF%BC%9A"><span class="toc-number">2.2.</span> <span class="toc-text">(2）例2：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-vue%E4%B8%AD%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A-v-on"><span class="toc-number"></span> <span class="toc-text">四.vue中事件绑定(v-on)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">4.1 绑定事件基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89this%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">（2）this的用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E9%80%9A%E8%BF%87this-%E5%B1%9E%E6%80%A7%E5%90%8D%E8%8E%B7%E5%8F%96%E5%B1%9E%E6%80%A7%E5%80%BC%E8%BF%9B%E8%A1%8C%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">（3）通过this.属性名获取属性值进行操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E4%BA%8B%E4%BB%B6%E6%A1%88%E4%BE%8B"><span class="toc-number">1.3.</span> <span class="toc-text">（4）事件案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Vue%E4%B8%AD%E4%BA%8B%E4%BB%B6%E7%9A%84%E7%AE%80%E5%8C%96%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">4.2 Vue中事件的简化语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-Vue%E4%BA%8B%E4%BB%B6%E5%87%BD%E6%95%B0%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">4.3 Vue事件函数两种写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-Vue%E4%BA%8B%E4%BB%B6%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="toc-number">4.</span> <span class="toc-text">4.4 Vue事件参数传递</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94-v-show-v-if-v-bind"><span class="toc-number"></span> <span class="toc-text">五.v-show v-if v-bind</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-v-show"><span class="toc-number">1.</span> <span class="toc-text">5.1 v-show</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-v-if"><span class="toc-number">2.</span> <span class="toc-text">5.2 v-if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-1-v-if-amp-amp-v-show%E6%A1%88%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">5.2.1:v-if&amp;&amp;v-show案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-v-bind"><span class="toc-number">4.</span> <span class="toc-text">5.3 v-bind</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-v-bind-%E7%AE%80%E5%8C%96%E5%86%99%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">5.4 v-bind 简化写法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD-v-for%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number"></span> <span class="toc-text">六.v-for的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83-v-model-%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A"><span class="toc-number"></span> <span class="toc-text">七 .v-model 双向绑定</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AB-%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number"></span> <span class="toc-text">八. 事件修饰符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-stop%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">1.</span> <span class="toc-text">8.1 stop事件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-prevent-%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">2.</span> <span class="toc-text">8.2 prevent 事件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-self-%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">3.</span> <span class="toc-text">8.3 self 事件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-once-%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">4.</span> <span class="toc-text">8.4 once 事件修饰符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%9D-%E6%8C%89%E9%94%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number"></span> <span class="toc-text">九. 按键修饰符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-1-enter-%E5%9B%9E%E8%BD%A6%E9%94%AE"><span class="toc-number">1.</span> <span class="toc-text">9.1 enter 回车键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-tab-%E9%94%AE"><span class="toc-number">2.</span> <span class="toc-text">9.2 tab 键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-3-%E6%A1%88%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">9.3 案例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81-%E5%90%8E%E7%BB%AD%E5%8F%91%E5%B8%83vue%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="toc-number"></span> <span class="toc-text">十.后续发布vue博客相关内容</span></a>
+                                      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue%E7%9A%84%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">vue的常规使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-vue%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">2.</span> <span class="toc-text">1.1 vue的优势</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C-Vue%E5%85%A5%E9%97%A8"><span class="toc-number"></span> <span class="toc-text">二. Vue入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%B8%8B%E8%BD%BDVuejs"><span class="toc-number">1.</span> <span class="toc-text">2.1 下载Vuejs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Vue%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%A5%E9%97%A8%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">2.2 Vue第一个入门应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Vue%E4%B8%AD%E7%9A%84%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE"><span class="toc-number">3.</span> <span class="toc-text">2.3 Vue中的复杂数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89-v-text%E5%92%8Cv-html"><span class="toc-number"></span> <span class="toc-text">三. v-text和v-html</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-v-text"><span class="toc-number">1.</span> <span class="toc-text">3.1 v-text</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-v-html%E4%B8%8Ev-text%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.</span> <span class="toc-text">3.3 v-html与v-text的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BE%8B1%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">(1)例1：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E4%BE%8B2%EF%BC%9A"><span class="toc-number">2.2.</span> <span class="toc-text">(2）例2：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-vue%E4%B8%AD%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A-v-on"><span class="toc-number"></span> <span class="toc-text">四.vue中事件绑定(v-on)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">4.1 绑定事件基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89this%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">（2）this的用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E9%80%9A%E8%BF%87this-%E5%B1%9E%E6%80%A7%E5%90%8D%E8%8E%B7%E5%8F%96%E5%B1%9E%E6%80%A7%E5%80%BC%E8%BF%9B%E8%A1%8C%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">（3）通过this.属性名获取属性值进行操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E4%BA%8B%E4%BB%B6%E6%A1%88%E4%BE%8B"><span class="toc-number">1.3.</span> <span class="toc-text">（4）事件案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Vue%E4%B8%AD%E4%BA%8B%E4%BB%B6%E7%9A%84%E7%AE%80%E5%8C%96%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">4.2 Vue中事件的简化语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-Vue%E4%BA%8B%E4%BB%B6%E5%87%BD%E6%95%B0%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">4.3 Vue事件函数两种写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-Vue%E4%BA%8B%E4%BB%B6%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="toc-number">4.</span> <span class="toc-text">4.4 Vue事件参数传递</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94-v-show-v-if-v-bind"><span class="toc-number"></span> <span class="toc-text">五.v-show v-if v-bind</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-v-show"><span class="toc-number">1.</span> <span class="toc-text">5.1 v-show</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-v-if"><span class="toc-number">2.</span> <span class="toc-text">5.2 v-if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-1-v-if-amp-amp-v-show%E6%A1%88%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">5.2.1:v-if&amp;&amp;v-show案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-v-bind"><span class="toc-number">4.</span> <span class="toc-text">5.3 v-bind</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD-v-for%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number"></span> <span class="toc-text">六.v-for的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83-v-model-%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A"><span class="toc-number"></span> <span class="toc-text">七 .v-model 双向绑定</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AB-%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number"></span> <span class="toc-text">八. 事件修饰符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-stop%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">1.</span> <span class="toc-text">8.1 stop事件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-prevent-%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">2.</span> <span class="toc-text">8.2 prevent 事件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-self-%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">3.</span> <span class="toc-text">8.3 self 事件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-once-%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">4.</span> <span class="toc-text">8.4 once 事件修饰符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%9D-%E6%8C%89%E9%94%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number"></span> <span class="toc-text">九. 按键修饰符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-1-enter-%E5%9B%9E%E8%BD%A6%E9%94%AE"><span class="toc-number">1.</span> <span class="toc-text">9.1 enter 回车键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-tab-%E9%94%AE"><span class="toc-number">2.</span> <span class="toc-text">9.2 tab 键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-3-%E6%A1%88%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">9.3 案例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81-%E5%90%8E%E7%BB%AD%E5%8F%91%E5%B8%83vue%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="toc-number"></span> <span class="toc-text">十.后续发布vue博客相关内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E5%AE%8C%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E8%AF%B7%E7%A7%BB%E5%8A%A8%E5%88%B0%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="toc-number">1.</span> <span class="toc-text">学习完这篇文章请移动到下一步</span></a></li></ol>
                                   </div>
                               </button>
                           
@@ -1698,10 +1776,10 @@ v-model双向绑定
 
  
 
-<script async src="/js/app.js?v=1663951047695"></script>
+<script async src="/js/app.js?v=1663956857787"></script>
 
 
-	<script async src="/js/search.js?v=1663951047695"></script>
+	<script async src="/js/search.js?v=1663956857787"></script>
 
 
 <script>

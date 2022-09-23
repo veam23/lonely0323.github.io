@@ -253,7 +253,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/997f27dc33c66fb1178d15765c64a444.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/afe48707d926a32b609090a13f0afe13.png">
 <meta property="article:published_time" content="2022-07-22T23:59:59.000Z">
-<meta property="article:modified_time" content="2022-07-22T05:59:32.447Z">
+<meta property="article:modified_time" content="2022-09-23T16:57:44.170Z">
 <meta property="article:author" content="Veam">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
@@ -264,9 +264,9 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1663951047712">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1663956857790">
     
-    <link rel="stylesheet" href="/css/style.css?v=1663951047712">
+    <link rel="stylesheet" href="/css/style.css?v=1663956857790">
     
 <meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
 <script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
@@ -294,9 +294,9 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>11</div>
+        <div><span>文章</span>17</div>
         <div><span>标签</span>6</div>
-        <div><span>分类</span>10</div>
+        <div><span>分类</span>9</div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
@@ -396,7 +396,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/vue/">vue</a>
-          <span class="category-list-count">1</span>
+          <span class="category-list-count">8</span>
         </li>
 
         
@@ -424,13 +424,6 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/文档/">文档</a>
-          <span class="category-list-count">1</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/框架，vue/">框架，vue</a>
           <span class="category-list-count">1</span>
         </li>
 
@@ -505,7 +498,7 @@
       <p>javaScript学习！</p>
 <span id="more"></span>
 
-    <div id="aplayer-MFALZwas" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-mwQbgewt" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="5415926126" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
     ></div>
 
@@ -625,7 +618,7 @@ console.log(typeof null);
 <li>最小值：-1.7976931348623157e+308</li>
 <li>0以上的最小值：5e-324</li>
 </ul>
-<p><strong>特殊的数字：</strong></p>
+<p>xxxxxxxxxx <!DOCTYPE html><html lang="en"><head>    <meta charset="UTF-8">    <title>router</title></head><body><div id="app">    ​    <a href="#/users">点击切换展示所有</a>    <router-link to="/users">点击切换展示所有</router-link>    <router-link :to="{path:'/users'}">点击切换展示所有</router-link>    <router-link :to="{name:'Users'}">点击切换展示所有</router-link>​    <hr/>    <a href="#/users/userAdd">添加</a>​    <!--4、在vue实例范围内使用路由选中组件-->    <router-view/></div></body></html><!--展示所有用户组件模板template--><template id="users">    <div>        <table border="1">            <tr>                <td>编号</td>                <td>名称</td>                <td>年龄</td>                <td>薪资</td>                <td>操作</td>            </tr>            <tr v-for="(user,index) in users" :key="user.id">                <td></td>                <td></td>                <td v-text="user.age"></td>                <td v-html="user.salary"></td>                <td><a href="">删除</a> | <router-link :to="{name:'UserUpdate',query:{id:user.id}}">修改</router-link></td>            </tr>        </table>        <!--展示子路由选中的组件-->        <router-view/>    </div></template><script src="../js/vue-min.js"></script><script src="../js/vue-router.js"></script><script>    //1、创建组件    //展示所有用户组件    const users = {        template:"#users",        data(){            return{                users:[]            }        },        created(){            //发送异步请求 接收数据交给当前组件管理            /* axios.get("url").then(response=>{                this.users = response.data            }).catch(erro=>{            })*/            this.users = [{id:1 , name:"王恒杰",age:18,salary:18},{id:2 , name:"杨福君",age:58,salary:58}]        }    }​    const userAdd = {        template:<code>&lt;div&gt;名称:&lt;input type=&quot;text&quot; v-model=&quot;user.name&quot;/&gt; &lt;br/&gt; 年龄:&lt;input type=&quot;text&quot; v-model=&quot;user.age&quot;/&gt;&lt;br/&gt; 薪资:&lt;input type=&quot;text&quot; v-model=&quot;user.salary&quot;/&gt;&lt;br/&gt; &lt;button @click=&quot;addUser&quot;&gt;添加&lt;/button&gt;&lt;/div&gt;</code> ,        data(){            return{                user:{}            }        },        methods:{            addUser(){                //发送异步请求 完成数据添加  用户数据接收                /<em>axios.post("url", this.user).then(response=>{                }).catch(error=>{                })</em>/                //2 切换路由  this   $route 当前路由对象 Object   |  $router  当前路由管理器对象 VueRouter                this.$router.push({name:"Users"})            }        }    }​    const userUpdate = {        template:<code>&lt;div&gt;编号:&lt;input type=&quot;text&quot; v-model=&quot;user.id&quot;/&gt; &lt;br/&gt;名称:&lt;input type=&quot;text&quot; v-model=&quot;user.name&quot;/&gt; &lt;br/&gt; 年龄:&lt;input type=&quot;text&quot; v-model=&quot;user.age&quot;/&gt;&lt;br/&gt; 薪资:&lt;input type=&quot;text&quot; v-model=&quot;user.salary&quot;/&gt;&lt;br/&gt;&lt;button @click=&quot;updateUser&quot;&gt;修改&lt;/button&gt;&lt;/div&gt;</code>        ,        data(){            return{                user:{}            }        },        methods:{            updateUser(){                //切换路由  切换到展示所有路由                this.$router.push({name:"Users"})            }        },        created(){            let id = this.$route.query.id;            //发送异步请求查询数据  数据回显            /<em>axios.get("url?id="+id).then(response=>{                  this.user= response.data            }).catch(error=>{})</em>/            this.user = {id,name:"liuh",age:18,salary:18}        }    }    //2、创建路由   a、管理组件   b、配置路由规则 [/users - 组件]    const router = new VueRouter({        routes:[            {path:"/users" , component:users , name:"Users" ,                /<em>配置路由的子路由     注意： path属性中不能以/开头  切换子路由：/users/userAdd   <em>/                children:[                    {path:"userAdd" , component:userAdd , name:"UserAdd"},                    {path:"userUpdate" , component:userUpdate , name:"UserUpdate"}                ]            } ,            /</em>{path:"/userAdd" , component:userAdd , name:"UserAdd"}</em>/        ]    });​    new Vue({        el:"#app" ,        data:{            msg:"路由嵌套！"        },        //3、将路由交由vue实例管理        router    })​</script>html</p>
 <ul>
 <li>Infinity：正无穷</li>
 <li>-Infinity：负无穷</li>
@@ -8182,10 +8175,10 @@ console.log(BigInt(max) + BigInt(2));
 
  
 
-<script async src="/js/app.js?v=1663951047761"></script>
+<script async src="/js/app.js?v=1663956857840"></script>
 
 
-	<script async src="/js/search.js?v=1663951047761"></script>
+	<script async src="/js/search.js?v=1663956857840"></script>
 
 
 <script>

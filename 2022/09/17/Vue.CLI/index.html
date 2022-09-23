@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>vue的基础之路（Vue CLI （脚手架）使用） - VaMin23博客网</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/VaMin.ico" type="image/x-icon" />
+    <meta name="description" content="vue的常规使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue的基础之路（Vue CLI （脚手架）使用）">
+<meta property="og:url" content="https://github.com/lonely0323/lonely0323.github.io/2022/09/17/Vue.CLI/index.html">
+<meta property="og:site_name" content="VaMin23博客网">
+<meta property="og:description" content="vue的常规使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/726160af5faa71c6814ae64b64110e2b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/6d5393ad8d023220961f371231ca6633.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/e0abe5cc56435a31a0292e68cfafcb05.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/1b2cd76823cb8049f25c90cb1fc136dc.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/517270f0533a8286299737bdfaf543db.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/4d610415b82cdb2ff736567b8be798c2.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/e90fb9802567573715f9e13823ed82b6.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/77231d54a9939bfa4459511cac0bbe20.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/732064786bc108434d2564ac0253c2ff.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/ea68c54018f3c2d1fdf62a0281abf6f2.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/257e8cd257c65f198f6ef033801aab82.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/cd611b6fbce1c64e9f039d0dae0c303b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/a32dd342247272433ebb50037a0975b4.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/077bacd42be54cecc4c71cc99802209e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/c4506ff1196ac6af06231f44cc548ab0.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/14b534aab0101bf89ce8ad41b71476fb.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/17de4a6926f55d49c693cc4849746bf8.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/8681e79ba7316ca2380a6c81abd3a7fb.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/f4399b9628c60f908fbba48558c9473f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/5f31bcfcd871f018ab808dfb139d0e1f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/591baf31d1724a0e42e9dee465af4de0.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/746d261d4e389082f564db49f7854c73.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/e6121e21d2b76b020c4b8c2aeb4781d8.png">
+<meta property="article:published_time" content="2022-09-17T01:50:00.000Z">
+<meta property="article:modified_time" content="2022-09-23T17:48:39.104Z">
+<meta property="article:author" content="Veam">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/726160af5faa71c6814ae64b64110e2b.png">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1663956857752">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1663956857752">
+    
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://s1.ax1x.com/2022/07/12/j2mBm4.png)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Veam" class="mdui-btn mdui-btn-icon"><img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Veam">
+            <img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam" alt="Veam">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>17</div>
+        <div><span>标签</span>6</div>
+        <div><span>分类</span>9</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form">
+                <label><input class="st-default-search-input" id="search_value" name="q" type="search" placeholder="搜索" style="
+                    font-size: 15px !important;
+                    height: 56px !important;
+                    background-image: none;
+                "></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=MvqLiTM1" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-qq1"></i>
+        </a><a class="mdui-ripple" href="/veam23@foxmail.com" target="_blank" mdui-tooltip="{content: '邮箱地址'}" style="color: rgb(44 0 219);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-QQyouxiang1"></i>
+        </a><a class="mdui-ripple" href="https://github.com/lonely0323" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://weibo.com/u/6323576495/home?wvr=5" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(220,20,60);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-weibo1"></i>
+        </a><a class="mdui-ripple" href="https://music.163.com/#/user/home?id=302060596" target="_blank" mdui-tooltip="{content: '网易云音乐'}" style="color: rgb(220,20,60);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-wangyiyunyinle"></i>
+        </a><a class="mdui-ripple" href="https://y.qq.com/n/ryqq/profile/like/song" target="_blank" mdui-tooltip="{content: 'QQ音乐'}" style="color: rgb(0,255,0);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-qqyinle"></i>
+        </a><a class="mdui-ripple" href="https://s.team/p/fvbb-wqnb/WPNPNWTQ" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(0,0,255);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/javaScript/">javaScript</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/uni-app/">uni-app</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/vue/">vue</a>
+          <span class="category-list-count">8</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/公告/">公告</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/学习/">学习</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/插件/">插件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/文档/">文档</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音乐/">音乐</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/%E5%85%B3%E4%BA%8E/" style="font-size: 10px;">关于</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 10px;">文档</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%BD%91%E7%AB%99/" style="font-size: 10px;">网站</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 Veam
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/lonely0323/VaMin23" target="_blank">VaMin23</a>
+        
+        <div style="font-size: 13px; color: #5600ff; ">
+            <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+            本站访客数<a id="busuanzi_value_site_uv"></a>人次
+        </div>
+    </div>
+</div><!-- .nexmoe-drawer -->
+
+
+
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
+              <img src="https://s1.ax1x.com/2022/07/12/jgMz1P.png" alt="vue的基础之路（Vue CLI （脚手架）使用）" loading="lazy">
+              <h1>vue的基础之路（Vue CLI （脚手架）使用）</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年09月17日</a>
+</div>
+
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    
+</div>
+
+      <h3 id="vue的常规使用"><a href="#vue的常规使用" class="headerlink" title="vue的常规使用"></a>vue的常规使用</h3><span id="more"></span>
+
+    <div id="aplayer-rBaNNDde" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="5415926126" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+<h1 id="一、什么是CLI-脚手架（规范，标准）"><a href="#一、什么是CLI-脚手架（规范，标准）" class="headerlink" title="一、什么是CLI 脚手架（规范，标准）"></a>一、什么是CLI 脚手架（规范，标准）</h1><ul>
+<li>官方：<code>Vue.js 开发的标准工具</code></li>
+<li>**CLI ** ：命令行界面</li>
+</ul>
+<p>命令行界面（英语：command-line interface，缩写：<em>CLI</em> ）是在图形用户界面得到普及之前使用最为广泛的用户界面，它通常不支持鼠标，用户通过键盘输入指令，计算机接收到指令后，予以执行。也有人称之为字符用户界面（CUI）</p>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/726160af5faa71c6814ae64b64110e2b.png" alt="img" data-caption="img" loading="lazy"></p>
+<h1 id="二、什么是Vue-CLI"><a href="#二、什么是Vue-CLI" class="headerlink" title="二、什么是Vue CLI"></a>二、什么是Vue CLI</h1><ul>
+<li>vue的命令行接口，相当于java中的(项目创建管理：<code>maven 项目构建工具</code>)</li>
+<li>通过vue cli提供的一个标准的vue应用 这个vue应用就存在对应的脚手架规范</li>
+<li>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统。 使用Vue 脚手架之后我们开发的页面将是一个完整系统(项目)。 前端系统</li>
+<li>脚手架（vue项目的规范）=》构建时需要使用命令=》构建出的项目就存在规范===》命令：构建项目+开发：图像界面开发</li>
+</ul>
+<h1 id="三、-Vue-CLI优势"><a href="#三、-Vue-CLI优势" class="headerlink" title="三、 Vue CLI优势"></a>三、 Vue CLI优势</h1><ul>
+<li><p>通过 <code>vue-cli</code> 搭建交互式的项目脚手架。</p>
+</li>
+<li><p>通过 <code>@vue/cli</code> + <code>@vue/cli-service-global</code> 快速开始零配置原型开发（不需要引入vue-min.js等）</p>
+</li>
+<li><p>一个运行时依赖 (</p>
+<pre><code>@vue/cli-service
+</code></pre>
+<p>)，该依赖：</p>
+<ul>
+<li>可升级;（一个命令搞定）</li>
+<li>基于 webpack 构建，并带有合理的默认配置；（webpack 前端打包工具 ）index.html+组件（N个）</li>
+<li>可以通过项目内的配置文件进行配置； cli 项目配置文件 添加</li>
+<li>可以通过插件进行扩展。 cli 项目里</li>
+</ul>
+</li>
+<li><p>一个丰富的官方插件集合，集成了前端生态中最好的工具。 webpack打包工具===&gt;dist目录 nodejs 服务器(tomcat java) 热部署插件 npm包</p>
+</li>
+<li><p>webpack 编写的时候是javascript6运行时自动编译为javascript6</p>
+</li>
+<li><p>一套完全图形化的创建和管理 Vue.js 项目的用户界面（<strong>vue cli3.x才支持</strong> | 当前企业中用的是vue cli 2.x）</p>
+</li>
+<li><p>node.js 的服务器 支持热部署</p>
+</li>
+</ul>
+<h1 id="四、Vue-CLI安装"><a href="#四、Vue-CLI安装" class="headerlink" title="四、Vue CLI安装"></a>四、Vue CLI安装</h1><h3 id="1-node-js环境准备"><a href="#1-node-js环境准备" class="headerlink" title="1. node.js环境准备"></a>1. node.js环境准备</h3><h4 id="（1）下载nodejs"><a href="#（1）下载nodejs" class="headerlink" title="（1）下载nodejs"></a>（1）下载nodejs</h4><p><a target="_blank" rel="noopener" href="http://nodejs.cn/download/">http://nodejs.cn/download/</a></p>
+<p>windows系统: .msi 安装包(exe)指定安装位置 .zip(压缩包)直接解压缩指定目录</p>
+<p>mac os 系统: .pkg 安装包格式自动配置环境变量 .tar.gz(压缩包)解压缩安装到指定名</p>
+<h4 id="（2）配置nodejs环境变量"><a href="#（2）配置nodejs环境变量" class="headerlink" title="（2）配置nodejs环境变量"></a>（2）配置nodejs环境变量</h4><ul>
+<li><p>1.windows系统:<br>计算上右键属性—-&gt; 高级属性 —-&gt;环境变量 添加如下配置:</p>
+<pre><code class="Markdown">NODE_HOME=  nodejs安装目录
+
+  PATH    = xxxx;%NODE_HOME%
+123
+</code></pre>
+</li>
+<li><p>2.macos 系统<br>推荐使用.pkg安装直接配置node环境</p>
+</li>
+</ul>
+<h4 id="（3）验证nodejs环境是否成功"><a href="#（3）验证nodejs环境是否成功" class="headerlink" title="（3）验证nodejs环境是否成功"></a>（3）验证nodejs环境是否成功</h4><p>启动cmd窗口</p>
+<p>在任意位置 输入命令： node –v</p>
+<p>展示node版本即可v14.0.0</p>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/6d5393ad8d023220961f371231ca6633.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="（4）npm介绍"><a href="#（4）npm介绍" class="headerlink" title="（4）npm介绍"></a>（4）npm介绍</h4><ul>
+<li>node package mangager nodejs包管理工具 前端主流技术 npm 进行统一管理</li>
+<li>maven 管理java后端依赖 远程仓库(中心仓库) 阿里云镜像</li>
+<li>npm 管理前端系统依赖 远程仓库(中心仓库) 配置淘宝镜像</li>
+<li>npm (node package manager) nodejs包管理工具</li>
+</ul>
+<p>在世界范围内维护的中心库，用于管理前端js文件</p>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/e0abe5cc56435a31a0292e68cfafcb05.png" alt="img" data-caption="img" loading="lazy"></p>
+<ul>
+<li>命令基本使用</li>
+</ul>
+<pre><code class="Java">npm install axios         通过网络从中心库下载axios  没有版本时默认下载最新版本
+
+npm install axios@x.x.x   通过网络从中心库下载axios指定版本
+123
+</code></pre>
+<h4 id="（5）配置淘宝镜像"><a href="#（5）配置淘宝镜像" class="headerlink" title="（5）配置淘宝镜像"></a>（5）配置淘宝镜像</h4><pre><code>npm config set registry [https://registry.npm.taobao.org](https://registry.npm.taobao.org)
+
+12
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/1b2cd76823cb8049f25c90cb1fc136dc.png" alt="img" data-caption="img" loading="lazy"></p>
+<ul>
+<li>查看淘宝镜像是否安装成功</li>
+</ul>
+<pre><code class="bash">npm config get registry
+1
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/517270f0533a8286299737bdfaf543db.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="（7）配置npm下载依赖位置"><a href="#（7）配置npm下载依赖位置" class="headerlink" title="（7）配置npm下载依赖位置"></a>（7）配置npm下载依赖位置</h4><pre><code class="bash">#windows:
+  #1.设置缓存位置
+  npm config set cache &quot;D:\noderepository\npm-cache&quot;
+  #2.设置
+  npm config set prefix &quot;D:\noderepository\npm_global&quot;
+
+#mac os:
+
+  npm config set cache &quot;/Users/chenyannan/dev/nodereps&quot;
+
+  npm config set prefix &quot;/Users/chenyannan/dev/nodereps&quot;
+1234567891011
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/4d610415b82cdb2ff736567b8be798c2.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="（8）验证nodejs环境配置"><a href="#（8）验证nodejs环境配置" class="headerlink" title="（8）验证nodejs环境配置"></a>（8）验证nodejs环境配置</h4><pre><code>npm config ls
+1
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/e90fb9802567573715f9e13823ed82b6.png" alt="img" data-caption="img" loading="lazy"></p>
+<h3 id="2-安装脚手架"><a href="#2-安装脚手架" class="headerlink" title="2.安装脚手架"></a>2.安装脚手架</h3><h4 id="1-卸载脚手架"><a href="#1-卸载脚手架" class="headerlink" title="(1)卸载脚手架"></a>(1)卸载脚手架</h4><pre><code class="Java">  npm uninstall -g @vue/cli  //卸载3.x版本脚手架
+  npm uninstall -g vue-cli  //卸载2.x版本脚手架
+12
+</code></pre>
+<h4 id="2-Vue-Cli官方网站"><a href="#2-Vue-Cli官方网站" class="headerlink" title="(2)Vue Cli官方网站"></a>(2)Vue Cli官方网站</h4><p><a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/guide/">https://cli.vuejs.org/zh/guide/</a></p>
+<h4 id="3-安装vue-Cli"><a href="#3-安装vue-Cli" class="headerlink" title="(3)安装vue Cli"></a>(3)安装vue Cli</h4><pre><code>npm install -g vue-cli
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/77231d54a9939bfa4459511cac0bbe20.png" alt="img" data-caption="img" loading="lazy"></p>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/732064786bc108434d2564ac0253c2ff.png" alt="img" data-caption="img" loading="lazy"></p>
+<ul>
+<li>输入 <code>vue init</code></li>
+</ul>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/ea68c54018f3c2d1fdf62a0281abf6f2.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="2-配置nodejs本地仓库环境变量"><a href="#2-配置nodejs本地仓库环境变量" class="headerlink" title="(2)配置nodejs本地仓库环境变量"></a>(2)配置nodejs本地仓库环境变量</h4><p>path=…;D:\noderepository\npm_global</p>
+<p>目的：便于后续使用vue cli相关命令</p>
+<h4 id="3-测试命令能否执行"><a href="#3-测试命令能否执行" class="headerlink" title="(3)测试命令能否执行"></a>(3)测试命令能否执行</h4><p>窗口中输入命令 ：<code>vue init</code></p>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/257e8cd257c65f198f6ef033801aab82.png" alt="img" data-caption="img" loading="lazy"></p>
+<p>显示如上界面即可</p>
+<h3 id="3-第一个vue脚手架项目"><a href="#3-第一个vue脚手架项目" class="headerlink" title="3.第一个vue脚手架项目"></a>3.第一个vue脚手架项目</h3><h4 id="1-创建vue脚手架第一个项目"><a href="#1-创建vue脚手架第一个项目" class="headerlink" title="(1) 创建vue脚手架第一个项目"></a>(1) 创建vue脚手架第一个项目</h4><ul>
+<li><code>vue init webpack 项目名</code></li>
+</ul>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/cd611b6fbce1c64e9f039d0dae0c303b.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="2-创建第一个项目"><a href="#2-创建第一个项目" class="headerlink" title="(2)创建第一个项目"></a>(2)创建第一个项目</h4><ul>
+<li>下载失败提示</li>
+</ul>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/a32dd342247272433ebb50037a0975b4.png" alt="img" data-caption="img" loading="lazy"></p>
+<ul>
+<li>下载成功后</li>
+</ul>
+<pre><code class="bash">  hello     -------------&gt;项目名
+    -build  -------------&gt;用来使用webpack打包使用build依赖  构建一些依赖文件
+    -config -------------&gt;用来做整个项目配置目录   主要用来对 开发 测试 环境进行配置
+    -node_modules  ------&gt;用来管理项目中使用依赖
+    -src           ------&gt;用来书写vue的源代码[重点]
+      +assets      ------&gt;用来存放静态资源 [重点]
+        components   ------&gt;用来书写Vue组件 [重点]
+        router       ------&gt;用来配置项目中路由[重点]
+        App.vue      ------&gt;项目中根组件[重点]
+        main.js      ------&gt;项目中主入口[重点]
+    -static        ------&gt;其它静态
+    -.babelrc      ------&gt; 将es6语法转为es5运行
+    -.editorconfig ------&gt; 项目编辑配置
+    -.gitignore    ------&gt; git版本控制忽略文件
+    -.postcssrc.js ------&gt; 源码相关js
+    -index.html    ------&gt; 项目主页
+    -package.json  ------&gt; 类似与pom.xml 依赖管理  jquery 不建议手动修改
+    -package-lock.json ----&gt; 对package.json加锁
+    -README.md         ----&gt; 项目说明文件
+
+1234567891011121314151617181920
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/077bacd42be54cecc4c71cc99802209e.png" alt="img" data-caption="img" loading="lazy"></p>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/c4506ff1196ac6af06231f44cc548ab0.png" alt="img" data-caption="img" loading="lazy"></p>
+<ul>
+<li>下载成功后</li>
+</ul>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/14b534aab0101bf89ce8ad41b71476fb.png" alt="img" data-caption="img" loading="lazy"></p>
+<ul>
+<li>文件显示</li>
+</ul>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/17de4a6926f55d49c693cc4849746bf8.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="3-如何运行在项目的根目录中执行"><a href="#3-如何运行在项目的根目录中执行" class="headerlink" title="(3)如何运行在项目的根目录中执行"></a>(3)如何运行在项目的根目录中执行</h4><p>a、 切换到创建项目的根目录</p>
+<p>b、 在项目根目录中执行命令 <code>npm run dev</code></p>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/8681e79ba7316ca2380a6c81abd3a7fb.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="4-如何访问项目"><a href="#4-如何访问项目" class="headerlink" title="(4)如何访问项目"></a>(4)如何访问项目</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080</a></li>
+</ul>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/f4399b9628c60f908fbba48558c9473f.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="5-项目的包结构"><a href="#5-项目的包结构" class="headerlink" title="(5)项目的包结构"></a>(5)项目的包结构</h4><p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/5f31bcfcd871f018ab808dfb139d0e1f.png" alt="img" data-caption="img" loading="lazy"></p>
+<ul>
+<li>传文件时这两个文件可以删除<code>./当前目录</code></li>
+</ul>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/591baf31d1724a0e42e9dee465af4de0.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="5-Vue-Cli中项目开发方式"><a href="#5-Vue-Cli中项目开发方式" class="headerlink" title="(5)Vue Cli中项目开发方式"></a>(5)Vue Cli中项目开发方式</h4><ul>
+<li>注意: 一切皆组件 一个组件中 js代码 html代码 css样式<br>\1. VueCli开发方式是在项目中开发一个一个组件对应一个业务功能模块,日后可以将多个组件组合到一起形成一个前端系统<br>\2. 日后在使用vue Cli进行开发时不再书写html,编写的是一个个组件(组件后缀.vue结尾的文件),日后打包时vue cli会将组件编译成运行的html文件</li>
+</ul>
+<h3 id="4-如何开发Vue脚手架"><a href="#4-如何开发Vue脚手架" class="headerlink" title="4.如何开发Vue脚手架"></a>4.如何开发Vue脚手架</h3><pre><code>注意:在Vue cli 中一切皆组件
+</code></pre>
+<h3 id="5、案例"><a href="#5、案例" class="headerlink" title="5、案例"></a>5、案例</h3><p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/746d261d4e389082f564db49f7854c73.png" alt="img" data-caption="img" loading="lazy"></p>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/e6121e21d2b76b020c4b8c2aeb4781d8.png" alt="img" data-caption="img" loading="lazy"></p>
+<ul>
+<li>components中（组件中）</li>
+</ul>
+<pre><code class="javascript">&lt;template&gt;
+  &lt;div class=&quot;hello&quot;&gt;
+    &#123;&#123;msg&#125;&#125;
+    &lt;h1&gt;这是我女朋友杨福君！&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default &#123;
+  name: &#39;user&#39;,
+  data () &#123;
+    return &#123;
+      msg: &#39;人物介绍&#39;
+    &#125;
+  &#125;
+&#125;
+&lt;/script&gt;
+1234567891011121314151617
+</code></pre>
+<ul>
+<li>router路由</li>
+</ul>
+<pre><code class="javascript">import Vue from &#39;vue&#39;
+import Router from &#39;vue-router&#39;
+import user from &#39;@/components/user&#39;
+
+Vue.use(Router)
+
+export default new Router(&#123;
+  routes: [
+    &#123;
+      path: &#39;/user&#39;,
+      name: &#39;User&#39;,
+      component: user
+    &#125;
+  ]
+&#125;)
+123456789101112131415
+</code></pre>
+<ul>
+<li>app.vue组件</li>
+</ul>
+<pre><code class="javascript">&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;img width=&quot;600px&quot; src=&quot;./assets/logo.jpg&quot;&gt;
+    &lt;router-link :to=&quot;&#123;name:&#39;User&#39;&#125;&quot;&gt;展示用户信息&lt;/router-link&gt;
+    &lt;router-view/&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default &#123;
+  name: &#39;App&#39;
+&#125;
+&lt;/script&gt;
+
+1234567891011121314
+</code></pre>
+<ul>
+<li>main.js</li>
+</ul>
+<pre><code class="javascript">import Vue from &#39;vue&#39;
+import App from &#39;./App&#39;
+import router from &#39;./router&#39;
+
+Vue.config.productionTip = false
+
+
+new Vue(&#123;
+  el: &#39;#app&#39;,
+  router,
+  components: &#123; App &#125;,
+  template: &#39;&lt;App/&gt;&#39;
+&#125;)
+</code></pre>
+<ul>
+<li>后续发布vue博客相关内容<br>🍅 Vue学习之路（基础篇）<br>🍅 vue的学习之路（Axios 基本使用）<br>🍅 vue的学习之路（Vue 生命周期）<br>🍅 vue的学习之路（Vue中组件(component)<br>🍅 vue的学习之路（Vue中路由 (Vue Router)）<br>🍅 <strong>vue的学习之路（Vue CLI 脚手架）</strong><br>🍅 vue的学习之路（VueX 状态管理）<br>🍅 vue的学习之路（Vue创建项目）</li>
+</ul>
+<h3 id="学习完这篇文章请移动到下一步"><a href="#学习完这篇文章请移动到下一步" class="headerlink" title="学习完这篇文章请移动到下一步"></a>学习完这篇文章请移动到下一步</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://veam.top/2022/09/20/vueX">Vue学习之路（vueX/状态管理包）</a></li>
+</ul>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Veam<br>
+        <strong>本文链接：</strong><a href="https://github.com/lonely0323/lonely0323.github.io/2022/09/17/Vue.CLI/" title="https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;09&#x2F;17&#x2F;Vue.CLI&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;09&#x2F;17&#x2F;Vue.CLI&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/vue/">vue</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '84f0a52c730b2624c264',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'https://github.com/lonely0323/gitment',
+        owner: 'lonely0323',
+        admin: 'lonely0323'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue%E7%9A%84%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">vue的常规使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFCLI-%E8%84%9A%E6%89%8B%E6%9E%B6%EF%BC%88%E8%A7%84%E8%8C%83%EF%BC%8C%E6%A0%87%E5%87%86%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">一、什么是CLI 脚手架（规范，标准）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFVue-CLI"><span class="toc-number"></span> <span class="toc-text">二、什么是Vue CLI</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81-Vue-CLI%E4%BC%98%E5%8A%BF"><span class="toc-number"></span> <span class="toc-text">三、 Vue CLI优势</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Vue-CLI%E5%AE%89%E8%A3%85"><span class="toc-number"></span> <span class="toc-text">四、Vue CLI安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-node-js%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">1.</span> <span class="toc-text">1. node.js环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E4%B8%8B%E8%BD%BDnodejs"><span class="toc-number">1.1.</span> <span class="toc-text">（1）下载nodejs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E9%85%8D%E7%BD%AEnodejs%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">1.2.</span> <span class="toc-text">（2）配置nodejs环境变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E9%AA%8C%E8%AF%81nodejs%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="toc-number">1.3.</span> <span class="toc-text">（3）验证nodejs环境是否成功</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89npm%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.4.</span> <span class="toc-text">（4）npm介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%885%EF%BC%89%E9%85%8D%E7%BD%AE%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F"><span class="toc-number">1.5.</span> <span class="toc-text">（5）配置淘宝镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%887%EF%BC%89%E9%85%8D%E7%BD%AEnpm%E4%B8%8B%E8%BD%BD%E4%BE%9D%E8%B5%96%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.6.</span> <span class="toc-text">（7）配置npm下载依赖位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%888%EF%BC%89%E9%AA%8C%E8%AF%81nodejs%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">1.7.</span> <span class="toc-text">（8）验证nodejs环境配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E8%84%9A%E6%89%8B%E6%9E%B6"><span class="toc-number">2.</span> <span class="toc-text">2.安装脚手架</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8D%B8%E8%BD%BD%E8%84%9A%E6%89%8B%E6%9E%B6"><span class="toc-number">2.1.</span> <span class="toc-text">(1)卸载脚手架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Vue-Cli%E5%AE%98%E6%96%B9%E7%BD%91%E7%AB%99"><span class="toc-number">2.2.</span> <span class="toc-text">(2)Vue Cli官方网站</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85vue-Cli"><span class="toc-number">2.3.</span> <span class="toc-text">(3)安装vue Cli</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AEnodejs%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.4.</span> <span class="toc-text">(2)配置nodejs本地仓库环境变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%B5%8B%E8%AF%95%E5%91%BD%E4%BB%A4%E8%83%BD%E5%90%A6%E6%89%A7%E8%A1%8C"><span class="toc-number">2.5.</span> <span class="toc-text">(3)测试命令能否执行</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%AC%AC%E4%B8%80%E4%B8%AAvue%E8%84%9A%E6%89%8B%E6%9E%B6%E9%A1%B9%E7%9B%AE"><span class="toc-number">3.</span> <span class="toc-text">3.第一个vue脚手架项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE"><span class="toc-number">3.1.</span> <span class="toc-text">(1) 创建vue脚手架第一个项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE"><span class="toc-number">3.2.</span> <span class="toc-text">(2)创建第一个项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E5%9C%A8%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%AD%E6%89%A7%E8%A1%8C"><span class="toc-number">3.3.</span> <span class="toc-text">(3)如何运行在项目的根目录中执行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AE%E9%A1%B9%E7%9B%AE"><span class="toc-number">3.4.</span> <span class="toc-text">(4)如何访问项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%8C%85%E7%BB%93%E6%9E%84"><span class="toc-number">3.5.</span> <span class="toc-text">(5)项目的包结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Vue-Cli%E4%B8%AD%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%96%B9%E5%BC%8F"><span class="toc-number">3.6.</span> <span class="toc-text">(5)Vue Cli中项目开发方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%A6%82%E4%BD%95%E5%BC%80%E5%8F%91Vue%E8%84%9A%E6%89%8B%E6%9E%B6"><span class="toc-number">4.</span> <span class="toc-text">4.如何开发Vue脚手架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E6%A1%88%E4%BE%8B"><span class="toc-number">5.</span> <span class="toc-text">5、案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E5%AE%8C%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E8%AF%B7%E7%A7%BB%E5%8A%A8%E5%88%B0%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="toc-number">6.</span> <span class="toc-text">学习完这篇文章请移动到下一步</span></a></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
+
+
+ 
+
+<script async src="/js/app.js?v=1663956857755"></script>
+
+
+	<script async src="/js/search.js?v=1663956857755"></script>
+
+
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>
