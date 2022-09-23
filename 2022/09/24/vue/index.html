@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>vue的基础之路 - VaMin23博客网</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/VaMin.ico" type="image/x-icon" />
+    <meta name="description" content="vue的常规使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue的基础之路">
+<meta property="og:url" content="https://github.com/lonely0323/lonely0323.github.io/2022/09/24/vue/index.html">
+<meta property="og:site_name" content="VaMin23博客网">
+<meta property="og:description" content="vue的常规使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/c0d996df3da2d634860cf98dbb7be877.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/7139d9568fb72c97707479e15ae8b94c.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/840c1b8ce1e316d19ac77360feaa4cc3.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/b5d472a1e831cba7e6ef4c481f3202f7.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/d80ab90f557f00bd8188954cad0585eb.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/97f50541be9d6a80a72d3de709ee6b75.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/2873fa328df37dbd7efecadc586b7096.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/58e31ff1baf129e525701884ab3137b2.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/61c70ae39bbe2facc39654adabe9cbdf.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/743d9f2d0e3dc486d585e8a4090c14d5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/1ce15e1ed0c2dadb0f03aa9946fc89a5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/58467877ed8d4483e152bb84a2ff8ae4.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/ce57d06ab37c2517810d8474861dfa84.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/498320850ddbcdcaa200e823314832be.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/0b7b8409c142ac27ded2d7ac97be1351.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/cbc41689e92cba2c58423fcda4bc5895.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/0f2f5ec5b6e63141828d29cfb860a79e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/7ca3cf25fb260d4bf6b5b0e7430b7567.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/f933e906f0e1c0eec3a5f8629affe267.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/87bcdf7a7bf73bb5226359d95ed9e16d.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/4ea6cfa5fd80da651c1e122b42081e7a.png">
+<meta property="article:published_time" content="2022-09-24T00:30:00.000Z">
+<meta property="article:modified_time" content="2022-09-23T16:35:24.192Z">
+<meta property="article:author" content="Veam">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/c0d996df3da2d634860cf98dbb7be877.png">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1663951047673">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1663951047673">
+    
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://s1.ax1x.com/2022/07/12/j2mBm4.png)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Veam" class="mdui-btn mdui-btn-icon"><img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Veam">
+            <img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam" alt="Veam">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>11</div>
+        <div><span>标签</span>6</div>
+        <div><span>分类</span>10</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form">
+                <label><input class="st-default-search-input" id="search_value" name="q" type="search" placeholder="搜索" style="
+                    font-size: 15px !important;
+                    height: 56px !important;
+                    background-image: none;
+                "></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=MvqLiTM1" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-qq1"></i>
+        </a><a class="mdui-ripple" href="/veam23@foxmail.com" target="_blank" mdui-tooltip="{content: '邮箱地址'}" style="color: rgb(44 0 219);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-QQyouxiang1"></i>
+        </a><a class="mdui-ripple" href="https://github.com/lonely0323" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://weibo.com/u/6323576495/home?wvr=5" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(220,20,60);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-weibo1"></i>
+        </a><a class="mdui-ripple" href="https://music.163.com/#/user/home?id=302060596" target="_blank" mdui-tooltip="{content: '网易云音乐'}" style="color: rgb(220,20,60);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-wangyiyunyinle"></i>
+        </a><a class="mdui-ripple" href="https://y.qq.com/n/ryqq/profile/like/song" target="_blank" mdui-tooltip="{content: 'QQ音乐'}" style="color: rgb(0,255,0);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-qqyinle"></i>
+        </a><a class="mdui-ripple" href="https://s.team/p/fvbb-wqnb/WPNPNWTQ" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(0,0,255);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/javaScript/">javaScript</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/uni-app/">uni-app</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/vue/">vue</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/公告/">公告</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/学习/">学习</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/插件/">插件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/文档/">文档</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/框架，vue/">框架，vue</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音乐/">音乐</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/%E5%85%B3%E4%BA%8E/" style="font-size: 10px;">关于</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 10px;">文档</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%BD%91%E7%AB%99/" style="font-size: 10px;">网站</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 Veam
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/lonely0323/VaMin23" target="_blank">VaMin23</a>
+        
+        <div style="font-size: 13px; color: #5600ff; ">
+            <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+            本站访客数<a id="busuanzi_value_site_uv"></a>人次
+        </div>
+    </div>
+</div><!-- .nexmoe-drawer -->
+
+
+
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
+              <img src="https://s1.ax1x.com/2022/03/18/qFOXX4.png" alt="vue的基础之路" loading="lazy">
+              <h1>vue的基础之路</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年09月24日</a>
+</div>
+
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    
+</div>
+
+      <h3 id="vue的常规使用"><a href="#vue的常规使用" class="headerlink" title="vue的常规使用"></a>vue的常规使用</h3><span id="more"></span>
+
+    <div id="aplayer-IaAsTZHG" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="5415926126" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+<blockquote>
+<p><code>渐进式</code> JavaScript 框架 –摘自官网</p>
+</blockquote>
+<pre><code class="bash"># 渐进式
+   1. 易用  html css javascript上手比较容易
+   2. 高效  开发前端页面 非常高效 
+   3. 灵活  开发灵活 多样性
+   4. 渐进式：
+       a.易用 vue.js 上手非常快
+       b.灵活 vue生态系统非常强大 vue基础核心 vue组件 
+       c.高效 vue体积小 20kb 超快虚拟dom(网页形成dom树)
+              vue底层深度优化
+
+# 总结
+    Vue 是一个渐进式javascript 框架 js 简化页面js操作
+    JQuery也是一个js框架，简化js开发
+    bootstrap 是一个css框架  封装css
+
+# 后端服务端开发人员: 
+    Vue 渐进式javascript框架: 让我们通过操作很少的DOM,
+    甚至不需要操作页面中任何DOM元素,就很容易的完成数据和视图绑定 ====&gt; 双向绑定 MVVM  
+
+# Vue 作者
+   尤雨溪   国内的    
+   独立开源开发者（自由职业者）
+   现全职开发和维护vue.js
+   2014年开发vue2.0目前最火
+123456789101112131415161718192021222324
+</code></pre>
+<hr>
+<h3 id="1-1-vue的优势"><a href="#1-1-vue的优势" class="headerlink" title="1.1 vue的优势"></a>1.1 vue的优势</h3><pre><code class="bash"> 通俗定义：
+ 1.vue的出现可以让我们在页面中完成复杂操作，可以简化
+    dom编程甚至不写任何的dom编程代码
+    
+ 2.vue内置双向绑定机制  MVVM机制---前后端分离
+ 
+ 
+ html+js--&gt;html+css+JQuery--&gt;vue(前后端分离)--&gt;前端系统+json（ajax）+后端系统
+12345678
+</code></pre>
+<h1 id="二-Vue入门"><a href="#二-Vue入门" class="headerlink" title="二. Vue入门"></a>二. Vue入门</h1><h3 id="2-1-下载Vuejs"><a href="#2-1-下载Vuejs" class="headerlink" title="2.1 下载Vuejs"></a>2.1 下载Vuejs</h3><pre><code class="bash">//开发版本:
+  &lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
+
+//生产版本:
+  &lt;!-- 生产环境版本，优化了尺寸和速度 --&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue&quot;&gt;&lt;/script&gt;
+1234567
+</code></pre>
+<h3 id="2-2-Vue第一个入门应用"><a href="#2-2-Vue第一个入门应用" class="headerlink" title="2.2 Vue第一个入门应用"></a>2.2 Vue第一个入门应用</h3><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;first vue page&lt;/title&gt;
+&lt;/head&gt;
+&lt;!--1、在script中引入vue代码--&gt;
+&lt;script src=&quot;js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;h1&gt;first page&lt;/h1&gt;
+    &lt;h1&gt;获取vue中的数据：&#123;&#123;message&#125;&#125;&#125;&lt;/h1&gt;
+    &lt;h1&gt;count的运算值：&#123;&#123;count+3+2+5&#125;&#125;&lt;/h1&gt;
+    &lt;h1&gt;name的值的长度：&#123;&#123;name.length&#125;&#125;&lt;/h1&gt;
+    &lt;h2&gt;username的值大写：&#123;&#123;name.toUpperCase()&#125;&#125;&lt;/h2&gt;
+    &lt;h2&gt;username的值是否为wanghj:&#123;&#123;username== 'wanghj'&#125;&#125;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;!--2. 准备script标签中书写vue代码--&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    //vue代码 &#123;id:&quot;liuh&quot;&#125;
+    //创建vue实例（对象）
+    new Vue(&#123;
+        el: &quot;#app&quot;,  //element 简写 指定vue实例作用范围
+        data: &#123;  //用于给vue实例绑定数据
+            message: &quot;hello vue!&quot;,
+            count:0,
+            name:&quot;王恒杰&quot;,
+            username:&quot;wanghj&quot;
+        &#125;
+    &#125;)
+&lt;/script&gt;
+123456789101112131415161718192021222324252627282930313233
+</code></pre>
+<ul>
+<li><strong>注意：</strong></li>
+</ul>
+<blockquote>
+<pre><code>1、一张html页面只能定义一个vue实例&lt;br /&gt;&lt;br /&gt;2、el属性指定vue实例的作用范围，vue只能在实例范围内才会生效
+</code></pre>
+</blockquote>
+<pre><code>3、data属性是在为vue实例绑定一些数据，可以通过&#123;&#123;data中的属性的名字&#125;&#125;，获取对应属性值
+4、vue实例中el属性可以书写任何css选择器，但是推荐id选择器&lt;br /&gt; 因为一个vue实例只能作用于一个具体的作用范围
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/c0d996df3da2d634860cf98dbb7be877.png" alt="img" data-caption="img" loading="lazy"></p>
+<h3 id="2-3-Vue中的复杂数据"><a href="#2-3-Vue中的复杂数据" class="headerlink" title="2.3 Vue中的复杂数据"></a>2.3 Vue中的复杂数据</h3><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;vue中data属性定义数组，对象类型数据以及获取&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;!--  零散数据--&gt;
+    &lt;h1&gt;基本数据：&#123;&#123;message&#125;&#125;&lt;/h1&gt;
+    &lt;hr/&gt;
+    &lt;!--  对象--&gt;
+    &lt;h1&gt;对象数据类型：&#123;&#123;user&#125;&#125;&#125;&lt;/h1&gt;
+    &lt;h1&gt;对象类型的数据的值：&#123;&#123;user.id&#125;&#125;---&#123;&#123;user.name&#125;&#125;---&#123;&#123;user.age&#125;&#125;&lt;/h1&gt;
+    &lt;hr/&gt;
+    &lt;!--  数组--&gt;
+    &lt;h1&gt;数组类型数据：&#123;&#123;names&#125;&#125;&lt;/h1&gt;
+    &lt;h1&gt;数组第一个值：&#123;&#123;names[0]&#125;&#125;&lt;/h1&gt;
+    &lt;h1&gt;数组中第二个对象的姓名：&#123;&#123;users[0].name&#125;&#125;&lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    new Vue(&#123;
+        el: &quot;#app&quot;,  //指定vue实例
+        data: &#123;   //为实例创建数据
+            message: &quot;hello whj&quot;,
+            //对象类型的数据
+            user:&#123;id:1,name:&quot;王恒杰&quot;,age:18&#125;,
+            //定义数组类型数据
+            names:[&quot;wanghj&quot;,&quot;yangfj&quot;,&quot;dengzw&quot;,&quot;wangcy&quot;],
+        //    定义对象类型的数组
+            users:[
+                &#123;id:1,name:&quot;王恒杰&quot;,age:18&#125;,
+                &#123;id:2,name:&quot;杨福君&quot;,age:19&#125;,
+                &#123;id:3,name:&quot;邓正武&quot;,age:21&#125;
+            ]
+        &#125;
+    &#125;)
+&lt;/script&gt;
+123456789101112131415161718192021222324252627282930313233343536373839404142
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/7139d9568fb72c97707479e15ae8b94c.png" alt="img" data-caption="img" loading="lazy"></p>
+<h1 id="三-v-text和v-html"><a href="#三-v-text和v-html" class="headerlink" title="三. v-text和v-html"></a>三. v-text和v-html</h1><h3 id="3-1-v-text"><a href="#3-1-v-text" class="headerlink" title="3.1 v-text"></a>3.1 v-text</h3><blockquote>
+<p><code>v-text</code>:用来获取data中数据将数据以文本的形式渲染到指定标签内部 类似于javascript 中** innerText**</p>
+</blockquote>
+<pre><code class="html">    &lt;div id=&quot;app&quot; class=&quot;aa&quot;&gt;
+        &lt;span &gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;
+        &lt;span v-text=&quot;message&quot;&gt;&lt;/span&gt;
+        &lt;!--    结果：hello vue 王恒杰--&gt;
+             &lt;h1&gt;&#123;&#123;msg&#125;&#125;王恒杰&lt;/h1&gt;
+        &lt;!--    结果：hello vue--&gt;
+            &lt;h1 v-text=&quot;msg&quot;&gt;王恒杰&lt;/h1&gt;
+        &lt;!--    结果：hello vue--&gt;
+            &lt;h1 v-html=&quot;msg&quot;&gt;王恒杰&lt;/h1&gt;
+        &lt;!--    如果想在王恒杰后面写hello vue--&gt;
+            &lt;h1&gt;王恒杰&lt;span v-text=&quot;msg&quot;&gt;&lt;/span&gt;&lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;!--引入vue.js--&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        const app = new Vue(&#123;
+            el:&quot;#app&quot;,
+            data:&#123;
+                message:&quot;hello vue&quot;,
+                msg:&quot;whj&quot;
+            &#125;
+        &#125;)
+  
+    &lt;/script&gt;
+ &lt;!--
+    v-text 和 v-html:作用：用来获取vue实例中data属性声明数据
+    
+ 使用语法：那个标签需要使用：直接在那个标签上面定义 v-text/v-html
+ ** &#123;&#123;&#125;&#125;取值和v-text 取值区别：** 
+  1.&#123;&#123;&#125;&#125;取值不会将标签的原始数据清空 使用v-text/v-html会清空标签的原始数据
+  
+  2.v-text、v-html也叫插值表达式
+  
+  3.&#123;&#123;&#125;&#125;取值出现插值闪烁（网络不好可能出现&#123;&#123;msg&#125;&#125;，网络加载完后才出现hello vue）
+    ， v-text/v-html取值不会出现插值闪烁
+--&gt;
+12345678910111213141516171819202122232425262728293031323334353637
+# 总结
+        1.&#123;&#123;&#125;&#125;(插值表达式)和v-text获取数据的区别在于 
+        a.使用v-text取值会将标签中原有的数据覆盖 使用插值表达式的形式不会覆盖标签原有的数据
+        b.使用v-text可以避免在网络环境较差的情况下出现插值闪烁
+1234
+```
+
+- &#123;&#123;&#125;&#125;出现插值闪烁
+
+![img](https://img-blog.csdnimg.cn/img_convert/3c89cde7d90d67db15abe79cb335acb6.png)
+
+### 3.2 v-html
+
+&gt; `v-html`:用来获取data中数据将数据中含有的html标签先解析在渲染到指定标签的内部 类似于javascript中 innerHTML
+
+```html
+&lt;div id=&quot;app&quot; class=&quot;aa&quot;&gt;
+        &lt;span&gt;&#123;&#123;message&#125;&#125;&lt;/span&gt;
+        &lt;br&gt;
+        &lt;span v-text=&quot;message&quot;&gt;&lt;/span&gt;
+
+        &lt;br&gt;
+        &lt;span v-html=&quot;message&quot;&gt;xxxxxx&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;!--引入vue.js--&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        const app = new Vue(&#123;
+            el:&quot;#app&quot;,
+            data:&#123;
+                message:&quot;&lt;a href=&#39;&#39;&gt;点击获取数据&lt;/a&gt;&quot;
+            &#125;
+        &#125;)
+    &lt;/script&gt;
+12345678910111213141516171819
+</code></pre>
+<hr>
+<h3 id="3-3-v-html与v-text的区别"><a href="#3-3-v-html与v-text的区别" class="headerlink" title="3.3 v-html与v-text的区别"></a>3.3 v-html与v-text的区别</h3><h4 id="1-例1："><a href="#1-例1：" class="headerlink" title="(1)例1："></a>(1)例1：</h4><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;v-text/v-html指令使用&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;
+&lt;!--
+  **v-text（innerText）与v-html(innerHtml)的区别** 
+  1.使用v-text取值：直接将获取的数据渲染到指定标签
+  2.使用v-html取值：先将获取的数据解析为html,在渲染到指定标签中
+--&gt;
+&lt;!--    v-html与v-text的区别--&gt;
+    &lt;span v-text=&quot;content&quot;&gt;&lt;/span&gt;&lt;br/&gt;
+    &lt;span v-html=&quot;content&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    new Vue(&#123;
+        el:&quot;#app&quot;,
+        data:&#123;
+          
+            content:&quot;&lt;a href=&#39;http://www.baidu.com&#39;&gt; 点我查看详情&lt;/a&gt;&quot;
+        &#125;
+        &#125;);
+&lt;/script&gt;
+123456789101112131415161718192021222324252627282930
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/840c1b8ce1e316d19ac77360feaa4cc3.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="2）例2："><a href="#2）例2：" class="headerlink" title="(2）例2："></a>(2）例2：</h4><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+  &lt;h1&gt;两个&#123;&#125;&#123;&#125;(插值表达式)展示:&#123;&#123;message&#125;&#125;&lt;/h1&gt;
+  &lt;hr/&gt;
+  &lt;h1 v-text=&quot;message&quot;&gt;&lt;/h1&gt;
+  &lt;hr/&gt;
+  &lt;h1 v-html=&quot;message&quot;&gt;&lt;/h1&gt;
+
+&lt;!--
+   v-text和v-html和&#123;&#123;&#125;&#125;(插值表达式)的区别
+   1、&#123;&#123;&#125;&#125;取值不会覆盖标签中的内容
+      v-text和v-html会覆盖原有的值
+   2、使用v-text避免网络较差的情况下，插值表达式取值容易出现插值闪烁，而v-text不会出现插值闪烁
+--&gt;
+  &lt;h1 v-text=&quot;context&quot;&gt;&lt;/h1&gt;
+  &lt;h1 v-html=&quot;context&quot;&gt;&lt;/h1&gt;
+&lt;!--  v-text v-html的取值区别
+   v-text 等价于 js innerText 获取内容时标签会按照文本处理
+   v-html 等价于 js innerHtml 获取内容会按html处理
+--&gt;
+
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  new Vue(&#123;
+    el:&quot;#app&quot;,
+    data:&#123;
+      message:&quot;vue欢迎你&quot;,
+      context:&quot;王恒杰&lt;font color=&#39;red&#39;&gt;优秀&lt;/font&gt;&quot;
+    &#125;
+  &#125;)
+&lt;/script&gt;
+12345678910111213141516171819202122232425262728293031323334353637383940
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/b5d472a1e831cba7e6ef4c481f3202f7.png" alt="img" data-caption="img" loading="lazy"></p>
+<h2 id="四-vue中事件绑定-v-on"><a href="#四-vue中事件绑定-v-on" class="headerlink" title="四.vue中事件绑定(v-on)"></a>四.vue中事件绑定(v-on)</h2><h3 id="4-1-绑定事件基本语法"><a href="#4-1-绑定事件基本语法" class="headerlink" title="4.1 绑定事件基本语法"></a>4.1 绑定事件基本语法</h3><p>    #### （1）基础</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; xmlns:v-on=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;vue的事件绑定v-on&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+
+    &lt;button v-on:click=&quot;test1&quot;&gt;点我&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    new Vue(&#123;
+        el:&quot;#app&quot;,
+        data:&#123;
+          message:&quot;王恒杰&quot;
+        &#125;,
+        methods:&#123;
+            test1:function () &#123;
+                alert(&quot;王恒杰长的最好看？&quot;);
+            &#125;
+        &#125;
+    &#125;)
+&lt;/script&gt;
+&lt;!--
+  事件： js 中的事件编程 3大要素
+  1、事件源： 发生这个事件的源头标签 html标签
+  2、事件属性 用户的一些操作 on... onclick ondblclick onmouseover onmouseout
+  3、事件监听 发生事件后的处理方案[执行的功能] 函数
+
+  vue中的事件绑定 三大要素
+  事件绑定的语法: v-on:事件属性=“监听函数的名字”
+
+  函数定义：要定义在vue实例中的method属性中
+  定义语法： 函数名：function()&#123;//函数功能&#125;
+--&gt;
+12345678910111213141516171819202122232425262728293031323334353637383940
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/d80ab90f557f00bd8188954cad0585eb.png" alt="img" data-caption="img" loading="lazy"></p>
+<p>    - <strong>注意事项：v-on报红问题</strong></p>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/97f50541be9d6a80a72d3de709ee6b75.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="（2）this的用法"><a href="#（2）this的用法" class="headerlink" title="（2）this的用法"></a>（2）this的用法</h4><pre><code class="json">  methods:&#123;   //在实例中定义函数
+           test1:function ()&#123;
+               //将data中的score分数+1 this 当前的实例对象
+              console.log(this);
+           &#125;
+        &#125;
+123456
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/2873fa328df37dbd7efecadc586b7096.png" alt="img" data-caption="img" loading="lazy"></p>
+<h4 id="（3）通过this-属性名获取属性值进行操作"><a href="#（3）通过this-属性名获取属性值进行操作" class="headerlink" title="（3）通过this.属性名获取属性值进行操作"></a>（3）通过this.属性名获取属性值进行操作</h4><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; xmlns:v-on=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;vue的事件绑定v-on&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;!--MVVM  Model模型 V:view视图 双向绑定   ViewModel(监听器)--&gt;
+    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;
+    &lt;h2&gt;&lt;font color=&quot;red&quot;&gt;&#123;&#123;score&#125;&#125;&lt;/font&gt;&lt;/h2&gt;
+    &lt;button v-on:click=&quot;test1&quot; &gt;点我&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    new Vue(&#123;
+        el:&quot;#app&quot;,
+        data:&#123;
+          message:&quot;王恒杰&quot;,
+            score:&quot;99&quot;
+        &#125;,
+        methods:&#123;   //在实例中定义函数
+           test1:function ()&#123;
+               //将data中的score分数+1 this 当前的实例对象
+             this.score++;
+           &#125;
+        &#125;
+    &#125;)
+&lt;/script&gt;
+&lt;!--
+
+--&gt;
+1234567891011121314151617181920212223242526272829303132333435
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/58e31ff1baf129e525701884ab3137b2.png" alt="img" data-caption="img" loading="lazy"></p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; xmlns:v-on=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;vue的事件绑定v-on&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;!--MVVM  Model模型 V:view视图 双向绑定   ViewModel(监听器)--&gt;
+    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;
+    &lt;h2&gt;&lt;font color=&quot;red&quot;&gt;&#123;&#123;score&#125;&#125;&lt;/font&gt;&lt;/h2&gt;
+    &lt;button v-on:click=&quot;test1&quot; &gt;点我&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    new Vue(&#123;
+        el:&quot;#app&quot;,
+        data:&#123;
+          message:&quot;王恒杰&quot;,
+            score:&quot;99&quot;
+        &#125;,
+        methods:&#123;   //在实例中定义函数
+           test1:function ()&#123;
+               //将data中的score分数+1 this 当前的实例对象
+             this.score++;
+             this.test2();
+           &#125;,
+            test2:function () &#123;
+                 console.log(&quot;少考一点分，要报表了！！！&quot;)
+            &#125;
+        &#125;
+    &#125;)
+&lt;/script&gt;
+&lt;!--
+
+--&gt;
+123456789101112131415161718192021222324252627282930313233343536373839
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/61c70ae39bbe2facc39654adabe9cbdf.png" alt="img" data-caption="img" loading="lazy"></p>
+<pre><code class="bash">#总结:
+    事件  事件源:发生事件dom元素  事件: 发生特定的动作  click....  监听器  
+             发生特定动作之后的事件处理程序 通常是js中函数
+             
+    1.在vue中绑定事件是通过v-on指令来完成的 v-on:事件名 如  v-on:click
+    
+    2.在v-on:事件名的赋值语句中是当前事件触发调用的函数名
+    
+    3.在vue中事件的函数统一定义在Vue实例的methods属性中
+    
+    4.在vue定义的事件中this指的就是当前的Vue实例,
+      日后可以在事件中通过使用this获取Vue实例中相关数据调用methods中相关方法
+123456789101112
+</code></pre>
+<h4 id="（4）事件案例"><a href="#（4）事件案例" class="headerlink" title="（4）事件案例"></a>（4）事件案例</h4><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; xmlns:v-on=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;vue的事件绑定v-on&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;!--MVVM  Model模型 V:view视图 双向绑定   ViewModel(监听器)--&gt;
+    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;
+    &lt;h2&gt;&lt;font color=&quot;red&quot;&gt;&#123;&#123;score&#125;&#125;&lt;/font&gt;&lt;/h2&gt;
+    &lt;button v-on:click=&quot;incr&quot; &gt;点击分数+1&lt;/button&gt;
+    &lt;button v-on:click=&quot;addMore(10)&quot; &gt;点击分数+任意&lt;/button&gt;
+    &lt;button v-on:click=&quot;addMoreAndString(20,&#39;成绩优秀&#39;,false,true)&quot; &gt;点击分数+任意，message拼接一个字符串&lt;/button&gt;
+&lt;!--    &lt;button v-on:click=&quot;obj(&#123;num:100,message:&#39;王恒杰&#39;,sex:false,score:100&#125;)&quot; &gt;点击分数+任意&lt;/button&gt;--&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    new Vue(&#123;
+        el:&quot;#app&quot;,
+        data:&#123;
+          message:&quot;王恒杰&quot;,
+            score:&quot;59&quot;
+        &#125;,
+        methods:&#123;   //在实例中定义函数
+         incr:function()&#123;
+             this.score++;
+         &#125;,
+         addMore:function (number) &#123;
+             this.score+=number;
+         &#125;,
+            addMoreAndString:function (num,grade,a,b) &#123;
+                this.score+=num;
+                this.message+=grade;
+                console.log(a);
+                console.log(b)
+            &#125;
+        &#125;,
+        obj:function (obj) &#123;
+           console.log(obj)
+        &#125;
+    &#125;)
+&lt;/script&gt;
+
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/743d9f2d0e3dc486d585e8a4090c14d5.png" alt="img" data-caption="img" loading="lazy"></p>
+<p>注意：</p>
+<p>1、双向绑定机制 MVM，<code>Model&lt;==&gt; ViewModel</code>(视图模型，监听器，监听model的改变，一旦改变影响View)==&gt;View(视图) data数据：model <code>&#123;&#123;message&#125;&#125;</code>这个就是view</p>
+<h3 id="4-2-Vue中事件的简化语法"><a href="#4-2-Vue中事件的简化语法" class="headerlink" title="4.2 Vue中事件的简化语法"></a>4.2 Vue中事件的简化语法</h3><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;事件的简化写法&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+   &#123;&#123;name&#125;&#125;
+    &lt;h1&gt;&lt;font color=&quot;red&quot;&gt;&#123;&#123;score&#125;&#125;&lt;/font&gt;&lt;/h1&gt;
+
+    &lt;button @click=&quot;incr()&quot;&gt;点击+1&lt;/button&gt;
+    &lt;button @Click=&quot;desc()&quot;&gt;点击-1&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  new Vue(&#123;
+    el: &quot;#app&quot;,  //指定vue实例
+    data: &#123;   //为实例创建数据
+    name:&quot;王恒杰&quot;,
+    score:59
+    &#125;,
+    methods:&#123;
+   incr()&#123;
+       this.score++;
+   &#125;,
+   desc()&#123;
+       this.score--;
+   &#125;
+    &#125;
+  &#125;)
+&lt;/script&gt;
+&lt;!--
+ 当前事件绑定的方式：v-on：事件属性=“监听函数名”
+ 绑定事件简化方式：@事件属性=“监听函数名”
+--&gt;
+123456789101112131415161718192021222324252627282930313233343536373839
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/1ce15e1ed0c2dadb0f03aa9946fc89a5.png" alt="img" data-caption="img" loading="lazy"></p>
+<pre><code class="markdown"># 总结:
+      1.日后在vue中绑定事件时可以通过@符号形式 简化  v-on 的事件绑定
+12
+</code></pre>
+<h3 id="4-3-Vue事件函数两种写法"><a href="#4-3-Vue事件函数两种写法" class="headerlink" title="4.3 Vue事件函数两种写法"></a>4.3 Vue事件函数两种写法</h3><pre><code class="html">    &lt;div id=&quot;app&quot;&gt;
+        &lt;span&gt;&#123;&#123;count&#125;&#125;&lt;/span&gt;
+        &lt;input type=&quot;button&quot; value=&quot;改变count的值&quot; @click=&quot;changecount&quot;&gt;
+    &lt;/div&gt;
+    &lt;!--引入vue.js--&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        const app = new Vue(&#123;
+           el:&quot;#app&quot;,
+           data:&#123;
+               count:1,
+           &#125;,
+           methods:&#123;
+               /*changecount:function()&#123;
+                   this.count++;
+               &#125;*/
+               changecount()&#123;
+                   this.count++;
+               &#125;
+           &#125;
+        &#125;);
+    &lt;/script&gt;
+12345678910111213141516171819202122
+# 总结:
+      1.在Vue中事件定义存在两种写法  
+         一种是 函数名:function()&#123;&#125;       
+           一种是  函数名()&#123;&#125; 推荐
+1234
+</code></pre>
+<ul>
+<li>简化语法及简化函数写法</li>
+</ul>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; xmlns:v-on=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;v-on简化写法&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+&lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;
+&lt;h1&gt;&#123;&#123;count&#125;&#125;&lt;/h1&gt;
+&lt;!--
+ v-on：用来给标签绑定特定事件
+--&gt;
+  &lt;button v-on:click=&quot;incrementAge&quot;&gt;点击年龄+1&lt;/button&gt;
+&lt;!--  v-on==&gt;简化写法：@ 语法“@事件名-事件处理函数名--&gt;
+  &lt;button @click=&quot;incrementAge&quot;&gt;点击年龄+1&lt;/button&gt;
+&lt;!--  简化函数后--&gt;
+  &lt;button @click=&quot;test(5)&quot;&gt;点击年龄+N&lt;/button&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  new Vue(&#123;
+    el:&quot;#app&quot;,
+    data:&#123;
+      msg:&quot;王恒杰&quot;,
+      count:0,
+    &#125;,
+    methods:&#123;
+   incrementAge:function()&#123;
+     this.count++;
+  &#125;,
+      //  简化函数  原定义函数：函数名：function()&#123;&#125;==&gt;函数名（）&#123;&#125;
+      test(n)&#123;
+      this.count+=n;
+      &#125;
+    &#125;,
+
+  &#125;);
+&lt;/script&gt;
+1234567891011121314151617181920212223242526272829303132333435363738394041
+</code></pre>
+<h3 id="4-4-Vue事件参数传递"><a href="#4-4-Vue事件参数传递" class="headerlink" title="4.4 Vue事件参数传递"></a>4.4 Vue事件参数传递</h3><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;参数的传递&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;h1&gt;&lt;font color=&quot;red&quot;&gt;姓名：&#123;&#123;users[1].name&#125;&#125;&lt;/font&gt;&lt;/h1&gt;
+    &lt;h2&gt;分数：&#123;&#123;score&#125;&#125;&lt;/h2&gt;
+    &lt;input type=&quot;button&quot; @click=&quot;incr(&#39;优秀&#39;)&quot; value=&quot;点击修改分数&quot;&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    new Vue(&#123;
+        el: &quot;#app&quot;,
+        data: &#123;
+            users: [
+                &#123;&quot;id&quot;: 1, &quot;name&quot;: &quot;王恒杰&quot;, &quot;score&quot;: 81&#125;,
+                &#123;&quot;id&quot;: 2, &quot;name&quot;: &quot;杨福君&quot;, &quot;score&quot;: 60&#125;,
+                &#123;&quot;id&quot;: 3, &quot;name&quot;: &quot;王晨阳&quot;, &quot;score&quot;: 82&#125;
+            ],
+           score:81
+        &#125;,
+        methods: &#123;
+            incr(msg) &#123;
+                this.score++;
+                console.log(msg);
+            &#125;
+        &#125;
+    &#125;)
+&lt;/script&gt;
+12345678910111213141516171819202122232425262728293031323334
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/58467877ed8d4483e152bb84a2ff8ae4.png" alt="img" data-caption="img" loading="lazy"></p>
+<pre><code class="markdown"># 总结:
+  1.在使用事件时,可以直接在事件调用处给事件进行参数传递,在事件定义处通过定义对应变量接收传递的参数
+12
+</code></pre>
+<ul>
+<li>v-on传递参数案例</li>
+</ul>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; xmlns:v-on=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;v-on在函数中传递参数&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+  &lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;
+  &lt;h1&gt;年龄：&#123;&#123;count&#125;&#125;&lt;/h1&gt;
+&lt;button v-on:click=&quot;incrementAge&quot;&gt;点我每次给年龄+1&lt;/button&gt;
+&lt;!--  执行事件，并给事件传递参数--&gt;
+  &lt;button v-on:click=&quot;changeAge(20)&quot;&gt;点我每次给年龄+不确定&lt;/button&gt;
+&lt;!--  传零散数据--&gt;
+  &lt;button v-on:click=&quot;changeAgeAndMsg(2,&#39;小黑&#39;)&quot;&gt;点我每次给年龄+不确定,同时msg+&quot;你好&quot;&lt;/button&gt;
+&lt;!--  传对象--&gt;
+  &lt;button v-on:click=&quot;changeAgeAndMsg2(&#123;n:2,msg:&#39;王恒杰&#39;&#125;)&quot;&gt;点我每次给年龄+不确定,同时msg+&quot;你好&quot;&lt;/button&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+ new Vue(&#123;
+    el:&quot;#app&quot;,
+    data:&#123;
+      msg:&quot;王恒杰&quot;,
+      count:20
+    &#125;,
+    methods:&#123;
+      incrementAge:function ()&#123;
+        this.count++;
+      &#125;,
+      //函数上面添加变量
+      changeAge:function(n)&#123;
+        console.log(n);
+        this.count+=n;
+      &#125;,
+      //传零散数据
+      changeAgeAndMsg:function(n,msg)&#123;
+        console.log(n);
+        console.log(msg);
+        this.count+=n;
+        this.msg=&quot;你好！&quot;+msg;
+      &#125;,
+      //传对象
+      changeAgeAndMsg2:function(param)&#123;
+        console.log(param);
+        this.count+=param.n;
+        this.msg=&quot;你好！&quot;+param.msg;
+      &#125;
+    &#125;
+  &#125;);
+&lt;/script&gt;
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253
+</code></pre>
+<hr>
+<h1 id="五-v-show-v-if-v-bind"><a href="#五-v-show-v-if-v-bind" class="headerlink" title="五.v-show v-if v-bind"></a>五.v-show v-if v-bind</h1><h3 id="5-1-v-show"><a href="#5-1-v-show" class="headerlink" title="5.1 v-show"></a>5.1 v-show</h3><blockquote>
+<p><code>v-show</code>:用来控制页面中某个标签元素是否展示</p>
+</blockquote>
+<pre><code class="html">&lt;div id=&quot;app&quot;&gt;
+    &lt;!--
+        v-show: 用来控制标签展示还是隐藏的
+    --&gt;
+    &lt;h2 v-show=&quot;false&quot;&gt;天津商业大学欢迎你的加入!&lt;/h2&gt;
+    &lt;h2 v-show=&quot;show&quot;&gt;天津商业大学欢迎你的加入这是vue中定义变量true!&lt;/h2&gt;
+    &lt;input type=&quot;button&quot; value=&quot;展示隐藏标签&quot; @click=&quot;showmsg&quot;&gt;
+
+&lt;/div&gt;
+&lt;!--引入vue.js--&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    const app = new Vue(&#123;
+        el:&quot;#app&quot;,
+        data:&#123;
+            show:false,
+        &#125;,
+        methods:&#123;
+            //定义时间
+            showmsg()&#123;
+               this.show =  !this.show;
+            &#125;
+        &#125;
+    &#125;)
+&lt;/script&gt;
+12345678910111213141516171819202122232425
+# 总结
+      1.在使用v-show时可以直接书写boolean值控制元素展示,也可以通过变量控制标签展示和隐藏
+      2.在v-show中可以通过boolean表达式控制标签的展示和隐藏
+123
+</code></pre>
+<h3 id="5-2-v-if"><a href="#5-2-v-if" class="headerlink" title="5.2 v-if"></a>5.2 v-if</h3><blockquote>
+<p><code>v-if</code>: 用来控制页面元素是否展示</p>
+</blockquote>
+<pre><code class="html">&lt;div id=&quot;app&quot;&gt;
+    &lt;h2 v-if=&quot;false&quot;&gt;百知教育&lt;/h2&gt;
+    &lt;h2 v-if=&quot;show&quot;&gt;百知教育欢迎你的加入&lt;/h2&gt;
+&lt;/div&gt;
+&lt;!--引入vue.js--&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    const app = new Vue(&#123;
+        el:&quot;#app&quot;,
+        data:&#123;
+            show:false
+        &#125;,
+        methods:&#123;
+
+        &#125;
+    &#125;);
+&lt;/script&gt;
+1234567891011121314151617
+</code></pre>
+<ul>
+<li>v-if与v-show的区别</li>
+</ul>
+<pre><code class="html">&lt;div id=&quot;app&quot;&gt;
+&lt;!--
+v-if与v-show的区别：
+1.v-if 底层通知控制dom树上的元素节点 页面标签展示和隐藏 dom树
+2.v-show 底层通过控制标签css中display属性实现标签展示和隐藏 css
+--&gt;
+    &lt;h1 name=&quot;if&quot; v-if=&quot;isshow&quot;&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;
+    &lt;h1 name=&quot;show&quot; v-if=&quot;isshow&quot;&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    new Vue(&#123;
+        el:&quot;#app&quot;,
+        data:&#123;
+          msg:&quot;王恒杰&quot;,
+            isshow:false
+        &#125;,
+        methods:&#123;
+
+        &#125;
+    &#125;);
+&lt;/script&gt;
+
+123456789101112131415161718192021222324
+</code></pre>
+<p>v-show在谷歌里面的控制台 由css实现</p>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/ce57d06ab37c2517810d8474861dfa84.png" alt="img" data-caption="img" loading="lazy"></p>
+<h3 id="5-2-1-v-if-amp-amp-v-show案例"><a href="#5-2-1-v-if-amp-amp-v-show案例" class="headerlink" title="5.2.1:v-if&amp;&amp;v-show案例"></a>5.2.1:v-if&amp;&amp;v-show案例</h3><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;v-if与v-show案例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;
+    &lt;h2 v-show=&quot;isShow&quot;&gt;&#123;&#123;msg&#125;&#125;&lt;/h2&gt;
+    &lt;button @click=&quot;hidenH2&quot;&gt;用来隐藏h2标签&lt;/button&gt;
+    &lt;button @click=&quot; showH2&quot;&gt;用来显示h1标签&lt;/button&gt;
+    &lt;button @click=&quot;showHiddenH2&quot;&gt;用来显示、隐藏h2&lt;/button&gt;
+&lt;!--    直接调用data--&gt;
+    &lt;button @click=&quot;isShow=!isShow&quot;&gt;用来显示、隐藏h2(直接操作data的属性)&lt;/button&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    new Vue(&#123;
+        el: &quot;#app&quot;,
+        data: &#123;
+            msg: &quot;王恒杰&quot;,
+            isShow: true
+        &#125;,
+        methods: &#123;
+            hidenH2() &#123;
+                this.isShow = false;
+            &#125;,
+            showH2() &#123;
+                this.isShow = true;
+            &#125;,
+            showHiddenH2() &#123;
+                //    替换
+                this.isShow=!this.isShow;
+                // if (this.isShow) &#123;
+                //     this.isShow = false;
+                // &#125; else &#123;
+                //     this.isShow = true;
+                // &#125;
+
+            &#125;
+        &#125;
+    &#125;);
+
+&lt;/script&gt;
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647
+</code></pre>
+<ul>
+<li>v-if&amp;v-show案例</li>
+</ul>
+<pre><code class="java">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; xmlns:v-html=&quot;http://www.w3.org/1999/xhtml&quot; xmlns:v-on=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;v-if&amp;v-show案例二&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+  &lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;
+  &lt;div style=&quot;height: 200px;width: 200px;background-color: red; &quot; v-show=&quot;isShow&quot; v-on:mouseover=&quot;hidden&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  new Vue(&#123;
+    el:&quot;#app&quot;,
+    data:&#123;
+      msg:&quot;天津商业大学&quot;,
+      isShow:true,
+    &#125;,
+    methods:&#123;
+       hidden:function ()&#123;
+         this.isShow=false;
+       &#125;
+    &#125;
+
+  &#125;);
+&lt;/script&gt;
+1234567891011121314151617181920212223242526272829
+</code></pre>
+<h3 id="5-3-v-bind"><a href="#5-3-v-bind" class="headerlink" title="5.3 v-bind"></a>5.3 v-bind</h3><blockquote>
+<p><code>v-bind</code>: 用来绑定标签的属性从而通过vue动态修改标签的属性</p>
+</blockquote>
+<pre><code class="html">&lt;div id=&quot;app&quot;&gt;
+    &lt;img width=&quot;300&quot; v-bind:title=&quot;msg&quot; v-bind:class=&quot;&#123;aa:showCss&#125;&quot;  src=&quot;baizhilogo.jpg&quot; alt=&quot;&quot;&gt;
+&lt;/div&gt;
+&lt;!--引入vue.js--&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+
+    const app = new Vue(&#123;
+        el:&quot;#app&quot;,
+        data:&#123;
+            msg:&quot;天津商业大学官方logo!!!!&quot;,
+            showCss:true,
+        &#125;,
+        methods:&#123;
+        &#125;
+    &#125;)
+&lt;/script&gt;
+1234567891011121314151617
+</code></pre>
+<h3 id="5-4-v-bind-简化写法"><a href="#5-4-v-bind-简化写法" class="headerlink" title="5.4 v-bind 简化写法"></a>5.4 v-bind 简化写法</h3><blockquote>
+<p> vue为了方便我们日后绑定标签的属性提供了对属性绑定的简化写法如 <code>v-bind:属性名</code> 简化之后 <code>:属性名</code></p>
+</blockquote>
+<pre><code class="html">&lt;div id=&quot;app&quot;&gt;
+    &lt;img width=&quot;300&quot; :title=&quot;msg&quot; :class=&quot;&#123;aa:showCss&#125;&quot;  :src=&quot;src&quot; alt=&quot;&quot;&gt;
+    &lt;input type=&quot;button&quot; value=&quot;动态控制加入样式&quot; @click=&quot;addCss&quot;&gt;
+    &lt;input type=&quot;button&quot; value=&quot;改变图片&quot; @click=&quot;changeSrc&quot;&gt;
+&lt;/div&gt;
+&lt;!--引入vue.js--&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+
+    const app = new Vue(&#123;
+        el:&quot;#app&quot;,
+        data:&#123;
+            msg:&quot;TJCU官方logo!!!!&quot;,
+            showCss:true,
+            src:&quot;https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1583490365568&amp;di=52a82bd614cd4030f97ada9441bb2d0e&amp;imgtype=0&amp;src=http%3A%2F%2Fimg.kanzhun.com%2Fimages%2Flogo%2F20160714%2F820a68f65b4e4a3634085055779c000c.jpg&quot;
+        &#125;,
+        methods:&#123;
+            addCss()&#123;
+                this.showCss= !this.showCss;
+            &#125;,
+            changeSrc()&#123;
+                this.src = &quot;https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1925088662,1336364220&amp;fm=26&amp;gp=0.jpg&quot;;
+            &#125;
+        &#125;
+    &#125;)
+&lt;/script&gt;
+1234567891011121314151617181920212223242526
+</code></pre>
+<h1 id="六-v-for的使用"><a href="#六-v-for的使用" class="headerlink" title="六.v-for的使用"></a>六.v-for的使用</h1><blockquote>
+<p><code>v-for</code>: 作用就是用来对对象进行遍历的(数组也是对象的一种)</p>
+</blockquote>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;v-for&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;!--
+      v-for遍历数据 用于遍历vue中的对象 数组 对象数组
+    1.  遍历单个对象语法：&lt;标签 v-for=&quot;当前元素(value,key,index) in data中变量名&quot;&gt;
+    2.  遍历数组：  &lt;标签 v-for=&quot;value,index in data中属性名&quot;&gt;
+    2.  遍历对象数组：  &lt;标签 v-for=&quot;value,index in data中属性名&quot;&gt;
+   --&gt;
+    &lt;h2&gt;1: 基础获取对象&lt;/h2&gt;
+    &lt;span&gt;&#123;&#123;user.id&#125;&#125;&lt;/span&gt;&lt;br/&gt;
+    &lt;span&gt;&#123;&#123;user.name&#125;&#125;&lt;/span&gt;&lt;br/&gt;
+    &lt;span&gt;&#123;&#123;user.age&#125;&#125;&lt;/span&gt;&lt;br/&gt;
+    &lt;span&gt;&#123;&#123;user.address&#125;&#125;&lt;/span&gt;&lt;br/&gt;
+    &lt;span&gt;&#123;&#123;user.content&#125;&#125;&lt;/span&gt;&lt;br/&gt;
+    &lt;hr/&gt;
+
+    &lt;h2&gt;2:展示对象内容&lt;/h2&gt;
+        &lt;span v-for=&quot;(u,key,index) in user&quot;&gt;&#123;&#123;key&#125;&#125;-&#123;&#123;u&#125;&#125;-&#123;&#123;index&#125;&#125;&lt;/span&gt;
+    &lt;hr/&gt;
+
+    &lt;h2&gt;遍历普通数组&lt;/h2&gt;
+    &lt;ul&gt;
+        &lt;li v-for=&quot;name,index in names&quot;&gt;&#123;&#123;index&#125;&#125;_&#123;&#123;name&#125;&#125;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2&gt;遍历对象数组&lt;/h2&gt;
+
+    &lt;table border=&quot;1px&quot; &gt;
+        &lt;tr&gt;
+            &lt;td&gt;ID&lt;/td&gt;
+            &lt;td&gt;name&lt;/td&gt;
+            &lt;td&gt;address&lt;/td&gt;
+            &lt;td&gt;age&lt;/td&gt;
+            &lt;td&gt;content&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr v-for=&quot;user,index in users&quot; :key=&quot;user.id&quot;&gt;
+            &lt;td&gt;&#123;&#123;user.id&#125;&#125;&lt;/td&gt;
+            &lt;td&gt;&#123;&#123;user.name&#125;&#125;&lt;/td&gt;
+            &lt;td&gt;&#123;&#123;user.address&#125;&#125;&lt;/td&gt;
+            &lt;td&gt;&#123;&#123;user.age&#125;&#125;&lt;/td&gt;
+            &lt;td&gt;&#123;&#123;user.content&#125;&#125;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    //vue代码
+    new Vue(&#123;
+        el: &quot;#app&quot;,  //vue的实例作用范围
+        data: &#123;   //vue中定义的一系列数据
+            user:&#123;id: 1, name: &quot;王恒杰&quot;, age: 21, address: &quot;天津商业大学&quot;, content: &quot;好好学习，天天向上&quot;&#125;,
+            names:[&quot;王恒杰&quot;,&quot;杨福君&quot;,&quot;邓正武&quot;,&quot;王晨阳&quot;],
+            users:[
+                &#123;id: 1, name: &quot;王恒杰&quot;, age: 21, address: &quot;天津商业大学&quot;, content: &quot;好好学习，天天向上&quot;&#125;,
+                &#123;id: 2, name: &quot;杨福君&quot;, age: 21, address: &quot;天津商业大学&quot;, content: &quot;好好学习，天天向上&quot;&#125;,
+                &#123;id: 3, name: &quot;王晨阳&quot;, age: 21, address: &quot;天津商业大学&quot;, content: &quot;好好学习，天天向上&quot;&#125;,
+            ]
+        &#125;,
+        methods: &#123;   //vue中定义的一系列函数 方法
+
+        &#125;
+
+    &#125;)
+&lt;/script&gt;
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/498320850ddbcdcaa200e823314832be.png" alt="img" data-caption="img" loading="lazy"></p>
+<pre><code class="markdown"># 总结
+  1.在使用v-for的时候一定要注意加入:key 用来给vue内部提供重用和排序的唯一key 
+12
+</code></pre>
+<hr>
+<h1 id="七-v-model-双向绑定"><a href="#七-v-model-双向绑定" class="headerlink" title="七 .v-model 双向绑定"></a>七 .v-model 双向绑定</h1><blockquote>
+<p><code>v-model</code>: 作用用来绑定标签元素的值与vue实例对象中data数据保持一致,从而实现双向的数据绑定机制</p>
+</blockquote>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/0b7b8409c142ac27ded2d7ac97be1351.png" alt="img" data-caption="img" loading="lazy"></p>
+<ul>
+<li>零散数据建的双向绑定</li>
+</ul>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/html&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;v-model指令&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+&lt;!--
+v-model双向绑定
+作用：绑定标签对象的value属性值 交由vue实例管理 只能绑定value属性值
+ 语法&lt;input type=&quot;text&quot; v-mode=&quot;data属性名&quot;&gt;
+--&gt;
+  &lt;form&gt;
+    姓名：&lt;input type=&quot;text&quot; v-model=&quot;name&quot;&gt;&lt;br/&gt;
+    密码：&lt;input type=&quot;text&quot; v-model=&quot;pwd&quot;&gt;&lt;br/&gt;
+    年龄：&lt;input type=&quot;text&quot; v-model=&quot;age&quot;&gt;&lt;br/&gt;
+    地址：&lt;input type=&quot;text&quot; v-model=&quot;addr&quot;&gt;&lt;br/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;注册&quot; @click=&quot;register()&quot;&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  //vue代码
+  new Vue(&#123;
+    el: &quot;#app&quot;,  //vue的实例作用范围
+    data: &#123;   //vue中定义的一系列数据
+      name:&quot;&quot;,
+      pwd:&quot;&quot;,
+      age:18,
+      addr:&quot;&quot;
+    &#125;,
+    methods:&#123;
+     register()&#123;
+       //获取用户输入的数据
+       console.log(this.name);
+       console.log(this.pwd);
+       console.log(this.age);
+       console.log(this.addr);
+       //
+     &#125;
+    &#125;
+  &#125;)
+&lt;/script&gt;
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/cbc41689e92cba2c58423fcda4bc5895.png" alt="img" data-caption="img" loading="lazy"></p>
+<ul>
+<li>对象的双向绑定</li>
+</ul>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/html&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;v-model指令&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+&lt;!--
+v-model双向绑定
+作用：绑定标签对象的value属性值 交由vue实例管理 只能绑定value属性值
+ 语法&lt;input type=&quot;text&quot; v-mode=&quot;data属性名&quot;&gt;
+--&gt;
+  &lt;form&gt;
+    姓名：&lt;input type=&quot;text&quot; v-model=&quot;user.name&quot;&gt;&lt;br/&gt;
+    密码：&lt;input type=&quot;text&quot; v-model=&quot;user.pwd&quot;&gt;&lt;br/&gt;
+    年龄：&lt;input type=&quot;text&quot; v-model=&quot;user.age&quot;&gt;&lt;br/&gt;
+    地址：&lt;input type=&quot;text&quot; v-model=&quot;user.addr&quot;&gt;&lt;br/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;注册&quot; @click=&quot;register()&quot;&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  //vue代码
+  new Vue(&#123;
+    el: &quot;#app&quot;,  //vue的实例作用范围
+    data: &#123;   //vue中定义的一系列数据
+      user:&#123;&#125;
+    &#125;,
+    methods:&#123;
+     register()&#123;
+       //获取用户输入的数据
+       console.log(this.user.name);
+       console.log(this.user.pwd);
+       console.log(this.user.age);
+       console.log(this.user.addr);
+       console.log(this.user);
+       //发送ajax请求
+       $.get(&quot;url&quot;,user,function () &#123;
+
+       &#125;,&quot;json&quot;)
+     &#125;
+    &#125;
+  &#125;)
+&lt;/script&gt;
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/0f2f5ec5b6e63141828d29cfb860a79e.png" alt="img" data-caption="img" loading="lazy"></p>
+<pre><code class="bash"># 总结
+    1.使用v-model指令可以实现数据的双向绑定 
+    2.所谓双向绑定 表单中数据变化导致vue实例data数据变化   
+      vue实例中data数据的变化导致表单中数据变化 称之为双向绑定
+
+# MVVM架构  双向绑定机制
+  Model: 数据  Vue实例中绑定数据
+  
+  VM:   ViewModel  监听器
+
+  View:  页面  页面展示的数据
+1234567891011
+</code></pre>
+<hr>
+<h1 id="八-事件修饰符"><a href="#八-事件修饰符" class="headerlink" title="八. 事件修饰符"></a>八. 事件修饰符</h1><blockquote>
+<p><code>修饰符</code>: 作用用来和事件连用,用来决定事件触发条件或者是阻止事件的触发机制</p>
+</blockquote>
+<pre><code class="markdown"># 1.常用的事件修饰符
+  .stop    停止
+  .prevent 阻止
+  .self    独自
+  .once    一次
+12345
+</code></pre>
+<h3 id="8-1-stop事件修饰符"><a href="#8-1-stop事件修饰符" class="headerlink" title="8.1 stop事件修饰符"></a>8.1 stop事件修饰符</h3><blockquote>
+<p>用来阻止事件冒泡</p>
+</blockquote>
+<ul>
+<li>** 事件冒泡：** 父子标签监听相同的事件属性，触发子标签事件时，同时扩散到父标签，导致父标签事件也运行</li>
+</ul>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;v-model指令&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+  &lt;!--
+  事件修饰符：
+  事件冒泡：父子标签监听相同的事件属性，触发子标签事件时，同时扩散到父标签，导致父标签事件也运行
+  --&gt;
+  &lt;div @click=&quot;outer()&quot; style=&quot;border: solid 1px red;background-color: red;width: 200px;height: 200px&quot;&gt;
+    &lt;div  @click=&quot;inner()&quot; style=&quot;border: solid 1px greenyellow;background-color: greenyellow;width: 100px;height: 100px&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  //vue代码
+  new Vue(&#123;
+    el: &quot;#app&quot;,  //vue的实例作用范围
+    data: &#123;   //vue中定义的一系列数据
+    &#125;,
+    methods:&#123;
+      outer()&#123;
+        console.log(&quot;外层被触发了&quot;)
+      &#125;,
+      inner()&#123;
+        console.log(&quot;内层被触发了&quot;)
+      &#125;
+    &#125;
+  &#125;)
+&lt;/script&gt;
+12345678910111213141516171819202122232425262728293031323334353637
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/7ca3cf25fb260d4bf6b5b0e7430b7567.png" alt="img" data-caption="img" loading="lazy"></p>
+<ul>
+<li>.stop 阻止事件冒泡</li>
+</ul>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/f933e906f0e1c0eec3a5f8629affe267.png" alt="img" data-caption="img" loading="lazy"></p>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/87bcdf7a7bf73bb5226359d95ed9e16d.png" alt="img" data-caption="img" loading="lazy"></p>
+<h3 id="8-2-prevent-事件修饰符"><a href="#8-2-prevent-事件修饰符" class="headerlink" title="8.2 prevent 事件修饰符"></a>8.2 prevent 事件修饰符</h3><blockquote>
+<p>用来阻止标签的默认行为</p>
+</blockquote>
+<pre><code class="html">&lt;!--用来阻止事件的默认行为--&gt;
+&lt;a href=&quot;http://www.baizhibest.com/&quot; @click.prevent=&quot;aClick&quot;&gt;tjsydx&lt;/a&gt;
+12
+</code></pre>
+<h3 id="8-3-self-事件修饰符"><a href="#8-3-self-事件修饰符" class="headerlink" title="8.3 self 事件修饰符"></a>8.3 self 事件修饰符</h3><blockquote>
+<p>用来针对于当前标签的事件触发 ===========&gt; 只触发自己标签的上特定动作的事件 只关心自己标签上触发的事件 不监听事件冒泡</p>
+</blockquote>
+<pre><code class="html">&lt;!--只触发标签自身的事件--&gt;
+&lt;div class=&quot;aa&quot; @click.self=&quot;divClick&quot;&gt;
+  &lt;!--用来阻止事件冒泡--&gt;
+  &lt;input type=&quot;button&quot; value=&quot;按钮&quot;  @click.stop=&quot;btnClick&quot;&gt;
+  &lt;input type=&quot;button&quot; value=&quot;按钮1&quot; @click=&quot;btnClick1&quot;&gt;
+&lt;/div&gt;
+123456
+</code></pre>
+<h3 id="8-4-once-事件修饰符"><a href="#8-4-once-事件修饰符" class="headerlink" title="8.4 once 事件修饰符"></a>8.4 once 事件修饰符</h3><blockquote>
+<p>once 一次作用: 就是让指定事件只触发一次</p>
+</blockquote>
+<pre><code class="html">    &lt;!--
+    .prevent : 用来阻止事件的默认行为
+    .once    : 用来只执行一次特定的事件
+    --&gt;
+    &lt;a href=&quot;http://www.baizhibest.com/&quot; @click.prevent.once=&quot;aClick&quot;&gt;百知教育&lt;/a&gt;
+12345
+</code></pre>
+<hr>
+<h1 id="九-按键修饰符"><a href="#九-按键修饰符" class="headerlink" title="九. 按键修饰符"></a>九. 按键修饰符</h1><blockquote>
+<p>作用: 用来与键盘中按键事件绑定在一起,用来修饰特定的按键事件的修饰符</p>
+</blockquote>
+<pre><code class="bash"># 按键修饰符
+  .enter
+  .tab
+  .delete (捕获“删除”和“退格”键)
+  .esc
+  .space
+  .up
+  .down
+  .left
+  .right
+12345678910
+</code></pre>
+<h3 id="9-1-enter-回车键"><a href="#9-1-enter-回车键" class="headerlink" title="9.1 enter 回车键"></a>9.1 enter 回车键</h3><blockquote>
+<p>用来在触发回车按键之后触发的事件</p>
+</blockquote>
+<pre><code class="html"> &lt;input type=&quot;text&quot; v-model=&quot;msg&quot; @keyup.enter=&quot;keyups&quot;&gt;
+1
+</code></pre>
+<h3 id="9-2-tab-键"><a href="#9-2-tab-键" class="headerlink" title="9.2 tab 键"></a>9.2 tab 键</h3><blockquote>
+<p>用来捕获到tab键执行到当前标签是才会触发</p>
+</blockquote>
+<pre><code class="html">&lt;input type=&quot;text&quot; @keyup.tab=&quot;keytabs&quot;&gt;
+1
+</code></pre>
+<hr>
+<h3 id="9-3-案例"><a href="#9-3-案例" class="headerlink" title="9.3 案例"></a>9.3 案例</h3><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;v-model指令&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+  &lt;!--
+    按键修饰符：与键盘的事件属性连用
+    .enter 回车
+    .tab tab键
+    .delete  删除
+    .esc  退出
+    .space  空格
+    .up  上
+    .down  下
+    .left  左
+    .right  右
+  --&gt;
+  &lt;input type=&quot;text&quot; v-model=&quot;value&quot; @keyup.enter=&quot;keyUp()&quot;&gt;
+
+
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script src=&quot;js/vue-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  //vue代码
+  new Vue(&#123;
+    el: &quot;#app&quot;,  //vue的实例作用范围
+    data: &#123;   //vue中定义的一系列数据
+      value:&quot;&quot;
+    &#125;,
+    methods:&#123;
+      keyUp()&#123;
+       console.log(&quot;触发按键弹起监听功能&quot;)
+      &#125;
+    &#125;
+  &#125;)
+&lt;/script&gt;
+1234567891011121314151617181920212223242526272829303132333435363738394041
+</code></pre>
+<p><img data-fancybox="gallery" src="https://img-blog.csdnimg.cn/img_convert/4ea6cfa5fd80da651c1e122b42081e7a.png" alt="img" data-caption="img" loading="lazy"></p>
+<h1 id="十-后续发布vue博客相关内容"><a href="#十-后续发布vue博客相关内容" class="headerlink" title="十.后续发布vue博客相关内容"></a>十.后续发布vue博客相关内容</h1><p>🍅 <strong>Vue学习之路（基础篇）</strong><br>🍅 vue的学习之路（Axios 基本使用）<br>🍅 vue的学习之路（Vue 生命周期）<br>🍅 vue的学习之路（Vue中组件(component)）<br>🍅 vue的学习之路（Vue中路由 (Vue Router)）<br>🍅 vue的学习之路（Vue CLI 脚手架）<br>🍅 vue的学习之路（VueX 状态管理）</p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Veam<br>
+        <strong>本文链接：</strong><a href="https://github.com/lonely0323/lonely0323.github.io/2022/09/24/vue/" title="https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;09&#x2F;24&#x2F;vue&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2022&#x2F;09&#x2F;24&#x2F;vue&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E6%A1%86%E6%9E%B6%EF%BC%8Cvue/">框架，vue</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '84f0a52c730b2624c264',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'https://github.com/lonely0323/gitment',
+        owner: 'lonely0323',
+        admin: 'lonely0323'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue%E7%9A%84%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">vue的常规使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-vue%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">2.</span> <span class="toc-text">1.1 vue的优势</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C-Vue%E5%85%A5%E9%97%A8"><span class="toc-number"></span> <span class="toc-text">二. Vue入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%B8%8B%E8%BD%BDVuejs"><span class="toc-number">1.</span> <span class="toc-text">2.1 下载Vuejs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Vue%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%A5%E9%97%A8%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">2.2 Vue第一个入门应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Vue%E4%B8%AD%E7%9A%84%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE"><span class="toc-number">3.</span> <span class="toc-text">2.3 Vue中的复杂数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89-v-text%E5%92%8Cv-html"><span class="toc-number"></span> <span class="toc-text">三. v-text和v-html</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-v-text"><span class="toc-number">1.</span> <span class="toc-text">3.1 v-text</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-v-html%E4%B8%8Ev-text%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.</span> <span class="toc-text">3.3 v-html与v-text的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BE%8B1%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">(1)例1：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E4%BE%8B2%EF%BC%9A"><span class="toc-number">2.2.</span> <span class="toc-text">(2）例2：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-vue%E4%B8%AD%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A-v-on"><span class="toc-number"></span> <span class="toc-text">四.vue中事件绑定(v-on)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">4.1 绑定事件基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89this%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">（2）this的用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E9%80%9A%E8%BF%87this-%E5%B1%9E%E6%80%A7%E5%90%8D%E8%8E%B7%E5%8F%96%E5%B1%9E%E6%80%A7%E5%80%BC%E8%BF%9B%E8%A1%8C%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">（3）通过this.属性名获取属性值进行操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E4%BA%8B%E4%BB%B6%E6%A1%88%E4%BE%8B"><span class="toc-number">1.3.</span> <span class="toc-text">（4）事件案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Vue%E4%B8%AD%E4%BA%8B%E4%BB%B6%E7%9A%84%E7%AE%80%E5%8C%96%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">4.2 Vue中事件的简化语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-Vue%E4%BA%8B%E4%BB%B6%E5%87%BD%E6%95%B0%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">4.3 Vue事件函数两种写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-Vue%E4%BA%8B%E4%BB%B6%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="toc-number">4.</span> <span class="toc-text">4.4 Vue事件参数传递</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94-v-show-v-if-v-bind"><span class="toc-number"></span> <span class="toc-text">五.v-show v-if v-bind</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-v-show"><span class="toc-number">1.</span> <span class="toc-text">5.1 v-show</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-v-if"><span class="toc-number">2.</span> <span class="toc-text">5.2 v-if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-1-v-if-amp-amp-v-show%E6%A1%88%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">5.2.1:v-if&amp;&amp;v-show案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-v-bind"><span class="toc-number">4.</span> <span class="toc-text">5.3 v-bind</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-v-bind-%E7%AE%80%E5%8C%96%E5%86%99%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">5.4 v-bind 简化写法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD-v-for%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number"></span> <span class="toc-text">六.v-for的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83-v-model-%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A"><span class="toc-number"></span> <span class="toc-text">七 .v-model 双向绑定</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AB-%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number"></span> <span class="toc-text">八. 事件修饰符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-stop%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">1.</span> <span class="toc-text">8.1 stop事件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-prevent-%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">2.</span> <span class="toc-text">8.2 prevent 事件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-self-%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">3.</span> <span class="toc-text">8.3 self 事件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-once-%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">4.</span> <span class="toc-text">8.4 once 事件修饰符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%9D-%E6%8C%89%E9%94%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number"></span> <span class="toc-text">九. 按键修饰符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-1-enter-%E5%9B%9E%E8%BD%A6%E9%94%AE"><span class="toc-number">1.</span> <span class="toc-text">9.1 enter 回车键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-tab-%E9%94%AE"><span class="toc-number">2.</span> <span class="toc-text">9.2 tab 键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-3-%E6%A1%88%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">9.3 案例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81-%E5%90%8E%E7%BB%AD%E5%8F%91%E5%B8%83vue%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="toc-number"></span> <span class="toc-text">十.后续发布vue博客相关内容</span></a>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
+
+
+ 
+
+<script async src="/js/app.js?v=1663951047695"></script>
+
+
+	<script async src="/js/search.js?v=1663951047695"></script>
+
+
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>
