@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>Javascript - VaMin23博客网</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/VaMin.ico" type="image/x-icon" />
+    <meta name="description" content="JavaScript基础md文档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript">
+<meta property="og:url" content="https://github.com/lonely0323/lonely0323.github.io/2023/03/13/javaScript/index.html">
+<meta property="og:site_name" content="VaMin23博客网">
+<meta property="og:description" content="JavaScript基础md文档">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-12T16:13:00.000Z">
+<meta property="article:modified_time" content="2023-03-12T08:36:15.359Z">
+<meta property="article:author" content="Veam">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1678610187623">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1678610187623">
+    
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://s1.ax1x.com/2022/07/12/j2mBm4.png)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Veam" class="mdui-btn mdui-btn-icon"><img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Veam">
+            <img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam" alt="Veam">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>18</div>
+        <div><span>标签</span>6</div>
+        <div><span>分类</span>10</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form">
+                <label><input class="st-default-search-input" id="search_value" name="q" type="search" placeholder="搜索" style="
+                    font-size: 15px !important;
+                    height: 56px !important;
+                    background-image: none;
+                "></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=MvqLiTM1" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-qq1"></i>
+        </a><a class="mdui-ripple" href="/veam23@foxmail.com" target="_blank" mdui-tooltip="{content: '邮箱地址'}" style="color: rgb(44 0 219);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-QQyouxiang1"></i>
+        </a><a class="mdui-ripple" href="https://github.com/lonely0323" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://weibo.com/u/6323576495/home?wvr=5" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(220,20,60);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-weibo1"></i>
+        </a><a class="mdui-ripple" href="https://music.163.com/#/user/home?id=302060596" target="_blank" mdui-tooltip="{content: '网易云音乐'}" style="color: rgb(220,20,60);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-wangyiyunyinle"></i>
+        </a><a class="mdui-ripple" href="https://y.qq.com/n/ryqq/profile/like/song" target="_blank" mdui-tooltip="{content: 'QQ音乐'}" style="color: rgb(0,255,0);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-qqyinle"></i>
+        </a><a class="mdui-ripple" href="https://s.team/p/fvbb-wqnb/WPNPNWTQ" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(0,0,255);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/javaScript/">javaScript</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/javascript基础/">javascript基础</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/uni-app/">uni-app</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/vue/">vue</a>
+          <span class="category-list-count">8</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/公告/">公告</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/学习/">学习</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/插件/">插件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/文档/">文档</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音乐/">音乐</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/%E5%85%B3%E4%BA%8E/" style="font-size: 10px;">关于</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 10px;">文档</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%BD%91%E7%AB%99/" style="font-size: 10px;">网站</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2023 Veam
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/lonely0323/VaMin23" target="_blank">VaMin23</a>
+        
+        <div style="font-size: 13px; color: #5600ff; ">
+            <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+            本站访客数<a id="busuanzi_value_site_uv"></a>人次
+        </div>
+    </div>
+</div><!-- .nexmoe-drawer -->
+
+
+
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
+              <img src="http://bbs.vamin23.top/img/69dca119d6f9c9667aeb3d2b068d38a10c534f81.jpg" alt="Javascript" loading="lazy">
+              <h1>Javascript</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2023年03月12日</a>
+</div>
+
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    
+</div>
+
+      <p> JavaScript基础md文档</p>
+<span id="more"></span>
+
+    <div id="aplayer-gBpUPUzG" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="5415926126" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+<h3 id="基础的第一天"><a href="#基础的第一天" class="headerlink" title="基础的第一天"></a><strong>基础的第一天</strong></h3><h4 id="JavaScript组成"><a href="#JavaScript组成" class="headerlink" title="JavaScript组成"></a><strong>JavaScript组成</strong></h4><p>由<strong>ECMAscript</strong>和<strong>Web Apis</strong>组成（它是由<strong>DOM</strong>（&quot;网页文档对象模型&quot;）和BOM（&quot;浏览器对象模型&quot;）组成）</p>
+<p>初步认识JavaScript的写法</p>
+<p>//按照button形成一个按钮的切换</p>
+<pre><code>&lt;style&gt;
+
+  .pink&#123;
+
+      background-color: pink;
+
+      border: 0;
+
+     
+
+  &#125;
+
+  button&#123;
+
+        width: 100px;
+
+      height: 100px;
+
+  &#125;
+
+&lt;/style&gt;
+&lt;script&gt;
+
+      let but = document.querySelectorAll(\&#39;button\&#39;)
+
+      for (let i=0;i\&lt;but.length;i++ )&#123;
+
+          but\[i\].addEventListener(\&#39;click\&#39;,function()&#123;
+
+              document.querySelector(\&#39;.pink\&#39;).className = \&#39;\&#39;
+
+              this.className = \&#39;pink\&#39;
+
+          &#125;)
+
+      &#125;
+
+&lt;/script&gt;
+&lt;body&gt;
+
+&lt;button class=&quot;pink&quot;&gt;btn1&lt;/button&gt;
+
+  &lt;button&gt;btn2&lt;/button&gt;
+
+  &lt;button&gt;btn3&lt;/button&gt;
+
+  &lt;button&gt;btn4&lt;/button&gt;
+
+&lt;/body&gt;
+</code></pre>
+<h4 id="JavaScript三种书写位置"><a href="#JavaScript三种书写位置" class="headerlink" title="JavaScript三种书写位置"></a><strong>JavaScript三种书写位置</strong></h4><p><strong>内部</strong></p>
+<p><strong>外部</strong></p>
+<p><strong>行内</strong></p>
+<h4 id="JavaScript注释"><a href="#JavaScript注释" class="headerlink" title="JavaScript注释"></a><strong>JavaScript注释</strong></h4><p><strong>单行注释 ctrl + /</strong></p>
+<p><strong>多行注释 shift +alt +a</strong></p>
+<h4 id="JavaScript结束符-就是分号-在js中可加可不加"><a href="#JavaScript结束符-就是分号-在js中可加可不加" class="headerlink" title="JavaScript结束符 就是分号 在js中可加可不加"></a><strong>JavaScript结束符 就是分号 在js中可加可不加</strong></h4><pre><code>例如：
+
+alert(\&#39;第一句话\&#39;);
+
+alert(\&#39;第一句话\&#39;)
+</code></pre>
+<h4 id="输入和输出"><a href="#输入和输出" class="headerlink" title="输入和输出"></a><strong>输入和输出</strong></h4><h5 id="输出："><a href="#输出：" class="headerlink" title="输出："></a>输出：</h5><pre><code>第一种写法 document.write
+作用：向body内输出内容注意：如果输出的内容写的是标签，也会被解析成网页元素document.write(\&#39;这是一段输入语法\&#39;)还可以直接输出html结构document.write(\&#39;\&lt;h1\&gt;我在测试\&lt;/h1\&gt;\&#39;)
+</code></pre>
+<pre><code>第二种写法 alert
+
+作用：页面弹出警告对话框alert(\&#39;我直接给你输出一部分内容\&#39;)
+</code></pre>
+<pre><code>第三种写法 console.log
+
+作用：控制台输出语法，程序员调试使用console.log(\&quot;控制台输出\&quot;);
+</code></pre>
+<h5 id="输入："><a href="#输入：" class="headerlink" title="输入："></a>输入：</h5><pre><code>输入 prompt
+prompt(\&#39;请输入你的年龄\&#39;)
+</code></pre>
+<h5 id="作业测试"><a href="#作业测试" class="headerlink" title="作业测试"></a>作业测试</h5><p>在页面中输出显示” JS 你好！”，”Javascript我来了！”，”它~会魔法吧!” 三种方法</p>
+<p><code>alert(\&#39;你好 JS\~\&#39;)</code></p>
+<p><code>document.write(\&#39;\&lt;h1\&gt;Javascript我来了！\&lt;/h1\&gt;\&#39;)</code></p>
+<p><code>console.log(\&#39;它\~会魔法吧!\&#39;);</code></p>
+<h5 id="变量"><a href="#变量" class="headerlink" title="变量"></a><strong>变量</strong></h5><pre><code>变量不是数据本身，他们仅仅是一个用于存储数值的容器。可以理解为是用来装东西的纸箱子
+
+声名变量 要想使用变量，首先要创建变量
+</code></pre>
+<p><code>let abc(变量名) = var abc(变量名)</code></p>
+<p><strong>变量赋值号 ： =</strong></p>
+<p><code>let age = 18 //变量初始化</code></p>
+<p><code>console.log(age);</code></p>
+<h5 id="案例一"><a href="#案例一" class="headerlink" title="案例一"></a>案例一</h5><p><strong>请声明一个年龄age为18岁，userName叫张三的同学的名字</strong></p>
+<p><code>let age = 18</code></p>
+<p><code>let userName = \&#39;张三\&#39;</code></p>
+<p><code>console.log(age,userName)</code></p>
+<p><u>更新变量 （注意变量只能存储一个值）</u></p>
+<p><strong>更新age的年龄</strong></p>
+<p><code>let age = 18</code></p>
+<p><code>age = 19</code></p>
+<p><code>console.log(age) //控制台显示是19（注意变量只能存储一个值）</code></p>
+<p><strong>声明多个变量（不建议使用多变量）</strong></p>
+<p><code>let age = 18,userName = \&#39;赵四\&#39;</code></p>
+<p><code>console.log(age,userName)   //控制台打印出来的结果是18，赵四</code></p>
+<h5 id="案例二"><a href="#案例二" class="headerlink" title="案例二"></a>案例二</h5><p><strong>使用输入prompt输出用户名userName</strong></p>
+<pre><code>具体的操作步骤：
+分两种写法
+</code></pre>
+<ul>
+<li>一/第一种写法</li>
+</ul>
+<p><code>1.用户的输入</code></p>
+<p><code>prompt(\&#39;请输入用户名\&#39;)</code></p>
+<p><code>2.内容处理存储数据</code></p>
+<p><code>let userName = prompt(&#39;请输入用户名&#39;)</code></p>
+<p><code>3.打印输出数据</code></p>
+<p><code>console.log(userName)       //控制台显示的就是你输入的用户名</code></p>
+<p><code>document.write(\&#39;userName\&#39;)   //网页中就会显示你输入的用户名</code></p>
+<ul>
+<li>二/第二种写法</li>
+</ul>
+<p><code>1.直接声明用户的输入处理存储数据</code></p>
+<p><code>let userName = prompt(&#39;请输入用户名&#39;)</code></p>
+<p><code>2.打印输出数据</code></p>
+<p><code>console.log(userName)       //控制台显示的就是你输入的用户名</code></p>
+<p><code>document.write(\&#39;userName\&#39;)   //网页中就会显示你输入的用户名</code></p>
+<h5 id="交换变量"><a href="#交换变量" class="headerlink" title="交换变量"></a>交换变量</h5><p>把两个值进行一个交换 num1和num2</p>
+<p><code>let num1 = 10</code></p>
+<p><code>let num2 = 20</code></p>
+<p><code>let temp   //这个是用于存储num1的值</code></p>
+<p><code>temp = num1</code></p>
+<p><code>//然后把num2的值给num1</code></p>
+<p><code>num1 = num2</code></p>
+<p><code>//接着把temp的值给num2，这样就完成了一个交换变量</code></p>
+<p><code>num2 = temp</code></p>
+<p><code>//接着打印一下这个num1,num2</code></p>
+<p><code>consolo.log(num1,num2)   //显示的结果就是 20，10</code></p>
+<h5 id="案例三"><a href="#案例三" class="headerlink" title="案例三"></a>案例三</h5><p><strong>需求：输入姓名(userName),年龄(age),性别(gender)然后输出到页面上或者控制台</strong></p>
+<p>定义三个变量名 然后在后面接上prompt</p>
+<p><code>let userName = prompt(\&#39;请输入你的姓名\&#39;)</code></p>
+<p><code>let age = prompt(\&#39;请输入你的年龄\&#39;)</code></p>
+<p><code>let gender = prompt(\&#39;请输入你的性别\&#39;)</code></p>
+<p><code>document.write(userName,age,gender)     //页面输出就是你的姓名，年龄，性别</code></p>
+<p><code>console.log(userName,age,gender)     //控制台输出就是你的姓名，年龄，性别</code></p>
+<h5 id="let和var的区别"><a href="#let和var的区别" class="headerlink" title="let和var的区别"></a><strong>let和var的区别</strong></h5><p><u>var声明：</u></p>
+<pre><code>可以先使用 在声明中（不合理）
+
+var声明过的变量可以重复声明（不合理）多次声明
+
+比如变量提升、全局变量、没有块级作用域等等
+</code></pre>
+<p><u>let声明：</u></p>
+<pre><code>不允许多次声明
+</code></pre>
+<h4 id="规则和规范"><a href="#规则和规范" class="headerlink" title="规则和规范"></a><strong>规则和规范</strong></h4><h5 id="规则"><a href="#规则" class="headerlink" title="规则"></a><strong>规则</strong></h5><p><u>不能用关键字</u></p>
+<p><u>关键字：有特殊含义的字符，JavaScript内置的一些英语词汇。例如：let,var ,if，for</u></p>
+<p><u>只能用下划线、字母、数字、$组成,且数字不能和开头</u></p>
+<p><u>字母严格区分大小写，如Age和age是不同的变量</u></p>
+<p><u>只能出现下划线或者$符号</u></p>
+<h5 id="规范"><a href="#规范" class="headerlink" title="规范"></a><strong>规范</strong></h5><p><u>起名要有意义</u></p>
+<p><u>遵守小驼峰命名法 第一个单词首字母小写，后面每个单词字母大写例如：userName</u></p>
+<h4 id="数组的基本使用"><a href="#数组的基本使用" class="headerlink" title="**数组的基本使用 **"></a>**数组的基本使用 **</h4><h5 id="数组Array—一种将多个数据存储在单个变量下"><a href="#数组Array—一种将多个数据存储在单个变量下" class="headerlink" title="**数组Array—一种将多个数据存储在单个变量下 **"></a>**数组Array—一种将多个数据存储在单个变量下 **</h5><p><u>let arr=[&#39;数组一&#39;,&#39;数组二&#39;,&#39;数组三&#39;,&#39;数组四&#39;]</u></p>
+<p><u>数组下有多个数据，每个数据都有自己的</u></p>
+<h5 id="编号-下标"><a href="#编号-下标" class="headerlink" title="编号/下标/"></a><strong>编号</strong>/<strong>下标</strong>/</h5><p><u>数组可以存储任意类型的数据</u></p>
+<p><u>取值的语法 数组名[下标]/序号[索引号] 下标是从0开始</u></p>
+<h5 id="元素：数组中保存的每个数据都叫元素"><a href="#元素：数组中保存的每个数据都叫元素" class="headerlink" title="元素：数组中保存的每个数据都叫元素"></a><strong>元素</strong>：数组中保存的每个数据都叫元素</h5><h5 id="下标：数组中数据的编号"><a href="#下标：数组中数据的编号" class="headerlink" title="下标：数组中数据的编号"></a><strong>下标</strong>：数组中数据的编号</h5><h5 id="长度：数组中数据的个数，通过数组的length属性获得"><a href="#长度：数组中数据的个数，通过数组的length属性获得" class="headerlink" title="长度：数组中数据的个数，通过数组的length属性获得"></a><strong>长度</strong>：数组中数据的个数，通过数组的length属性获得</h5><p><u>使用数组的好处： 数组可以保存多个数据</u></p>
+<p><u>数组字面量用 [] / 中括号表示</u></p>
+<ul>
+<li>1.声明数组</li>
+</ul>
+<p><code>let arr = \[\&quot;张三\&quot;,\&quot;李四\&quot;,\&quot;王五\&quot;,\&quot;赵六\&quot;\]</code></p>
+<p><code>console.log(arr)</code>    </p>
+<p><code>//控制台输出为</code>  </p>
+<p><code>Array-\&gt; 0:张三</code></p>
+<p><code>1：李四</code></p>
+<p><code>2：王五</code></p>
+<p><code>3：赵六</code></p>
+<p><code>2.使用数组</code></p>
+<p><code>（如果单独只要王五这个值）</code></p>
+<p><code>console.log(arr\[2\])</code></p>
+<h5 id="案例一-1"><a href="#案例一-1" class="headerlink" title="案例一"></a>案例一</h5><p><strong>定义一个数组里面存放从星期一到星期天的数据，需要打印出星期天这个数据</strong></p>
+<p><code>let arr = \[\&quot;星期一\&quot;, \&quot;星期二\&quot;, \&quot;星期三\&quot;, \&quot;星期四\&quot;, \&quot;星期五\&quot;, \&quot;星期六\&quot;, \&quot;星期日\&quot;\]</code></p>
+<p><code>console.log(arr\[6\]);   //星期天的下标为6 所以表达方式为arr\[6\]</code></p>
+<h5 id="常量"><a href="#常量" class="headerlink" title="常量"></a><strong>常量</strong></h5><p><u>概念：使用const声明的变量叫做 “常量”</u></p>
+<p><strong>使用场景当某个变量永远不会改变的时候，就是用const 不要使用let</strong></p>
+<p><strong>常量const不允许重新赋值，声明的时候必须赋值（初始化）</strong></p>
+<p><strong><span class="underline">小技巧：不需要重新赋值的数据就使用const</span></strong></p>
+<p>1.常量不允许更改值</p>
+<p>2.常量声明的时候必须赋值</p>
+<p><code>const Ip = 3.14</code></p>
+<p><code>console.log(Ip)   //结果就是3.14</code></p>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a><strong>数据类型</strong></h4><p><strong>JS数据类型整体分为两大类</strong></p>
+<p>基本数据类型 和 引用数据类型</p>
+<h5 id="基本数据类型：使用（）提高优先级"><a href="#基本数据类型：使用（）提高优先级" class="headerlink" title="基本数据类型：使用（）提高优先级"></a>基本数据类型：使用（）提高优先级</h5><h6 id="number-数字型"><a href="#number-数字型" class="headerlink" title="number/数字型"></a><strong>number/数字型</strong></h6><p><u>数字型可以是整数、小数、正数、负数</u></p>
+<p>1.1. 数字型又分整数、小数、正数、负数1.2. 算数运算符</p>
+<h6 id="string-字符串型"><a href="#string-字符串型" class="headerlink" title="string / 字符串型"></a><strong>string / 字符串型</strong></h6><p>通过单引号（&#39;&#39;）双引号（&quot;&quot;）或者反引号（``）包裹的数据都叫字符串</p>
+<p><code>let abc = \&#39;13131313\&#39; //这个也是字符串型</code></p>
+<p><code>let set = \&#39;abc\&#39;  //字符串</code></p>
+<p><code>console.log(set)  //这个set是变量</code></p>
+<p><code>console.log(\&#39;set\&#39;)  //这个set是字符串</code></p>
+<p> <strong>注意事项：</strong></p>
+<p><strong>无论单引号或者是双引号必须成对使用</strong></p>
+<p><strong>单引号/双引号可以互相嵌套，但是不以自己嵌套自己（口诀是外双内单，或者外单内双）</strong></p>
+<p><strong>比如：console.log(&quot;我是谁你能看见&#39;我这个人吗？&#39;&quot;)</strong></p>
+<p><strong>必要时可以使用转义字符\ ,输出单引号或者双引号</strong></p>
+<p><strong>比如console.log(&#39;收到请\&#39;回答\&#39;&#39;)</strong></p>
+<h6 id="boolean-布尔型"><a href="#boolean-布尔型" class="headerlink" title="boolean / 布尔型"></a><strong>boolean / 布尔型</strong></h6><p>只有两个固定的值 true 和 false // 真 和 假</p>
+<p><code>console(3\&gt;4)   //false</code></p>
+<p><code>undefined / 未定义型</code></p>
+<p>出现：只声明变量，不赋值的情况下，变量的默认值为undefined,一般很少【直接】为某个变量赋值为undefined</p>
+<p>未定义类型 弱数据类型  声明一个变量为赋值就是 undefined</p>
+<p><code>let num</code></p>
+<p><code>console.log(num)   //undefined</code></p>
+<h6 id="null-空类型-仅仅只是代表的无，空-或者-值未知的特殊值"><a href="#null-空类型-仅仅只是代表的无，空-或者-值未知的特殊值" class="headerlink" title="null / 空类型 仅仅只是代表的无，空 或者 值未知的特殊值"></a>null / 空类型 仅仅只是代表的无，空 或者 值未知的特殊值</h6><p><code>let  obj = null</code></p>
+<p><code>console.log(obj)    //控制台打印就是 null</code>    </p>
+<p>官方解释：把null作为尚未创建的对象</p>
+<p><code>undefined  和 null区别</code></p>
+<p><code>console.log(undefined + 1)  // NaN</code></p>
+<p><code>console.log(null + 1)       // 1</code></p>
+<p> 结论：先乘除后加减，有括号先算括号里面的···</p>
+<p>开发场景：%判断某个数字是否能被整除</p>
+<p>特殊值：NaN not a number //翻译：这个不属于数字类型</p>
+<h6 id="undefined-未定义型"><a href="#undefined-未定义型" class="headerlink" title="undefined/未定义型"></a>undefined/未定义型</h6><p>出现：只声明变量，不赋值的情况下，变量的默认值为undefined,一般很少【直接】为某个变量赋值为undefined</p>
+<p>未定义类型 弱数据类型  声明一个变量为赋值就是 undefined<br><code>let num</code><br><code>console.log(num)   //undefined</code></p>
+<p>null/空类型    仅仅只是代表的无，空 或者 值未知的特殊值<br>``let  obj = null<code> console.log(obj)    //控制台打印就是 null</code><br>官方解释：把null作为尚未创建的对象</p>
+<p><strong>undefined  和 null区别</strong><br><code>console.log(undefined + 1)  // NaN</code><br><code>console.log(null + 1)       // 1</code></p>
+<h5 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h5><h5 id="object对象"><a href="#object对象" class="headerlink" title="object对象"></a>object对象</h5><h6 id="字符串拼接："><a href="#字符串拼接：" class="headerlink" title="字符串拼接："></a>字符串拼接：</h6><p>场景：+运算符 可以实现字符串的拼接。</p>
+<p>口诀：数字相加，字符相连</p>
+<p><code>console.log(1+1)            //输出是2</code></p>
+<p><code>console.log(\&#39;我是\&#39;+\&#39;神仙\&#39;)   //输出是 我是神仙</code></p>
+<p>####### 案例：</p>
+<p><code>let age = 18</code></p>
+<p><code>document.write(\&#39;我今年\&#39;+age+\&#39;岁了\&#39;)  //是输出是 我今年18岁了</code></p>
+<p><code>document.write(\&#39;我今年\&#39;+age+\&#39;岁了\&#39;) //输出也是 我今年18岁了</code></p>
+<h6 id="模板字符串-（通常是用来拼接变量和字符串的）"><a href="#模板字符串-（通常是用来拼接变量和字符串的）" class="headerlink" title="模板字符串 （通常是用来拼接变量和字符串的）"></a>模板字符串 （通常是用来拼接变量和字符串的）</h6><p> 语法： ``(反引号)  内容拼接变量的时候。用 ${变量名} 包住变量</p>
+<p> <code>let age = 80</code></p>
+<p> <code>document.write(\</code>我今年${age}岁了`)`</p>
+<h5 id="算数运算符："><a href="#算数运算符：" class="headerlink" title="算数运算符："></a>算数运算符：</h5><p>*<em>+ 求和</em>*</p>
+<p><strong>- 求差</strong></p>
+<p><strong>* 求积   乘除取余同级  乘除取余大于加减</strong></p>
+<p><strong>/ 求商</strong></p>
+<p><strong>% 取模（取余数）</strong></p>
+<h5 id="赋值运算符-对变量进行赋值的运算符"><a href="#赋值运算符-对变量进行赋值的运算符" class="headerlink" title="赋值运算符  对变量进行赋值的运算符   ="></a>赋值运算符  对变量进行赋值的运算符   =</h5><p><strong>使用场景：计数</strong></p>
+<p>一元运算符 符号  正负号  + -</p>
+<p>自增  ++</p>
+<p><strong>作用：让变量的值+1</strong></p>
+<p>//////////////////</p>
+<p>前置自增</p>
+<p><u>++num //让num的值加1变2，也就是每次只+1</u></p>
+<p>后置自增</p>
+<p><u>num++  //作用和前置自增一致</u></p>
+<p>//////////////////</p>
+<p>区别：</p>
+<p>        <strong>前置自增：先自加再使用（口诀：++在前 先加）</strong></p>
+<p>        <strong>后置自增：先使用再自加（口诀：++在后 后加）</strong></p>
+<p>自减  --</p>
+<p><strong>作用：让变量的值-1</strong></p>
+<p>////////////////</p>
+<p>前置自减</p>
+<p>--num //让num的值加1变0，也就是每次只-1</p>
+<p>后置自减</p>
+<p>num++  //作用和前置自减一致</p>
+<p>/////////////////</p>
+<p>区别：</p>
+<p>前置自减：先自减再使用（口诀：++在前 先加）</p>
+<p>后置自减：先使用再自减（口诀：++在后 后加）       </p>
+<p>比较运算符 //有隐式转换</p>
+<p>使用场景：比较两个数据大小，是否相等</p>
+<p> &gt;:左边是否大于右边</p>
+<p>&lt;:左边是否小于右边</p>
+<p>&gt;=:左边是否大于或等于右边</p>
+<p>&lt;=:左边是否小于或等于右边</p>
+<p>==:左右两边值是否相等</p>
+<p>===:左右两边数据类型和值都相等</p>
+<p>!==:左右两边是否不全等</p>
+<p>比较结果为boolean类型 即只会得到true或false</p>
+<p>对比</p>
+<p><strong>= 单等是赋值</strong></p>
+<p><strong>== 是判断</strong>  </p>
+<p><strong>=== 是全等</strong></p>
+<p>开发种判断是否相等，<strong>强烈推荐使用 ===</strong></p>
+<p>字符串比较，是比较的字符对应的ASCII码</p>
+<p>从左往右一次比较</p>
+<p>如果第一位一样在比较第二位，以此类推</p>
+<p>比较的少，了解即可</p>
+<p>尽量不要比较小数，因为小数有精度</p>
+<p>不同类型之间会进行隐式转换</p>
+<p>最终把数据隐式转换转成number类型</p>
+<h5 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h5><p>使用场景：逻辑运算符用来解决多重条件判断</p>
+<p>案例：</p>
+<p>            如果我向判断一个变量num是否大于且小于10</p>
+<p>            我们就要用到逻辑运算符：</p>
+<p>            <code>num  \&gt; 5 &amp;&amp; num \&lt; 10</code></p>
+<p>符号   名称    日常读法     特点                          口诀</p>
+<p>&amp;&amp;   逻辑与    并且     符号两边都为true结果才是true   一假则假</p>
+<p>||   逻辑或    或者     符号两边有一个true就为true     一真则真</p>
+<p>！   逻辑非    取反     true变false false变true        真变假，假变真</p>
+<p> --------------------------</p>
+<p><strong>逻辑与 &amp;&amp;  一假则假</strong></p>
+<p><code>console.log(true &amp;&amp; true)  // true</code></p>
+<p><code>console.log(false &amp;&amp; true)  //false</code></p>
+<p><code>console.log(3\&lt;5 &amp;&amp; 2\&lt;3)    // true</code></p>
+<p><code>console.log(3\&gt;5 &amp;&amp; 3\&lt;2)    //false</code></p>
+<p>--------------------------</p>
+<p><strong>逻辑或  ||  一真则真</strong>  </p>
+<p><code>console.log(true \|\| true)  //true</code></p>
+<p><code>console.log(false \|\| true)  //true</code></p>
+<p><code>console.log(false \|\| false)  //false</code></p>
+<p>--------------------------</p>
+<p><strong>逻辑非   ！  真变假，假变真  一元运算符</strong></p>
+<p><code>console.log(!true)  //false</code></p>
+<p><code>console.log(!false)  //true</code></p>
+<p>---------------------------</p>
+<h5 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h5><p> 优先级        运算符          顺序</p>
+<p>    <strong>1            小括号           ()</strong></p>
+<p>    <strong>2           一元运算符      ++ -- !</strong></p>
+<p>    <strong>3           算术运算符    先 * / 后 + -</strong></p>
+<p>    <strong>4     关系(比较)运算符    &gt;  &gt;=  &lt;  &lt;=</strong></p>
+<p>    <strong>5           相等运算符    == !=  ===  !==</strong></p>
+<p>    <strong>6           逻辑运算符    先 &amp;&amp; 后 ||</strong></p>
+<p>    <strong>7           赋值运算符         =</strong></p>
+<p>    <strong>8           逗号运算符         ，</strong></p>
+<h5 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h5><p><code>let i = 1</code></p>
+<p><code>console.log(i++ + ++i + i); // 7</code></p>
+<h6 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h6><p>作业题目</p>
+<p>        /*</p>
+<p>        判断一个数是4的倍数，但是不能被100的倍数</p>
+<p>        需要：用户输入一个数，判断这个数能被4整除，但是不能被100整除，满足条件，页面弹出true,否则弹出false</p>
+<p>        */</p>
+<p><code>// 用户输入</code></p>
+<p><code> let num =prompt(\&#39;除数\&#39;)</code></p>
+<p><code>// // 判断条件，看余数是不是0，如果是0就被整除，不是就不是被整除</code></p>
+<p>  <code> alert(num % 4 === 0 &amp;&amp; num % 100 !== 0 )</code></p>
+<p><code>let  a = 3\&gt;5 &amp;&amp; 2\&lt;7 &amp;&amp; 3==4  //先算比较运算符（大小于），再算相等运算符</code></p>
+<p><code>console.log(a);  //false</code></p>
+<p><code>let  b= 3\&lt;=4 \|\| 3\&gt;1 \|\| 3!=2  //先算比较运算符（大小于） ，再算相等运算符</code></p>
+<p><code>console.log(b);       //true</code></p>
+<p><code>let c = 2 === \&#39;2\&#39;  //先算相等运算符 再算赋值</code></p>
+<p><code>console.log(c);  //false</code></p>
+<p><code>let d = !c \|\| b &amp;&amp; a  //先算！ 然后在比较&amp;&amp; 在比较 \|\|</code>  </p>
+<p><code>console.log(d);  //true</code></p>
+<p>还有其他的  +=  -=  *= /=  %=</p>
+<p>使用方式  num = num+1   简易写法  num += 1</p>
+<h6 id="练习-1"><a href="#练习-1" class="headerlink" title="练习"></a>练习</h6><p> &lt;script&gt;</p>
+<p>        //计算圆的面积</p>
+<p>       /*</p>
+<p>        1.面积的数学公式π*r²</p>
+<p>        2.转换为javascript写法：变量圆的半径（3.14） *r*r</p>
+<p>       */</p>
+<p>        // 1.页面弹出输入框</p>
+<p>        let r = prompt(&#39;请输入圆的半径&#39;)</p>
+<p>        // 2.计算圆的面积（内部处理）</p>
+<p>         let resule = 3.14 *r *r</p>
+<p>        // 3.页面输出</p>
+<p>        document.write(resule)</p>
+<p>&lt;/script&gt;</p>
+<h4 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a><strong>数据类型转换</strong></h4><h5 id="显示转换"><a href="#显示转换" class="headerlink" title="显示转换"></a><strong>显示转换</strong></h5><h6 id="转换成数字型：Number-数据"><a href="#转换成数字型：Number-数据" class="headerlink" title="转换成数字型：Number(数据)"></a>转换成数字型：Number(数据)</h6><p> <code>let str = \&#39;123\&#39;</code></p>
+<p><code>console.log(Number(str),typeof Number(str));</code></p>
+<p><code>let num = Number(prompt(\&#39;输入数字\&#39;))</code></p>
+<p><code>console.log(num);</code></p>
+<h6 id="parseInt-取数字整数"><a href="#parseInt-取数字整数" class="headerlink" title="parseInt:取数字整数"></a>parseInt:取数字整数</h6><p><code>console.log(parseInt(\&#39;12.11314px\&#39;))  //显示的数据就是12</code></p>
+<h6 id="parseFloat：取数字全部包括小数点后面的"><a href="#parseFloat：取数字全部包括小数点后面的" class="headerlink" title="parseFloat：取数字全部包括小数点后面的"></a>parseFloat：取数字全部包括小数点后面的</h6><p><code>console.log(parseFloat(\&#39;12.11314px\&#39;)); //显示的数据就是12.11314</code></p>
+<h5 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a><strong>隐式转换</strong></h5><p><u>+号两边只要有一个是字符，都会把另外一个转成字符串</u></p>
+<p><u>除了+意外的运算符 比如- * / 等都hi吧数据转成数字类型</u></p>
+<p><strong>缺点</strong></p>
+<p><u>转换类型不明确，靠经验才能总结</u></p>
+<p><strong>小技巧</strong>：</p>
+<p><u>+号作为正好解析可以转换成数字型</u></p>
+<p><u>数据和字符串相加结果都是字符串</u></p>
+<p><code>console.log(+\&#39;123\&#39;);  //显示的不是字符串是数字</code></p>
+<h5 id="检测数据类型-关键字-typeof"><a href="#检测数据类型-关键字-typeof" class="headerlink" title="检测数据类型  关键字 typeof"></a><strong>检测数据类型  关键字 typeof</strong></h5><p>作为运算符： typeof x  （常用的写法）</p>
+<p>函数形式：  <strong>typeof(x)</strong></p>
+<p>注意：prompt，表单里头的数据都是string字符串型</p>
+<p><code>let age = 10</code></p>
+<p><code>console.log(typeof age);   //number</code></p>
+<p><code>let abc = \&#39;123\&#39;</code></p>
+<p><code>console.log(typeof abc);   //string</code></p>
+<h5 id="综合案例"><a href="#综合案例" class="headerlink" title="综合案例"></a>综合案例</h5><p> &lt;script&gt;</p>
+<p>        <code>// 题目 用户订单信息案例</code></p>
+<p>        <code>// 需求 用户输入商品价格和商品数量，以及收货地址，可以自动打印订单信息</code></p>
+<p>        <code>/\*</code></p>
+<p>            <code>分析：</code></p>
+<p>            <code>1.需要输入3个数据，所以需要3个变量来存储</code></p>
+<p>            <code>price num address</code></p>
+<p>            <code>2.需要计算总的价格 total</code></p>
+<p>            <code>3.页面打印生成表格，里面填充数据即可</code></p>
+<p>            <code>4.记得最好使用模板字符</code></p>
+<p>        <code>\*/</code></p>
+<p>      <code>//新增一个小需求就是改变产品名称咋办</code></p>
+<p>          <code>// 重新声明 shop 就可以了</code></p>
+<p>        <code>let shop = prompt(\&#39;请输入用户的产品\&#39;)</code></p>
+<p>        <code>// 2.用户输入</code></p>
+<p>        <code>let price = +prompt(\&#39;请输入价格\&#39;)</code></p>
+<p>        <code>let num = +prompt(\&#39;请输入数量\&#39;)</code></p>
+<p>        <code>let address = prompt(\&#39;请输入地址\&#39;)</code></p>
+<p>        <code>// 2.计算总额</code></p>
+<p>        <code>let total = price \* num</code></p>
+<p>        <code>console.log(total);</code></p>
+<p>        <code>//3.页面打印渲染</code></p>
+<p>        `document.write(``</p>
+<p>         <code>\&lt;table border=\&quot;1px soli \#000\&quot; width=\&quot;700\&quot; height=\&quot;100\&quot; cellspacing=\&quot;0\&quot; cellpadding=\&quot;10px\&quot; class=\&quot;abc4\&quot;\&gt;</code></p>
+<p>              <code>\&lt;caption\&gt;</code></p>
+<p>                <code>\&lt;h3\&gt;订单确认\&lt;/h3\&gt;</code></p>
+<p>                <code>\&lt;/caption\&gt;</code></p>
+<p>            <code>\&lt;tr\&gt;</code></p>
+<p>                <code>\&lt;td\&gt;商品名称\&lt;/td\&gt;</code></p>
+<p>                <code>\&lt;td\&gt;商品价格\&lt;/td\&gt;</code></p>
+<p>                <code>\&lt;td\&gt;商品数量\&lt;/td\&gt;</code></p>
+<p>                <code>\&lt;td\&gt;总价\&lt;/td\&gt;</code></p>
+<p>                <code>\&lt;td\&gt;收货地址\&lt;/td\&gt;</code></p>
+<p>                <code>\&lt;/tr\&gt;</code></p>
+<p>                <code>\&lt;tr\&gt;</code></p>
+<p>                <code>\&lt;td\&gt;\$&#123;shop&#125;\&lt;/td\&gt;</code></p>
+<p>                <code>\&lt;td\&gt;\$&#123;price&#125;元\&lt;/td\&gt;</code></p>
+<p>                <code>\&lt;td\&gt;\$&#123;num&#125;\&lt;/td\&gt;</code></p>
+<p>                <code>\&lt;td\&gt;\$&#123;total&#125;元\&lt;/td\&gt;</code></p>
+<p>                <code>\&lt;td\&gt;\$&#123;address&#125;\&lt;/td\&gt;</code></p>
+<p>                <code>\&lt;/tr\&gt;</code></p>
+<p>            <code>\&lt;/table\&gt;</code></p>
+<p>        <code>\</code>)`</p>
+<p><code>&lt;/script&gt;</code></p>
+<h4 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h4><p>表达式是可以被求值的</p>
+<p>表达式 num = 3+4</p>
+<h5 id="语句"><a href="#语句" class="headerlink" title="语句"></a><strong>语句</strong></h5><p><u>语句  不一定有值</u></p>
+<p><u>是一段可以执行的</u></p>
+<p><u>语句： alert() 弹出对话框 console.log() 控制台打印输出</u></p>
+<p>----------------------------------------------------------------------</p>
+<p>区别：</p>
+<p><u>因为表达式可被求值，所以它可以写在赋值语句的右侧而语句不一定有值，所以alert() for 和break等语句就不能被用于赋值。</u></p>
+<h5 id="分支语句"><a href="#分支语句" class="headerlink" title="分支语句"></a><strong>分支语句</strong></h5><p><u>程序三大流程流程控制语句</u></p>
+<h5 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a><strong>顺序结构</strong></h5><h5 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a><strong>分支结构</strong></h5><h5 id="if分支语句"><a href="#if分支语句" class="headerlink" title="if分支语句"></a><strong>if分支语句</strong></h5><h5 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a><strong>三元运算符</strong></h5><p><u>使用场景：其实比if双分支 更简单的方法 ，可以使用 三元表达式</u></p>
+<p><u>符号： ？ 与 ： 配合使用</u></p>
+<p>语法： 条件 ？ 满足条件执行的代码 ： 不满足条件执行的代码</p>
+<p>一般用来取值</p>
+<p>例如：</p>
+<p>3 &gt; 5 ? 3 : 5   //3&gt;5这个是条件 如果为真就返回3 为假就给5</p>
+<p>&lt;script&gt;</p>
+<p>      例子  3 &gt; 5 ? 3 : 5</p>
+<p>      console.log(3&gt;5 ? 3 : 5);   // 5</p>
+<p>      对比if双分支</p>
+<p>      if( 3 &lt;5){</p>
+<p>          alert(&#39;真的&#39;)</p>
+<p>      }</p>
+<p>      else{</p>
+<p>          alert(&#39;假的&#39;)</p>
+<p>      }</p>
+<p>      对比三元运算表达式   适合简单的if else</p>
+<p>      3 &lt; 5 ? alert(&#39;真的&#39;) : alert(&#39;假的&#39;)</p>
+<h6 id="作业1"><a href="#作业1" class="headerlink" title="作业1"></a>作业1</h6><p>      判断2个数的最大值</p>
+<p>      有两种方式  if else // 三元表达式</p>
+<p>      if else</p>
+<p>      定义用户的输入</p>
+<p>        let num1 = +prompt(&quot;请输入数字1&quot;);</p>
+<p>        let num2 = +prompt(&quot;请输入数字2&quot;);</p>
+<p>      // 判断输出</p>
+<p>      if(num1 &gt; num2){</p>
+<p>          alert(`最大值：${num1}`)</p>
+<p>      }</p>
+<p>      else{</p>
+<p>           alert(`最大值：${num2}`)  //运行的是这个 因为 1 &lt; 2</p>
+<p>      }</p>
+<p>      --------------------------------------------------------------------------------</p>
+<h5 id="三元运算符-1"><a href="#三元运算符-1" class="headerlink" title="三元运算符"></a>三元运算符</h5><p>        num1 &gt; num2 ? alert(`最大值：${num1}`) : alert(`最大值：${num2}`); // 对于这种小的判断 三元表达式更加方便 但对于大的判断 那还是用if else吧 ok作业1完成了！！！每日都要进步 加油加油</p>
+<p>      数字补0</p>
+<p>      作业 需求：用户输入1个数，如果数字小于10，则前面进行补0，比如09 03 等 分析：1：为后期页面限时时间做铺垫 2：利用三元运算符补0计算</p>
+<p>      用户输入</p>
+<p>        let num1 = prompt(&quot;请输入数字&quot;);</p>
+<p>        // 判断输出 小于10才补0</p>
+<p>        num = num1 &lt; 10 ? 0 + num1 : num1;</p>
+<p>        alert(num);</p>
+<p>&lt;/script&gt;</p>
+<h5 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a><strong>switch语句</strong></h5><h5 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a><strong>循环结构</strong></h5><h5 id="if分支语句-单分支-双分支-多分支"><a href="#if分支语句-单分支-双分支-多分支" class="headerlink" title="if分支语句  单分支 双分支 多分支"></a><strong>if分支语句  单分支 双分支 多分支</strong></h5><h6 id="单分支if语法"><a href="#单分支if语法" class="headerlink" title="单分支if语法"></a>单分支if语法</h6><p>    <u>使用的语法：</u></p>
+<p>        <u>if(条件){</u></p>
+<p>            <u>满足条件要执行的代码</u></p>
+<p>        <u>}</u></p>
+<h6 id="双分支if语法"><a href="#双分支if语法" class="headerlink" title="双分支if语法"></a>双分支if语法</h6><p>        <u>if(条件){</u></p>
+<p>            <u>满足条件执行的代码</u></p>
+<p>        <u>}</u></p>
+<p>        <u>else{</u></p>
+<p>            <u>不满足条件执行的代码</u></p>
+<p>        <u>}</u></p>
+<h6 id="多分支if语句：（适合于有多个结果的时候，比如学习成绩可以分为：优-良-中-差）"><a href="#多分支if语句：（适合于有多个结果的时候，比如学习成绩可以分为：优-良-中-差）" class="headerlink" title="多分支if语句：（适合于有多个结果的时候，比如学习成绩可以分为：优 良 中 差）"></a>多分支if语句：（适合于有多个结果的时候，比如学习成绩可以分为：优 良 中 差）</h6><p>        <u>if(条件){</u></p>
+<p>            <u>代码1</u></p>
+<p>        <u>}</u></p>
+<p>        <u>else if(条件2){</u></p>
+<p>            <u>代码2</u></p>
+<p>        <u>}else{</u></p>
+<p>            <u>代码3</u></p>
+<p>        <u>}</u></p>
+<p><strong>注意点：</strong></p>
+<p><u>括号内的条件为true时，进入大括号里执行代码</u></p>
+<p><u>小括号内的结果若不是布尔类型时，会发生隐式转换 转为布尔类型</u></p>
+<p><u>如果大括号只有一个语句，大括号可以省略，但是，我们不会这么做</u></p>
+<h6 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h6><p> &lt;script&gt;</p>
+<p>        // //单分支if语法</p>
+<p>        // if(true){</p>
+<p>        //     console.log(&#39;我被执行了&#39;)</p>
+<p>        // }</p>
+<p>        // // -------------------</p>
+<p>        // // 除了0所有数字都为真</p>
+<p>        // if(0){</p>
+<p>        //     console.log(&#39;不会被执行&#39;);</p>
+<p>        // }</p>
+<p>        // // --------------------</p>
+<p>        // // 除了&#39;&#39;（空字符串）所有的字符串都为真</p>
+<p>        // if(&#39;&#39;){</p>
+<p>        //     console.log(&#39;我也不会被执行&#39;);</p>
+<p>        // }</p>
+<p>        //双分支if语法</p>
+<p>       </p>
+<p>        // 判断用户登录案例</p>
+<p>        // 需求：用户输入，用户名pink，密码：123456，提示登陆成功，否则提示登陆失败</p>
+<p>        /*</p>
+<p>        分析：</p>
+<p>        弹出输入框，分别输入用户名和密码</p>
+<p>        通过if语句判断，如果用户名是pink，并且密码是123456，则执行if的语句，否则执行elese的语句</p>
+<p>        */</p>
+<p>            // 1.用户输入</p>
+<p>        // let username = prompt(&#39;请输入管理员的用户名&#39;)</p>
+<p>        // let password = prompt(&#39;请输入管理员的密码&#39;)</p>
+<p>        //     // 2.判断输出</p>
+<p>        // if(username === &#39;pink&#39; &amp;&amp; password === &#39;123456&#39; ){</p>
+<p>        //     alert(&#39;恭喜你登录成功&#39;)</p>
+<p>        // }</p>
+<p>        // else{</p>
+<p>        //     alert(&#39;用户名或者密码错误&#39;)</p>
+<p>        // }</p>
+<p>       </p>
+<h6 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h6><p>// // 用户输入成绩，如果分数大于700，则提示恭喜进入课程</p>
+<p>// // 1.用户输入</p>
+<p>// let promes = prompt(&#39;请输入你的成绩&#39;)</p>
+<p>// // 2.进行判断输出</p>
+<p>// if(promes&gt;=700){</p>
+<p>//     alert(&#39;恭喜进入本学校&#39;)</p>
+<p>// }</p>
+<p>// 1用户输入，如果工龄大于1年，年底奖金+2000 否则年底没奖金</p>
+<p>// // 1.用户输入</p>
+<p>// let pro = prompt(&#39;请输入你得工龄&#39;)</p>
+<p>// // 2.输出奖金</p>
+<p>// if(pro &gt;= 365){</p>
+<p>//     alert(&#39;奖励2000&#39;)</p>
+<p>// }</p>
+<p>// else{</p>
+<p>//     alert(&#39;继续努力&#39;)</p>
+<p>// }</p>
+<h6 id="判断闰年案例"><a href="#判断闰年案例" class="headerlink" title="判断闰年案例"></a>判断闰年案例</h6><p>// 需求：让用户输入年份，判断这一年是闰年还是平年并弹出对应的警示框</p>
+<p>// 分析</p>
+<p>// 1.能被4整除但不能被100整数，或者被400整除的年费是闰年其他都是平年</p>
+<p>// 2.需要用到逻辑运算符</p>
+<p>// 1.用户输入</p>
+<p>// let year = +prompt(&#39;输入年份&#39;)</p>
+<p>// // 2.判断输出</p>
+<p>// if(year % 4 === 0 &amp;&amp; year % 100 !== 0 || year % 400 === 0){</p>
+<p>//     alert(`${year}为闰年`)</p>
+<p>// }else{</p>
+<p>//     alert(`${year}为平年`)</p>
+<p>// }</p>
+<h6 id="输入成绩案例"><a href="#输入成绩案例" class="headerlink" title="输入成绩案例"></a>输入成绩案例</h6><p>/*</p>
+<p>注:</p>
+<p>成绩90以上是 优秀</p>
+<p>成绩70-90是  良好</p>
+<p>成绩60-70是  及格</p>
+<p>成绩60以下是  不及格</p>
+<p>*/</p>
+<p>// 1.输入成绩</p>
+<p>// let sub = +prompt(&#39;请输入你的成绩&#39;)</p>
+<p>// // 2.判断输出</p>
+<p>// if(sub&gt;=90){</p>
+<p>//     alert(&#39;你的成绩是优秀&#39;)</p>
+<p>// }else if(sub&gt;=70 &amp;&amp; sub&lt;90){</p>
+<p>//     alert(&#39;你的成绩是良好&#39;)</p>
+<p>// }</p>
+<p>// else if(sub&gt;=60 &amp;&amp; sub&lt;70){</p>
+<p>//     alert(&#39;你的成绩是及格&#39;)</p>
+<p>// }</p>
+<p>// else{</p>
+<p>//     alert(&#39;你的成绩不及格&#39;)</p>
+<p>// }</p>
+<p>// 根据不同的时间输出不同的问候语</p>
+<p>// 用户输入</p>
+<p>let time = +prompt(&#39;请输入时间&#39;)</p>
+<p>// 输出</p>
+<p>if(time === 2){</p>
+<p>    alert(&#39;现在是下午2点不是早上2点&#39;)</p>
+<p>}else if( time === 3){</p>
+<p>    alert(&#39;现在是下午3点不是早上3点&#39;)</p>
+<p>}</p>
+<p>else if(time === 4){</p>
+<p>    alert(&#39;现在是下午4点不是早上4点&#39;)</p>
+<p>}</p>
+<p>else{</p>
+<p>    alert(&#39;时间还在加载请您休息一下&#39;)</p>
+<p>}</p>
+<p>// 刚刚这里不是全等所以我犯了一个很重要的错误! 书写的时候要用全等比较好 请注意一下</p>
+<p>// 而这种是因为&#39;&#39; 里面包含的是字符串 你输入的数字是无效的 注意一下</p>
+<p>    &lt;/script&gt;</p>
+<h5 id="while语句"><a href="#while语句" class="headerlink" title="**while语句 **"></a>**while语句 **</h5><p>循环：重复执行一些操作，while:在...期间，所以while循环就是在满足条件期间，重复执行某些代码</p>
+<p><u>while 循环基本语法：</u></p>
+<p>   <u>while(循环条件){</u></p>
+<p><u>要重复执行的代码（循环体）</u></p>
+<p><u>}</u></p>
+<p>释义：跟if语句很像，都要满足小括号里的条件为true才会进入循环体执行代码</p>
+<p>while大括号里代码执行完毕后不会跳出，而是继续会到小括号里判断条件是否满足，若满足又执行大括号里的代码，然后再会到小括号判断条件，直到括号内条件不满足，即跳出  </p>
+<p><strong>while循环三要素：</strong></p>
+<p>循环的本质就是以某个变量为起始值，然后不断产生变化量，慢慢靠近终止条件的过程</p>
+<p><u>1.变量起始值</u></p>
+<p><u>2.终止条件（没有终止条件，循环会一致执行，造成死循环）</u></p>
+<p><u>3.变量变化量（用自增或自减）</u></p>
+<p>let i = 1</p>
+<p>while(i&lt;=5){</p>
+<p>document.write(&#39;我被执行了5次&#39;)</p>
+<p>   i++</p>
+<p>}</p>
+<p><u>while循环的作用是什么？</u></p>
+<p><u>答：在满足条件期间，重复执行某些代码</u></p>
+<p><u>while循环三要素：</u></p>
+<p><u>答：</u></p>
+<p><u>1.变量起始值</u></p>
+<p><u>2.终止条件（没有终止条件，循环会一致执行，造成死循环）</u></p>
+<p><u>3.变量变化量（用自增或自减）</u></p>
+<p>//变量起始值</p>
+<p>let age = 15;</p>
+<p>//终止条件</p>
+<p>while (age &lt;= 18) {</p>
+<p>document.write(&quot;我被执行了4次 &quot;);</p>
+<p>//变量变化量</p>
+<p>age++;</p>
+<p>}</p>
+<h6 id="练习："><a href="#练习：" class="headerlink" title="练习："></a>练习：</h6><p>作业：在页面中打印输出10句”月薪过万”</p>
+<p>需要：使用while循环，页面中打印，可添加换行结果</p>
+<p>let i = 1;</p>
+<p>while (i &lt;= 10) {</p>
+<p>document.write(&quot;月薪过万&lt;br&gt;&quot;);</p>
+<p>i++;</p>
+<p>}</p>
+<p>思考：能不能改进，让用户输入打印输出的个数呢？</p>
+<p>let a = 1;</p>
+<p>let i = +prompt(&quot;输入一个数&quot;);</p>
+<p>while (a &lt;= i) {</p>
+<p>document.write(`我被执行了${a} &lt;br&gt;`);</p>
+<p>a++;</p>
+<p>}</p>
+<h6 id="while练习"><a href="#while练习" class="headerlink" title="while练习"></a>while练习</h6><p>需求：使用while循环，页面中打印，可添加换行效果</p>
+<p>1.页面输出1-100</p>
+<p>2.计算从1到100的总和并输出</p>
+<p>3.计算1-100之间的所有偶数和</p>
+<p> 1.页面输出1-100</p>
+<p>声明1个变量名 num</p>
+<p>let num = 1;</p>
+<p>循环 num &lt;=100</p>
+<p>while (num &lt;= 100) {</p>
+<p>// 输出</p>
+<p>document.write(`${num} &lt;br&gt;`);</p>
+<p>// 记得每次+1</p>
+<p>num++;</p>
+<p>}</p>
+<p>解题思路 声明一个变量名为1 执行循环while 然后每次自增+1就行了</p>
+<p> 2.计算从1到100的总和并输出</p>
+<p>// 核心思路：声明累加和的变量 sum 每次把i加到sum里面</p>
+<p>// 声明两个变量名 num , i</p>
+<p>let sum = 0; //存放</p>
+<p>let i = 1; //初始值</p>
+<p>while (i &lt;= 100) {</p>
+<p>sum = sum + i; //原写  利用循环每次加1放到容器num中 如果判断到i&gt;100之后就跳出循环</p>
+<p>sum += i; //简写</p>
+<p>i++;</p>
+<p>document.write(`${sum} &lt;br&gt;`);</p>
+<p>}</p>
+<p>//大概原理就是这样</p>
+<p>3.计算1-100之间的所有偶数和</p>
+<p>// 思路：声明累加和的变量sum 首先利用if语句把 i里面的偶数筛选出来 把筛选的i加到sum里面</p>
+<p>// 继续声明2个变量 i , sum</p>
+<p>let i = 1; //初始值</p>
+<p>let sum = 0; //容器</p>
+<p>      // // 执行循环</p>
+<p>while (i &lt;= 100) {</p>
+<p>if (i % 2 !== 0) {</p>
+<p>sum += i;</p>
+<p>}</p>
+<p>i++;</p>
+<p>      //   document.write(`${sum} &lt;br&gt;`);</p>
+<p>      // }</p>
+<p>      //具体操作就是做了一个if判断取偶数的余数 才会执行sum += i; 奇数就是这么写我记错了 3/2余数也是1 5/2所以为4余数 ok</p>
+<h5 id="循环退出"><a href="#循环退出" class="headerlink" title="循环退出"></a><strong>循环退出</strong></h5><p><u>break:退出循环</u></p>
+<p><u>continue:结束本次循环，继续下次循环</u></p>
+<p>// 打印5句话</p>
+<p> let i = 1;</p>
+<p>  while (i &lt; 5) {</p>
+<p>    if (i ===  3) {</p>
+<p>   break;</p>
+<p>    }</p>
+<p>  i++;</p>
+<p>  console.log(`执行了${i}次`);</p>
+<p>}</p>
+<p>  while (i &lt; 5) {</p>
+<p>        if (i === 3) {</p>
+<p>          i++;</p>
+<p>          continue;</p>
+<p>        }</p>
+<p>        console.log(`执行了${i}次`);</p>
+<p>        i++;</p>
+<p>    }</p>
+<p> 区别：</p>
+<p>    <strong>continue 退出本次循环，一本用于排除或者跳出某一个选项的时候，可以使用continue</strong></p>
+<p>    <strong>break 退出整个循环，一般用于结果已经得到，后续的循环不需要的时候可以使用</strong></p>
+<h5 id="switch语句-1"><a href="#switch语句-1" class="headerlink" title="switch语句"></a><strong>switch语句</strong></h5><p>释义：找到根小括号里数据全等的case值，并执行里面对应的代码 若没有全等 === 的则执行default里面的代码</p>
+<p>例如：数据若跟值2全等，则执行代码2</p>
+<p> --------------------------</p>
+<p>1.switch case语句一般用于等值判断，不适合于区间判断</p>
+<p>---------------------------</p>
+<p>2.switch case一般需要配合break关键字使用 没有break会造成case穿透</p>
+<p>---------------------------</p>
+<p>例如：数据若跟值2全等，则执行代码2</p>
+<p><u>语句结构：</u></p>
+<p><u>switch(数据) {</u></p>
+<p><u>case 值1： 代码1</u></p>
+<p>    <u>break</u></p>
+<p><u>case 值2： 代码2</u></p>
+<p>    <u>break</u></p>
+<p><u>default： 代码n</u></p>
+<p>    <u>break</u></p>
+<p><u>}</u></p>
+<h6 id="练习：-1"><a href="#练习：-1" class="headerlink" title="练习："></a>练习：</h6><p> &lt;script&gt;</p>
+<p>      /*</p>
+<p>            页面弹框</p>
+<p>            需求：页面弹出对话框，&#39;你爱我吗？&#39;如果输入&#39;爱&#39;，则结束，否则一直弹出对话框</p>
+<p>            分析：</p>
+<p>            1.循环条件永远为真，一直弹出对话框</p>
+<p>            2.循环的时候，重新让用户输入</p>
+<p>            3.如果用户输入的是：爱，则退出循环（break）</p>
+<p>        */</p>
+<p>      while (true) {</p>
+<p>        let abc = prompt(&quot;你爱我吗&quot;);</p>
+<p>        // 退出条件 爱</p>
+<p>        if (abc === &quot;爱&quot;) {</p>
+<p>          break;</p>
+<p>        }</p>
+<p>      }</p>
+<p>    &lt;/script&gt;</p>
+<h6 id="练习2："><a href="#练习2：" class="headerlink" title="练习2："></a>练习2：</h6><p> &lt;script&gt;</p>
+<p>      /*</p>
+<p>            需求：用户可以选择存钱，取钱，查看余额和退出功能</p>
+<p>            分析：</p>
+<p>            1.循环的时候，需要反复提示输入框，使用提示框写道循环里面</p>
+<p>            2.退出的条件是用户输入了4，如果是4，则结束循环，不在弹窗</p>
+<p>            3.提前准备一个金额先存储一个数额</p>
+<p>            4.取钱则是减法操作，存钱则是加法操作，查看余额则是直接限时金额</p>
+<p>            5.输入不同的值，可以使用switch来执行不同操作</p>
+<p>        */</p>
+<p>      // 步骤</p>
+<p>      // 3.提前准备一个金额先存储一个数额</p>
+<p>      let money = 0;</p>
+<p>      //  1.循环的时候，需要反复提示输入框，使用提示框写道循环里面</p>
+<p>      while (true) {</p>
+<p>        let num = +prompt(`</p>
+<p>                操作提示：</p>
+<p>                1.存钱</p>
+<p>                2.取钱</p>
+<p>                3.查看余额</p>
+<p>                4.退出</p>
+<p>            `);</p>
+<p>        // 2.退出的条件是用户输入了4，如果是4，则结束循环，不在弹窗</p>
+<p>        if (num === 4) {</p>
+<p>          break; //退出循环</p>
+<p>        }</p>
+<p>        // 4.取钱则是减法操作，存钱则是加法操作，查看余额则是直接限时金额</p>
+<p>        switch (num) {</p>
+<p>          case 1:</p>
+<p>            //存钱</p>
+<p>            let cun = +prompt(&quot;请输入你要存入的金额&quot;);</p>
+<p>            money += cun;</p>
+<p>            break;</p>
+<p>          case 2:</p>
+<p>            //取钱</p>
+<p>            if (money &lt;= 0) {</p>
+<p>              alert(&quot;余额不足&quot;);</p>
+<p>            } else {</p>
+<p>              let qu = +prompt(&quot;请输入你要取走的金额&quot;);</p>
+<p>              money -= qu;</p>
+<p>            }</p>
+<p>            break;</p>
+<p>          case 3:</p>
+<p>            //查看</p>
+<p>            alert(`你的余额为${money}`);</p>
+<p>            break;</p>
+<p>        }</p>
+<p>      }</p>
+<p>    &lt;/script&gt;</p>
+<h6 id="练习3："><a href="#练习3：" class="headerlink" title="练习3："></a>练习3：</h6><p>&lt;script&gt;</p>
+<p>      // switch (1) {</p>
+<p>      //   case 1: //1：值</p>
+<p>      //     console.log(&quot;你选择的是1&quot;); //代码</p>
+<p>      //     break; //退出循环</p>
+<p>      //   case 2:</p>
+<p>      //     console.log(&quot;你选择的是2&quot;);</p>
+<p>      //     break;</p>
+<p>      //   case 3:</p>
+<p>      //     console.log(&quot;你选择的是3&quot;);</p>
+<p>      //     break;</p>
+<p>      //   default:</p>
+<p>      //     console.log(&quot;你选择的是n&quot;);</p>
+<p>      //     break;</p>
+<p>      // }</p>
+<p>      /*</p>
+<p>          练习1：需求：用户输入2个数字，然后输入+ - * / 任何一个，可以计算结果</p>
+<p>          思路定义三个变量，num1, num2, ps 把ps变量给switch的值 让他形成判断 定义case 的+ - * /</p>
+<p>        */</p>
+<p>      //  1.用户输入数字</p>
+<p>      let num1 = +prompt(&quot;请输入第一个数&quot;);</p>
+<p>      let num2 = +prompt(&quot;请输入第二个数&quot;);</p>
+<p>      let ps = prompt(&quot;请输入+ - * / 中任何一个数&quot;);</p>
+<p>      // 2.用户输入不同算术运算符，可以区执行不同的运算（switch）判断输出</p>
+<p>      switch (ps) {</p>
+<p>        case &quot;+&quot;:</p>
+<p>          alert(`你的计算结果是${num1 + num2}`);</p>
+<p>          break;</p>
+<p>        case &quot;-&quot;:</p>
+<p>          alert(`你的计算结果是${num1 - num2}`);</p>
+<p>          break;</p>
+<p>        case &quot;*&quot;:</p>
+<p>          alert(`你的计算结果是${num1 * num2}`);</p>
+<p>          break;</p>
+<p>        case &quot;/&quot;:</p>
+<p>          alert(`你的计算结果是${num1 / num2}`);</p>
+<p>          break;</p>
+<p>        default:</p>
+<p>          alert(`没有你想要的结果`);</p>
+<p>      }</p>
+<p>      //所以这里我们的实现就结束了！</p>
+<p>    &lt;/script&gt;</p>
+<h6 id="练习4"><a href="#练习4" class="headerlink" title="练习4"></a>练习4</h6><p> &lt;script&gt;</p>
+<p>      // switch简单计算</p>
+<p>      // 1。用户输入参数</p>
+<p>      let num1 = +prompt(&quot;请输入第一个参数&quot;);</p>
+<p>      let ps = prompt(&quot;请输入+ - * / &quot;);</p>
+<p>      let num2 = +prompt(&quot;请输入第二个参数&quot;);</p>
+<p>      // 2.计算输出结果</p>
+<p>      // 定义switch的值</p>
+<p>      switch (ps) {</p>
+<p>        // 解释为啥是ps 这里定义的是一个判断值然后对应的是case 里的字符串</p>
+<p>        case &quot;+&quot;:</p>
+<p>          alert(`你输入的数是${num1 + num2}`);</p>
+<p>          break;</p>
+<p>        case &quot;-&quot;:</p>
+<p>          alert(`你输入的数是${num2 - num2}`);</p>
+<p>          break;</p>
+<p>        case &quot;*&quot;:</p>
+<p>          alert(`你输入的数是${num1 * num2}`);</p>
+<p>          break;</p>
+<p>        case &quot;/&quot;:</p>
+<p>          alert(`你输入的数是${num1 / num2}`);</p>
+<p>          break;</p>
+<p>        default:</p>
+<p>          alert(`你干嘛？ 我是要你输入+ - * /`);</p>
+<p>      }</p>
+<p>    &lt;/script&gt;</p>
+<h4 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a><strong>正则表达式</strong></h4><p>^ 表示匹配输入字符串的开始位置</p>
+<p>(?!^\\d+$) 表示不允许全是数字</p>
+<p>(?!^[a-z]+$) 表示不允许全是小写字母</p>
+<p>(?!^[A-Z]+$) 表示不允许全是大写字母</p>
+<p>(?!^[^a-z0-9]+$) 表示不允许全是除小写字母和数字之外的字符</p>
+<p>(?!^[^A-Z0-9]+$) 表示不允许全是除大写字母和数字之外的字符</p>
+<p>(?!^.*[\\u4E00-\\u9FA5].*$) 表示不允许包含中文字符</p>
+<p>^\\S*$ 表示匹配任何不包含空格的字符</p>
+<p><strong>基础第三天</strong></p>
+<p><strong>if多分支语句和switch的区别：</strong></p>
+<p>共同点</p>
+<p>都能实现多分支选择，多选1</p>
+<p>大部分情况下可以呼唤</p>
+<p>2.区别：</p>
+<p>switch case语句通常处理case为比较确定值的情况，二if else语句更灵活，通常用于范围判断(大于，等于某个范围)</p>
+<p>switch语句进行判断后直接执行到程序的语句，效率更高，而if else 语句由几种判断方式，就得判断多少次</p>
+<p>switch一定要注意 必须是(===)全等，一定要注意 数据类型，同时注意break会有穿透效果</p>
+<p>结论</p>
+<p>当分支比较少的时候，用if else多分支语句执行效率高</p>
+<p>当分支比较多，switch语句执行效率高，而且结构清晰</p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Veam<br>
+        <strong>本文链接：</strong><a href="https://github.com/lonely0323/lonely0323.github.io/2023/03/13/javaScript/" title="https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2023&#x2F;03&#x2F;13&#x2F;javaScript&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;github.com&#x2F;lonely0323&#x2F;lonely0323.github.io&#x2F;2023&#x2F;03&#x2F;13&#x2F;javaScript&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/javascript%E5%9F%BA%E7%A1%80/">javascript基础</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '84f0a52c730b2624c264',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'https://github.com/lonely0323/gitment',
+        owner: 'lonely0323',
+        admin: 'lonely0323'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="toc-number">1.</span> <span class="toc-text">基础的第一天</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JavaScript%E7%BB%84%E6%88%90"><span class="toc-number">1.1.</span> <span class="toc-text">JavaScript组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JavaScript%E4%B8%89%E7%A7%8D%E4%B9%A6%E5%86%99%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text">JavaScript三种书写位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JavaScript%E6%B3%A8%E9%87%8A"><span class="toc-number">1.3.</span> <span class="toc-text">JavaScript注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JavaScript%E7%BB%93%E6%9D%9F%E7%AC%A6-%E5%B0%B1%E6%98%AF%E5%88%86%E5%8F%B7-%E5%9C%A8js%E4%B8%AD%E5%8F%AF%E5%8A%A0%E5%8F%AF%E4%B8%8D%E5%8A%A0"><span class="toc-number">1.4.</span> <span class="toc-text">JavaScript结束符 就是分号 在js中可加可不加</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA"><span class="toc-number">1.5.</span> <span class="toc-text">输入和输出</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%EF%BC%9A"><span class="toc-number">1.5.1.</span> <span class="toc-text">输出：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%EF%BC%9A"><span class="toc-number">1.5.2.</span> <span class="toc-text">输入：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E6%B5%8B%E8%AF%95"><span class="toc-number">1.5.3.</span> <span class="toc-text">作业测试</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-number">1.5.4.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E4%B8%80"><span class="toc-number">1.5.5.</span> <span class="toc-text">案例一</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E4%BA%8C"><span class="toc-number">1.5.6.</span> <span class="toc-text">案例二</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E5%8F%98%E9%87%8F"><span class="toc-number">1.5.7.</span> <span class="toc-text">交换变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E4%B8%89"><span class="toc-number">1.5.8.</span> <span class="toc-text">案例三</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#let%E5%92%8Cvar%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.5.9.</span> <span class="toc-text">let和var的区别</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%84%E5%88%99%E5%92%8C%E8%A7%84%E8%8C%83"><span class="toc-number">1.6.</span> <span class="toc-text">规则和规范</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A7%84%E5%88%99"><span class="toc-number">1.6.1.</span> <span class="toc-text">规则</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A7%84%E8%8C%83"><span class="toc-number">1.6.2.</span> <span class="toc-text">规范</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.7.</span> <span class="toc-text">**数组的基本使用 **</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E7%BB%84Array%E2%80%94%E4%B8%80%E7%A7%8D%E5%B0%86%E5%A4%9A%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%9C%A8%E5%8D%95%E4%B8%AA%E5%8F%98%E9%87%8F%E4%B8%8B"><span class="toc-number">1.7.1.</span> <span class="toc-text">**数组Array—一种将多个数据存储在单个变量下 **</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%96%E5%8F%B7-%E4%B8%8B%E6%A0%87"><span class="toc-number">1.7.2.</span> <span class="toc-text">编号&#x2F;下标&#x2F;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%AD%E4%BF%9D%E5%AD%98%E7%9A%84%E6%AF%8F%E4%B8%AA%E6%95%B0%E6%8D%AE%E9%83%BD%E5%8F%AB%E5%85%83%E7%B4%A0"><span class="toc-number">1.7.3.</span> <span class="toc-text">元素：数组中保存的每个数据都叫元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8B%E6%A0%87%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%9A%84%E7%BC%96%E5%8F%B7"><span class="toc-number">1.7.4.</span> <span class="toc-text">下标：数组中数据的编号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%95%BF%E5%BA%A6%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%AA%E6%95%B0%EF%BC%8C%E9%80%9A%E8%BF%87%E6%95%B0%E7%BB%84%E7%9A%84length%E5%B1%9E%E6%80%A7%E8%8E%B7%E5%BE%97"><span class="toc-number">1.7.5.</span> <span class="toc-text">长度：数组中数据的个数，通过数组的length属性获得</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E4%B8%80-1"><span class="toc-number">1.7.6.</span> <span class="toc-text">案例一</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-number">1.7.7.</span> <span class="toc-text">常量</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.8.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9A%E4%BD%BF%E7%94%A8%EF%BC%88%EF%BC%89%E6%8F%90%E9%AB%98%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">1.8.1.</span> <span class="toc-text">基本数据类型：使用（）提高优先级</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#number-%E6%95%B0%E5%AD%97%E5%9E%8B"><span class="toc-number">1.8.1.1.</span> <span class="toc-text">number&#x2F;数字型</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#string-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9E%8B"><span class="toc-number">1.8.1.2.</span> <span class="toc-text">string &#x2F; 字符串型</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#boolean-%E5%B8%83%E5%B0%94%E5%9E%8B"><span class="toc-number">1.8.1.3.</span> <span class="toc-text">boolean &#x2F; 布尔型</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#null-%E7%A9%BA%E7%B1%BB%E5%9E%8B-%E4%BB%85%E4%BB%85%E5%8F%AA%E6%98%AF%E4%BB%A3%E8%A1%A8%E7%9A%84%E6%97%A0%EF%BC%8C%E7%A9%BA-%E6%88%96%E8%80%85-%E5%80%BC%E6%9C%AA%E7%9F%A5%E7%9A%84%E7%89%B9%E6%AE%8A%E5%80%BC"><span class="toc-number">1.8.1.4.</span> <span class="toc-text">null &#x2F; 空类型 仅仅只是代表的无，空 或者 值未知的特殊值</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#undefined-%E6%9C%AA%E5%AE%9A%E4%B9%89%E5%9E%8B"><span class="toc-number">1.8.1.5.</span> <span class="toc-text">undefined&#x2F;未定义型</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.8.2.</span> <span class="toc-text">引用数据类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#object%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.8.3.</span> <span class="toc-text">object对象</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%EF%BC%9A"><span class="toc-number">1.8.3.1.</span> <span class="toc-text">字符串拼接：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2-%EF%BC%88%E9%80%9A%E5%B8%B8%E6%98%AF%E7%94%A8%E6%9D%A5%E6%8B%BC%E6%8E%A5%E5%8F%98%E9%87%8F%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%EF%BC%89"><span class="toc-number">1.8.3.2.</span> <span class="toc-text">模板字符串 （通常是用来拼接变量和字符串的）</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A"><span class="toc-number">1.8.4.</span> <span class="toc-text">算数运算符：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6-%E5%AF%B9%E5%8F%98%E9%87%8F%E8%BF%9B%E8%A1%8C%E8%B5%8B%E5%80%BC%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.8.5.</span> <span class="toc-text">赋值运算符  对变量进行赋值的运算符   &#x3D;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.8.6.</span> <span class="toc-text">逻辑运算符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">1.8.7.</span> <span class="toc-text">运算符优先级</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">1.8.8.</span> <span class="toc-text">面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-number">1.8.8.1.</span> <span class="toc-text">练习</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0-1"><span class="toc-number">1.8.8.2.</span> <span class="toc-text">练习</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.9.</span> <span class="toc-text">数据类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.9.1.</span> <span class="toc-text">显示转换</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97%E5%9E%8B%EF%BC%9ANumber-%E6%95%B0%E6%8D%AE"><span class="toc-number">1.9.1.1.</span> <span class="toc-text">转换成数字型：Number(数据)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#parseInt-%E5%8F%96%E6%95%B0%E5%AD%97%E6%95%B4%E6%95%B0"><span class="toc-number">1.9.1.2.</span> <span class="toc-text">parseInt:取数字整数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#parseFloat%EF%BC%9A%E5%8F%96%E6%95%B0%E5%AD%97%E5%85%A8%E9%83%A8%E5%8C%85%E6%8B%AC%E5%B0%8F%E6%95%B0%E7%82%B9%E5%90%8E%E9%9D%A2%E7%9A%84"><span class="toc-number">1.9.1.3.</span> <span class="toc-text">parseFloat：取数字全部包括小数点后面的</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.9.2.</span> <span class="toc-text">隐式转换</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A3%80%E6%B5%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E5%85%B3%E9%94%AE%E5%AD%97-typeof"><span class="toc-number">1.9.3.</span> <span class="toc-text">检测数据类型  关键字 typeof</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B"><span class="toc-number">1.9.4.</span> <span class="toc-text">综合案例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.10.</span> <span class="toc-text">表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.10.1.</span> <span class="toc-text">语句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.10.2.</span> <span class="toc-text">分支语句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="toc-number">1.10.3.</span> <span class="toc-text">顺序结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84"><span class="toc-number">1.10.4.</span> <span class="toc-text">分支结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#if%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.10.5.</span> <span class="toc-text">if分支语句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.10.6.</span> <span class="toc-text">三元运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A1"><span class="toc-number">1.10.6.1.</span> <span class="toc-text">作业1</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6-1"><span class="toc-number">1.10.7.</span> <span class="toc-text">三元运算符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#switch%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.10.8.</span> <span class="toc-text">switch语句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84"><span class="toc-number">1.10.9.</span> <span class="toc-text">循环结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#if%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5-%E5%8D%95%E5%88%86%E6%94%AF-%E5%8F%8C%E5%88%86%E6%94%AF-%E5%A4%9A%E5%88%86%E6%94%AF"><span class="toc-number">1.10.10.</span> <span class="toc-text">if分支语句  单分支 双分支 多分支</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8D%95%E5%88%86%E6%94%AFif%E8%AF%AD%E6%B3%95"><span class="toc-number">1.10.10.1.</span> <span class="toc-text">单分支if语法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%8C%E5%88%86%E6%94%AFif%E8%AF%AD%E6%B3%95"><span class="toc-number">1.10.10.2.</span> <span class="toc-text">双分支if语法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%9A%E5%88%86%E6%94%AFif%E8%AF%AD%E5%8F%A5%EF%BC%9A%EF%BC%88%E9%80%82%E5%90%88%E4%BA%8E%E6%9C%89%E5%A4%9A%E4%B8%AA%E7%BB%93%E6%9E%9C%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E6%AF%94%E5%A6%82%E5%AD%A6%E4%B9%A0%E6%88%90%E7%BB%A9%E5%8F%AF%E4%BB%A5%E5%88%86%E4%B8%BA%EF%BC%9A%E4%BC%98-%E8%89%AF-%E4%B8%AD-%E5%B7%AE%EF%BC%89"><span class="toc-number">1.10.10.3.</span> <span class="toc-text">多分支if语句：（适合于有多个结果的时候，比如学习成绩可以分为：优 良 中 差）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-number">1.10.10.4.</span> <span class="toc-text">案例</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A"><span class="toc-number">1.10.10.5.</span> <span class="toc-text">作业</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E9%97%B0%E5%B9%B4%E6%A1%88%E4%BE%8B"><span class="toc-number">1.10.10.6.</span> <span class="toc-text">判断闰年案例</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%88%90%E7%BB%A9%E6%A1%88%E4%BE%8B"><span class="toc-number">1.10.10.7.</span> <span class="toc-text">输入成绩案例</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#while%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.10.11.</span> <span class="toc-text">**while语句 **</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%EF%BC%9A"><span class="toc-number">1.10.11.1.</span> <span class="toc-text">练习：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#while%E7%BB%83%E4%B9%A0"><span class="toc-number">1.10.11.2.</span> <span class="toc-text">while练习</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E9%80%80%E5%87%BA"><span class="toc-number">1.10.12.</span> <span class="toc-text">循环退出</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#switch%E8%AF%AD%E5%8F%A5-1"><span class="toc-number">1.10.13.</span> <span class="toc-text">switch语句</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%EF%BC%9A-1"><span class="toc-number">1.10.13.1.</span> <span class="toc-text">练习：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%83%E4%B9%A02%EF%BC%9A"><span class="toc-number">1.10.13.2.</span> <span class="toc-text">练习2：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%83%E4%B9%A03%EF%BC%9A"><span class="toc-number">1.10.13.3.</span> <span class="toc-text">练习3：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%83%E4%B9%A04"><span class="toc-number">1.10.13.4.</span> <span class="toc-text">练习4</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.11.</span> <span class="toc-text">正则表达式</span></a></li></ol></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
+
+
+ 
+
+<script async src="/js/app.js?v=1678610187652"></script>
+
+
+	<script async src="/js/search.js?v=1678610187652"></script>
+
+
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>
