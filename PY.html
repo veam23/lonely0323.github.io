@@ -30,9 +30,9 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1683559365203">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1683598950373">
     
-    <link rel="stylesheet" href="/css/style.css?v=1683559365203">
+    <link rel="stylesheet" href="/css/style.css?v=1683598950373">
     
 <meta name="generator" content="Hexo 5.4.0"></head>
 
@@ -239,16 +239,13 @@
     <div id="nexmoe-content">
         <div class="nexmoe-primary">
             <div class="nexmoe-post">
-	<article class="nexmoe-py">
-		<ul>
+  <article class="nexmoe-py"><ul>
 <li><a target="_blank" rel="noopener" href="https://mikelucis.site//" title="mikelucis"><img data-fancybox="gallery" src="https://avatars.githubusercontent.com/u/36951165?s=460&u=fa190d40992d011c360be6931e43ab7c027d8a1d&v=4%E2%80%98" alt="mikelucis" data-caption="mikelucis" loading="lazy"></a>   </li>
 <li>   <a target="_blank" rel="noopener" href="http://blog.uho.cc/" title="asm"><img data-fancybox="gallery" src="https://s1.ax1x.com/2022/07/12/j2c5Ae.jpg" alt="asm" data-caption="asm" loading="lazy"></a></li>
 </ul>
-
-	</article>
-	
-        <div class="nexmoe-post-footer">
-            <section class="nexmoe-comment">
+</article>
+  
+  <div class="nexmoe-post-footer"><section class="nexmoe-comment">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
 <div id="gitalk"></div>
 <script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
@@ -263,10 +260,40 @@
     })
     gitalk.render('gitalk')
 </script>
-</section>
-        </div>
-    
+</section></div>
+  
 </div>
+
+<script>
+  function click(e) {
+    if (document.all) {
+      if (event.button == 2 || event.button == 3) {
+        alert('欢迎光临寒舍，有什么需要帮忙的话，请与站长联系！谢谢您的合作！！！')
+        oncontextmenu = 'return false'
+      }
+    }
+    if (document.layers) {
+      if (e.which == 3) {
+        oncontextmenu = 'return false'
+      }
+    }
+  }
+  if (document.layers) {
+    document.captureEvents(Event.MOUSEDOWN)
+  }
+  document.onmousedown = click
+  document.oncontextmenu = new Function('return false;')
+
+  document.onkeydown =
+    document.onkeyup =
+    document.onkeypress =
+      function () {
+        if (window.event.keyCode == 123) {
+          window.event.returnValue = false
+          return false
+        }
+      }
+</script>
 
             <div class="nexmoe-post-right">
               <div class="nexmoe-fixed">
@@ -307,10 +334,10 @@
 
  
 
-<script async src="/js/app.js?v=1683559365209"></script>
+<script async src="/js/app.js?v=1683598950375"></script>
 
 
-	<script async src="/js/search.js?v=1683559365209"></script>
+	<script async src="/js/search.js?v=1683598950375"></script>
 
 
 <script>
@@ -327,6 +354,44 @@
 
 
 
+    <script>
+      function click(e) {
+        if (document.all) {
+          if (event.button == 2 || event.button == 3) {
+            alert('欢迎光临寒舍，有什么需要帮忙的话，请与站长联系！谢谢您的合作！！！')
+            oncontextmenu = 'return false'
+          }
+        }
+        if (document.layers) {
+          if (e.which == 3) {
+            oncontextmenu = 'return false'
+          }
+        }
+      }
+      if (document.layers) {
+        document.captureEvents(Event.MOUSEDOWN)
+      }
+      document.onmousedown = click
+      document.oncontextmenu = new Function('return false;')
+
+      document.onkeydown =
+        document.onkeyup =
+        document.onkeypress =
+          function () {
+            if (window.event.keyCode == 123) {
+              window.event.returnValue = false
+              return false
+            }
+          }
+          // 禁止右键菜单
+          document.oncontextmenu = function(){ return false; };
+          // 禁止文字选择
+          document.onselectstart = function(){ return false; };
+          // 禁止复制
+          document.oncopy = function(){ return false; };
+          // 禁止剪切
+          document.oncut = function(){ return false; };
+    </script>
 </body>
 
 </html>

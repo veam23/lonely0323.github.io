@@ -27,9 +27,9 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1683559365453">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1683598950597">
     
-    <link rel="stylesheet" href="/css/style.css?v=1683559365453">
+    <link rel="stylesheet" href="/css/style.css?v=1683598950597">
     
 <meta name="generator" content="Hexo 5.4.0"></head>
 
@@ -236,37 +236,69 @@
     <div id="nexmoe-content">
         <div class="nexmoe-primary">
             <section class="nexmoe-posts">
-    
-    <div class="nexmoe-post">
-        <a href="/2099/03/23/fromastest2/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 62.5%;"> 
-                    <img src="https://api.amogu.cn/api/acg" alt="置顶公告" loading="lazy">
-                    <h1>置顶公告</h1>
-                </div>
-            
-        </a>
+  
+  <div class="nexmoe-post">
+    <a href="/2099/03/23/fromastest2/">
+      
+      <div
+        class="nexmoe-post-cover mdui-ripple"
+        style="padding-bottom: 62.5%"
+      >
+        <img
+          src="https://api.amogu.cn/api/acg"
+          alt="置顶公告"
+          loading="lazy"
+        />
+        <h1>置顶公告</h1>
+      </div>
+      
+    </a>
 
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2099年03月23日</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%85%AC%E5%91%8A/">公告</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%85%B3%E4%BA%8E/" rel="tag">关于</a>
-            
-        </div>
+    <div class="nexmoe-post-meta nexmoe-rainbow">
+      <a><i class="nexmoefont icon-calendar-fill"></i>2099年03月23日</a>
+       <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%85%AC%E5%91%8A/">公告</a>   <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%85%B3%E4%BA%8E/" rel="tag">关于</a> 
+    </div>
 
-        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     
 </div>
 
-        <article>
-            <p> 这里是公告相关内容，技术请看下面的文档。</p>
-        </article>
-    </div>
-    
+    <article><p> 这里是公告相关内容，技术请看下面的文档。</p></article>
+  </div>
+  
 </section>
+
+
+<script>
+  function click(e) {
+    if (document.all) {
+      if (event.button == 2 || event.button == 3) {
+        alert('欢迎光临寒舍，有什么需要帮忙的话，请与站长联系！谢谢您的合作！！！')
+        oncontextmenu = 'return false'
+      }
+    }
+    if (document.layers) {
+      if (e.which == 3) {
+        oncontextmenu = 'return false'
+      }
+    }
+  }
+  if (document.layers) {
+    document.captureEvents(Event.MOUSEDOWN)
+  }
+  document.onmousedown = click
+  document.oncontextmenu = new Function('return false;')
+
+  document.onkeydown =
+    document.onkeyup =
+    document.onkeypress =
+      function () {
+        if (window.event.keyCode == 123) {
+          window.event.returnValue = false
+          return false
+        }
+      }
+</script>
 
             <div class="nexmoe-post-right">
               <div class="nexmoe-fixed">
@@ -307,10 +339,10 @@
 
  
 
-<script async src="/js/app.js?v=1683559365453"></script>
+<script async src="/js/app.js?v=1683598950598"></script>
 
 
-	<script async src="/js/search.js?v=1683559365453"></script>
+	<script async src="/js/search.js?v=1683598950598"></script>
 
 
 <script>
@@ -327,6 +359,44 @@
 
 
 
+    <script>
+      function click(e) {
+        if (document.all) {
+          if (event.button == 2 || event.button == 3) {
+            alert('欢迎光临寒舍，有什么需要帮忙的话，请与站长联系！谢谢您的合作！！！')
+            oncontextmenu = 'return false'
+          }
+        }
+        if (document.layers) {
+          if (e.which == 3) {
+            oncontextmenu = 'return false'
+          }
+        }
+      }
+      if (document.layers) {
+        document.captureEvents(Event.MOUSEDOWN)
+      }
+      document.onmousedown = click
+      document.oncontextmenu = new Function('return false;')
+
+      document.onkeydown =
+        document.onkeyup =
+        document.onkeypress =
+          function () {
+            if (window.event.keyCode == 123) {
+              window.event.returnValue = false
+              return false
+            }
+          }
+          // 禁止右键菜单
+          document.oncontextmenu = function(){ return false; };
+          // 禁止文字选择
+          document.onselectstart = function(){ return false; };
+          // 禁止复制
+          document.oncopy = function(){ return false; };
+          // 禁止剪切
+          document.oncut = function(){ return false; };
+    </script>
 </body>
 
 </html>

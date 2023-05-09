@@ -27,9 +27,9 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1683559365244">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1683598950375">
     
-    <link rel="stylesheet" href="/css/style.css?v=1683559365244">
+    <link rel="stylesheet" href="/css/style.css?v=1683598950375">
     
 <meta name="generator" content="Hexo 5.4.0"></head>
 
@@ -496,10 +496,10 @@
 
  
 
-<script async src="/js/app.js?v=1683559365254"></script>
+<script async src="/js/app.js?v=1683598950376"></script>
 
 
-	<script async src="/js/search.js?v=1683559365254"></script>
+	<script async src="/js/search.js?v=1683598950376"></script>
 
 
 <script>
@@ -516,6 +516,44 @@
 
 
 
+    <script>
+      function click(e) {
+        if (document.all) {
+          if (event.button == 2 || event.button == 3) {
+            alert('欢迎光临寒舍，有什么需要帮忙的话，请与站长联系！谢谢您的合作！！！')
+            oncontextmenu = 'return false'
+          }
+        }
+        if (document.layers) {
+          if (e.which == 3) {
+            oncontextmenu = 'return false'
+          }
+        }
+      }
+      if (document.layers) {
+        document.captureEvents(Event.MOUSEDOWN)
+      }
+      document.onmousedown = click
+      document.oncontextmenu = new Function('return false;')
+
+      document.onkeydown =
+        document.onkeyup =
+        document.onkeypress =
+          function () {
+            if (window.event.keyCode == 123) {
+              window.event.returnValue = false
+              return false
+            }
+          }
+          // 禁止右键菜单
+          document.oncontextmenu = function(){ return false; };
+          // 禁止文字选择
+          document.onselectstart = function(){ return false; };
+          // 禁止复制
+          document.oncopy = function(){ return false; };
+          // 禁止剪切
+          document.oncut = function(){ return false; };
+    </script>
 </body>
 
 </html>

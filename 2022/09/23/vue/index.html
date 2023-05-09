@@ -48,9 +48,9 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1683559365259">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1683598950459">
     
-    <link rel="stylesheet" href="/css/style.css?v=1683559365259">
+    <link rel="stylesheet" href="/css/style.css?v=1683598950459">
     
 <meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
 <script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
@@ -260,24 +260,24 @@
     <div id="nexmoe-content">
         <div class="nexmoe-primary">
             <div class="nexmoe-post">
-
   <article>
-      
-          <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
-              <img src="https://s1.ax1x.com/2022/07/12/jgMz1P.png" alt="vue创建项目" loading="lazy">
-              <h1>vue创建项目</h1>
-          </div>
-      
-      
-      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2022年09月23日</a>
-</div>
-
-      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     
-</div>
-
-      <p>学习的vue，全部分享出来啦！</p>
+    <div
+      class="nexmoe-post-cover"
+      style="padding-bottom: 62.5%"
+    >
+      <img
+        src="https://s1.ax1x.com/2022/07/12/jgMz1P.png"
+        alt="vue创建项目"
+        loading="lazy"
+      />
+      <h1>vue创建项目</h1>
+    </div>
+     <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年09月23日</a>
+</div> <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    
+</div> <p>学习的vue，全部分享出来啦！</p>
 <span id="more"></span>
 
     <div id="aplayer-dDMEmeBR" class="aplayer aplayer-tag-marker meting-tag-marker"
@@ -324,8 +324,7 @@ yarn global add @vue/cli    #注意-g是全局安装
 
   </article>
 
-  
-      
+   
     <div class="nexmoe-post-copyright">
         <strong>本文作者：</strong>Veam<br>
         <strong>本文链接：</strong><a href="https://github.com/veam23/lonely0323.github.io/2022/09/23/vue/" title="https:&#x2F;&#x2F;github.com&#x2F;veam23&#x2F;lonely0323.github.io&#x2F;2022&#x2F;09&#x2F;23&#x2F;vue&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;github.com&#x2F;veam23&#x2F;lonely0323.github.io&#x2F;2022&#x2F;09&#x2F;23&#x2F;vue&#x2F;</a><br>
@@ -334,9 +333,6 @@ yarn global add @vue/cli    #注意-g是全局安装
         
     </div>
 
-
-  
-  
   <div class="nexmoe-post-meta nexmoe-rainbow">
     
         <a class="nexmoefont icon-appstore-fill -link" href="/categories/vue/">vue</a>
@@ -344,11 +340,8 @@ yarn global add @vue/cli    #注意-g是全局安装
     
         <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a>
     
-</div>
-
-  
-      <div class="nexmoe-post-footer">
-          <section class="nexmoe-comment">
+</div> 
+  <div class="nexmoe-post-footer"><section class="nexmoe-comment">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
 <div id="gitalk"></div>
 <script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
@@ -363,10 +356,41 @@ yarn global add @vue/cli    #注意-g是全局安装
     })
     gitalk.render('gitalk')
 </script>
-</section>
-      </div>
+</section></div>
   
 </div>
+
+<script>
+  function click(e) {
+    if (document.all) {
+      if (event.button == 2 || event.button == 3) {
+        alert('欢迎光临寒舍，有什么需要帮忙的话，请与站长联系！谢谢您的合作！！！')
+        oncontextmenu = 'return false'
+      }
+    }
+    if (document.layers) {
+      if (e.which == 3) {
+        oncontextmenu = 'return false'
+      }
+    }
+  }
+  if (document.layers) {
+    document.captureEvents(Event.MOUSEDOWN)
+  }
+  document.onmousedown = click
+  document.oncontextmenu = new Function('return false;')
+
+  document.onkeydown =
+    document.onkeyup =
+    document.onkeypress =
+      function () {
+        if (window.event.keyCode == 123) {
+          window.event.returnValue = false
+          return false
+        }
+      }
+</script>
+
             <div class="nexmoe-post-right">
               <div class="nexmoe-fixed">
                   <div class="nexmoe-tool"> 
@@ -413,10 +437,10 @@ yarn global add @vue/cli    #注意-g是全局安装
 
  
 
-<script async src="/js/app.js?v=1683559365262"></script>
+<script async src="/js/app.js?v=1683598950460"></script>
 
 
-	<script async src="/js/search.js?v=1683559365262"></script>
+	<script async src="/js/search.js?v=1683598950460"></script>
 
 
 <script>
@@ -433,6 +457,44 @@ yarn global add @vue/cli    #注意-g是全局安装
 
 
 
+    <script>
+      function click(e) {
+        if (document.all) {
+          if (event.button == 2 || event.button == 3) {
+            alert('欢迎光临寒舍，有什么需要帮忙的话，请与站长联系！谢谢您的合作！！！')
+            oncontextmenu = 'return false'
+          }
+        }
+        if (document.layers) {
+          if (e.which == 3) {
+            oncontextmenu = 'return false'
+          }
+        }
+      }
+      if (document.layers) {
+        document.captureEvents(Event.MOUSEDOWN)
+      }
+      document.onmousedown = click
+      document.oncontextmenu = new Function('return false;')
+
+      document.onkeydown =
+        document.onkeyup =
+        document.onkeypress =
+          function () {
+            if (window.event.keyCode == 123) {
+              window.event.returnValue = false
+              return false
+            }
+          }
+          // 禁止右键菜单
+          document.oncontextmenu = function(){ return false; };
+          // 禁止文字选择
+          document.onselectstart = function(){ return false; };
+          // 禁止复制
+          document.oncopy = function(){ return false; };
+          // 禁止剪切
+          document.oncut = function(){ return false; };
+    </script>
 </body>
 
 </html>
