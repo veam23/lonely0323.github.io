@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>vue3 - VaMin23博客网</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/VaMin.ico" type="image/x-icon" />
+    <meta name="description" content="重新整理了一下vue2下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue3">
+<meta property="og:url" content="https://github.com/veam23/lonely0323.github.io/2023/05/17/vue3/index.html">
+<meta property="og:site_name" content="VaMin23博客网">
+<meta property="og:description" content="重新整理了一下vue2下">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/veam23/tu-img/img/20230516230508.png">
+<meta property="og:image" content="https://v2.cn.vuejs.org/images/lifecycle.png">
+<meta property="og:image" content="https://cn.vuejs.org/assets/lifecycle.16e4c08e.png">
+<meta property="article:published_time" content="2023-05-16T23:35:00.000Z">
+<meta property="article:modified_time" content="2023-05-16T15:35:39.825Z">
+<meta property="article:author" content="Veam">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/veam23/tu-img/img/20230516230508.png">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1684251345804">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1684251345804">
+    
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://s1.ax1x.com/2022/07/12/j2mBm4.png)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Veam" class="mdui-btn mdui-btn-icon"><img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Veam">
+            <img src="https://avatars.githubusercontent.com/u/70006441?s…00&amp;u=51b93e4f1839b8c55bf0ff1970bc1520c80c5ce0&amp;v=4" alt="Veam" alt="Veam">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>19</div>
+        <div><span>标签</span>4</div>
+        <div><span>分类</span>9</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form">
+                <label><input class="st-default-search-input" id="search_value" name="q" type="search" placeholder="搜索" style="
+                    font-size: 15px !important;
+                    height: 56px !important;
+                    background-image: none;
+                "></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-qq1"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(220,20,60);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-weibo1"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '网易云音乐'}" style="color: rgb(220,20,60);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-wangyiyunyinle"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: 'QQ音乐'}" style="color: rgb(0,255,0);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-qqyinle"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(0,0,255);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Git指令/">Git指令</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/javaScript/">javaScript</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/javascript基础/">javascript基础</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/uni-app/">uni-app</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/vue/">vue</a>
+          <span class="category-list-count">11</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/公告/">公告</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/插件/">插件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/组件库/">组件库</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件/">软件</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/%E5%85%B3%E4%BA%8E/" style="font-size: 10px;">关于</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2023 Veam
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/lonely0323/VaMin23" target="_blank">VaMin23</a>
+        
+        <div style="font-size: 13px; color: #5600ff; ">
+            <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+            本站访客数<a id="busuanzi_value_site_uv"></a>人次
+        </div>
+    </div>
+</div><!-- .nexmoe-drawer -->
+
+
+
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+  <article>
+    
+    <div
+      class="nexmoe-post-cover"
+      style="padding-bottom: 62.5%"
+    >
+      <img
+        src="https://s1.ax1x.com/2022/07/12/jgMz1P.png"
+        alt="vue3"
+        loading="lazy"
+      />
+      <h1>vue3</h1>
+    </div>
+     <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2023年05月16日</a>
+</div> <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    
+</div> <p>重新整理了一下vue2下</p>
+<span id="more"></span>
+
+    <div id="aplayer-cgvnMpwF" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="5415926126" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+
+<hr>
+<p>[TOC]</p>
+<hr>
+<h3 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h3><h4 id="Vue3-带来了什么"><a href="#Vue3-带来了什么" class="headerlink" title="Vue3 带来了什么?"></a>Vue3 带来了什么?</h4><h5 id="性能的提升"><a href="#性能的提升" class="headerlink" title="性能的提升"></a>性能的提升</h5><ol>
+<li>打包大小减少 41%</li>
+<li>初次渲染快 55%，更新渲染快 133%</li>
+<li>内存减少 54%</li>
+</ol>
+<h5 id="源码的升级"><a href="#源码的升级" class="headerlink" title="源码的升级"></a>源码的升级</h5><ol>
+<li>使用 Proxy 代替 defineProperty 实现响应式</li>
+<li>重写虚拟 DOM 的实现和 Tree-Shaking</li>
+</ol>
+<h5 id="拥抱-TypeScript"><a href="#拥抱-TypeScript" class="headerlink" title="拥抱 TypeScript"></a>拥抱 TypeScript</h5><ol>
+<li>Vue3 可以更好的支持 TypeScript</li>
+</ol>
+<h5 id="新的特性"><a href="#新的特性" class="headerlink" title="新的特性"></a>新的特性</h5><ol>
+<li>Composition API(组合 API)<ol>
+<li>setup 配置</li>
+<li>ref 与 reactive</li>
+<li>watch 与 watchEffect</li>
+</ol>
+</li>
+<li>新的内置组件<ol>
+<li>Fragment</li>
+<li>Teleport</li>
+<li>Suspense</li>
+</ol>
+</li>
+<li>其他改变<ol>
+<li>新的声明周期钩子</li>
+<li>data 选相应始终被声明为一个函数</li>
+<li>溢出 keyCode 支持作为 v-on 的修饰符</li>
+</ol>
+</li>
+</ol>
+<h4 id="创建-Vue3-0-工程"><a href="#创建-Vue3-0-工程" class="headerlink" title="创建 Vue3.0 工程"></a>创建 Vue3.0 工程</h4><h5 id="1-使用-vue-cli-创建"><a href="#1-使用-vue-cli-创建" class="headerlink" title="1.使用 vue-cli 创建"></a>1.使用 vue-cli 创建</h5><p>官方文档：<a target="_blank" rel="noopener" href="https://cn.vuejs.org/guide/quick-start.html">https://cn.vuejs.org/guide/quick-start.html</a><br>vue 官网：<a target="_blank" rel="noopener" href="https://cn.vuejs.org/">https://cn.vuejs.org/</a></p>
+<pre><code>## 查看@vue/cli版本，确保@vue/cli版本在4.5.0以上
+Vue --version
+## 安装或者升级你的@vue/cli
+npm install -g @vue/cli
+## 创建
+vue create vue-test
+## 启动
+cd vue-test
+npm run serve
+</code></pre>
+<h5 id="2-使用-vite-创建"><a href="#2-使用-vite-创建" class="headerlink" title="2.使用 vite 创建"></a>2.使用 vite 创建</h5><p>官方文档：<a target="_blank" rel="noopener" href="https://cn.vuejs.org/guide/scaling-up/tooling.html#project-scaffolding">https://cn.vuejs.org/guide/scaling-up/tooling.html#project-scaffolding</a><br>vite 官网：<a target="_blank" rel="noopener" href="https://cn.vitejs.dev/">https://cn.vitejs.dev/</a></p>
+<ol>
+<li>什么时 vite? —— 新一代前端构建枸橘</li>
+<li>优势如下：<ol>
+<li>开发环境中，无需打包操作，可快速的冷启动。</li>
+<li>轻量快速的热重载(HMT)</li>
+</ol>
+</li>
+</ol>
+<pre><code>## 创建工程
+npm init vite-app &lt;project-name&gt;
+## 进入工程
+cd &lt;project-name&gt;
+## 安装依赖
+npm install
+## 运行
+npm run dev
+</code></pre>
+<h5 id="关闭语法检查"><a href="#关闭语法检查" class="headerlink" title="关闭语法检查"></a>关闭语法检查</h5><p>在 vue.config.js 中 lintOnSave:false, //关闭语法检查</p>
+<h4 id="常见的-Composition-Api"><a href="#常见的-Composition-Api" class="headerlink" title="常见的 Composition Api"></a>常见的 Composition Api</h4><h5 id="setup"><a href="#setup" class="headerlink" title="setup"></a>setup</h5><ol>
+<li>理解：Vue3.0 中一个新的配置项，值为一个函数</li>
+<li>setup 时所有 Composition Api（组合 api）“表演的舞台”</li>
+<li>组件中所用到的：数据、方法等等，俊要配置在 setup 中</li>
+<li>setup 函数的两种返回值</li>
+<li>若返回一个对象，则对象中的属性、方法、在模板中均可以直接使用(重点关注)</li>
+<li>若返回一个渲染函数：则可以自定义渲染内容(了解)</li>
+</ol>
+<pre><code>&lt;template&gt;
+  &lt;!-- 在vue3中已经可以支持省略外部的div了 --&gt;
+  &lt;h1&gt;我是App组件&lt;/h1&gt;
+  &lt;div&gt;名字:&#123;&#123; name &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  // import &#123; h &#125; from &#39;vue&#39;
+  export default &#123;
+    // 此处只是测试一下setup 暂时不考虑响应式的问题
+    setup() &#123;
+      // // 数据
+      let name = &#39;张三&#39;
+      let age = 18
+
+      // 方法
+      function sayHello() &#123;
+        alert(`我叫$&#123;name&#125;,我$&#123;age&#125;岁了，你好`)
+      &#125;
+
+      // 返回一个对象
+      return &#123;
+        name,
+        age,
+        sayHello,
+      &#125;
+
+      // 返回一个函数(渲染函数)
+      // return () =&gt; h(&#39;h1&#39;, &#39;渲染函数返回&#39;)
+    &#125;,
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<ol start="5">
+<li>注意点：<ol>
+<li>尽量不要与 vue2.x 配置混用<ol>
+<li>vue2.x 配置(data\methos\computed…)中可以访问到 setup 中的属性、方法</li>
+<li>但在 setup 中不能访问到 vue2.x 配置（data\methos\computed）</li>
+<li>如果有重名，setup 有限</li>
+<li>setup 不能是一个 async 函数，因为返回值不再是 return 的对象，而是 promise，模板看不到 return 对象中的属性</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="ref-函数"><a href="#ref-函数" class="headerlink" title="ref 函数"></a>ref 函数</h4><p>作用：定义一个响应式的数据<br>语法：</p>
+<pre><code>const xxx = ref(initValue)
+</code></pre>
+<ol>
+<li> 创建一个包含响应式数据的引用对象(reference 对象)</li>
+<li> js 中操作数据： xxx.value</li>
+<li> 模板中读取数据：不需要 value 直接：<div><div> 插值</li>
+</ol>
+<p>备注：</p>
+<ol>
+<li>接收的数据可以是：基本类型、也可以是对象类型</li>
+<li>基本类型的数据：响应式移入是靠 Object.defineProperty()的 get 与 set 完成的</li>
+<li>对象类型的数据：内部 “求助” 了 vue3.0 中的一个新函数 – reactive</li>
+</ol>
+<h4 id="reactive-函数"><a href="#reactive-函数" class="headerlink" title="reactive 函数"></a>reactive 函数</h4><p>作用：定义一个对象类型的响应式数据 （基本类型别用它，用 ref 函数）<br>语法：const 代理对象 = reactive（被代理对象）接收一个对象（或数组），返回一个代理器对象（proxy 对象）<br>reactive 定义的响应式数据是“深层次的”<br>内部基于 ES6 的 Proxy 实现的，通过代理对象操作元对象内部数据都是响应式的</p>
+<h4 id="Vue3-0-中的响应式原理"><a href="#Vue3-0-中的响应式原理" class="headerlink" title="Vue3.0 中的响应式原理"></a>Vue3.0 中的响应式原理</h4><p>Vue2.x 的响应式实现原理</p>
+<ol>
+<li>对象类型：通过 Object.defineProperty()对属性的读取、修改进行拦截、数据劫持</li>
+<li>数组类型：通过重写更新数组的一系列方法来实现拦截。（对数组的变更方法进行了包裹）</li>
+</ol>
+<pre><code>Object.defineProperty(data,&#39;count&#39;,&#123;
+  get()&#123;&#125;,
+  set()&#123;&#125;
+&#125;)
+</code></pre>
+<ol start="3">
+<li>存在问题：<ol>
+<li>新增属性、删除属性，界面不会更新。</li>
+<li>直接通过下标修改数组，界面不会自动更新。</li>
+</ol>
+</li>
+</ol>
+<p>Vue3.0 的实现原理:</p>
+<ol>
+<li> 通过 Proxy (代理)：拦截对象中任意属性的变化，包括：属性值的读写、属性的添加、属性的删除等等。</li>
+<li> 通过 Reflect（反射）：对(源)被代理对象的属性进行操作</li>
+<li>MDN 文档中描述的 Proxy 与 Reflect：<ol>
+<li>Proxy：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy</a></li>
+<li>Reflect: <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect</a></li>
+</ol>
+</li>
+</ol>
+<pre><code>  // vue3最终响应式雏形
+  const p = new Proxy(person, &#123;
+    // 有人修改p的某个属性，或者给p追加某个属性时调用
+    set(targe, propName) &#123;
+      return Reflect.get(targe,propName)
+    &#125;,
+    // 有人读取p的某个属性时调用
+    get(targe, propName,value) &#123;
+      return Reflect.set(targe,propName,value)
+    &#125;,
+    // 有人删除p的某个属性时调用
+    deleteProperty(targe, propName) &#123;
+      return Reflect.deleteProperty(targe,propName)
+    &#125;,
+  &#125;)
+</code></pre>
+<h4 id="reactive-对比-ref"><a href="#reactive-对比-ref" class="headerlink" title="reactive 对比 ref"></a>reactive 对比 ref</h4><ol>
+<li>从定义数据角度对比：<ol>
+<li>ref 用来定义：基本数据类型</li>
+<li>reactive 用来定义：对象(或数组) 类型数据</li>
+<li>备注：ref 也可以用来定义对象 （或数组） 类型数据，它内部会自动通过 reactive 转为代理对象</li>
+</ol>
+</li>
+<li>从原理角度对比<ol>
+<li>ref 通过 Object.defineProperty()的 get 与 set 来实现响应式(数据劫持)</li>
+<li>reactive 通过使用 Proxy 来实现响应式(数据劫持),并通过 Reflect 操作源对象内部的数据</li>
+</ol>
+</li>
+<li>从使用角度对比：<ol>
+<li>ref 定义的数据：操作数据需要.value，读取数据时模板中直接读取不需要.value</li>
+<li>reactive 定义的数据：操作数据与读取数据:均不需要.value</li>
+</ol>
+</li>
+</ol>
+<h4 id="setup-的两个注意点"><a href="#setup-的两个注意点" class="headerlink" title="setup 的两个注意点"></a>setup 的两个注意点</h4><ol>
+<li>setup 执行的时机<ol>
+<li>在 beforeCreate 之前执行一次，this 是 undefined</li>
+</ol>
+</li>
+<li>setup 的参数<ol>
+<li>props：值为对象，包含：组件外部传递过来，且组件内部声明接受了的属性</li>
+<li>context：上下文对象<ol>
+<li>attrs:值为对象，包含：组件外部传递过来，但没有在 props 配置中声明的属性，相当于 this.$attrs</li>
+<li>slots:收到的插槽内容，相当于 this.$slots</li>
+<li>emit:分发自定义事件的函数，相当于 this.$emit</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="计算属性与监视"><a href="#计算属性与监视" class="headerlink" title="计算属性与监视"></a>计算属性与监视</h4><ol>
+<li>computed 函数</li>
+<li>与 vue2 中的 computed 配置功能一致</li>
+<li>watch 监视 ref 定义的写法</li>
+</ol>
+<pre><code>&lt;template&gt;
+  &lt;div&gt;当前求和为：&#123;&#123;sum&#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;sum++&quot;&gt;+1&lt;/button&gt;
+  &lt;h2&gt;当前消息为&#123;&#123;msg&#125;&#125;&lt;/h2&gt;
+  &lt;button @click=&quot;msg+=&#39;!&#39;&quot;&gt;&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import &#123; watch &#125; from &#39;vue&#39;
+  export default &#123;
+    name: &#39;&#39;,
+    setup() &#123;
+
+      let sum = ref(0)
+      //情况一：监视ref所定义的响应式数据
+      // watch(sum,(newValue,oldValue)=&gt;&#123;
+      //   console.log(newValue,oldValue)
+      // &#125;,&#123;immediate:true,deep:true&#125;)
+      let msg = ref(&#39;你好啊&#39;)
+
+      //情况二：监视ref多个定义的响应式数据
+      watch([sum,msg],(newValue,oldValue)=&gt;&#123;
+        console.log(newValue,oldValue)
+      &#125;,&#123;immediate:true,deep:true&#125;)
+      return &#123;
+        sum,msg
+      &#125;
+    &#125;,
+  &#125;
+&lt;/script&gt;
+&lt;style scoped lang=&quot;less&quot;&gt;&lt;/style&gt;
+</code></pre>
+<p>4.watch 监视 reactive 定义的写法</p>
+<pre><code>&lt;template&gt;
+  &lt;!-- &lt;div&gt;当前求和为：&#123;&#123;sum&#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;sum++&quot;&gt;+1&lt;/button&gt;
+  &lt;h2&gt;当前消息为&#123;&#123;msg&#125;&#125;&lt;/h2&gt;
+  &lt;button @click=&quot;msg+=&#39;!&#39;&quot;&gt;&lt;/button&gt; --&gt;
+  &lt;h2&gt;姓名：&#123;&#123; data.name &#125;&#125;&lt;/h2&gt;
+  &lt;h2&gt;年龄：&#123;&#123; data.age &#125;&#125;&lt;/h2&gt;
+  &lt;button @click=&quot;data.name += &#39;~&#39;&quot;&gt;修改姓名&lt;/button&gt;
+  &lt;button @click=&quot;data.age++&quot;&gt;修改年龄&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import &#123; watch, reactive &#125; from &#39;vue&#39;
+  export default &#123;
+    name: &#39;&#39;,
+    setup() &#123;
+       const data = reactive(&#123;
+        name: &#39;张三&#39;,
+        age: 18,
+        job:&#123;
+          price:100000
+        &#125;
+      &#125;)
+           /*
+      情况三 监视reactive所定义的响应式数据
+      注意1：此处无法争取的获取到oldValue
+      注意2：强制开启了深度监视（deep配置无效）
+      */
+      // watch(data.value,(newValue, oldValue) =&gt; &#123;
+      //     console.log(newValue, oldValue)
+      //   &#125;,
+      //   &#123; immediate: true,deep:true&#125; //此处的deep配置无效
+      // )
+
+      // 情况四：监听reactive所定义的一个响应式数据中的某个属性
+      // watch(()=&gt;data.age,(newValue,oldValue)=&gt;&#123;
+      //   console.log(newValue,oldValue)
+      // &#125;,&#123;immediate:true&#125;)
+
+
+      // 情况五：监听reactive所定义的一个响应式数据中的某些属性
+      // watch(([()=&gt;data.name,()=&gt;data.age]),(newValue,oldValue)=&gt;&#123;
+      //   console.log(newValue,oldValue)
+      // &#125;,&#123;immediate:true&#125;)
+
+      // 特殊情况
+      // watch(()=&gt;data.job,(newValue,oldValue)=&gt;&#123;
+      //   console.log(newValue,oldValue)
+      // &#125;,&#123;deep:true&#125;) //此处由于监视的是reactive所定义的对象中的某个属性，所以deep配置有效
+
+      return &#123;
+        sum,
+        msg,
+        data,
+      &#125;
+    &#125;,
+  &#125;
+&lt;/script&gt;
+&lt;style scoped lang=&quot;less&quot;&gt;&lt;/style&gt;
+</code></pre>
+<h4 id="watch-函数"><a href="#watch-函数" class="headerlink" title="watch 函数"></a>watch 函数</h4><ol>
+<li>与 Vue2 中的 watch 配置功能一致</li>
+<li>两个小“坑”<ol>
+<li>监视 reactive 定义的响应式数据时：oldValue 无法正确获取、强制开启了深度监视（deep 配置无效）</li>
+<li>监视 reactive 定义的响应式数据中某个属性时：deep 配置有效</li>
+</ol>
+</li>
+</ol>
+<pre><code>&lt;template&gt;
+  &lt;!-- &lt;div&gt;当前求和为：&#123;&#123;sum&#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;sum++&quot;&gt;+1&lt;/button&gt;
+  &lt;h2&gt;当前消息为&#123;&#123;msg&#125;&#125;&lt;/h2&gt;
+  &lt;button @click=&quot;msg+=&#39;!&#39;&quot;&gt;&lt;/button&gt; --&gt;
+  &lt;h2&gt;姓名：&#123;&#123; data.name &#125;&#125;&lt;/h2&gt;
+  &lt;h2&gt;年龄：&#123;&#123; data.age &#125;&#125;&lt;/h2&gt;
+  &lt;button @click=&quot;data.name += &#39;~&#39;&quot;&gt;修改姓名&lt;/button&gt;
+  &lt;button @click=&quot;data.age++&quot;&gt;修改年龄&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import &#123; watch, reactive &#125; from &#39;vue&#39;
+  export default &#123;
+    name: &#39;&#39;,
+    setup() &#123;
+      // let sum = ref(0)
+      //情况一：监视ref所定义的响应式数据
+      // watch(sum,(newValue,oldValue)=&gt;&#123;
+      //   console.log(newValue,oldValue)
+      // &#125;,&#123;immediate:true,deep:true&#125;)
+      // let msg = ref(&#39;你好啊&#39;)
+
+      //情况二：监视ref多个定义的响应式数据
+      // watch([sum,msg],(newValue,oldValue)=&gt;&#123;
+      //   console.log(newValue,oldValue)
+      // &#125;,&#123;immediate:true,deep:true&#125;)
+
+
+      const data = reactive(&#123;
+        name: &#39;张三&#39;,
+        age: 18,
+        job:&#123;
+          price:100000
+        &#125;
+      &#125;)
+      /*
+      情况三 监视reactive所定义的响应式数据
+      注意1：此处无法争取的获取到oldValue
+      注意2：强制开启了深度监视（deep配置无效）
+      */
+      // watch(data.value,(newValue, oldValue) =&gt; &#123;
+      //     console.log(newValue, oldValue)
+      //   &#125;,
+      //   &#123; immediate: true,deep:true&#125; //此处的deep配置无效
+      // )
+
+      // 情况四：监听reactive所定义的一个响应式数据中的某个属性
+      // watch(()=&gt;data.age,(newValue,oldValue)=&gt;&#123;
+      //   console.log(newValue,oldValue)
+      // &#125;,&#123;immediate:true&#125;)
+
+
+      // 情况五：监听reactive所定义的一个响应式数据中的某些属性
+      // watch(([()=&gt;data.name,()=&gt;data.age]),(newValue,oldValue)=&gt;&#123;
+      //   console.log(newValue,oldValue)
+      // &#125;,&#123;immediate:true&#125;)
+
+      // 特殊情况
+      // watch(()=&gt;data.job,(newValue,oldValue)=&gt;&#123;
+      //   console.log(newValue,oldValue)
+      // &#125;,&#123;deep:true&#125;) //此处由于监视的是reactive所定义的对象中的某个属性，所以deep配置有效
+
+      return &#123;
+        sum,
+        msg,
+      &#125;
+    &#125;,
+  &#125;
+&lt;/script&gt;
+&lt;style scoped lang=&quot;less&quot;&gt;&lt;/style&gt;
+</code></pre>
+<h5 id="watch-时-value-的问题"><a href="#watch-时-value-的问题" class="headerlink" title="watch 时 value 的问题"></a>watch 时 value 的问题</h5><pre><code>&lt;template&gt;
+  &lt;h2&gt;姓名：&#123;&#123; data.name &#125;&#125;&lt;/h2&gt;
+  &lt;h2&gt;年龄：&#123;&#123; data.age &#125;&#125;&lt;/h2&gt;
+  &lt;button @click=&quot;data.name += &#39;~&#39;&quot;&gt;修改姓名&lt;/button&gt;
+  &lt;button @click=&quot;data.age++&quot;&gt;修改年龄&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import &#123; watch, reactive &#125; from &#39;vue&#39;
+  export default &#123;
+    name: &#39;&#39;,
+    setup() &#123;
+      let sum = ref(0)
+      let msg = ref(&#39;你好阿&#39;)
+      let data = ref(&#123;
+        name: &#39;张三&#39;,
+        age: 18,
+        job: &#123;
+          j1: &#123;
+            salary: 20,
+          &#125;,
+        &#125;,
+      &#125;)
+
+      // 所以这里不用.value
+      watch(sum, (newValue, oldValue) =&gt; &#123;
+        console.log(&#39;这里时拿的sum下面的value&#39;, newValue, oldValue)
+      &#125;)
+      // 需要.value
+      watch(data.value, (newValue, oldValue) =&gt; &#123;
+        console.log(&#39;这里拿的是一个对象，对象下面value是proxy，所以要.value&#39;, newValue, oldValue)
+      &#125;)
+
+      watch(
+        data,
+        (newValue, oldValue) =&gt; &#123;
+          console.log(&#39;这里拿的是一个对象，对象下面value是proxy，所以要.value/或者开启deep&#39;, newValue, oldValue)
+        &#125;,
+        &#123; deep: true &#125;
+      )
+
+      return &#123;
+        sum,
+        msg,
+        data,
+      &#125;
+    &#125;,
+  &#125;
+&lt;/script&gt;
+&lt;style scoped lang=&quot;less&quot;&gt;&lt;/style&gt;
+</code></pre>
+<h4 id="watchEffect-函数"><a href="#watchEffect-函数" class="headerlink" title="watchEffect 函数"></a>watchEffect 函数</h4><ol>
+<li>watch 的套路是：既要指明监视的属性，也要知名监视的回调</li>
+<li>watchEffect 的套路是：不用知名监视哪个属性，监视的回调中用到哪个属性，那就是那个属性</li>
+<li>watchEffect 有点像 computed(计算属性)<ol>
+<li>但 computed 注重的计算出来的值（回调函数的返回值），所以必须要写返回值</li>
+<li>但 watchEffect 更注重的是过程(回调的函数体)，所以不用谢返回值</li>
+</ol>
+</li>
+</ol>
+<pre><code>&lt;template&gt;
+  &lt;h2&gt;姓名：&#123;&#123; data.name &#125;&#125;&lt;/h2&gt;
+  &lt;h2&gt;年龄：&#123;&#123; data.age &#125;&#125;&lt;/h2&gt;
+  &lt;button @click=&quot;data.name += &#39;~&#39;&quot;&gt;修改姓名&lt;/button&gt;
+  &lt;button @click=&quot;data.age++&quot;&gt;修改年龄&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import &#123; watchEffect &#125; from &#39;vue&#39;
+  export default &#123;
+    name: &#39;&#39;,
+    setup() &#123;
+      let sum = ref(0)
+      let msg = ref(&#39;你好阿&#39;)
+      let data = ref(&#123;
+        name: &#39;张三&#39;,
+        age: 18,
+        job: &#123;
+          j1: &#123;
+            salary: 20,
+          &#125;,
+        &#125;,
+      &#125;)
+      //watchEffect 所指定的回调中用到的数据只要发生变化，则直接重新执行回调
+      watchEffect(() =&gt; &#123;
+        const x1 = sum.value
+        const x2 = data.age
+        console.log(&#39;watchEffect配置的回调执行了&#39;, x1, x2)
+      &#125;)
+
+      return &#123;
+        sum,
+        msg,
+        data,
+      &#125;
+    &#125;,
+  &#125;
+&lt;/script&gt;
+&lt;style scoped lang=&quot;less&quot;&gt;&lt;/style&gt;
+</code></pre>
+<h4 id="Vue3-生命周期"><a href="#Vue3-生命周期" class="headerlink" title="Vue3 生命周期"></a>Vue3 生命周期</h4><p><img src="https://cdn.jsdelivr.net/gh/veam23/tu-img/img/20230516230508.png"></p>
+<h5 id="vue2-生命周期图"><a href="#vue2-生命周期图" class="headerlink" title="vue2 生命周期图"></a>vue2 生命周期图</h5><p><img src="https://v2.cn.vuejs.org/images/lifecycle.png"></p>
+<h5 id="vue3-生命周期图"><a href="#vue3-生命周期图" class="headerlink" title="vue3 生命周期图"></a>vue3 生命周期图</h5><p><img src="https://cn.vuejs.org/assets/lifecycle.16e4c08e.png"></p>
+<h6 id="demo-vue-组件"><a href="#demo-vue-组件" class="headerlink" title="demo.vue 组件"></a>demo.vue 组件</h6><pre><code>&lt;template&gt;
+  &lt;h2&gt;当前求和的数据为：&#123;&#123; sum &#125;&#125;&lt;/h2&gt;
+  &lt;button @click=&quot;sum++&quot;&gt;点我+1&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import &#123; ref, onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted &#125; from &#39;vue&#39;
+  export default &#123;
+    name: &#39;&#39;,
+    setup() &#123;
+      console.log(&#39;-------setup------&#39;)
+      let sum = ref(0)
+      // 通过组合式api的形式去使用声轰鸣周期钩子
+      onBeforeMount(() =&gt; &#123;
+        //函数体
+        console.log(&#39;----onBeforeMount------&#39;)
+      &#125;)
+      onMounted(() =&gt; &#123;
+        //函数体
+        console.log(&#39;----onMounted------&#39;)
+      &#125;)
+      onBeforeUpdate(() =&gt; &#123;
+        //函数体
+        console.log(&#39;-----onBeforeUpdate-----&#39;)
+      &#125;)
+      onUpdated(() =&gt; &#123;
+        //函数体
+        console.log(&#39;-----onUpdated-----&#39;)
+      &#125;)
+      onBeforeUnmount(() =&gt; &#123;
+        //函数体
+        console.log(&#39;-----onBeforeUnmount-----&#39;)
+      &#125;)
+      onUnmounted(() =&gt; &#123;
+        //函数体
+        console.log(&#39;----onUnmounted------&#39;)
+      &#125;)
+
+      return &#123; sum &#125;
+    &#125;,
+    // 通过配置项的形式使用生命周期钩子
+    // beforeCreate() &#123;
+    //   console.log(&#39;----beforeCreate---&#39;)
+    // &#125;,
+    // created() &#123;
+    //   console.log(&#39;----created---&#39;)
+    // &#125;,
+    // beforeMount() &#123;
+    //   console.log(&#39;----beforeMount---&#39;)
+    // &#125;,
+    // mounted() &#123;
+    //   console.log(&#39;----mounted---&#39;)
+    // &#125;,
+    // beforeUpdate() &#123;
+    //   console.log(&#39;----beforeUpdate---&#39;)
+    // &#125;,
+    // updated() &#123;
+    //   console.log(&#39;----updated---&#39;)
+    // &#125;,
+    // // 取消了beforeDestroy和destroyed 增加了beforeUnmount和unmounted
+    // beforeUnmount() &#123;
+    //   console.log(&#39;----beforeUnmount---&#39;)
+    // &#125;,
+    // unmounted() &#123;
+    //   console.log(&#39;----unmounted---&#39;)
+    // &#125;,
+  &#125;
+&lt;/script&gt;
+&lt;style scoped lang=&quot;less&quot;&gt;&lt;/style&gt;
+</code></pre>
+<h6 id="App-vue"><a href="#App-vue" class="headerlink" title="App.vue"></a>App.vue</h6><pre><code>&lt;template&gt;
+  &lt;button @click=&quot;isShowDemo = !isShowDemo&quot;&gt;切换显示/隐藏&lt;/button&gt;
+  &lt;demo v-if=&quot;isShowDemo&quot; /&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import &#123; ref &#125; from &#39;vue&#39;
+  import demo from &#39;@/views/demo.vue&#39;
+  export default &#123;
+    name: &#39;&#39;,
+    setup() &#123;
+      const isShowDemo = ref(true)
+      return&#123;isShowDemo&#125;
+    &#125;,
+    components: &#123; demo &#125;,
+  &#125;
+&lt;/script&gt;
+&lt;style scoped lang=&quot;less&quot;&gt;&lt;/style&gt;
+</code></pre>
+<h5 id="Vue3-中可以继续使用-vue2-中的生命周期钩子，但有两个被改名"><a href="#Vue3-中可以继续使用-vue2-中的生命周期钩子，但有两个被改名" class="headerlink" title="Vue3 中可以继续使用 vue2 中的生命周期钩子，但有两个被改名"></a>Vue3 中可以继续使用 vue2 中的生命周期钩子，但有两个被改名</h5><ul>
+<li><strong>beforeDestroy</strong> 改为 <strong>beforeUmount</strong></li>
+<li><strong>destroyed</strong> 改为 <strong>Unmounted</strong></li>
+</ul>
+<h5 id="Vue3-也提供了-Composition-API-形式的生命周期钩子，与-vue2-中钩子对应关系如下："><a href="#Vue3-也提供了-Composition-API-形式的生命周期钩子，与-vue2-中钩子对应关系如下：" class="headerlink" title="Vue3 也提供了 Composition API 形式的生命周期钩子，与 vue2 中钩子对应关系如下："></a>Vue3 也提供了 Composition API 形式的生命周期钩子，与 vue2 中钩子对应关系如下：</h5><ul>
+<li><strong>vue2</strong> ===&gt; <strong>vue3</strong></li>
+</ul>
+<hr>
+<ul>
+<li><strong>beforeCreate</strong> ===&gt; <strong>setup()</strong></li>
+<li><strong>created</strong> ===&gt; <strong>setup()</strong></li>
+<li><strong>beforeMount</strong> ===&gt; <strong>onBeforeMount</strong></li>
+<li><strong>mounted</strong> ===&gt; <strong>onMounted</strong></li>
+<li><strong>beforeUpdate</strong> ===&gt; <strong>onBeforeUpdate</strong></li>
+<li><strong>Updated</strong> ===&gt; <strong>onUpdated</strong></li>
+<li><strong>beforeUmount</strong> ===&gt; <strong>onBeforeUmount</strong></li>
+<li><strong>unmounted</strong> ===&gt; <strong>onUnmounted</strong></li>
+</ul>
+<h4 id="自定义-hook-函数"><a href="#自定义-hook-函数" class="headerlink" title="自定义 hook 函数"></a>自定义 hook 函数</h4><ul>
+<li>什么是 hook？ ——本质是一个函数，吧 setup 函数中使用的 Composition Api 进行了封装</li>
+<li>类似 vue2 中的 mixin</li>
+<li>自定义 hook 的优势：复用代码，让 setup 中的逻辑更清楚易懂</li>
+</ul>
+<h4 id="toRef"><a href="#toRef" class="headerlink" title="toRef"></a>toRef</h4><ul>
+<li>作用：创建一个 ref 对象，其 value 值指向另一个对象中的某个属性值</li>
+<li>语法 <strong>const name = toRef(person,’name’)</strong></li>
+<li>应用： 要将响应式对象中的某个属性单独提供给给外部使用时。</li>
+<li>扩展： <strong>toRefs</strong> 与 <strong>toRef</strong> 功能一致，但可以批量创建多个 ref 对象，语法：<strong>toRefs(person)</strong></li>
+</ul>
+<h3 id="其他-Composition-API-组合式-APi"><a href="#其他-Composition-API-组合式-APi" class="headerlink" title="其他 Composition API(组合式 APi)"></a>其他 Composition API(组合式 APi)</h3><h4 id="shallowReactive-与-shallowRef"><a href="#shallowReactive-与-shallowRef" class="headerlink" title="shallowReactive 与 shallowRef"></a>shallowReactive 与 shallowRef</h4>
+  </article>
+
+   
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Veam<br>
+        <strong>本文链接：</strong><a href="https://github.com/veam23/lonely0323.github.io/2023/05/17/vue3/" title="https:&#x2F;&#x2F;github.com&#x2F;veam23&#x2F;lonely0323.github.io&#x2F;2023&#x2F;05&#x2F;17&#x2F;vue3&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;github.com&#x2F;veam23&#x2F;lonely0323.github.io&#x2F;2023&#x2F;05&#x2F;17&#x2F;vue3&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/vue/">vue</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a>
+    
+</div> 
+  <div class="nexmoe-post-footer"><section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '84f0a52c730b2624c264',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'https://github.com/veam23/gitment',
+        owner: 'lonely0323',
+        admin: 'lonely0323'
+    })
+    gitalk.render('gitalk')
+</script>
+</section></div>
+  
+</div>
+
+<script>
+  function click(e) {
+    if (document.all) {
+      if (event.button == 2 || event.button == 3) {
+        alert('欢迎光临寒舍，有什么需要帮忙的话，请与站长联系！谢谢您的合作！！！')
+        oncontextmenu = 'return false'
+      }
+    }
+    if (document.layers) {
+      if (e.which == 3) {
+        oncontextmenu = 'return false'
+      }
+    }
+  }
+  if (document.layers) {
+    document.captureEvents(Event.MOUSEDOWN)
+  }
+  document.onmousedown = click
+  document.oncontextmenu = new Function('return false;')
+
+  document.onkeydown =
+    document.onkeyup =
+    document.onkeypress =
+      function () {
+        if (window.event.keyCode == 123) {
+          window.event.returnValue = false
+          return false
+        }
+      }
+</script>
+
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue3"><span class="toc-number">1.</span> <span class="toc-text">vue3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue3-%E5%B8%A6%E6%9D%A5%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-number">1.1.</span> <span class="toc-text">Vue3 带来了什么?</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E7%9A%84%E6%8F%90%E5%8D%87"><span class="toc-number">1.1.1.</span> <span class="toc-text">性能的提升</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E7%9A%84%E5%8D%87%E7%BA%A7"><span class="toc-number">1.1.2.</span> <span class="toc-text">源码的升级</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8B%A5%E6%8A%B1-TypeScript"><span class="toc-number">1.1.3.</span> <span class="toc-text">拥抱 TypeScript</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B0%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">1.1.4.</span> <span class="toc-text">新的特性</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-Vue3-0-%E5%B7%A5%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">创建 Vue3.0 工程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8-vue-cli-%E5%88%9B%E5%BB%BA"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.使用 vue-cli 创建</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8-vite-%E5%88%9B%E5%BB%BA"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.使用 vite 创建</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E8%AF%AD%E6%B3%95%E6%A3%80%E6%9F%A5"><span class="toc-number">1.2.3.</span> <span class="toc-text">关闭语法检查</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84-Composition-Api"><span class="toc-number">1.3.</span> <span class="toc-text">常见的 Composition Api</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#setup"><span class="toc-number">1.3.1.</span> <span class="toc-text">setup</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ref-%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">ref 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reactive-%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.</span> <span class="toc-text">reactive 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue3-0-%E4%B8%AD%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86"><span class="toc-number">1.6.</span> <span class="toc-text">Vue3.0 中的响应式原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reactive-%E5%AF%B9%E6%AF%94-ref"><span class="toc-number">1.7.</span> <span class="toc-text">reactive 对比 ref</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#setup-%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">1.8.</span> <span class="toc-text">setup 的两个注意点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E4%B8%8E%E7%9B%91%E8%A7%86"><span class="toc-number">1.9.</span> <span class="toc-text">计算属性与监视</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#watch-%E5%87%BD%E6%95%B0"><span class="toc-number">1.10.</span> <span class="toc-text">watch 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#watch-%E6%97%B6-value-%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.10.1.</span> <span class="toc-text">watch 时 value 的问题</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#watchEffect-%E5%87%BD%E6%95%B0"><span class="toc-number">1.11.</span> <span class="toc-text">watchEffect 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue3-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.12.</span> <span class="toc-text">Vue3 生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#vue2-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE"><span class="toc-number">1.12.1.</span> <span class="toc-text">vue2 生命周期图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#vue3-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE"><span class="toc-number">1.12.2.</span> <span class="toc-text">vue3 生命周期图</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#demo-vue-%E7%BB%84%E4%BB%B6"><span class="toc-number">1.12.2.1.</span> <span class="toc-text">demo.vue 组件</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#App-vue"><span class="toc-number">1.12.2.2.</span> <span class="toc-text">App.vue</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Vue3-%E4%B8%AD%E5%8F%AF%E4%BB%A5%E7%BB%A7%E7%BB%AD%E4%BD%BF%E7%94%A8-vue2-%E4%B8%AD%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90%EF%BC%8C%E4%BD%86%E6%9C%89%E4%B8%A4%E4%B8%AA%E8%A2%AB%E6%94%B9%E5%90%8D"><span class="toc-number">1.12.3.</span> <span class="toc-text">Vue3 中可以继续使用 vue2 中的生命周期钩子，但有两个被改名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Vue3-%E4%B9%9F%E6%8F%90%E4%BE%9B%E4%BA%86-Composition-API-%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90%EF%BC%8C%E4%B8%8E-vue2-%E4%B8%AD%E9%92%A9%E5%AD%90%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="toc-number">1.12.4.</span> <span class="toc-text">Vue3 也提供了 Composition API 形式的生命周期钩子，与 vue2 中钩子对应关系如下：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89-hook-%E5%87%BD%E6%95%B0"><span class="toc-number">1.13.</span> <span class="toc-text">自定义 hook 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#toRef"><span class="toc-number">1.14.</span> <span class="toc-text">toRef</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96-Composition-API-%E7%BB%84%E5%90%88%E5%BC%8F-APi"><span class="toc-number">2.</span> <span class="toc-text">其他 Composition API(组合式 APi)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#shallowReactive-%E4%B8%8E-shallowRef"><span class="toc-number">2.1.</span> <span class="toc-text">shallowReactive 与 shallowRef</span></a></li></ol></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
+
+
+ 
+
+<script async src="/js/app.js?v=1684251345815"></script>
+
+
+	<script async src="/js/search.js?v=1684251345815"></script>
+
+
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+    <script>
+      function click(e) {
+        if (document.all) {
+          if (event.button == 2 || event.button == 3) {
+            alert('欢迎光临寒舍，有什么需要帮忙的话，请与站长联系！谢谢您的合作！！！')
+            oncontextmenu = 'return false'
+          }
+        }
+        if (document.layers) {
+          if (e.which == 3) {
+            oncontextmenu = 'return false'
+          }
+        }
+      }
+      if (document.layers) {
+        document.captureEvents(Event.MOUSEDOWN)
+      }
+      document.onmousedown = click
+      document.oncontextmenu = new Function('return false;')
+
+      document.onkeydown =
+        document.onkeyup =
+        document.onkeypress =
+          function () {
+            if (window.event.keyCode == 123) {
+              window.event.returnValue = false
+              return false
+            }
+          }
+          // 禁止右键菜单
+          document.oncontextmenu = function(){ return false; };
+          // 禁止文字选择
+          document.onselectstart = function(){ return false; };
+          // 禁止复制
+          document.oncopy = function(){ return false; };
+          // 禁止剪切
+          document.oncut = function(){ return false; };
+    </script>
+</body>
+
+</html>
